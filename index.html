@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MM-Tiers Leaderboard</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: white; padding: 20px; }
+        .list { max-width: 400px; margin: auto; background: #1e1e1e; padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="list">
+        <h2>Vanilla Top Players</h2>
+        <div id="data">Loading...</div>
+    </div>
+
+    <script>
+        async function getRanks() {
+            // Fetching from the V2 URL found in your json file
+            const res = await fetch('https://mctiers.com/api/v2/mode/vanilla?count=10');
+            const json = await res.json();
+            // Displaying tier 1 players
+            document.getElementById('data').innerHTML = json["1"].map(p => `<p>${p.name} - Tier 1</p>`).join('');
+        }
+        getRanks();
+    </script>
+</body>
+</html>
