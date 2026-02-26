@@ -33,40 +33,48 @@
             border-radius: 10px;
             align-items: center;
             border: 1px solid #333;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .player-row:hover {
+            background: #252525;
+            transform: scale(1.01);
         }
 
         .rank { font-weight: bold; color: #555; font-size: 1.1rem; }
         
         .player-info { display: flex; align-items: center; gap: 15px; }
         
-        /* THE CHANGE: Larger, better-looking skin render */
+        /* Steve Face Styling */
         .avatar { 
-            width: 48px; 
-            height: 48px; 
-            border-radius: 8px; 
-            background: #2a2a2a;
-            object-fit: contain;
+            width: 40px; 
+            height: 40px; 
+            image-rendering: pixelated; /* Keeps the Steve face sharp */
+            border-radius: 4px;
         }
 
         .points { color: var(--point-color); font-weight: bold; }
 
-        /* Custom Icon Styling */
+        .tiers-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
         .tier-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 900;
-            margin-right: 8px;
-            margin-bottom: 5px;
         }
         
         .mode-icon-img {
             width: 18px;
             height: 18px;
-            image-rendering: pixelated; /* Keeps Minecraft icons sharp */
+            image-rendering: pixelated;
         }
 
         .HT { background: rgba(255, 71, 87, 0.1); color: var(--ht-color); border: 1px solid var(--ht-color); }
@@ -83,23 +91,28 @@
 </div>
 
 <script>
-    /** * ICON CONFIGURATION: 
-     * Replace these URLs with the actual icons you want to use.
-     * You can upload your own icons to your GitHub repo and use the links here.
+    /** * ICON CONFIGURATION:
+     * Replace 'YOUR_FILE_NAME.png' with the actual filenames you uploaded to GitHub.
      */
     const iconMap = {
-        "vanilla": "https://minecraft.wiki/images/Sword_Inv_Sprite.png",
-        "sword": "https://minecraft.wiki/images/Sword_Inv_Sprite.png",
-        "axe": "https://minecraft.wiki/images/Axe_Inv_Sprite.png",
-        "crystal": "https://minecraft.wiki/images/End_Crystal_Inv_Sprite.png",
-        "uhc": "https://minecraft.wiki/images/Golden_Apple_Inv_Sprite.png"
+        "crystal": "image_7dde60.png",
+        "cart pvp": "image_7dddc5.png",
+        "sword": "image_7ddda5.png",
+        "mace": "image_7dda9e.png",
+        "smp": "image_7dda3d.png",
+        "diamond pot": "image_7dd9fc.png",
+        "diamond smp": "image_7dd99f.png",
+        "netite pot": "image_7dd6d8.png",
+        "uhc": "image_7dd6a0.png",
+        "axe": "image_7dd65e.png"
     };
 
     function createTierBadge(modeName, data) {
         const type = (data.pos === 0) ? 'HT' : 'LT';
-        const iconUrl = iconMap[modeName.toLowerCase()] || ""; 
+        const iconFile = iconMap[modeName.toLowerCase()];
         
-        const iconHtml = iconUrl ? `<img src="${iconUrl}" class="mode-icon-img">` : "";
+        // If the icon exists, show it; otherwise, just show the text
+        const iconHtml = iconFile ? `<img src="${iconFile}" class="mode-icon-img">` : "";
         
         return `
             <span class="tier-badge ${type}">
@@ -121,7 +134,7 @@
                 <div class="player-row">
                     <div class="rank">#${i + 1}</div>
                     <div class="player-info">
-                        <img class="avatar" src="https://mc-heads.net/bust/${p.uuid}/100">
+                        <img class="avatar" src="https://mc-heads.net/avatar/steve/100">
                         <strong>${p.name}</strong>
                     </div>
                     <div class="points">${p.points} PTS</div>
