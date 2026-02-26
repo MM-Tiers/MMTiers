@@ -1,27 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MM-Tiers Leaderboard</title>
+    <meta charset="UTF-8">
+    <title>MCTiers Leaderboard</title>
     <style>
-        body { font-family: sans-serif; background: #121212; color: white; padding: 20px; }
-        .list { max-width: 400px; margin: auto; background: #1e1e1e; padding: 20px; border-radius: 10px; }
+        :root {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --ht-color: #ff4757; /* Red for High Tiers */
+            --lt-color: #2ed573; /* Green for Low Tiers */
+        }
+        body { background: var(--bg); color: white; font-family: sans-serif; padding: 40px; }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 60px 200px 120px 1fr;
+            background: var(--card);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .avatar { width: 40px; height: 40px; border-radius: 4px; vertical-align: middle; margin-right: 10px; }
+        
+        /* Rank Badge Styling */
+        .tier-badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .HT { background: rgba(255, 71, 87, 0.2); color: var(--ht-color); border: 1px solid var(--ht-color); }
+        .LT { background: rgba(46, 213, 115, 0.2); color: var(--lt-color); border: 1px solid var(--lt-color); }
+
+        .points { color: #ffa502; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="list">
-        <h2>Vanilla Top Players</h2>
-        <div id="data">Loading...</div>
-    </div>
+
+    <h2>Overall Rankings</h2>
+    <div id="leaderboard"></div>
 
     <script>
-        async function getRanks() {
-            // Fetching from the V2 URL found in your json file
-            const res = await fetch('https://mctiers.com/api/v2/mode/vanilla?count=10');
-            const json = await res.json();
-            // Displaying tier 1 players
-            document.getElementById('data').innerHTML = json["1"].map(p => `<p>${p.name} - Tier 1</p>`).join('');
+        // Helper to convert API data (tier/pos) to display labels (HT1/LT5)
+        function formatTier(tier, pos) {
+            const prefix = pos === 0 ? "HT" : "LT";
+            return `<span class="tier-badge ${prefix}">${prefix}${tier}</span>`;
         }
-        getRanks();
+
+        async function init() {
+            const res = await fetch('players.json');
+            const players = await res.json();
+            const container = document.getElementById('leaderboard');
+
+            container.innerHTML = players.map((p, index) => `
+                <div class="row">
+                    <div style="font-size: 20px; font-weight: bold;">#${index + 1}</div>
+                    <div>
+                        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/64">
+                        <strong>${p.name}</strong>
+                    </div>
+                    <div class="points">${p.points} pts</div>
+                    <div>
+                        ${Object.values(p.rankings).map(r => formatTier(r.tier, r.pos)).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        init();
     </script>
 </body>
 </html>
