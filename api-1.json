@@ -2,7 +2,7 @@
   {
     "uuid": "6553509f-66d3-4041-875f-164236e42e84",
     "name": "ItzMr_greenX2",
-    "points": 296,
+    "points": 67,
     "rankings": {
       "crystal": { "tier": 1, "pos": 0 },
       "sword": { "tier": 2, "pos": 1 }
@@ -12,7 +12,7 @@
   {
     "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "name": "Niko",
-    "points": 150,
+    "points": -67,
     "rankings": {
       "crystal": { "tier": 5, "pos": 1 }
     }
