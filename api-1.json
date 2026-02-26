@@ -1,20 +1,19 @@
 [
   {
     "uuid": "6553509f-66d3-4041-875f-164236e42e84",
-    "name": "ItzMr_greenX2",
+    "name": "TheRandomizer",
     "points": 296,
     "rankings": {
-      "vanilla": { "tier": 1, "pos": 1 },
-      "sword": { "tier": 2, "pos": 0 },
-      "axe": { "tier": 4, "pos": 1 }
+      "vanilla": { "tier": 1, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 }
     }
   },
   {
-    "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Dream",
-    "points": 269,
+    "uuid": "069a79f4-44e9-4726-a5be-fca90e38aaf5",
+    "name": "NewPlayer123",
+    "points": 150,
     "rankings": {
-      "vanilla": { "tier": 3, "pos": 0 }
+      "vanilla": { "tier": 5, "pos": 1 }
     }
   }
 ]
