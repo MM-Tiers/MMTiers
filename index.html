@@ -41,7 +41,6 @@
 
         .points { color: var(--point-color); font-weight: bold; }
 
-        /* Tier Badges */
         .tier-badge {
             display: inline-block;
             padding: 4px 10px;
@@ -50,6 +49,7 @@
             font-weight: 900;
             margin-right: 6px;
         }
+        /* Red for High Tier, Green for Low Tier */
         .HT { background: rgba(255, 71, 87, 0.15); color: var(--ht-color); border: 1px solid var(--ht-color); }
         .LT { background: rgba(46, 213, 115, 0.15); color: var(--lt-color); border: 1px solid var(--lt-color); }
 
@@ -73,8 +73,9 @@
     async function loadLeaderboard() {
         const board = document.getElementById('leaderboard');
         try {
-            const response = await fetch('players.json');
-            if (!response.ok) throw new Error("File not found");
+            // UPDATED: Matches your file name in GitHub
+            const response = await fetch('api-1.json'); 
+            if (!response.ok) throw new Error("File 'api-1.json' not found");
             
             const players = await response.json();
             
@@ -96,7 +97,7 @@
             `).join('');
 
         } catch (err) {
-            board.innerHTML = `<div class="error">Error: Check if players.json is in the same folder and try a local server.</div>`;
+            board.innerHTML = `<div class="error">Error: ${err.message}</div>`;
         }
     }
 
