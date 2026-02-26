@@ -4,74 +4,81 @@
     <meta charset="UTF-8">
     <title>MCTiers Leaderboard</title>
     <style>
-        :root {
-            --bg: #121212;
-            --card: #1e1e1e;
-            --ht-color: #ff4757; /* Red for High Tiers */
-            --lt-color: #2ed573; /* Green for Low Tiers */
-        }
-        body { background: var(--bg); color: white; font-family: sans-serif; padding: 40px; }
+        body { background: #0f0f0f; color: white; font-family: 'Inter', sans-serif; padding: 20px; }
+        .leaderboard-container { max-width: 900px; margin: auto; }
         
-        .row {
+        .player-card {
             display: grid;
-            grid-template-columns: 60px 200px 120px 1fr;
-            background: var(--card);
+            grid-template-columns: 50px 250px 100px 1fr;
+            background: #1a1a1a;
             margin-bottom: 10px;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             align-items: center;
+            border: 1px solid #333;
         }
 
-        .avatar { width: 40px; height: 40px; border-radius: 4px; vertical-align: middle; margin-right: 10px; }
+        .avatar { width: 40px; border-radius: 5px; margin-right: 12px; vertical-align: middle; }
         
-        /* Rank Badge Styling */
-        .tier-badge {
+        /* Tier Styles */
+        .tier {
             padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 13px;
-            margin-right: 5px;
-            display: inline-block;
+            border-radius: 5px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            text-transform: uppercase;
         }
-        .HT { background: rgba(255, 71, 87, 0.2); color: var(--ht-color); border: 1px solid var(--ht-color); }
-        .LT { background: rgba(46, 213, 115, 0.2); color: var(--lt-color); border: 1px solid var(--lt-color); }
-
+        .HT { background: #ff4757; color: white; box-shadow: 0 0 10px rgba(255, 71, 87, 0.3); }
+        .LT { background: #2ed573; color: white; }
+        
         .points { color: #ffa502; font-weight: bold; }
+        .error-msg { color: #ff4757; text-align: center; padding: 20px; }
     </style>
 </head>
 <body>
 
-    <h2>Overall Rankings</h2>
-    <div id="leaderboard"></div>
+<div class="leaderboard-container">
+    <h1>Overall Rankings</h1>
+    <div id="leaderboard">Loading rankings...</div>
+</div>
 
-    <script>
-        // Helper to convert API data (tier/pos) to display labels (HT1/LT5)
-        function formatTier(tier, pos) {
-            const prefix = pos === 0 ? "HT" : "LT";
-            return `<span class="tier-badge ${prefix}">${prefix}${tier}</span>`;
-        }
+<script>
+    // Converts API tier/pos to HT/LT display
+    function getTierLabel(tier, pos) {
+        const type = (pos === 0) ? 'HT' : 'LT';
+        return `<span class="tier ${type}">${type}${tier}</span>`;
+    }
 
-        async function init() {
-            const res = await fetch('players.json');
-            const players = await res.json();
-            const container = document.getElementById('leaderboard');
-
-            container.innerHTML = players.map((p, index) => `
-                <div class="row">
-                    <div style="font-size: 20px; font-weight: bold;">#${index + 1}</div>
+    async function loadStats() {
+        const board = document.getElementById('leaderboard');
+        try {
+            const response = await fetch('players.json');
+            if (!response.ok) throw new Error("Could not find players.json");
+            
+            const data = await response.json();
+            
+            board.innerHTML = data.map((player, i) => `
+                <div class="player-card">
+                    <div style="font-weight: bold; color: #666;">#${i + 1}</div>
                     <div>
-                        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/64">
-                        <strong>${p.name}</strong>
+                        <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/64">
+                        <strong>${player.name}</strong>
                     </div>
-                    <div class="points">${p.points} pts</div>
+                    <div class="points">${player.points} PTS</div>
                     <div>
-                        ${Object.values(p.rankings).map(r => formatTier(r.tier, r.pos)).join('')}
+                        ${Object.values(player.rankings).map(r => getTierLabel(r.tier, r.pos)).join('')}
                     </div>
                 </div>
             `).join('');
-        }
 
-        init();
-    </script>
+        } catch (err) {
+            board.innerHTML = `<div class="error-msg">Error: Make sure players.json exists in the same folder!</div>`;
+            console.error(err);
+        }
+    }
+
+    loadStats();
+</script>
 </body>
 </html>
