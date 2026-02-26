@@ -1,14 +1,19 @@
 [
   {
     "uuid": "6553509f-66d3-4041-875f-164236e42e84",
-    "name": "NewPlayerExample",
-    "points": 100,
+    "name": "TheRandomizer",
+    "points": 296,
     "rankings": {
-      "vanilla": {
-        "tier": 5,
-        "pos": 1,
-        "retired": false
-      }
+      "vanilla": { "tier": 2, "pos": 1, "retired": false },
+      "sword": { "tier": 1, "pos": 0, "retired": false }
+    }
+  },
+  {
+    "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "New_Player_Tier",
+    "points": 150,
+    "rankings": {
+      "vanilla": { "tier": 5, "pos": 1, "retired": false }
     }
   }
 ]
