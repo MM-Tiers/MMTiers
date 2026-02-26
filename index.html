@@ -2,83 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCTiers Leaderboard</title>
     <style>
-        body { background: #0f0f0f; color: white; font-family: 'Inter', sans-serif; padding: 20px; }
-        .leaderboard-container { max-width: 900px; margin: auto; }
-        
-        .player-card {
-            display: grid;
-            grid-template-columns: 50px 250px 100px 1fr;
-            background: #1a1a1a;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 10px;
-            align-items: center;
-            border: 1px solid #333;
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --ht-color: #ff4757; 
+            --lt-color: #2ed573;
+            --point-color: #ffa502;
         }
 
-        .avatar { width: 40px; border-radius: 5px; margin-right: 12px; vertical-align: middle; }
-        
-        /* Tier Styles */
-        .tier {
-            padding: 4px 10px;
-            border-radius: 5px;
-            font-weight: 900;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            text-transform: uppercase;
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
         }
-        .HT { background: #ff4757; color: white; box-shadow: 0 0 10px rgba(255, 71, 87, 0.3); }
-        .LT { background: #2ed573; color: white; }
+
+        .container { max-width: 800px; margin: auto; }
+
+        .player-row {
+            display: grid;
+            grid-template-columns: 50px 200px 120px 1fr;
+            background: var(--card-bg);
+            margin-bottom: 6px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .rank { font-weight: bold; color: #555; font-size: 1.1rem; }
         
-        .points { color: #ffa502; font-weight: bold; }
-        .error-msg { color: #ff4757; text-align: center; padding: 20px; }
+        .player-info { display: flex; align-items: center; gap: 12px; }
+        .avatar { width: 32px; height: 32px; border-radius: 4px; }
+
+        .points { color: var(--point-color); font-weight: bold; }
+
+        /* Tier Badges */
+        .tier-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            margin-right: 6px;
+        }
+        .HT { background: rgba(255, 71, 87, 0.15); color: var(--ht-color); border: 1px solid var(--ht-color); }
+        .LT { background: rgba(46, 213, 115, 0.15); color: var(--lt-color); border: 1px solid var(--lt-color); }
+
+        .error { color: #ff4757; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-<div class="leaderboard-container">
-    <h1>Overall Rankings</h1>
-    <div id="leaderboard">Loading rankings...</div>
+<div class="container">
+    <h1 style="margin-bottom: 30px;">Overall Rankings</h1>
+    <div id="leaderboard">Loading...</div>
 </div>
 
 <script>
-    // Converts API tier/pos to HT/LT display
-    function getTierLabel(tier, pos) {
-        const type = (pos === 0) ? 'HT' : 'LT';
-        return `<span class="tier ${type}">${type}${tier}</span>`;
+    // Logic: pos 0 = HT, pos 1 = LT
+    function createTierBadge(data) {
+        const type = (data.pos === 0) ? 'HT' : 'LT';
+        return `<span class="tier-badge ${type}">${type}${data.tier}</span>`;
     }
 
-    async function loadStats() {
+    async function loadLeaderboard() {
         const board = document.getElementById('leaderboard');
         try {
             const response = await fetch('players.json');
-            if (!response.ok) throw new Error("Could not find players.json");
+            if (!response.ok) throw new Error("File not found");
             
-            const data = await response.json();
+            const players = await response.json();
             
-            board.innerHTML = data.map((player, i) => `
-                <div class="player-card">
-                    <div style="font-weight: bold; color: #666;">#${i + 1}</div>
-                    <div>
-                        <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/64">
-                        <strong>${player.name}</strong>
+            // Sort by points highest to lowest
+            players.sort((a, b) => b.points - a.points);
+
+            board.innerHTML = players.map((p, i) => `
+                <div class="player-row">
+                    <div class="rank">#${i + 1}</div>
+                    <div class="player-info">
+                        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/64">
+                        <strong>${p.name}</strong>
                     </div>
-                    <div class="points">${player.points} PTS</div>
-                    <div>
-                        ${Object.values(player.rankings).map(r => getTierLabel(r.tier, r.pos)).join('')}
+                    <div class="points">${p.points} PTS</div>
+                    <div class="tiers-list">
+                        ${Object.values(p.rankings).map(r => createTierBadge(r)).join('')}
                     </div>
                 </div>
             `).join('');
 
         } catch (err) {
-            board.innerHTML = `<div class="error-msg">Error: Make sure players.json exists in the same folder!</div>`;
-            console.error(err);
+            board.innerHTML = `<div class="error">Error: Check if players.json is in the same folder and try a local server.</div>`;
         }
     }
 
-    loadStats();
+    loadLeaderboard();
 </script>
 </body>
 </html>
