@@ -33,23 +33,17 @@
             border-radius: 10px;
             align-items: center;
             border: 1px solid #333;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .player-row:hover {
-            background: #252525;
-            transform: scale(1.01);
         }
 
         .rank { font-weight: bold; color: #555; font-size: 1.1rem; }
         
         .player-info { display: flex; align-items: center; gap: 15px; }
         
-        /* Steve Face Styling */
+        /* Steve Face as requested */
         .avatar { 
             width: 40px; 
             height: 40px; 
-            image-rendering: pixelated; /* Keeps the Steve face sharp */
+            image-rendering: pixelated; 
             border-radius: 4px;
         }
 
@@ -77,6 +71,7 @@
             image-rendering: pixelated;
         }
 
+        /* HT and LT colors based on API pos value */
         .HT { background: rgba(255, 71, 87, 0.1); color: var(--ht-color); border: 1px solid var(--ht-color); }
         .LT { background: rgba(46, 213, 115, 0.1); color: var(--lt-color); border: 1px solid var(--lt-color); }
 
@@ -91,41 +86,35 @@
 </div>
 
 <script>
-    /** * ICON CONFIGURATION:
-     * Replace 'YOUR_FILE_NAME.png' with the actual filenames you uploaded to GitHub.
-     */
+    // Updated Icon Map with your provided links
     const iconMap = {
-        "crystal": "image_7dde60.png",
-        "cart pvp": "image_7dddc5.png",
-        "sword": "image_7ddda5.png",
-        "mace": "image_7dda9e.png",
-        "smp": "image_7dda3d.png",
-        "diamond pot": "image_7dd9fc.png",
-        "diamond smp": "image_7dd99f.png",
-        "netite pot": "image_7dd6d8.png",
-        "uhc": "image_7dd6a0.png",
-        "axe": "image_7dd65e.png"
+        "crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png/revision/latest?cb=20191218004335",
+        "vanilla": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png/revision/latest?cb=20191218004335",
+        "sword": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png/revision/latest/scale-to-width/360?cb=20201017135722",
+        "mace": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png/revision/latest?cb=20240317084754",
+        "smp": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f6/Ender_Pearl_JE3_BE2.png/revision/latest/thumbnail/width/360/height/360?cb=20200512195721",
+        "diamond pot": "https://minecraft.wiki/images/Splash_Potion_of_Healing_JE2_BE2.png?d45f1",
+        "diamond smp": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/ef/Cobweb_%28texture%29_JE0_BE0.png/revision/latest?cb=20200927181248",
+        "netpot": "https://minecraft.wiki/images/Netherite_Sword_JE2_BE2.png?8e866",
+        "uhc": "https://minecraft.wiki/images/Golden_Apple_JE2_BE2.png?aa827",
+        "axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png/revision/latest/scale-to-width/360?cb=20200226193844"
     };
 
     function createTierBadge(modeName, data) {
+        // pos: 0 = HT, pos: 1 = LT
         const type = (data.pos === 0) ? 'HT' : 'LT';
-        const iconFile = iconMap[modeName.toLowerCase()];
+        const iconUrl = iconMap[modeName.toLowerCase()];
+        const iconHtml = iconUrl ? `<img src="${iconUrl}" class="mode-icon-img">` : "";
         
-        // If the icon exists, show it; otherwise, just show the text
-        const iconHtml = iconFile ? `<img src="${iconFile}" class="mode-icon-img">` : "";
-        
-        return `
-            <span class="tier-badge ${type}">
-                ${iconHtml}
-                ${type}${data.tier}
-            </span>`;
+        return `<span class="tier-badge ${type}">${iconHtml}${type}${data.tier}</span>`;
     }
 
     async function loadLeaderboard() {
         const board = document.getElementById('leaderboard');
         try {
+            // Fetching from your working file name
             const response = await fetch('api-1.json'); 
-            if (!response.ok) throw new Error("File 'api-1.json' not found");
+            if (!response.ok) throw new Error("Could not find api-1.json");
             
             const players = await response.json();
             players.sort((a, b) => b.points - a.points);
