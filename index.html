@@ -22,36 +22,55 @@
             padding: 40px;
         }
 
-        .container { max-width: 800px; margin: auto; }
+        .container { max-width: 900px; margin: auto; }
 
         .player-row {
             display: grid;
-            grid-template-columns: 50px 200px 120px 1fr;
+            grid-template-columns: 50px 250px 120px 1fr;
             background: var(--card-bg);
-            margin-bottom: 6px;
-            padding: 15px 20px;
-            border-radius: 8px;
+            margin-bottom: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             align-items: center;
+            border: 1px solid #333;
         }
 
         .rank { font-weight: bold; color: #555; font-size: 1.1rem; }
         
-        .player-info { display: flex; align-items: center; gap: 12px; }
-        .avatar { width: 32px; height: 32px; border-radius: 4px; }
+        .player-info { display: flex; align-items: center; gap: 15px; }
+        
+        /* THE CHANGE: Larger, better-looking skin render */
+        .avatar { 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 8px; 
+            background: #2a2a2a;
+            object-fit: contain;
+        }
 
         .points { color: var(--point-color); font-weight: bold; }
 
+        /* Custom Icon Styling */
         .tier-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 900;
-            margin-right: 6px;
+            margin-right: 8px;
+            margin-bottom: 5px;
         }
-        /* Red for High Tier, Green for Low Tier */
-        .HT { background: rgba(255, 71, 87, 0.15); color: var(--ht-color); border: 1px solid var(--ht-color); }
-        .LT { background: rgba(46, 213, 115, 0.15); color: var(--lt-color); border: 1px solid var(--lt-color); }
+        
+        .mode-icon-img {
+            width: 18px;
+            height: 18px;
+            image-rendering: pixelated; /* Keeps Minecraft icons sharp */
+        }
+
+        .HT { background: rgba(255, 71, 87, 0.1); color: var(--ht-color); border: 1px solid var(--ht-color); }
+        .LT { background: rgba(46, 213, 115, 0.1); color: var(--lt-color); border: 1px solid var(--lt-color); }
 
         .error { color: #ff4757; text-align: center; margin-top: 50px; }
     </style>
@@ -64,34 +83,50 @@
 </div>
 
 <script>
-    // Logic: pos 0 = HT, pos 1 = LT
-    function createTierBadge(data) {
+    /** * ICON CONFIGURATION: 
+     * Replace these URLs with the actual icons you want to use.
+     * You can upload your own icons to your GitHub repo and use the links here.
+     */
+    const iconMap = {
+        "vanilla": "https://minecraft.wiki/images/Sword_Inv_Sprite.png",
+        "sword": "https://minecraft.wiki/images/Sword_Inv_Sprite.png",
+        "axe": "https://minecraft.wiki/images/Axe_Inv_Sprite.png",
+        "crystal": "https://minecraft.wiki/images/End_Crystal_Inv_Sprite.png",
+        "uhc": "https://minecraft.wiki/images/Golden_Apple_Inv_Sprite.png"
+    };
+
+    function createTierBadge(modeName, data) {
         const type = (data.pos === 0) ? 'HT' : 'LT';
-        return `<span class="tier-badge ${type}">${type}${data.tier}</span>`;
+        const iconUrl = iconMap[modeName.toLowerCase()] || ""; 
+        
+        const iconHtml = iconUrl ? `<img src="${iconUrl}" class="mode-icon-img">` : "";
+        
+        return `
+            <span class="tier-badge ${type}">
+                ${iconHtml}
+                ${type}${data.tier}
+            </span>`;
     }
 
     async function loadLeaderboard() {
         const board = document.getElementById('leaderboard');
         try {
-            // UPDATED: Matches your file name in GitHub
             const response = await fetch('api-1.json'); 
             if (!response.ok) throw new Error("File 'api-1.json' not found");
             
             const players = await response.json();
-            
-            // Sort by points highest to lowest
             players.sort((a, b) => b.points - a.points);
 
             board.innerHTML = players.map((p, i) => `
                 <div class="player-row">
                     <div class="rank">#${i + 1}</div>
                     <div class="player-info">
-                        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/64">
+                        <img class="avatar" src="https://mc-heads.net/bust/${p.uuid}/100">
                         <strong>${p.name}</strong>
                     </div>
                     <div class="points">${p.points} PTS</div>
                     <div class="tiers-list">
-                        ${Object.values(p.rankings).map(r => createTierBadge(r)).join('')}
+                        ${Object.entries(p.rankings).map(([mode, data]) => createTierBadge(mode, data)).join('')}
                     </div>
                 </div>
             `).join('');
