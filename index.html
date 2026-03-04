@@ -125,7 +125,7 @@
                         <img class="avatar" src="https://mc-heads.net/avatar/steve/100">
                         <strong>${p.name}</strong>
                     </div>
-                    <div class="points">${p.points} PTS</div>
+                    <div class="points">${p.points} Points</div>
                     <div class="tiers-list">
                         ${Object.entries(p.rankings).map(([mode, data]) => createTierBadge(mode, data)).join('')}
                     </div>
@@ -141,6 +141,7 @@
 </script>
 </body>
 </html>
+
 
 
 
