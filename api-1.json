@@ -2,9 +2,18 @@
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "_ShinT",
+    "points": 12,
+    "rankings": {
+      "mace": { "tier": 3, "pos": 1 }
+      "dsmp": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "Pwllow",
     "points": 6,
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 3, "pos": 2 }
     }
   }
 ]
