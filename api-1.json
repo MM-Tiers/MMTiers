@@ -1,12 +1,10 @@
 [
   {
-    "uuid": "6553509f-66d3-4041-875f-164236e42e84",
-    "name": "ItzMr_greenX2",
-    "points": 6700,
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "_ShinT",
+    "points": 6,
     "rankings": {
-      "crystal": { "tier": 1, "pos": 0 },
-      "sword": { "tier": 2, "pos": 1 },
-      "dsmp": { "tier": 2, "pos": 1 }
+      "sword": { "tier": 3, "pos": 1 },
     }
   }
 ]
