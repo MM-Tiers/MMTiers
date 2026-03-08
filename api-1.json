@@ -2,34 +2,38 @@
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "_ShinT",
-    "points": 12,
+    "points": 120,
     "rankings": {
-      "mace": { "tier": 3, "pos": 1 },
-      "dsmp": { "tier": 3, "pos": 1 }
+      "mace": { "tier": 1, "pos": 0 },
+      "uhc": { "tier": 1, "pos": 0 }
     }
   },
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "Pwllow",
-    "points": 6,
+    "points": 60,
     "rankings": {
-      "sword": { "tier": 3, "pos": 2 }
+      "sword": { "tier": 1, "pos": 0 }
+      "crystal": { "tier": 1, "pos": 0 }
     }
   },
   {
     "uuid": "52258f7a-e2dd-4afd-979d-f1364551058f",
-    "name": "RebornColter",
-    "points": 6,
+    "name": "kway4",
+    "points": 45,
     "rankings": {
-      "axe": { "tier": 3, "pos": 2 }
+      "mace": { "tier": 1, "pos": 1 }
     }
   },
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
-    "name": "kway4",
-    "points": 6,
+    "name": "RebornColter",
+    "points": 24,
     "rankings": {
-      "mace": { "tier": 3, "pos": 2 }
+      "dsmp": { "tier": 3, "pos": 1 }
+      "uhc": { "tier": 3, "pos": 1 }
+      "axe": { "tier": 3, "pos": 1 }
+      "sword": { "tier": 3, "pos": 1 }
     }
   }
 ]
