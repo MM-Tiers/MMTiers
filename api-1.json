@@ -15,13 +15,13 @@
     "rankings": {
       "sword": { "tier": 3, "pos": 2 }
     }
- },
+  },
   {
     "uuid": "52258f7a-e2dd-4afd-979d-f1364551058f",
     "name": "RebornColter",
     "points": 6,
     "rankings": {
-      "axe": { "tier": 6, "pos": 3 },
+      "axe": { "tier": 6, "pos": 3 }
     }
   }
 ]
