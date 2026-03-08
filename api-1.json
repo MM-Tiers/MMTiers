@@ -23,5 +23,13 @@
     "rankings": {
       "axe": { "tier": 3, "pos": 2 }
     }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "kway4",
+    "points": 6,
+    "rankings": {
+      "mace": { "tier": 3, "pos": 2 }
+    }
   }
 ]
