@@ -13,7 +13,7 @@
     "name": "Pwllow",
     "points": 60,
     "rankings": {
-      "sword": { "tier": 1, "pos": 0 }
+      "sword": { "tier": 1, "pos": 0 },
       "crystal": { "tier": 1, "pos": 0 }
     }
   },
@@ -30,9 +30,9 @@
     "name": "RebornColter",
     "points": 24,
     "rankings": {
-      "dsmp": { "tier": 3, "pos": 1 }
-      "uhc": { "tier": 3, "pos": 1 }
-      "axe": { "tier": 3, "pos": 1 }
+      "dsmp": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 }
     }
   }
