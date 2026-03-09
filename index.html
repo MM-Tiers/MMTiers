@@ -6,8 +6,8 @@
     <title>MMTiers Leaderboard</title>
     <style>
         :root {
-            --bg-color: #000000;
-            --card-bg: #111111;
+            --bg-color: #0c0c0c;
+            --card-bg: #161616;
             --text-main: #ffffff;
             --ht-color: #ff4757; 
             --lt-color: #2ed573;
@@ -19,79 +19,79 @@
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 60px;
+            padding: 40px;
         }
 
-        .container { max-width: 1400px; margin: auto; }
+        .container { max-width: 1000px; margin: auto; }
 
-        h1 { font-size: 4rem; margin-bottom: 50px; font-weight: 800; }
+        h1 { font-size: 2.5rem; margin-bottom: 30px; }
 
         .player-row {
             display: grid;
-            grid-template-columns: 100px 450px 220px 1fr;
+            grid-template-columns: 60px 280px 150px 1fr;
             background: var(--card-bg);
-            margin-bottom: 20px;
-            padding: 40px; 
-            border-radius: 20px;
+            margin-bottom: 12px;
+            padding: 20px 30px;
+            border-radius: 12px;
             align-items: center;
-            border: 2px solid #222;
+            border: 1px solid #222;
+            transition: transform 0.2s;
         }
 
-        .rank { font-weight: bold; color: #444; font-size: 2.5rem; }
+        .player-row:hover { transform: scale(1.01); border-color: #444; }
+
+        .rank { font-weight: bold; color: #555; font-size: 1.5rem; }
         
-        .player-info { display: flex; align-items: center; gap: 30px; }
+        .player-info { display: flex; align-items: center; gap: 20px; }
         
         .avatar { 
-            width: 100px; 
-            height: 100px; 
+            width: 54px; 
+            height: 54px; 
             image-rendering: pixelated; 
-            border-radius: 10px;
-            background: #222;
+            border-radius: 6px;
         }
 
-        .player-name { font-size: 2.5rem; font-weight: 700; }
+        .player-name { font-size: 1.4rem; font-weight: 600; }
 
-        .points { color: var(--point-color); font-weight: 800; font-size: 2.2rem; }
+        .points { color: var(--point-color); font-weight: bold; font-size: 1.3rem; }
 
         .tiers-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 12px;
         }
 
         .tier-badge {
             display: inline-flex;
             align-items: center;
-            gap: 15px;
-            padding: 12px 25px;
-            border-radius: 12px;
-            font-size: 1.8rem; 
+            gap: 10px;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 1rem; 
             font-weight: 900;
-            min-width: fit-content;
         }
         
         .mode-icon-img {
-            width: 50px; 
-            height: 50px;
+            width: 30px; 
+            height: 30px;
             image-rendering: pixelated;
-            object-fit: contain; /* FIXES SQUISHING */
+            object-fit: contain; /* Fixes cobweb squishing */
         }
 
-        .HT { background: rgba(255, 71, 87, 0.2); color: var(--ht-color); border: 3px solid var(--ht-color); }
-        .LT { background: rgba(46, 213, 115, 0.2); color: var(--lt-color); border: 3px solid var(--lt-color); }
+        .HT { background: rgba(255, 71, 87, 0.1); color: var(--ht-color); border: 1px solid var(--ht-color); }
+        .LT { background: rgba(46, 213, 115, 0.1); color: var(--lt-color); border: 1px solid var(--lt-color); }
 
-        .error { color: #ff4757; text-align: center; margin-top: 50px; font-size: 2rem; }
+        .error { color: #ff4757; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Overall Rankings</h1>
-    <div id="leaderboard">Loading...</div>
+    <div id="leaderboard">Loading rankings...</div>
 </div>
 
 <script>
-    // Using a different CDN that is more reliable for hotlinking
     const iconMap = {
         "crystal": "https://minecraft.wiki/images/End_Crystal_JE2_BE2.png",
         "sword": "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png",
@@ -116,34 +116,33 @@
                 row.className = 'player-row';
 
                 let tiersHTML = '';
-                // Fix: Accessing tiers from the player object
-                if (player.tiers) {
-                    Object.entries(player.tiers).forEach(([mode, info]) => {
-                        const type = (info.pos === 0) ? 'HT' : 'LT';
-                        const icon = iconMap[mode.toLowerCase()] || "";
-                        tiersHTML += `
-                            <div class="tier-badge ${type}">
-                                <img src="${icon}" class="mode-icon-img" crossorigin="anonymous">
-                                <span>${type}${info.tier}</span>
-                            </div>
-                        `;
-                    });
-                }
+                // CHANGED THIS LINE: Now looking for 'rankings' to match your JSON
+                const rankings = player.rankings || {}; 
+                
+                Object.entries(rankings).forEach(([mode, info]) => {
+                    const type = (info.pos === 0) ? 'HT' : 'LT';
+                    const icon = iconMap[mode.toLowerCase()] || "";
+                    tiersHTML += `
+                        <div class="tier-badge ${type}">
+                            <img src="${icon}" class="mode-icon-img" referrerpolicy="no-referrer">
+                            <span>${type}${info.tier}</span>
+                        </div>
+                    `;
+                });
 
                 row.innerHTML = `
                     <div class="rank">#${index + 1}</div>
                     <div class="player-info">
-                        <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid || 'steve'}/100" alt="head">
+                        <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/100" alt="head">
                         <span class="player-name">${player.name}</span>
                     </div>
-                    <div class="points">${player.points} pts</div>
+                    <div class="points">${player.points} Points</div>
                     <div class="tiers-list">${tiersHTML}</div>
                 `;
                 container.appendChild(row);
             });
         } catch (err) {
-            document.getElementById('leaderboard').innerHTML = `<div class="error">Data load failed. Check api-1.json</div>`;
-            console.error(err);
+            document.getElementById('leaderboard').innerHTML = `<div class="error">Failed to load api-1.json. Check your file!</div>`;
         }
     }
 
