@@ -35,11 +35,10 @@
             border: 1px solid #333;
         }
 
-        .rank { font-weight: bold; color: #555; font-size: 1.1rem; }
+        .rank { font-weight: bold; color: #888; font-size: 1.1rem; }
         
         .player-info { display: flex; align-items: center; gap: 15px; }
         
-        /* Steve Face as requested */
         .avatar { 
             width: 40px; 
             height: 40px; 
@@ -71,7 +70,6 @@
             image-rendering: pixelated;
         }
 
-        /* HT and LT colors based on API pos value */
         .HT { background: rgba(255, 71, 87, 0.1); color: var(--ht-color); border: 1px solid var(--ht-color); }
         .LT { background: rgba(46, 213, 115, 0.1); color: var(--lt-color); border: 1px solid var(--lt-color); }
 
@@ -82,13 +80,13 @@
 
 <div class="container">
     <h1 style="margin-bottom: 30px;">Overall Rankings</h1>
-    <div id="leaderboard">Loading...</div>
+    <div id="leaderboard">Loading rankings...</div>
 </div>
 
 <script>
-    // Updated Icon Map with your provided links
-const iconMap = {
-        "crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png/revision/latest?cb=20191218004335",
+    // These links use direct paths to ensure they show up on your site
+    const iconMap = {
+        "crystal": "https://minecraft.wiki/images/End_Crystal_JE2_BE2.png",
         "sword": "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png",
         "mace": "https://minecraft.wiki/images/Mace_JE1_BE1.png",
         "smp": "https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png",
@@ -99,53 +97,57 @@ const iconMap = {
         "axe": "https://minecraft.wiki/images/Diamond_Axe_JE3_BE3.png"
     };
 
-    function createTierBadge(modeName, data) {
-        // pos: 0 = HT, pos: 1 = LT
-        const type = (data.pos === 0) ? 'HT' : 'LT';
-        const iconUrl = iconMap[modeName.toLowerCase()];
-        const iconHtml = iconUrl ? `<img src="${iconUrl}" class="mode-icon-img">` : "";
-        
-        return `<span class="tier-badge ${type}">${iconHtml}${type}${data.tier}</span>`;
-    }
-
     async function loadLeaderboard() {
-        const board = document.getElementById('leaderboard');
         try {
-            // Fetching from your working file name
-            const response = await fetch('api-1.json'); 
-            if (!response.ok) throw new Error("Could not find api-1.json");
-            
-            const players = await response.json();
-            players.sort((a, b) => b.points - a.points);
+            // Fetching your local JSON file
+            const response = await fetch('api-1.json');
+            if (!response.ok) throw new Error("Could not load API data");
+            const data = await response.json();
 
-            board.innerHTML = players.map((p, i) => `
-                <div class="player-row">
-                    <div class="rank">#${i + 1}</div>
+            const container = document.getElementById('leaderboard');
+            container.innerHTML = ''; // Clear "Loading" text
+
+            // Assuming your JSON is an array of players
+            data.forEach((player, index) => {
+                const row = document.createElement('div');
+                row.className = 'player-row';
+
+                // Create Tiers HTML
+                let tiersHTML = '';
+                for (const [mode, info] of Object.entries(player.tiers || {})) {
+                    const type = (info.pos === 0) ? 'HT' : 'LT';
+                    const icon = iconMap[mode.toLowerCase()] || "";
+                    tiersHTML += `
+                        <div class="tier-badge ${type}">
+                            <img src="${icon}" class="mode-icon-img" referrerpolicy="no-referrer">
+                            <span>${type}${info.tier}</span>
+                        </div>
+                    `;
+                }
+
+                row.innerHTML = `
+                    <div class="rank">#${index + 1}</div>
                     <div class="player-info">
-                        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100" alt="${p.name}'s face">
-                        <strong>${p.name}</strong>
+                        <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid || 'steve'}/40" alt="head">
+                        <span style="font-weight: 500;">${player.name}</span>
                     </div>
-                    <div class="points">${p.points} Points</div>
-                    <div class="tiers-list">
-                        ${Object.entries(p.rankings).map(([mode, data]) => createTierBadge(mode, data)).join('')}
-                    </div>
-                </div>
-            `).join('');
+                    <div class="points">${player.points} pts</div>
+                    <div class="tiers-list">${tiersHTML}</div>
+                `;
+                container.appendChild(row);
+            });
 
         } catch (err) {
-            board.innerHTML = `<div class="error">Error: ${err.message}</div>`;
+            document.getElementById('leaderboard').innerHTML = `<div class="error">Failed to load leaderboard data.</div>`;
+            console.error(err);
         }
     }
 
     loadLeaderboard();
 </script>
+
 </body>
 </html>
-
-
-
-
-
 
 
 
