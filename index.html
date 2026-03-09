@@ -22,65 +22,65 @@
             padding: 60px;
         }
 
-        .container { max-width: 1200px; margin: auto; }
+        .container { max-width: 1400px; margin: auto; }
 
-        h1 { font-size: 3rem; margin-bottom: 40px; }
+        h1 { font-size: 4rem; margin-bottom: 50px; font-weight: 800; }
 
         .player-row {
             display: grid;
-            grid-template-columns: 80px 350px 180px 1fr;
+            grid-template-columns: 100px 450px 220px 1fr;
             background: var(--card-bg);
-            margin-bottom: 15px;
-            padding: 30px; /* Bigger padding */
-            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 40px; 
+            border-radius: 20px;
             align-items: center;
-            border: 1px solid #222;
+            border: 2px solid #222;
         }
 
-        .rank { font-weight: bold; color: #444; font-size: 2rem; }
+        .rank { font-weight: bold; color: #444; font-size: 2.5rem; }
         
-        .player-info { display: flex; align-items: center; gap: 25px; }
+        .player-info { display: flex; align-items: center; gap: 30px; }
         
-        /* 4x Bigger Avatar */
         .avatar { 
-            width: 80px; 
-            height: 80px; 
+            width: 100px; 
+            height: 100px; 
             image-rendering: pixelated; 
-            border-radius: 8px;
+            border-radius: 10px;
+            background: #222;
         }
 
-        .player-name { font-size: 1.8rem; font-weight: 700; }
+        .player-name { font-size: 2.5rem; font-weight: 700; }
 
-        .points { color: var(--point-color); font-weight: bold; font-size: 1.6rem; }
+        .points { color: var(--point-color); font-weight: 800; font-size: 2.2rem; }
 
         .tiers-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
         }
 
         .tier-badge {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 18px;
-            border-radius: 10px;
-            font-size: 1.2rem; /* Bigger Tier Text */
+            gap: 15px;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-size: 1.8rem; 
             font-weight: 900;
+            min-width: fit-content;
         }
         
-        /* Fixed Squishing and Made 4x Bigger */
         .mode-icon-img {
-            width: 42px; /* Large icons */
-            height: 42px;
+            width: 50px; 
+            height: 50px;
             image-rendering: pixelated;
-            object-fit: contain; /* Prevents squishing */
+            object-fit: contain; /* FIXES SQUISHING */
         }
 
-        .HT { background: rgba(255, 71, 87, 0.15); color: var(--ht-color); border: 2px solid var(--ht-color); }
-        .LT { background: rgba(46, 213, 115, 0.15); color: var(--lt-color); border: 2px solid var(--lt-color); }
+        .HT { background: rgba(255, 71, 87, 0.2); color: var(--ht-color); border: 3px solid var(--ht-color); }
+        .LT { background: rgba(46, 213, 115, 0.2); color: var(--lt-color); border: 3px solid var(--lt-color); }
 
-        .error { color: #ff4757; text-align: center; margin-top: 50px; font-size: 1.5rem; }
+        .error { color: #ff4757; text-align: center; margin-top: 50px; font-size: 2rem; }
     </style>
 </head>
 <body>
@@ -91,6 +91,7 @@
 </div>
 
 <script>
+    // Using a different CDN that is more reliable for hotlinking
     const iconMap = {
         "crystal": "https://minecraft.wiki/images/End_Crystal_JE2_BE2.png",
         "sword": "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png",
@@ -115,15 +116,18 @@
                 row.className = 'player-row';
 
                 let tiersHTML = '';
-                for (const [mode, info] of Object.entries(player.tiers || {})) {
-                    const type = (info.pos === 0) ? 'HT' : 'LT';
-                    const icon = iconMap[mode.toLowerCase()] || "";
-                    tiersHTML += `
-                        <div class="tier-badge ${type}">
-                            <img src="${icon}" class="mode-icon-img" referrerpolicy="no-referrer">
-                            <span>${type}${info.tier}</span>
-                        </div>
-                    `;
+                // Fix: Accessing tiers from the player object
+                if (player.tiers) {
+                    Object.entries(player.tiers).forEach(([mode, info]) => {
+                        const type = (info.pos === 0) ? 'HT' : 'LT';
+                        const icon = iconMap[mode.toLowerCase()] || "";
+                        tiersHTML += `
+                            <div class="tier-badge ${type}">
+                                <img src="${icon}" class="mode-icon-img" crossorigin="anonymous">
+                                <span>${type}${info.tier}</span>
+                            </div>
+                        `;
+                    });
                 }
 
                 row.innerHTML = `
@@ -132,13 +136,14 @@
                         <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid || 'steve'}/100" alt="head">
                         <span class="player-name">${player.name}</span>
                     </div>
-                    <div class="points">${player.points} Points</div>
+                    <div class="points">${player.points} pts</div>
                     <div class="tiers-list">${tiersHTML}</div>
                 `;
                 container.appendChild(row);
             });
         } catch (err) {
-            document.getElementById('leaderboard').innerHTML = `<div class="error">Error loading data.</div>`;
+            document.getElementById('leaderboard').innerHTML = `<div class="error">Data load failed. Check api-1.json</div>`;
+            console.error(err);
         }
     }
 
