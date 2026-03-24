@@ -31,5 +31,13 @@
       "axe": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 }
     }
+    },
+  {
+    "uuid": "5f92b497-cdb8-453f-b752-f2ecc27faec2",
+    "name": "NivlaJupiter",
+    "rankings": {
+      "crystal": { "tier": 1, "pos": 1 },
+      "sword": { "tier": 5, "pos": 0 }
+    }
   }
 ]
