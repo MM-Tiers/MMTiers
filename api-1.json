@@ -54,12 +54,5 @@
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
     }
-  },
-  {
-    "uuid": "6922774c-b5e2-45d7-941f-87ca334520bf",
-    "name": "7taps__",
-    "rankings": {
-      "uhc": { "tier": 5, "pos": 0 },
-    }
   }
 ]
