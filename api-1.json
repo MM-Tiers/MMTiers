@@ -37,22 +37,29 @@
     "name": "NivlaJupiter",
     "rankings": {
       "crystal": { "tier": 1, "pos": 1 },
-      "sword": { "tier": 5, "pos": 0 }
+      "sword": { "tier": 5, "pos": 0 },
       "cart": { "tier": 3, "pos": 0 }
     }
   },
   {
-    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e6",
     "name": "unknowwpepi",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 3, "pos": 1 }
     }
   },
   {
-    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e7",
     "name": "HLaingWanna2010",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e7",
+    "name": "test",
+    "rankings": {
+      "uhc": { "tier": 3, "pos": 0 }
     }
   }
 ]
