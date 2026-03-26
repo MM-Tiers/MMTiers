@@ -63,7 +63,8 @@
     "uuid": "6922774c-b5e2-45d7-941f-87ca334520bf",
     "name": "7taps__",
     "rankings": {
-      "uhc": { "tier": 4, "pos": 0 }
+      "uhc": { "tier": 4, "pos": 0 },
+      "crystal": { "tier": 4, "pos": 0 }
     }
   },
   {
