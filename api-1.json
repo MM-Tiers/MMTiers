@@ -139,6 +139,13 @@
     "name": "SayrTea",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
+      }
+  },
+  {
+    "uuid": "ad049915-d586-4561-ab3e-eb5d8dc84cd9",
+    "name": "chinese_boy9",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 1 },
     }
   }
 ]
