@@ -18,7 +18,8 @@
       "crystal": { "tier": 1, "pos": 1 },
       "uhc": { "tier": 2, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 3, "pos": 1 }
+      "mace": { "tier": 3, "pos": 1 },
+      "cart": { "tier": 3, "pos": 1 }
     }
   },
   {
