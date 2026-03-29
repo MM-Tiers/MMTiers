@@ -156,7 +156,7 @@ h1 {
 <body>
 
 <div class="container">
-<h1>Overall Rankings</h1>
+<h1>MMTiers Overall Rankings</h1>
 
 <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search player name...">
@@ -205,7 +205,7 @@ async function loadLeaderboard() {
             return player;
         });
 
-        // Sort by total points (overall only)
+        // Sort by total points (overall)
         leaderboardData.sort((a,b) => b.points - a.points);
         renderLeaderboard();
     } catch(err) {
