@@ -8,29 +8,70 @@
 <style>
 :root {
     --bg-color: #0c0c0c;
-    --card-bg: #161616;
+    --card-bg: #1a1a1a;
     --text-main: #ffffff;
     --ht-color: #ff4757;
     --lt-color: #2ed573;
     --point-color: #ffa502;
+    --accent-color: #3742fa;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 40px;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
+    padding: 40px 20px;
 }
 
 h1 {
     font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--card-bg);
+    transition: 0.2s;
+    font-weight: 600;
+}
+
+.tab.active {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: #222;
+    color: #fff;
 }
 
 .player-row {
@@ -42,17 +83,17 @@ h1 {
     border-radius: 12px;
     align-items: center;
     border: 1px solid #222;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .player-row:hover {
-    transform: scale(1.01);
-    border-color: #444;
+    transform: scale(1.02);
+    box-shadow: 0 0 12px rgba(255,255,255,0.1);
 }
 
 .rank {
     font-weight: bold;
-    color: #555;
+    color: #aaa;
     font-size: 1.5rem;
 }
 
@@ -83,34 +124,35 @@ h1 {
 .tiers-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .tier-badge {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 900;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
 }
 
-.mode-icon-img {
-    width: 30px;
-    height: 30px;
+.tier-badge img {
+    width: 22px;
+    height: 22px;
     image-rendering: pixelated;
     object-fit: contain;
 }
 
 .HT {
-    background: rgba(255, 71, 87, 0.1);
+    background: linear-gradient(135deg, rgba(255,71,87,0.2), rgba(255,71,87,0.05));
     color: var(--ht-color);
     border: 1px solid var(--ht-color);
 }
 
 .LT {
-    background: rgba(46, 213, 115, 0.1);
+    background: linear-gradient(135deg, rgba(46,213,115,0.2), rgba(46,213,115,0.05));
     color: var(--lt-color);
     border: 1px solid var(--lt-color);
 }
@@ -120,139 +162,153 @@ h1 {
     text-align: center;
     margin-top: 50px;
 }
+
+@media (max-width: 800px) {
+    .player-row {
+        grid-template-columns: 50px 1fr 100px;
+    }
+
+    .tiers-list {
+        margin-top: 10px;
+        grid-column: span 3;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-<h1>Overall Rankings</h1>
+<h1>MMTiers Leaderboard</h1>
+
+<div class="tabs">
+    <div class="tab active" data-mode="all">All Modes</div>
+    <div class="tab" data-mode="sword">Sword</div>
+    <div class="tab" data-mode="axe">Axe</div>
+    <div class="tab" data-mode="uhc">UHC</div>
+    <div class="tab" data-mode="smp">SMP</div>
+    <div class="tab" data-mode="dpot">Dpot</div>
+    <div class="tab" data-mode="netpot">NetPot</div>
+    <div class="tab" data-mode="mace">Mace</div>
+    <div class="tab" data-mode="crystal">Crystal</div>
+</div>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search player name...">
+</div>
+
 <div id="leaderboard">Loading rankings...</div>
 </div>
 
 <script>
-
 const iconMap = {
 "crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
 "sword": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
 "mace": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png",
 "smp": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f6/Ender_Pearl_JE3_BE2.png",
 "dpot": "https://minecraft.wiki/images/Splash_Potion_of_Healing_JE2_BE2.png",
-"dsmp": "https://cdn.modrinth.com/data/iRzrwt7J/images/82d35276aeaa0d03900fc7e8d74996e7d8135917.png",
 "netpot": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Netherite_Sword_JE2_BE2.png",
 "uhc": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
-"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
-"cart": "https://minecraft.wiki/images/Minecart_with_TNT_JE2_BE2.png?10e68"
+"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png"
 };
 
 const tierPoints = {
-  "HT1": 60,
-  "LT1": 45,
-
-  "HT2": 35,
-  "LT2": 25,
-
-  "HT3": 15,
-  "LT3": 6,
-
-  "HT4": 4,
-  "LT4": 3,
-
-  "HT5": 2,
-  "LT5": 1
+  "HT1": 60, "LT1": 45,
+  "HT2": 35, "LT2": 25,
+  "HT3": 15, "LT3": 6,
+  "HT4": 4, "LT4": 3,
+  "HT5": 2, "LT5": 1
 };
 
+let leaderboardData = [];
 
 async function loadLeaderboard() {
+    try {
+        const response = await fetch('api-1.json');
+        const data = await response.json();
+        leaderboardData = data.map(player => {
+            let totalPoints = 0;
+            const rankings = player.rankings || {};
+            Object.values(rankings).forEach(info => {
+                const type = info.pos === 0 ? "HT" : "LT";
+                const tierKey = type + info.tier;
+                if (tierPoints[tierKey]) totalPoints += tierPoints[tierKey];
+            });
+            player.points = totalPoints;
+            return player;
+        });
 
-try {
-
-const response = await fetch('api-1.json');
-const data = await response.json();
-
-
-data.forEach(player => {
-
-let totalPoints = 0;
-
-const rankings = player.rankings || {};
-
-Object.values(rankings).forEach(info => {
-
-const type = info.pos === 0 ? "HT" : "LT";
-const tierKey = type + info.tier;
-
-if (tierPoints[tierKey]) {
-totalPoints += tierPoints[tierKey];
+        leaderboardData.sort((a,b) => b.points - a.points);
+        renderLeaderboard();
+    } catch(err) {
+        document.getElementById("leaderboard").innerHTML =
+        `<div class="error">Failed to load api-1.json</div>`;
+    }
 }
 
-});
+function renderLeaderboard(filterMode = "all", search = "") {
+    const container = document.getElementById('leaderboard');
+    container.innerHTML = "";
 
-player.points = totalPoints;
+    const filtered = leaderboardData.filter(player => {
+        const matchesMode = filterMode === "all" || player.rankings?.[filterMode];
+        const matchesSearch = player.name.toLowerCase().includes(search.toLowerCase());
+        return matchesMode && matchesSearch;
+    });
 
-});
+    if(filtered.length === 0) {
+        container.innerHTML = `<div class="error">No players found.</div>`;
+        return;
+    }
 
+    filtered.forEach((player,index) => {
+        const row = document.createElement("div");
+        row.className = "player-row";
 
-data.sort((a,b) => b.points - a.points);
+        let tiersHTML = "";
+        const rankings = player.rankings || {};
+        Object.entries(rankings).forEach(([mode,info]) => {
+            const type = info.pos === 0 ? "HT" : "LT";
+            const icon = iconMap[mode.toLowerCase()] || "";
+            tiersHTML += `<div class="tier-badge ${type}">
+            <img src="${icon}">
+            <span>${type}${info.tier}</span>
+            </div>`;
+        });
 
+        row.innerHTML = `
+        <div class="rank">#${index+1}</div>
+        <div class="player-info">
+            <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/100">
+            <span class="player-name">${player.name}</span>
+        </div>
+        <div class="points">${player.points} Points</div>
+        <div class="tiers-list">${tiersHTML}</div>
+        `;
 
-const container = document.getElementById('leaderboard');
-container.innerHTML = "";
-
-
-data.forEach((player,index)=>{
-
-const row = document.createElement("div");
-row.className = "player-row";
-
-let tiersHTML = "";
-
-const rankings = player.rankings || {};
-
-Object.entries(rankings).forEach(([mode,info])=>{
-
-const type = info.pos === 0 ? "HT" : "LT";
-const icon = iconMap[mode.toLowerCase()] || "";
-
-tiersHTML += `
-<div class="tier-badge ${type}">
-<img src="${icon}" class="mode-icon-img">
-<span>${type}${info.tier}</span>
-</div>
-`;
-
-});
-
-
-row.innerHTML = `
-<div class="rank">#${index+1}</div>
-
-<div class="player-info">
-<img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/100">
-<span class="player-name">${player.name}</span>
-</div>
-
-<div class="points">${player.points} Points</div>
-
-<div class="tiers-list">${tiersHTML}</div>
-`;
-
-container.appendChild(row);
-
-});
-
-
-} catch(err){
-
-document.getElementById("leaderboard").innerHTML =
-`<div class="error">Failed to load api-1.json</div>`;
-
+        container.appendChild(row);
+    });
 }
 
-}
+// Tab functionality
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const mode = tab.dataset.mode;
+        const search = document.getElementById('searchInput').value;
+        renderLeaderboard(mode, search);
+    });
+});
+
+// Search functionality
+document.getElementById('searchInput').addEventListener('input', e => {
+    const search = e.target.value;
+    const mode = document.querySelector('.tab.active').dataset.mode;
+    renderLeaderboard(mode, search);
+});
 
 loadLeaderboard();
-
 </script>
 
 </body>
