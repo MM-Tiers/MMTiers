@@ -245,5 +245,12 @@
     "rankings": {
       "sword": { "tier": 4, "pos": 1 }
     }
+  },
+  {
+    "uuid": "88bd1f55-3354-4fa0-826b-c229f23eb790",
+    "name": "KenjiOp200k",
+    "rankings": {
+      "dsmp": { "tier": 4, "pos": 0 },
+    }
   }
 ]
