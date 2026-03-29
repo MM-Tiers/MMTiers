@@ -191,6 +191,8 @@ h1 {
     <div class="tab" data-mode="netpot">NetPot</div>
     <div class="tab" data-mode="mace">Mace</div>
     <div class="tab" data-mode="crystal">Crystal</div>
+    <div class="tab" data-mode="dsmp">DSMP</div>
+    <div class="tab" data-mode="cart">Cart</div>
 </div>
 
 <div class="search-bar">
@@ -209,7 +211,9 @@ const iconMap = {
 "dpot": "https://minecraft.wiki/images/Splash_Potion_of_Healing_JE2_BE2.png",
 "netpot": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Netherite_Sword_JE2_BE2.png",
 "uhc": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
-"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png"
+"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
+"dsmp": "https://cdn.modrinth.com/data/iRzrwt7J/images/82d35276aeaa0d03900fc7e8d74996e7d8135917.png",
+"cart": "https://minecraft.wiki/images/Minecart_with_TNT_JE2_BE2.png?10e68"
 };
 
 const tierPoints = {
@@ -237,8 +241,6 @@ async function loadLeaderboard() {
             player.points = totalPoints;
             return player;
         });
-
-        leaderboardData.sort((a,b) => b.points - a.points);
         renderLeaderboard();
     } catch(err) {
         document.getElementById("leaderboard").innerHTML =
@@ -250,7 +252,7 @@ function renderLeaderboard(filterMode = "all", search = "") {
     const container = document.getElementById('leaderboard');
     container.innerHTML = "";
 
-    const filtered = leaderboardData.filter(player => {
+    let filtered = leaderboardData.filter(player => {
         const matchesMode = filterMode === "all" || player.rankings?.[filterMode];
         const matchesSearch = player.name.toLowerCase().includes(search.toLowerCase());
         return matchesMode && matchesSearch;
@@ -259,6 +261,20 @@ function renderLeaderboard(filterMode = "all", search = "") {
     if(filtered.length === 0) {
         container.innerHTML = `<div class="error">No players found.</div>`;
         return;
+    }
+
+    if(filterMode === "all") {
+        filtered.sort((a,b) => b.points - a.points);
+    } else {
+        filtered.sort((a,b) => {
+            const aInfo = a.rankings[filterMode];
+            const bInfo = b.rankings[filterMode];
+            if(!aInfo) return 1;
+            if(!bInfo) return -1;
+            const aValue = (aInfo.pos === 0 ? 100 : 0) + aInfo.tier;
+            const bValue = (bInfo.pos === 0 ? 100 : 0) + bInfo.tier;
+            return bValue - aValue;
+        });
     }
 
     filtered.forEach((player,index) => {
@@ -271,8 +287,8 @@ function renderLeaderboard(filterMode = "all", search = "") {
             const type = info.pos === 0 ? "HT" : "LT";
             const icon = iconMap[mode.toLowerCase()] || "";
             tiersHTML += `<div class="tier-badge ${type}">
-            <img src="${icon}">
-            <span>${type}${info.tier}</span>
+                <img src="${icon}">
+                <span>${type}${info.tier}</span>
             </div>`;
         });
 
@@ -285,12 +301,11 @@ function renderLeaderboard(filterMode = "all", search = "") {
         <div class="points">${player.points} Points</div>
         <div class="tiers-list">${tiersHTML}</div>
         `;
-
         container.appendChild(row);
     });
 }
 
-// Tab functionality
+// Tabs
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -301,7 +316,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     });
 });
 
-// Search functionality
+// Search
 document.getElementById('searchInput').addEventListener('input', e => {
     const search = e.target.value;
     const mode = document.querySelector('.tab.active').dataset.mode;
