@@ -43,8 +43,8 @@
     "name": "RebornColter",
     "rankings": {
       "dsmp": { "tier": 3, "pos": 1 },
-      "uhc": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 0 },
+      "uhc": { "tier": 3, "pos": 0 },
+      "axe": { "tier": 2, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 }
     }
