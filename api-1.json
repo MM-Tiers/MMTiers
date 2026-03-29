@@ -36,7 +36,8 @@
       "sword": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
       "axe": { "tier": 1, "pos": 0 },
-      "smp": { "tier": 1, "pos": 0 }
+      "smp": { "tier": 1, "pos": 0 },
+      "netpot": { "tier": 2, "pos": 1}
     }
   },
   {
@@ -109,11 +110,11 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "PotFasterQdrr",
     "rankings": {
-      "uhc": { "tier": 5, "pos": 1 },
+      "uhc": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 1, "pos": 0 },
       "netpot": { "tier": 1, "pos": 0 },
       "axe": { "tier": 1, "pos": 1 },
-      "sword": { "tier": 2, "pos": 0 }
+      "sword": { "tier": 2, "pos": 0 },
     }
   },
   {
