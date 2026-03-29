@@ -13,7 +13,6 @@
     --ht-color: #ff4757;
     --lt-color: #2ed573;
     --point-color: #ffa502;
-    --accent-color: #3742fa;
 }
 
 body {
@@ -33,28 +32,6 @@ h1 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
-}
-
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.tab {
-    padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    background: var(--card-bg);
-    transition: 0.2s;
-    font-weight: 600;
-}
-
-.tab.active {
-    background: var(--accent-color);
-    color: #fff;
 }
 
 .search-bar {
@@ -179,21 +156,7 @@ h1 {
 <body>
 
 <div class="container">
-<h1>MMTiers Leaderboard</h1>
-
-<div class="tabs">
-    <div class="tab active" data-mode="all">All Modes</div>
-    <div class="tab" data-mode="sword">Sword</div>
-    <div class="tab" data-mode="axe">Axe</div>
-    <div class="tab" data-mode="uhc">UHC</div>
-    <div class="tab" data-mode="smp">SMP</div>
-    <div class="tab" data-mode="dpot">Dpot</div>
-    <div class="tab" data-mode="netpot">NetPot</div>
-    <div class="tab" data-mode="mace">Mace</div>
-    <div class="tab" data-mode="crystal">Crystal</div>
-    <div class="tab" data-mode="dsmp">DSMP</div>
-    <div class="tab" data-mode="cart">Cart</div>
-</div>
+<h1>Overall Rankings</h1>
 
 <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search player name...">
@@ -204,14 +167,14 @@ h1 {
 
 <script>
 const iconMap = {
-"crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
 "sword": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
-"mace": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png",
+"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
+"uhc": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
 "smp": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f6/Ender_Pearl_JE3_BE2.png",
 "dpot": "https://minecraft.wiki/images/Splash_Potion_of_Healing_JE2_BE2.png",
 "netpot": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Netherite_Sword_JE2_BE2.png",
-"uhc": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
-"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
+"mace": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png",
+"crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
 "dsmp": "https://cdn.modrinth.com/data/iRzrwt7J/images/82d35276aeaa0d03900fc7e8d74996e7d8135917.png",
 "cart": "https://minecraft.wiki/images/Minecart_with_TNT_JE2_BE2.png?10e68"
 };
@@ -241,6 +204,9 @@ async function loadLeaderboard() {
             player.points = totalPoints;
             return player;
         });
+
+        // Sort by total points (overall only)
+        leaderboardData.sort((a,b) => b.points - a.points);
         renderLeaderboard();
     } catch(err) {
         document.getElementById("leaderboard").innerHTML =
@@ -248,33 +214,17 @@ async function loadLeaderboard() {
     }
 }
 
-function renderLeaderboard(filterMode = "all", search = "") {
+function renderLeaderboard(search = "") {
     const container = document.getElementById('leaderboard');
     container.innerHTML = "";
 
-    let filtered = leaderboardData.filter(player => {
-        const matchesMode = filterMode === "all" || player.rankings?.[filterMode];
-        const matchesSearch = player.name.toLowerCase().includes(search.toLowerCase());
-        return matchesMode && matchesSearch;
-    });
+    const filtered = leaderboardData.filter(player =>
+        player.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     if(filtered.length === 0) {
         container.innerHTML = `<div class="error">No players found.</div>`;
         return;
-    }
-
-    if(filterMode === "all") {
-        filtered.sort((a,b) => b.points - a.points);
-    } else {
-        filtered.sort((a,b) => {
-            const aInfo = a.rankings[filterMode];
-            const bInfo = b.rankings[filterMode];
-            if(!aInfo) return 1;
-            if(!bInfo) return -1;
-            const aValue = (aInfo.pos === 0 ? 100 : 0) + aInfo.tier;
-            const bValue = (bInfo.pos === 0 ? 100 : 0) + bInfo.tier;
-            return bValue - aValue;
-        });
     }
 
     filtered.forEach((player,index) => {
@@ -305,22 +255,10 @@ function renderLeaderboard(filterMode = "all", search = "") {
     });
 }
 
-// Tabs
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const mode = tab.dataset.mode;
-        const search = document.getElementById('searchInput').value;
-        renderLeaderboard(mode, search);
-    });
-});
-
-// Search
+// Search functionality
 document.getElementById('searchInput').addEventListener('input', e => {
     const search = e.target.value;
-    const mode = document.querySelector('.tab.active').dataset.mode;
-    renderLeaderboard(mode, search);
+    renderLeaderboard(search);
 });
 
 loadLeaderboard();
