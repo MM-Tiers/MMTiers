@@ -220,9 +220,9 @@
     "name": "Rinleaf",
     "rankings": {
       "crystal": { "tier": 1, "pos": 0 },
-      "mace": { "tier": 5, "pos": 0 },
+      "mace": { "tier": 3, "pos": 1 },
       "sword": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 4, "pos": 0 },
+      "uhc": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 4, "pos": 0 }
