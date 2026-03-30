@@ -89,12 +89,22 @@
     "uuid": "d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",
     "name": "ItzMr_greenX2",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 },
+      "crystal": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 4, "pos": 0 }
+      "smp": { "tier": 4, "pos": 0 },
+      "axe": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",
+    "name": "UnknownPepi",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 4, "pos": 1 },
+      "axe": { "tier": 4, "pos": 0 }
     }
   },
   {
