@@ -34,7 +34,7 @@ header {
 }
 
 .logo {
-  height:50px; /* adjust as needed */
+  height:50px;
   object-fit:contain;
 }
 
@@ -101,7 +101,6 @@ header {
 
 .avatar { width:36px; border-radius:6px; }
 
-/* NEW TEXT */
 .player-text { display:flex; flex-direction:column; }
 
 .name-line { display:flex; align-items:center; gap:8px; }
@@ -236,7 +235,7 @@ header {
 
 .close { position:absolute; top:10px; right:15px; cursor:pointer; }
 
-.profile-avatar { width:90px; border-radius:10%; border:3px solid var(--accent); }
+.profile-avatar { width:90px; border-radius:50%; border:3px solid var(--accent); }
 .profile-name { font-size:1.4rem; margin:10px 0; }
 .profile-rank {
   background:rgba(245,158,11,0.2);
@@ -380,7 +379,7 @@ function openProfile(p, rank=0, points=0){
 
   content.innerHTML = `
     <div class="close" onclick="closeModal()">✖</div>
-    <img class="profile-avatar" src="https://crafatar.com/renders/body/${p.uuid}?size=150&overlay">
+    <img class="profile-avatar" src="https://api.mcheads.org/fullbody/${p.uuid}/100">
     <div class="profile-name">${p.name}</div>
     <div class="profile-rank">${getAchievementTitle(points)}</div>
     <div style="margin-top:10px;">#${rank} • ${points} pts</div>
@@ -423,7 +422,7 @@ function render(){
         </div>
 
         <div class="player-info">
-          <img class="avatar" src="https://crafatar.com/renders/body/${p.uuid}?size=64&overlay">
+          <img class="avatar" src="https://api.mcheads.org/fullbody/${p.uuid}/100">
           <div class="player-text">
             <div class="name-line">
               <span class="player-name">${p.name}</span>
@@ -460,7 +459,7 @@ function render(){
     tiers[t].forEach(p=>{
       const div=document.createElement("div");
       div.className=`player ${p.pos===0?"HT":"LT"}`;
-      div.innerHTML=`<img src="https://crafatar.com/renders/body/${p.uuid}?size=32&overlay">${p.name}`;
+      div.innerHTML=`<img src="https://api.mcheads.org/fullbody/${p.uuid}/100">${p.name}`;
       div.onclick=()=>openProfile(p,getPoints(p));
       col.appendChild(div);
     });
