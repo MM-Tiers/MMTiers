@@ -289,8 +289,6 @@ const tierPoints={HT1:60,LT1:45,HT2:35,LT2:25,HT3:15,LT3:6,HT4:4,LT4:3,HT5:2,LT5
 let data=[];
 let currentMode="overall";
 
-const walkingPoseURL = "walking_pose.png"; // your PNG
-
 init();
 
 async function init(){
@@ -302,6 +300,12 @@ async function init(){
 async function loadData(){
   const res=await fetch("api-1.json");
   data=await res.json();
+}
+
+// NEW upper-body zoom function
+function getAvatarURL(uuid){
+  // uses mc-heads.net, but zoomed to upper body
+  return `https://mc-heads.net/body/${uuid}/64?scale=2`;
 }
 
 function createTabs(){
@@ -368,30 +372,6 @@ function computeRanks(players){
   return players;
 }
 
-// generate canvas avatar with walking pose overlay
-function generateAvatar(uuid, callback){
-  const canvas = document.createElement("canvas");
-  canvas.width = 64;
-  canvas.height = 64;
-  const ctx = canvas.getContext("2d");
-
-  const skin = new Image();
-  skin.crossOrigin = "anonymous";
-  skin.src = `https://crafatar.com/skins/${uuid}`;
-
-  const pose = new Image();
-  pose.src = walkingPoseURL;
-
-  skin.onload = () => {
-    ctx.drawImage(skin, 0, 0, 64, 64);
-    pose.onload = () => {
-      ctx.drawImage(pose, 0, 0, 64, 64);
-      callback(canvas.toDataURL());
-    }
-  }
-  skin.onerror = () => callback(`https://mc-heads.net/body/${uuid}/100`);
-}
-
 function openProfile(p, rank=0, points=0){
   const modal = document.getElementById("modal");
   const content = document.getElementById("modalContent");
@@ -402,16 +382,14 @@ function openProfile(p, rank=0, points=0){
     tiers += `<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
   });
 
-  generateAvatar(p.uuid, (dataUrl)=>{
-    content.innerHTML = `
-      <div class="close" onclick="closeModal()">✖</div>
-      <img class="profile-avatar" src="${dataUrl}">
-      <div class="profile-name">${p.name}</div>
-      <div class="profile-rank">${getAchievementTitle(points)}</div>
-      <div style="margin-top:10px;">#${rank} • ${points} pts</div>
-      <div class="tiers-list">${tiers}</div>
-    `;
-  });
+  content.innerHTML = `
+    <div class="close" onclick="closeModal()">✖</div>
+    <img class="profile-avatar" src="${getAvatarURL(p.uuid)}">
+    <div class="profile-name">${p.name}</div>
+    <div class="profile-rank">${getAchievementTitle(points)}</div>
+    <div style="margin-top:10px;">#${rank} • ${points} pts</div>
+    <div class="tiers-list">${tiers}</div>
+  `;
 
   modal.classList.remove("hidden");
 }
@@ -443,37 +421,24 @@ function render(){
         tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
       });
 
-      // create avatar with walking pose
-      const avatarContainer = document.createElement("div");
-      avatarContainer.className = "player-info";
-
-      const avatarImg = document.createElement("img");
-      avatarImg.className = "avatar";
-
-      generateAvatar(p.uuid, (dataUrl)=>{
-        avatarImg.src = dataUrl;
-      });
-
-      avatarContainer.appendChild(avatarImg);
-
-      const textContainer = document.createElement("div");
-      textContainer.className = "player-text";
-      textContainer.innerHTML = `
-        <div class="name-line">
-          <span class="player-name">${p.name}</span>
-          <span class="achievement">${getAchievementTitle(p.points)}</span>
+      row.innerHTML=`
+        <div class="rank">
+          ${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}
         </div>
-        <div class="points">${p.points} pts</div>
+
+        <div class="player-info">
+          <img class="avatar" src="${getAvatarURL(p.uuid)}">
+          <div class="player-text">
+            <div class="name-line">
+              <span class="player-name">${p.name}</span>
+              <span class="achievement">${getAchievementTitle(p.points)}</span>
+            </div>
+            <div class="points">${p.points} pts</div>
+          </div>
+        </div>
+
+        <div class="tiers-list">${tiersHTML}</div>
       `;
-      avatarContainer.appendChild(textContainer);
-
-      let tiersDiv = document.createElement("div");
-      tiersDiv.className = "tiers-list";
-      tiersDiv.innerHTML = tiersHTML;
-
-      row.appendChild(document.createElement("div")); // rank placeholder
-      row.appendChild(avatarContainer);
-      row.appendChild(tiersDiv);
 
       row.onclick = ()=>openProfile(p, p.rank, p.points);
       container.appendChild(row);
@@ -481,7 +446,6 @@ function render(){
     return;
   }
 
-  // per-tier mode
   const tiers={1:[],2:[],3:[],4:[],5:[]};
   players.forEach(p=>{
     const r=p.rankings?.[currentMode];
@@ -500,14 +464,7 @@ function render(){
     tiers[t].forEach(p=>{
       const div=document.createElement("div");
       div.className=`player ${p.pos===0?"HT":"LT"}`;
-
-      const img = document.createElement("img");
-      generateAvatar(p.uuid, (dataUrl)=>{
-        img.src = dataUrl;
-      });
-      div.appendChild(img);
-      div.appendChild(document.createTextNode(p.name));
-
+      div.innerHTML=`<img src="${getAvatarURL(p.uuid)}">${p.name}`;
       div.onclick=()=>openProfile(p,getPoints(p));
       col.appendChild(div);
     });
