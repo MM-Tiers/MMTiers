@@ -99,9 +99,8 @@ header {
 
 .player-info { display:flex; align-items:center; gap:10px; }
 
-.avatar { width:36px; border-radius:6px; }
+.avatar { width:50px; border-radius:6px; object-fit:cover; }
 
-/* NEW TEXT */
 .player-text { display:flex; flex-direction:column; }
 
 .name-line { display:flex; align-items:center; gap:8px; }
@@ -146,7 +145,6 @@ header {
   100% { transform: scale(1); filter: brightness(1); }
 }
 
-/* TOP 3 */
 .top1, .top2, .top3 {
   transform:scale(1.02);
   position:relative;
@@ -208,7 +206,7 @@ header {
   cursor:pointer;
 }
 
-.player img { width:36px; border-radius:6px; }
+.player img { width:22px; border-radius:4px; object-fit:cover; }
 
 .player.HT { border-left:3px solid var(--ht); }
 .player.LT { border-left:3px solid var(--lt); }
@@ -236,7 +234,7 @@ header {
 
 .close { position:absolute; top:10px; right:15px; cursor:pointer; }
 
-.profile-avatar { width:90px; border-radius:50%; border:3px solid var(--accent); }
+.profile-avatar { width:120px; height:120px; border-radius:10px; border:3px solid var(--accent); object-fit:cover; }
 .profile-name { font-size:1.4rem; margin:10px 0; }
 .profile-rank {
   background:rgba(245,158,11,0.2);
@@ -380,7 +378,7 @@ function openProfile(p, rank=0, points=0){
 
   content.innerHTML = `
     <div class="close" onclick="closeModal()">✖</div>
-    <img class="profile-avatar" src="${p.walkingPose || `https://mc-heads.net/body/${p.uuid}/front/100` }">
+    <img class="profile-avatar" src="${p.pose || `https://mc-heads.net/body/${p.uuid}/100`}">
     <div class="profile-name">${p.name}</div>
     <div class="profile-rank">${getAchievementTitle(points)}</div>
     <div style="margin-top:10px;">#${rank} • ${points} pts</div>
@@ -423,7 +421,7 @@ function render(){
         </div>
 
         <div class="player-info">
-          <img class="avatar" src="${p.walkingPose || `https://mc-heads.net/body/${p.uuid}/front/100` }">
+          <img class="avatar" src="${p.pose || `https://mc-heads.net/body/${p.uuid}/100`}">
           <div class="player-text">
             <div class="name-line">
               <span class="player-name">${p.name}</span>
@@ -460,7 +458,7 @@ function render(){
     tiers[t].forEach(p=>{
       const div=document.createElement("div");
       div.className=`player ${p.pos===0?"HT":"LT"}`;
-      div.innerHTML=`<img src="${p.walkingPose || `https://mc-heads.net/body/${p.uuid}/front/100` }">${p.name}`;
+      div.innerHTML=`<img src="${p.pose || `https://mc-heads.net/body/${p.uuid}/100`}">${p.name}`;
       div.onclick=()=>openProfile(p,getPoints(p));
       col.appendChild(div);
     });
