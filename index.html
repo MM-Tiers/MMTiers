@@ -261,17 +261,24 @@ async function loadLeaderboard() {
     renderLeaderboard();
 }
 
+/* SWITCH TAB (with fade, but keep overall tab as is) */
 function switchTab(mode, el) {
     const container = document.getElementById("leaderboard");
     
-    // Fade out
+    if(mode === "overall") {
+        currentMode = mode;
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+        renderLeaderboard();
+        return;
+    }
+
     container.style.opacity = 0;
     setTimeout(() => {
         currentMode = mode;
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         el.classList.add('active');
         renderLeaderboard();
-        // Fade in
         container.style.opacity = 1;
     }, 300);
 }
@@ -287,7 +294,6 @@ function renderLeaderboard(search="") {
 
     /* OVERALL */
     if(currentMode === "overall") {
-
         players = players.map(p => {
             let pts = 0;
             Object.values(p.rankings || {}).forEach(r => {
