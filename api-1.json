@@ -63,6 +63,15 @@
   },
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "unknowwpepi",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 4, "pos": 1 },
+      "axe": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "HLaingWanna2010",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
@@ -96,15 +105,6 @@
       "dpot": { "tier": 3, "pos": 1 },
       "smp": { "tier": 4, "pos": 0 },
       "axe": { "tier": 3, "pos": 1 }
-    }
-  },
-  {
-    "uuid": "9065e95e-5d46-4dc6-8b78-7000db99420e",
-    "name": "UnknownPepi",
-    "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 4, "pos": 1 },
-      "axe": { "tier": 4, "pos": 0 }
     }
   },
   {
