@@ -13,7 +13,7 @@ html { zoom: 1.25; /* ← CHANGE THIS */ }
 
 :root {
   --bg:#0b1220;
-  --text:#e5e7eb;
+  --text:#ffffff; /* text now white */
   --accent:#f59e0b;
   --ht:#fb7185;
   --lt:#4ade80;
@@ -59,13 +59,14 @@ header h1 { color:var(--accent); }
   border:1px solid #1f2937;
   border-radius:10px;
   cursor:pointer;
+  color: white; /* default tab text white */
 }
 
 .tab img { width:16px; }
 
 .tab.active {
   background:var(--accent);
-  color:black;
+  color:white; /* changed from black to white */
 }
 
 #leaderboard { transition:opacity 0.25s ease; }
@@ -80,6 +81,7 @@ header h1 { color:var(--accent); }
   border-radius:14px;
   border:1px solid #1f2937;
   cursor:pointer;
+  color:white; /* ensure all player-row text is white */
 }
 
 .rank { color:var(--accent); font-weight:bold; }
@@ -105,6 +107,7 @@ header h1 { color:var(--accent); }
   padding:3px 7px;
   border-radius:6px;
   font-size:0.75rem;
+  color: inherit;
 }
 
 .tier-badge img { width:14px; }
@@ -124,6 +127,7 @@ header h1 { color:var(--accent); }
   border:1px solid #1f2937;
   border-radius:10px;
   padding:10px;
+  color:white; /* text white in tier columns */
 }
 
 .tier-title {
@@ -143,6 +147,7 @@ header h1 { color:var(--accent); }
   background:#020617;
   font-size:0.8rem;
   cursor:pointer;
+  color:white; /* ensure player names white */
 }
 
 .player img { width:22px; border-radius:4px; }
@@ -175,6 +180,7 @@ header h1 { color:var(--accent); }
   position:relative;
   transform:scale(0.9);
   transition:0.2s;
+  color:white; /* modal text white */
 }
 
 .modal:not(.hidden) .modal-content { transform:scale(1); }
@@ -244,8 +250,13 @@ async function init(){
 }
 
 async function loadData(){
-  const res=await fetch("api-1.json");
-  data=await res.json();
+  try{
+    const res=await fetch("api-1.json");
+    data=await res.json();
+  }catch(e){
+    console.error("Failed to load data", e);
+    document.getElementById("leaderboard").innerText="Failed to load leaderboard.";
+  }
 }
 
 function createTabs(){
