@@ -8,113 +8,103 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 /* 🔥 ZOOM CONTROL (EDIT THIS VALUE) */
-html {
-    zoom: 1.25; /* ← CHANGE THIS (1.0 = 100%, 1.25 = 125%, 1.5 = 150%) */
-}
+html { zoom: 1.25; /* ← CHANGE THIS */ }
 
 :root {
-    --bg:#0b1220;
-    --text:#e5e7eb;
-    --accent:#f59e0b;
-    --ht:#fb7185;
-    --lt:#4ade80;
+  --bg:#0b1220;
+  --text:#e5e7eb;
+  --accent:#f59e0b;
+  --ht:#fb7185;
+  --lt:#4ade80;
 }
 
 body {
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background: radial-gradient(circle at top,#0f172a,#020617);
-    color:var(--text);
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:var(--text);
 }
 
-/* HEADER */
 header {
-    display:flex;
-    justify-content:space-between;
-    padding:20px;
-    border-bottom:1px solid #1f2937;
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #1f2937;
 }
 
 header h1 { color:var(--accent); }
 
-/* SEARCH */
 .search-bar input {
-    background:#020617;
-    border:1px solid #1f2937;
-    padding:10px;
-    border-radius:10px;
-    color:white;
+  background:#020617;
+  border:1px solid #1f2937;
+  padding:10px;
+  border-radius:10px;
+  color:white;
 }
 
-/* TABS */
 .tabs {
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:15px;
 }
 
 .tab {
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:8px 12px;
-    background:#020617;
-    border:1px solid #1f2937;
-    border-radius:10px;
-    cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  background:#020617;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  cursor:pointer;
 }
 
 .tab img { width:16px; }
 
 .tab.active {
-    background:var(--accent);
-    color:black;
+  background:var(--accent);
+  color:black;
 }
 
-/* FADE */
-#leaderboard {
-    transition:opacity 0.25s ease;
-}
+#leaderboard { transition:opacity 0.25s ease; }
 .fade-out { opacity:0; }
 
-/* PLAYER ROW */
 .player-row {
-    display:grid;
-    grid-template-columns:50px 1fr 100px 1fr;
-    padding:14px;
-    margin:10px;
-    background:linear-gradient(145deg,#020617,#0f172a);
-    border-radius:14px;
-    border:1px solid #1f2937;
-    cursor:pointer;
+  display:grid;
+  grid-template-columns:50px 1fr 120px 1fr;
+  padding:14px;
+  margin:10px;
+  background:linear-gradient(145deg,#020617,#0f172a);
+  border-radius:14px;
+  border:1px solid #1f2937;
+  cursor:pointer;
 }
 
 .rank { color:var(--accent); font-weight:bold; }
 
 .player-info {
-    display:flex;
-    align-items:center;
-    gap:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .avatar { width:36px; border-radius:6px; }
 
 .tiers-list {
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
 }
 
 .tier-badge {
-    display:flex;
-    align-items:center;
-    gap:4px;
-    padding:3px 7px;
-    border-radius:6px;
-    font-size:0.75rem;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:3px 7px;
+  border-radius:6px;
+  font-size:0.75rem;
 }
 
 .tier-badge img { width:14px; }
@@ -122,38 +112,37 @@ header h1 { color:var(--accent); }
 .HT { background:rgba(251,113,133,0.15); color:var(--ht); }
 .LT { background:rgba(74,222,128,0.15); color:var(--lt); }
 
-/* GRID */
 .tier-grid {
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-    padding:10px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  padding:10px;
 }
 
 .tier-column {
-    background:#0f172a;
-    border:1px solid #1f2937;
-    border-radius:10px;
-    padding:10px;
+  background:#0f172a;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  padding:10px;
 }
 
 .tier-title {
-    text-align:center;
-    font-weight:bold;
-    margin-bottom:8px;
-    color:var(--accent);
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:8px;
+  color:var(--accent);
 }
 
 .player {
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:5px;
-    margin-bottom:5px;
-    border-radius:6px;
-    background:#020617;
-    font-size:0.8rem;
-    cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:5px;
+  margin-bottom:5px;
+  border-radius:6px;
+  background:#020617;
+  font-size:0.8rem;
+  cursor:pointer;
 }
 
 .player img { width:22px; border-radius:4px; }
@@ -163,68 +152,48 @@ header h1 { color:var(--accent); }
 
 /* MODAL */
 .modal {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.7);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:100;
-    transition:0.2s;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .hidden {
-    opacity:0;
-    pointer-events:none;
+  opacity:0;
+  pointer-events:none;
 }
 
 .modal-content {
-    background:#020617;
-    border:1px solid #1f2937;
-    border-radius:20px;
-    padding:25px;
-    width:300px;
-    text-align:center;
-    position:relative;
-    transform:scale(0.9);
-    transition:0.2s;
+  background:#020617;
+  border:1px solid #1f2937;
+  border-radius:20px;
+  padding:25px;
+  width:300px;
+  text-align:center;
+  position:relative;
+  transform:scale(0.9);
+  transition:0.2s;
 }
 
-.modal:not(.hidden) .modal-content {
-    transform:scale(1);
-}
+.modal:not(.hidden) .modal-content { transform:scale(1); }
 
-.close {
-    position:absolute;
-    top:10px;
-    right:15px;
-    cursor:pointer;
-}
+.close { position:absolute; top:10px; right:15px; cursor:pointer; }
 
-/* PROFILE */
-.profile-avatar {
-    width:90px;
-    border-radius:50%;
-    border:3px solid var(--accent);
-}
-
-.profile-name {
-    font-size:1.4rem;
-    margin:10px 0;
-}
-
+.profile-avatar { width:90px; border-radius:50%; border:3px solid var(--accent); }
+.profile-name { font-size:1.4rem; margin:10px 0; }
 .profile-rank {
-    background:rgba(245,158,11,0.2);
-    color:var(--accent);
-    padding:6px 12px;
-    border-radius:20px;
-    display:inline-block;
+  background:rgba(245,158,11,0.2);
+  color:var(--accent);
+  padding:6px 12px;
+  border-radius:20px;
+  display:inline-block;
 }
 
-/* MOBILE */
 @media(max-width:768px){
-    .tier-grid { grid-template-columns:repeat(2,1fr); }
-    .player-row { grid-template-columns:40px 1fr; }
+  .tier-grid { grid-template-columns:repeat(2,1fr); }
+  .player-row { grid-template-columns:40px 1fr; }
 }
 </style>
 </head>
@@ -241,13 +210,13 @@ header h1 { color:var(--accent); }
 <div class="tabs" id="tabs"></div>
 <div id="leaderboard">Loading...</div>
 
-<!-- MODAL -->
 <div id="modal" class="modal hidden">
 <div class="modal-content" id="modalContent"></div>
 </div>
 
 <script>
 const iconMap={
+overall:"https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
 crystal:"https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
 sword:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
 uhc:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
@@ -257,11 +226,10 @@ netpot:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Nether
 dpot:"https://minecraft.wiki/images/Splash_Potion_of_Healing_JE2_BE2.png",
 cart:"https://minecraft.wiki/images/Minecart_with_TNT_JE2_BE2.png",
 mace:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png",
-axe:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
-overall:"https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+axe:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png"
 };
 
-const modes=Object.keys(iconMap);
+const modes=["overall","crystal","sword","uhc","smp","dsmp","netpot","dpot","cart","mace","axe"];
 const tierPoints={HT1:60,LT1:45,HT2:35,LT2:25,HT3:15,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
 
 let data=[];
@@ -270,149 +238,132 @@ let currentMode="overall";
 init();
 
 async function init(){
-createTabs();
-await loadData();
-render();
+  createTabs();
+  await loadData();
+  render();
 }
 
 async function loadData(){
-try{
-const res=await fetch("api-1.json");
-data=await res.json();
-}catch{
-document.getElementById("leaderboard").innerText="Failed to load data";
-}
+  const res=await fetch("api-1.json");
+  data=await res.json();
 }
 
 function createTabs(){
-const tabs=document.getElementById("tabs");
-modes.forEach(m=>{
-const btn=document.createElement("button");
-btn.className="tab";
-if(m==="overall") btn.classList.add("active");
-btn.innerHTML=`<img src="${iconMap[m]}">${m}`;
-btn.onclick=()=>switchTab(m,btn);
-tabs.appendChild(btn);
-});
+  const tabs=document.getElementById("tabs");
+  modes.forEach(m=>{
+    const btn=document.createElement("button");
+    btn.className="tab";
+    if(m==="overall") btn.classList.add("active");
+    btn.innerHTML=`<img src="${iconMap[m]}">${m}`;
+    btn.onclick=()=>switchTab(m,btn);
+    tabs.appendChild(btn);
+  });
 }
 
 function switchTab(mode,btn){
-const container=document.getElementById("leaderboard");
-container.classList.add("fade-out");
-
-setTimeout(()=>{
-currentMode=mode;
-document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-btn.classList.add("active");
-render();
-container.classList.remove("fade-out");
-},200);
+  const container=document.getElementById("leaderboard");
+  container.classList.add("fade-out");
+  setTimeout(()=>{
+    currentMode=mode;
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+    container.classList.remove("fade-out");
+  },200);
 }
 
 function getPoints(p){
-let pts=0;
-Object.values(p.rankings||{}).forEach(r=>{
-const type=r.pos===0?"HT":"LT";
-pts+=tierPoints[type+r.tier]||0;
-});
-return pts;
+  let pts=0;
+  Object.values(p.rankings||{}).forEach(r=>{
+    const type=r.pos===0?"HT":"LT";
+    pts+=tierPoints[type+r.tier]||0;
+  });
+  return pts;
 }
 
 function openProfile(p,rank=0,points=0){
-const modal=document.getElementById("modal");
-const content=document.getElementById("modalContent");
+  const modal=document.getElementById("modal");
+  const content=document.getElementById("modalContent");
 
-let tiers="";
-Object.entries(p.rankings||{}).forEach(([m,r])=>{
-const type=r.pos===0?"HT":"LT";
-tiers+=`<div class="tier-badge ${type}">
-<img src="${iconMap[m]}">${type}${r.tier}</div>`;
-});
+  let tiers="";
+  Object.entries(p.rankings||{}).forEach(([m,r])=>{
+    const type=r.pos===0?"HT":"LT";
+    tiers+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+  });
 
-content.innerHTML=`
-<div class="close" onclick="closeModal()">✖</div>
-<img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
-<div class="profile-name">${p.name}</div>
-<div class="profile-rank">Combat Master</div>
-<div style="margin-top:10px;">#${rank} • ${points} pts</div>
-<div class="tiers-list">${tiers}</div>
-`;
+  content.innerHTML=`
+    <div class="close" onclick="closeModal()">✖</div>
+    <img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
+    <div class="profile-name">${p.name}</div>
+    <div class="profile-rank">Combat Master</div>
+    <div style="margin-top:10px;">#${rank} • ${points} pts</div>
+    <div class="tiers-list">${tiers}</div>
+  `;
 
-modal.classList.remove("hidden");
+  modal.classList.remove("hidden");
 }
 
-function closeModal(){
-document.getElementById("modal").classList.add("hidden");
-}
+function closeModal(){ document.getElementById("modal").classList.add("hidden"); }
 
 function render(){
-const container=document.getElementById("leaderboard");
-const search=document.getElementById("searchInput").value.toLowerCase();
+  const container=document.getElementById("leaderboard");
+  const search=document.getElementById("searchInput").value.toLowerCase();
 
-let players=data.filter(p=>p.name.toLowerCase().includes(search));
-container.innerHTML="";
+  let players=data.filter(p=>p.name.toLowerCase().includes(search));
+  container.innerHTML="";
 
-if(currentMode==="overall"){
-players=players.map(p=>({...p,points:getPoints(p)}))
-.sort((a,b)=>b.points-a.points);
+  if(currentMode==="overall"){
+    players=players.map(p=>({...p,points:getPoints(p)})).sort((a,b)=>b.points-a.points);
+    players.forEach((p,i)=>{
+      const row=document.createElement("div");
+      row.className="player-row";
 
-players.forEach((p,i)=>{
-const row=document.createElement("div");
-row.className="player-row";
+      let tiersHTML="";
+      Object.entries(p.rankings||{}).forEach(([m,r])=>{
+        const type=r.pos===0?"HT":"LT";
+        tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+      });
 
-let tiers="";
-Object.entries(p.rankings||{}).forEach(([m,r])=>{
-const type=r.pos===0?"HT":"LT";
-tiers+=`<div class="tier-badge ${type}">
-<img src="${iconMap[m]}">${type}${r.tier}</div>`;
-});
+      row.innerHTML=`
+        <div class="rank">#${i+1}</div>
+        <div class="player-info"><img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}</div>
+        <div>${p.points} pts</div>
+        <div class="tiers-list">${tiersHTML}</div>
+      `;
 
-row.innerHTML=`
-<div class="rank">#${i+1}</div>
-<div class="player-info">
-<img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
-${p.name}
-</div>
-<div>${p.points}</div>
-<div class="tiers-list">${tiers}</div>
-`;
+      row.onclick=()=>openProfile(p,i+1,p.points);
+      container.appendChild(row);
+    });
+    return;
+  }
 
-row.onclick=()=>openProfile(p,i+1,p.points);
-container.appendChild(row);
-});
-return;
-}
+  /* non-overall mode - tier grid */
+  const tiers={1:[],2:[],3:[],4:[],5:[]};
+  players.forEach(p=>{
+    const r=p.rankings?.[currentMode];
+    if(!r) return;
+    tiers[r.tier].push({...p,pos:r.pos});
+  });
 
-const tiers={1:[],2:[],3:[],4:[],5:[]};
+  const grid=document.createElement("div");
+  grid.className="tier-grid";
 
-players.forEach(p=>{
-const r=p.rankings?.[currentMode];
-if(!r) return;
-tiers[r.tier].push({...p,pos:r.pos});
-});
+  for(let t=1;t<=5;t++){
+    const col=document.createElement("div");
+    col.className="tier-column";
+    col.innerHTML=`<div class="tier-title">Tier ${t}</div>`;
+    tiers[t].sort((a,b)=>a.pos-b.pos);
+    tiers[t].forEach(p=>{
+      const div=document.createElement("div");
+      div.className=`player ${p.pos===0?"HT":"LT"}`;
+      div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
+      div.onclick=()=>openProfile(p);
+      col.appendChild(div);
+    });
+    grid.appendChild(col);
+  }
 
-const grid=document.createElement("div");
-grid.className="tier-grid";
-
-for(let t=1;t<=5;t++){
-const col=document.createElement("div");
-col.className="tier-column";
-col.innerHTML=`<div class="tier-title">Tier ${t}</div>`;
-
-tiers[t].sort((a,b)=>a.pos-b.pos);
-
-tiers[t].forEach(p=>{
-const div=document.createElement("div");
-div.className=`player ${p.pos===0?"HT":"LT"}`;
-div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
-div.onclick=()=>openProfile(p);
-col.appendChild(div);
-});
-
-grid.appendChild(col);
-}
-
-container.appendChild(grid);
+  container.appendChild(grid);
 }
 
 document.getElementById("searchInput").addEventListener("input",render);
