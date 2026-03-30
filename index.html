@@ -59,7 +59,7 @@ header h1 { color:var(--accent); }
   border:1px solid #1f2937;
   border-radius:10px;
   cursor:pointer;
-  color: white;
+  color:white;
 }
 
 .tab img { width:16px; }
@@ -89,7 +89,7 @@ header h1 { color:var(--accent); }
 
 .avatar { width:36px; border-radius:6px; }
 
-/* NEW TEXT STRUCTURE */
+/* TEXT */
 .player-text { display:flex; flex-direction:column; }
 
 .name-line { display:flex; align-items:center; gap:8px; }
@@ -121,26 +121,12 @@ header h1 { color:var(--accent); }
 .HT { background:rgba(251,113,133,0.15); color:var(--ht); }
 .LT { background:rgba(74,222,128,0.15); color:var(--lt); }
 
-/* TOP 3 DESIGN */
-.top1, .top2, .top3 {
-  transform:scale(1.02);
-  position:relative;
-}
+/* TOP 3 */
+.top1, .top2, .top3 { transform:scale(1.02); position:relative; }
 
-.top1 {
-  border:1px solid gold;
-  box-shadow:0 0 20px rgba(255,215,0,0.4);
-}
-
-.top2 {
-  border:1px solid #c0c0c0;
-  box-shadow:0 0 15px rgba(192,192,192,0.4);
-}
-
-.top3 {
-  border:1px solid #cd7f32;
-  box-shadow:0 0 15px rgba(205,127,50,0.4);
-}
+.top1 { border:1px solid gold; box-shadow:0 0 20px rgba(255,215,0,0.4); }
+.top2 { border:1px solid #c0c0c0; box-shadow:0 0 15px rgba(192,192,192,0.4); }
+.top3 { border:1px solid #cd7f32; box-shadow:0 0 15px rgba(205,127,50,0.4); }
 
 .top1::before {
   content:"";
@@ -153,37 +139,6 @@ header h1 { color:var(--accent); }
 @keyframes shine {
   0% { transform:translateX(-100%); }
   100% { transform:translateX(100%); }
-}
-
-/* MODAL */
-.modal {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.hidden { opacity:0; pointer-events:none; }
-
-.modal-content {
-  background:#020617;
-  border:1px solid #1f2937;
-  border-radius:20px;
-  padding:25px;
-  width:300px;
-  text-align:center;
-}
-
-.profile-avatar { width:90px; border-radius:50%; border:3px solid var(--accent); }
-.profile-name { font-size:1.4rem; margin:10px 0; }
-.profile-rank {
-  background:rgba(245,158,11,0.2);
-  color:var(--accent);
-  padding:6px 12px;
-  border-radius:20px;
-  display:inline-block;
 }
 </style>
 
@@ -201,14 +156,16 @@ header h1 { color:var(--accent); }
 <div class="tabs" id="tabs"></div>
 <div id="leaderboard">Loading...</div>
 
-<div id="modal" class="modal hidden">
-<div class="modal-content" id="modalContent"></div>
-</div>
-
 <script>
-const iconMap={overall:"https://cdn-icons-png.flaticon.com/512/1828/1828884.png"};
+const iconMap={
+overall:"https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
+crystal:"https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
+sword:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
+uhc:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
+smp:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f6/Ender_Pearl_JE3_BE2.png"
+};
 
-const modes=["overall"];
+const modes=["overall","crystal","sword","uhc","smp"];
 const tierPoints={HT1:60,LT1:45,HT2:35,LT2:25,HT3:15,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
 
 let data=[];
@@ -217,14 +174,33 @@ let currentMode="overall";
 init();
 
 async function init(){
+  createTabs();
   await loadData();
-  data=data.map(p=>({...p, points:getPoints(p)}));
   render();
 }
 
 async function loadData(){
   const res=await fetch("api-1.json");
   data=await res.json();
+}
+
+function createTabs(){
+  const tabs=document.getElementById("tabs");
+  modes.forEach(m=>{
+    const btn=document.createElement("button");
+    btn.className="tab";
+    if(m==="overall") btn.classList.add("active");
+    btn.innerHTML=`<img src="${iconMap[m]}">${m}`;
+    btn.onclick=()=>switchTab(m,btn);
+    tabs.appendChild(btn);
+  });
+}
+
+function switchTab(mode,btn){
+  currentMode=mode;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+  render();
 }
 
 function getPoints(p){
@@ -247,6 +223,7 @@ function getAchievementTitle(points){
 }
 
 function computeRanks(players){
+  players=players.map(p=>({...p, points:getPoints(p)}));
   players.sort((a,b)=>b.points-a.points);
   let rank=1,last=null,skip=0;
   players.forEach(p=>{
@@ -258,39 +235,77 @@ function computeRanks(players){
 
 function render(){
   const container=document.getElementById("leaderboard");
+  const search=document.getElementById("searchInput").value.toLowerCase();
+
+  let players=data.filter(p=>p.name.toLowerCase().includes(search));
   container.innerHTML="";
 
-  let players=computeRanks([...data]);
+  if(currentMode==="overall"){
+    players=computeRanks(players);
 
-  players.forEach(p=>{
-    const row=document.createElement("div");
-    row.className="player-row";
+    players.forEach(p=>{
+      let tiersHTML="";
+      Object.entries(p.rankings||{}).forEach(([m,r])=>{
+        const type=r.pos===0?"HT":"LT";
+        tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+      });
 
-    if(p.rank===1) row.classList.add("top1");
-    if(p.rank===2) row.classList.add("top2");
-    if(p.rank===3) row.classList.add("top3");
+      const row=document.createElement("div");
+      row.className="player-row";
 
-    row.innerHTML=`
-      <div class="rank">
-        ${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}
-      </div>
+      if(p.rank===1) row.classList.add("top1");
+      if(p.rank===2) row.classList.add("top2");
+      if(p.rank===3) row.classList.add("top3");
 
-      <div class="player-info">
-        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
-        <div class="player-text">
-          <div class="name-line">
-            <span class="player-name">${p.name}</span>
-            <span class="achievement">${getAchievementTitle(p.points)}</span>
-          </div>
-          <div class="points">${p.points} pts</div>
+      row.innerHTML=`
+        <div class="rank">
+          ${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}
         </div>
-      </div>
 
-      <div></div>
-    `;
+        <div class="player-info">
+          <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
+          <div class="player-text">
+            <div class="name-line">
+              <span class="player-name">${p.name}</span>
+              <span class="achievement">${getAchievementTitle(p.points)}</span>
+            </div>
+            <div class="points">${p.points} pts</div>
+          </div>
+        </div>
 
-    container.appendChild(row);
+        <div class="tiers-list">${tiersHTML}</div>
+      `;
+
+      container.appendChild(row);
+    });
+    return;
+  }
+
+  // OTHER MODES (unchanged)
+  const tiers={1:[],2:[],3:[],4:[],5:[]};
+  players.forEach(p=>{
+    const r=p.rankings?.[currentMode];
+    if(!r) return;
+    tiers[r.tier].push({...p,pos:r.pos});
   });
+
+  const grid=document.createElement("div");
+  grid.className="tier-grid";
+
+  for(let t=1;t<=5;t++){
+    const col=document.createElement("div");
+    col.className="tier-column";
+    col.innerHTML=`<div class="tier-title">Tier ${t}</div>`;
+    tiers[t].forEach(p=>{
+      const div=document.createElement("div");
+      div.className=`player ${p.pos===0?"HT":"LT"}`;
+      div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
+      col.appendChild(div);
+    });
+    grid.appendChild(col);
+  }
+
+  container.appendChild(grid);
 }
 
 document.getElementById("searchInput").addEventListener("input",render);
