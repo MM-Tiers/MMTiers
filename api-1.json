@@ -234,7 +234,8 @@
       "dpot": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 4, "pos": 0 },
       "smp": { "tier": 1, "pos": 0},
-      "cart": { "tier":3, "pos": 1}
+      "cart": { "tier":3, "pos": 1},
+      "axe": { "tier" 3, "pos": 1}
     }
   },
   {
