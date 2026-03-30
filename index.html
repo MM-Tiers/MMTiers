@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -33,7 +32,6 @@ header {
   border-bottom:1px solid #1f2937;
 }
 
-/* 🔥 Animated Title */
 header h1 {
   font-weight:700;
   background: linear-gradient(90deg,#f59e0b,#fb7185,#4ade80,#f59e0b);
@@ -63,7 +61,6 @@ header h1 {
 
 .search-bar input::placeholder { color: #cbd5e1; }
 
-/* Tabs */
 .tabs {
   display:flex;
   flex-wrap:wrap;
@@ -85,18 +82,20 @@ header h1 {
   transition:0.2s;
 }
 
-.tab:hover { transform:scale(1.05); }
-
 .tab img { width:16px; }
 
 .tab.active {
   background:var(--accent);
+  color:white;
+}
+
+.tab:hover {
+  transform:scale(1.05);
 }
 
 #leaderboard { transition:opacity 0.25s ease; }
 .fade-out { opacity:0; }
 
-/* Player Row */
 .player-row {
   display:grid;
   grid-template-columns:50px 1fr 1fr;
@@ -106,6 +105,7 @@ header h1 {
   border-radius:14px;
   border:1px solid #1f2937;
   cursor:pointer;
+  color:white;
 }
 
 .rank { color:var(--accent); font-weight:bold; }
@@ -114,9 +114,11 @@ header h1 {
 
 .avatar { width:36px; border-radius:6px; }
 
-/* New text layout */
+/* NEW TEXT */
 .player-text { display:flex; flex-direction:column; }
-.name-line { display:flex; gap:8px; align-items:center; }
+
+.name-line { display:flex; align-items:center; gap:8px; }
+
 .player-name { font-weight:700; }
 
 .achievement {
@@ -129,8 +131,11 @@ header h1 {
 
 .points { font-size:0.8rem; color:#cbd5e1; }
 
-/* Tier badges */
-.tiers-list { display:flex; flex-wrap:wrap; gap:6px; }
+.tiers-list {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
 
 .tier-badge {
   display:flex;
@@ -139,6 +144,7 @@ header h1 {
   padding:3px 7px;
   border-radius:6px;
   font-size:0.75rem;
+  color: inherit;
   animation: pulse 1.5s infinite alternate;
 }
 
@@ -148,17 +154,78 @@ header h1 {
 .LT { background:rgba(74,222,128,0.15); color:var(--lt); }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.3); }
+  100% { transform: scale(1); filter: brightness(1); }
 }
 
-/* Top 3 */
-.top1, .top2, .top3 { transform:scale(1.02); position:relative; }
-.top1 { border:1px solid gold; box-shadow:0 0 20px rgba(255,215,0,0.4); }
-.top2 { border:1px solid #c0c0c0; box-shadow:0 0 15px rgba(192,192,192,0.4); }
-.top3 { border:1px solid #cd7f32; box-shadow:0 0 15px rgba(205,127,50,0.4); }
+/* TOP 3 */
+.top1, .top2, .top3 {
+  transform:scale(1.02);
+  position:relative;
+}
 
-/* Modal unchanged */
+.top1 {
+  border:1px solid gold;
+  box-shadow:0 0 20px rgba(255,215,0,0.4);
+}
+
+.top2 {
+  border:1px solid #c0c0c0;
+  box-shadow:0 0 15px rgba(192,192,192,0.4);
+}
+
+.top3 {
+  border:1px solid #cd7f32;
+  box-shadow:0 0 15px rgba(205,127,50,0.4);
+}
+
+.top1::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent, rgba(255,215,0,0.3), transparent);
+  animation:shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { transform:translateX(-100%); }
+  100% { transform:translateX(100%); }
+}
+
+.tier-grid {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  padding:10px;
+}
+
+.tier-column {
+  background:#0f172a;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  padding:10px;
+}
+
+.tier-title { text-align:center; font-weight:bold; margin-bottom:8px; color:var(--accent); }
+
+.player {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:5px;
+  margin-bottom:5px;
+  border-radius:6px;
+  background:#020617;
+  font-size:0.8rem;
+  cursor:pointer;
+}
+
+.player img { width:22px; border-radius:4px; }
+
+.player.HT { border-left:3px solid var(--ht); }
+.player.LT { border-left:3px solid var(--lt); }
+
 .modal {
   position:fixed;
   inset:0;
@@ -177,8 +244,25 @@ header h1 {
   padding:25px;
   width:300px;
   text-align:center;
+  position:relative;
 }
 
+.close { position:absolute; top:10px; right:15px; cursor:pointer; }
+
+.profile-avatar { width:90px; border-radius:50%; border:3px solid var(--accent); }
+.profile-name { font-size:1.4rem; margin:10px 0; }
+.profile-rank {
+  background:rgba(245,158,11,0.2);
+  color:var(--accent);
+  padding:6px 12px;
+  border-radius:20px;
+  display:inline-block;
+}
+
+@media(max-width:768px){
+  .tier-grid { grid-template-columns:repeat(2,1fr); }
+  .player-row { grid-template-columns:40px 1fr; }
+}
 </style>
 
 </head>
@@ -200,8 +284,6 @@ header h1 {
 </div>
 
 <script>
-/* YOUR FULL ORIGINAL JS — only small UI changes applied */
-
 const iconMap={
 overall:"https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
 crystal:"https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
@@ -279,58 +361,129 @@ function getAchievementTitle(points){
 }
 
 function computeRanks(players){
-  players = players.map(p=>({...p, points:getPoints(p)}));
   players.sort((a,b)=>b.points - a.points);
-  let rank=1,last=null,skip=0;
-  players.forEach(p=>{
-    if(last!==p.points){rank+=skip;skip=1;p.rank=rank;last=p.points;}
-    else{p.rank=rank;skip++;}
+  let rank = 1;
+  let lastPoints = null;
+  let skip = 0;
+
+  players.forEach((p)=>{
+    if(lastPoints !== p.points){
+      rank = rank + skip;
+      skip = 1;
+      p.rank = rank;
+      lastPoints = p.points;
+    } else {
+      p.rank = rank;
+      skip++;
+    }
   });
+
   return players;
 }
 
+function openProfile(p, rank=0, points=0){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modalContent");
+
+  let tiers = "";
+  Object.entries(p.rankings || {}).forEach(([m, r]) => {
+    const type = r.pos===0?"HT":"LT";
+    tiers += `<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+  });
+
+  content.innerHTML = `
+    <div class="close" onclick="closeModal()">✖</div>
+    <img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
+    <div class="profile-name">${p.name}</div>
+    <div class="profile-rank">${getAchievementTitle(points)}</div>
+    <div style="margin-top:10px;">#${rank} • ${points} pts</div>
+    <div class="tiers-list">${tiers}</div>
+  `;
+
+  modal.classList.remove("hidden");
+}
+
+function closeModal(){ document.getElementById("modal").classList.add("hidden"); }
+
 function render(){
   const container=document.getElementById("leaderboard");
+  const search=document.getElementById("searchInput").value.toLowerCase();
+
+  let players=data.filter(p=>p.name.toLowerCase().includes(search));
   container.innerHTML="";
 
-  let players=computeRanks([...data]);
+  if(currentMode==="overall"){
+    players = players.map(p=>({...p, points:getPoints(p)}));
+    players = computeRanks(players);
 
-  players.forEach(p=>{
-    const row=document.createElement("div");
-    row.className="player-row";
+    players.forEach((p)=>{
+      const row = document.createElement("div");
+      row.className="player-row";
 
-    if(p.rank===1) row.classList.add("top1");
-    if(p.rank===2) row.classList.add("top2");
-    if(p.rank===3) row.classList.add("top3");
+      if(p.rank===1) row.classList.add("top1");
+      if(p.rank===2) row.classList.add("top2");
+      if(p.rank===3) row.classList.add("top3");
 
-    let tiersHTML="";
-    Object.entries(p.rankings||{}).forEach(([m,r])=>{
-      const type=r.pos===0?"HT":"LT";
-      tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
-    });
+      let tiersHTML="";
+      Object.entries(p.rankings||{}).forEach(([m,r])=>{
+        const type = r.pos===0?"HT":"LT";
+        tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+      });
 
-    row.innerHTML=`
-      <div class="rank">
-        ${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}
-      </div>
-
-      <div class="player-info">
-        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
-        <div class="player-text">
-          <div class="name-line">
-            <span class="player-name">${p.name}</span>
-            <span class="achievement">${getAchievementTitle(p.points)}</span>
-          </div>
-          <div class="points">${p.points} pts</div>
+      row.innerHTML=`
+        <div class="rank">
+          ${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}
         </div>
-      </div>
 
-      <div class="tiers-list">${tiersHTML}</div>
-    `;
+        <div class="player-info">
+          <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
+          <div class="player-text">
+            <div class="name-line">
+              <span class="player-name">${p.name}</span>
+              <span class="achievement">${getAchievementTitle(p.points)}</span>
+            </div>
+            <div class="points">${p.points} pts</div>
+          </div>
+        </div>
 
-    container.appendChild(row);
+        <div class="tiers-list">${tiersHTML}</div>
+      `;
+
+      row.onclick = ()=>openProfile(p, p.rank, p.points);
+      container.appendChild(row);
+    });
+    return;
+  }
+
+  const tiers={1:[],2:[],3:[],4:[],5:[]};
+  players.forEach(p=>{
+    const r=p.rankings?.[currentMode];
+    if(!r) return;
+    tiers[r.tier].push({...p,pos:r.pos});
   });
+
+  const grid=document.createElement("div");
+  grid.className="tier-grid";
+
+  for(let t=1;t<=5;t++){
+    const col=document.createElement("div");
+    col.className="tier-column";
+    col.innerHTML=`<div class="tier-title">Tier ${t}</div>`;
+    tiers[t].sort((a,b)=>a.pos-b.pos);
+    tiers[t].forEach(p=>{
+      const div=document.createElement("div");
+      div.className=`player ${p.pos===0?"HT":"LT"}`;
+      div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
+      div.onclick=()=>openProfile(p,getPoints(p));
+      col.appendChild(div);
+    });
+    grid.appendChild(col);
+  }
+
+  container.appendChild(grid);
 }
+
+document.getElementById("searchInput").addEventListener("input",render);
 </script>
 
 </body>
