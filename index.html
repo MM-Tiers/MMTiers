@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MMTiers Modern Columns</title>
+<title>MMTiers Modern Rows</title>
 <style>
 :root {
   --bg: #0b1220;
@@ -163,33 +163,31 @@ header h1 {
   color: var(--lt);
 }
 
-/* TIER GRID (for modes other than overall) */
-.tier-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+/* NEW STYLE FOR GAMEMODE ROWS */
+.tier-row {
+  display: flex;
+  align-items: flex-start;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.tier-column {
-  background: rgba(17,24,39,0.85);
-  border-radius: 12px;
-  border: 1px solid #1f2937;
-  padding: 0.5rem;
-}
-
-.tier-title {
-  text-align: center;
+.tier-label {
+  min-width: 80px;
   font-weight: bold;
   color: var(--accent);
-  margin-bottom: 0.5rem;
+}
+
+.tier-players {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .player {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem;
-  margin-bottom: 0.4rem;
+  padding: 0.4rem 0.6rem;
   border-radius: 8px;
   background: rgba(2,6,23,0.7);
   border-left: 3px solid transparent;
@@ -297,7 +295,7 @@ function renderLeaderboard(search="") {
     return;
   }
 
-  // OTHER MODES: column per tier
+  // OTHER MODES: row per tier
   const tiers = {1:[],2:[],3:[],4:[],5:[]};
   players.forEach(p=>{
     const data=p.rankings?.[currentMode];
@@ -305,25 +303,24 @@ function renderLeaderboard(search="") {
     tiers[data.tier].push({name:p.name,uuid:p.uuid,pos:data.pos});
   });
 
-  Object.values(tiers).forEach(arr=>arr.sort((a,b)=>a.pos-b.pos));
-
-  const grid = document.createElement("div");
-  grid.className="tier-grid";
-
   for(let t=1;t<=5;t++){
-    const col=document.createElement("div");
-    col.className="tier-column";
-    col.innerHTML=`<div class="tier-title">Tier ${t}</div>`;
+    const row = document.createElement("div");
+    row.className="tier-row";
+    const label = document.createElement("div");
+    label.className="tier-label";
+    label.textContent="Tier "+t;
+    row.appendChild(label);
+    const playerContainer = document.createElement("div");
+    playerContainer.className="tier-players";
     tiers[t].forEach(p=>{
-      const div=document.createElement("div");
+      const div = document.createElement("div");
       div.className="player "+(p.pos===0?"HT":"LT");
       div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
-      col.appendChild(div);
+      playerContainer.appendChild(div);
     });
-    grid.appendChild(col);
+    row.appendChild(playerContainer);
+    leaderboardDiv.appendChild(row);
   }
-
-  leaderboardDiv.appendChild(grid);
 }
 
 document.getElementById("searchInput").addEventListener("input",e=>renderLeaderboard(e.target.value));
