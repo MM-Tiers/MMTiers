@@ -8,12 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* 🔥 ZOOM CONTROL (EDIT THIS VALUE) */
-html { zoom: 1.25; /* ← CHANGE THIS */ }
+html { zoom: 1.25; }
 
 :root {
   --bg:#0b1220;
-  --text:#ffffff; /* text now white */
+  --text:#ffffff;
   --accent:#f59e0b;
   --ht:#fb7185;
   --lt:#4ade80;
@@ -43,9 +42,7 @@ header h1 { color:var(--accent); }
   color:white;
 }
 
-.search-bar input::placeholder {
-  color: #cbd5e1; /* lighter placeholder for readability */
-}
+.search-bar input::placeholder { color: #cbd5e1; }
 
 .tabs {
   display:flex;
@@ -63,14 +60,14 @@ header h1 { color:var(--accent); }
   border:1px solid #1f2937;
   border-radius:10px;
   cursor:pointer;
-  color: white; /* tab text white */
+  color: white;
 }
 
 .tab img { width:16px; }
 
 .tab.active {
   background:var(--accent);
-  color:white; /* active tab text white */
+  color:white;
 }
 
 #leaderboard { transition:opacity 0.25s ease; }
@@ -85,16 +82,12 @@ header h1 { color:var(--accent); }
   border-radius:14px;
   border:1px solid #1f2937;
   cursor:pointer;
-  color:white; /* player-row text white */
+  color:white;
 }
 
 .rank { color:var(--accent); font-weight:bold; }
 
-.player-info {
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.player-info { display:flex; align-items:center; gap:10px; }
 
 .avatar { width:36px; border-radius:6px; }
 
@@ -112,12 +105,19 @@ header h1 { color:var(--accent); }
   border-radius:6px;
   font-size:0.75rem;
   color: inherit;
+  animation: pulse 1.5s infinite alternate;
 }
 
 .tier-badge img { width:14px; }
 
 .HT { background:rgba(251,113,133,0.15); color:var(--ht); }
 .LT { background:rgba(74,222,128,0.15); color:var(--lt); }
+
+@keyframes pulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.3); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
 
 .tier-grid {
   display:grid;
@@ -131,15 +131,10 @@ header h1 { color:var(--accent); }
   border:1px solid #1f2937;
   border-radius:10px;
   padding:10px;
-  color:white; /* text white in tier columns */
+  color:white;
 }
 
-.tier-title {
-  text-align:center;
-  font-weight:bold;
-  margin-bottom:8px;
-  color:var(--accent);
-}
+.tier-title { text-align:center; font-weight:bold; margin-bottom:8px; color:var(--accent); }
 
 .player {
   display:flex;
@@ -151,7 +146,7 @@ header h1 { color:var(--accent); }
   background:#020617;
   font-size:0.8rem;
   cursor:pointer;
-  color:white; /* player names white */
+  color:white;
 }
 
 .player img { width:22px; border-radius:4px; }
@@ -159,7 +154,6 @@ header h1 { color:var(--accent); }
 .player.HT { border-left:3px solid var(--ht); }
 .player.LT { border-left:3px solid var(--lt); }
 
-/* MODAL */
 .modal {
   position:fixed;
   inset:0;
@@ -169,10 +163,7 @@ header h1 { color:var(--accent); }
   justify-content:center;
 }
 
-.hidden {
-  opacity:0;
-  pointer-events:none;
-}
+.hidden { opacity:0; pointer-events:none; }
 
 .modal-content {
   background:#020617;
@@ -184,7 +175,7 @@ header h1 { color:var(--accent); }
   position:relative;
   transform:scale(0.9);
   transition:0.2s;
-  color:white; /* modal text white */
+  color:white;
 }
 
 .modal:not(.hidden) .modal-content { transform:scale(1); }
@@ -296,7 +287,6 @@ function getPoints(p){
   return pts;
 }
 
-// Achievement titles
 function getAchievementTitle(points){
   if(points >= 400) return "Combat Grandmaster";
   if(points >= 250) return "Combat Master";
@@ -305,6 +295,28 @@ function getAchievementTitle(points){
   if(points >= 20) return "Combat Cadet";
   if(points >= 10) return "Combat Novice";
   return "Rookie";
+}
+
+// DENSE RANKING FUNCTION
+function computeRanks(players){
+  players.sort((a,b)=>b.points - a.points);
+  let rank = 1;
+  let lastPoints = null;
+  let skip = 0;
+
+  players.forEach((p)=>{
+    if(lastPoints !== p.points){
+      rank = rank + skip;
+      skip = 1;
+      p.rank = rank;
+      lastPoints = p.points;
+    } else {
+      p.rank = rank;
+      skip++;
+    }
+  });
+
+  return players;
 }
 
 function openProfile(p, rank=0, points=0){
@@ -339,31 +351,32 @@ function render(){
   container.innerHTML="";
 
   if(currentMode==="overall"){
-    players=players.map(p=>({...p,points:getPoints(p)})).sort((a,b)=>b.points-a.points);
-    players.forEach((p,i)=>{
-      const row=document.createElement("div");
+    players = players.map(p=>({...p, points:getPoints(p)}));
+    players = computeRanks(players);
+
+    players.forEach((p)=>{
+      const row = document.createElement("div");
       row.className="player-row";
 
       let tiersHTML="";
       Object.entries(p.rankings||{}).forEach(([m,r])=>{
-        const type=r.pos===0?"HT":"LT";
+        const type = r.pos===0?"HT":"LT";
         tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
       });
 
       row.innerHTML=`
-        <div class="rank">#${i+1}</div>
+        <div class="rank">#${p.rank}</div>
         <div class="player-info"><img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}</div>
         <div>${p.points} pts</div>
         <div class="tiers-list">${tiersHTML}</div>
       `;
 
-      row.onclick=()=>openProfile(p,i+1,p.points);
+      row.onclick = ()=>openProfile(p, p.rank, p.points);
       container.appendChild(row);
     });
     return;
   }
 
-  // Non-overall mode - tier grid
   const tiers={1:[],2:[],3:[],4:[],5:[]};
   players.forEach(p=>{
     const r=p.rankings?.[currentMode];
