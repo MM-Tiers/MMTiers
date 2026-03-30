@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MMTiers Modern</title>
+<title>MMTiers Modern Rows</title>
 <style>
 :root {
   --bg: #0b1220;
@@ -39,7 +39,7 @@ header h1 {
   font-size: 1.8rem;
 }
 
-/* SEARCH BAR */
+/* SEARCH */
 .search-bar input {
   padding: 0.5rem 1rem;
   border-radius: 12px;
@@ -87,36 +87,33 @@ header h1 {
   box-shadow: 0 4px 12px rgba(245,158,11,0.4);
 }
 
-/* LEADERBOARD GRID */
+/* PLAYER ROWS */
 #leaderboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
   padding: 1rem 2rem;
-}
-
-/* PLAYER CARD */
-.player-card {
-  background: rgba(17,24,39,0.85);
-  border-radius: 16px;
-  padding: 1rem;
-  border: 1px solid #1f2937;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  gap: 1rem;
 }
 
-.player-card:hover {
-  transform: translateY(-6px);
+.player-row {
+  display: grid;
+  grid-template-columns: 60px 1.5fr 1fr 2fr;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(17,24,39,0.85);
+  border-radius: 16px;
+  border: 1px solid #1f2937;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-row:hover {
+  transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.7);
 }
 
-.player-card .rank {
+.rank {
   font-weight: bold;
   color: var(--accent);
-  font-size: 1.1rem;
 }
 
 .player-info {
@@ -125,23 +122,17 @@ header h1 {
   gap: 0.75rem;
 }
 
-.player-info img {
+.avatar {
   width: 40px;
   height: 40px;
   border-radius: 8px;
   object-fit: cover;
 }
 
-.player-points {
-  font-weight: 500;
-  margin-top: 0.25rem;
-}
-
-/* TIER BADGES */
 .tiers-list {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .tier-badge {
@@ -169,28 +160,17 @@ header h1 {
   animation: pulseLT 2s infinite alternate;
 }
 
-@keyframes pulseHT {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
-}
+@keyframes pulseHT { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
+@keyframes pulseLT { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
 
-@keyframes pulseLT {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
-}
-
-.player-card img {
+/* PLAYER IMAGE IN ROWS */
+.player-row img {
   border-radius: 8px;
 }
 
 /* SCROLLBAR */
-.tabs::-webkit-scrollbar {
-  height: 6px;
-}
-.tabs::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border-radius: 3px;
-}
+.tabs::-webkit-scrollbar { height: 6px; }
+.tabs::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 3px; }
 </style>
 </head>
 <body>
@@ -206,7 +186,6 @@ header h1 {
 <div id="leaderboard"></div>
 
 <script>
-// ICONS & MODES
 const iconMap = {
 "crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
 "sword": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
@@ -220,7 +199,6 @@ const iconMap = {
 "axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
 "overall": "https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
 };
-
 const modes = ["overall","crystal","sword","uhc","smp","dsmp","netpot","dpot","cart","mace","axe"];
 const tierPoints = { "HT1":60,"LT1":45,"HT2":35,"LT2":25,"HT3":15,"LT3":6,"HT4":4,"LT4":3,"HT5":2,"LT5":1};
 
@@ -229,76 +207,78 @@ let currentMode = "overall";
 
 // CREATE TABS
 const tabsDiv = document.getElementById("tabs");
-modes.forEach(mode => {
-    const btn = document.createElement("button");
-    btn.className = "tab";
-    if(mode==="overall") btn.classList.add("active");
-    btn.innerHTML = `<img src="${iconMap[mode]}" width="16"> ${mode}`;
-    btn.onclick = ()=>{currentMode=mode;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLeaderboard();};
-    tabsDiv.appendChild(btn);
+modes.forEach(mode=>{
+  const btn=document.createElement("button");
+  btn.className="tab";
+  if(mode==="overall") btn.classList.add("active");
+  btn.innerHTML=`<img src="${iconMap[mode]}" width="16"> ${mode}`;
+  btn.onclick=()=>{
+    currentMode=mode;
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    renderLeaderboard();
+  };
+  tabsDiv.appendChild(btn);
 });
 
 // LOAD DATA
 async function loadLeaderboard() {
-    const res = await fetch('api-1.json'); // Your JSON
-    leaderboardData = await res.json();
-    renderLeaderboard();
+  const res = await fetch('api-1.json');
+  leaderboardData = await res.json();
+  renderLeaderboard();
 }
 
-// RENDER
-function renderLeaderboard(search=""){
-    const container = document.getElementById("leaderboard");
-    container.innerHTML = "";
-    let players = leaderboardData.filter(p=>p.name.toLowerCase().includes(search.toLowerCase()));
+// RENDER FUNCTION
+function renderLeaderboard(search="") {
+  const container = document.getElementById("leaderboard");
+  container.innerHTML = "";
+  let players = leaderboardData.filter(p=>p.name.toLowerCase().includes(search.toLowerCase()));
 
-    if(currentMode==="overall"){
-        players = players.map(p=>{
-            let pts=0;
-            Object.values(p.rankings||{}).forEach(r=>{
-                const type=r.pos===0?"HT":"LT";
-                pts+=tierPoints[type+r.tier]||0;
-            });
-            return {...p, points:pts};
-        }).sort((a,b)=>b.points-a.points);
+  if(currentMode==="overall"){
+    players = players.map(p=>{
+      let pts=0;
+      Object.values(p.rankings||{}).forEach(r=>{
+        const type=r.pos===0?"HT":"LT";
+        pts+=tierPoints[type+r.tier]||0;
+      });
+      return {...p, points:pts};
+    }).sort((a,b)=>b.points-a.points);
 
-        players.forEach((p,i)=>{
-            let tiersHTML="";
-            Object.entries(p.rankings||{}).forEach(([mode,info])=>{
-                const type = info.pos===0?"HT":"LT";
-                tiersHTML+=`<div class="tier-badge ${type}" title="${mode} ${type}${info.tier}"><img src="${iconMap[mode]}" width="16">${type}${info.tier}</div>`;
-            });
-            const card = document.createElement("div");
-            card.className="player-card";
-            card.innerHTML=`
-                <div class="rank">#${i+1}</div>
-                <div class="player-info"><img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}</div>
-                <div class="player-points">${p.points} pts</div>
-                <div class="tiers-list">${tiersHTML}</div>`;
-            container.appendChild(card);
-        });
-        return;
-    }
-
-    // MODE TIER COLUMNS
-    const tiers={1:[],2:[],3:[],4:[],5:[]};
-    players.forEach(p=>{
-        const data=p.rankings?.[currentMode];
-        if(!data) return;
-        tiers[data.tier].push({name:p.name, uuid:p.uuid, pos:data.pos});
+    players.forEach((p,i)=>{
+      let tiersHTML="";
+      Object.entries(p.rankings||{}).forEach(([mode,info])=>{
+        const type = info.pos===0?"HT":"LT";
+        tiersHTML+=`<div class="tier-badge ${type}" title="${mode} ${type}${info.tier}"><img src="${iconMap[mode]}" width="16">${type}${info.tier}</div>`;
+      });
+      const row = document.createElement("div");
+      row.className="player-row";
+      row.innerHTML=`
+        <div class="rank">#${i+1}</div>
+        <div class="player-info"><img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}</div>
+        <div>${p.points} pts</div>
+        <div class="tiers-list">${tiersHTML}</div>`;
+      container.appendChild(row);
     });
+    return;
+  }
 
-    Object.values(tiers).forEach(arr=>arr.sort((a,b)=>a.pos-b.pos));
-    Object.keys(tiers).forEach(t=>{
-        tiers[t].forEach(p=>{
-            const card = document.createElement("div");
-            card.className="player-card "+(p.pos===0?"HT":"LT");
-            card.innerHTML=`<div class="player-info"><img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}</div>`;
-            container.appendChild(card);
-        });
-    });
+  // OTHER MODES: rows per player
+  players.forEach(p=>{
+    const data=p.rankings?.[currentMode];
+    if(!data) return;
+    const row=document.createElement("div");
+    row.className="player-row "+(data.pos===0?"HT":"LT");
+    row.innerHTML=`
+      <div class="rank">#${data.tier}</div>
+      <div class="player-info"><img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}</div>
+      <div>${data.pos===0?"HT":"LT"}${data.tier}</div>
+      <div class="tiers-list"><img src="${iconMap[currentMode]}" width="16"></div>
+    `;
+    container.appendChild(row);
+  });
 }
 
-document.getElementById("searchInput").addEventListener("input", e=>renderLeaderboard(e.target.value));
+document.getElementById("searchInput").addEventListener("input",e=>renderLeaderboard(e.target.value));
 loadLeaderboard();
 </script>
 </body>
