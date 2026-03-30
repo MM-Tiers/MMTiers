@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,9 +56,29 @@ header h1 {
     padding: 30px;
 }
 
+/* TABS */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
+.tab {
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #020617;
+    border: 1px solid #1f2937;
+    color: white;
+    cursor: pointer;
+}
 
+.tab.active {
+    background: var(--accent);
+    color: black;
+}
 
+/* PLAYER ROW */
 .player-row {
     display: grid;
     grid-template-columns: 70px 300px 180px 1fr;
@@ -67,12 +88,6 @@ header h1 {
     padding: 18px 25px;
     margin-bottom: 12px;
     align-items: center;
-    transition: 0.2s;
-}
-
-.player-row:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
 .rank {
@@ -119,11 +134,6 @@ header h1 {
     font-weight: bold;
 }
 
-.tier-badge img {
-    width: 18px;
-    height: 18px;
-}
-
 .HT {
     background: rgba(251,113,133,0.15);
     color: var(--ht);
@@ -141,21 +151,6 @@ header h1 {
     margin-top: 40px;
     color: #f87171;
 }
-
-@media(max-width: 900px) {
-    .player-row {
-        grid-template-columns: 60px 1fr;
-    }
-
-    .points {
-        grid-column: span 2;
-    }
-
-    .tiers-list {
-        grid-column: span 2;
-        margin-top: 10px;
-    }
-}
 </style>
 </head>
 
@@ -168,23 +163,27 @@ header h1 {
     </div>
 </header>
 
-<div class="container"><div id="leaderboard">Loading rankings...</div>
+<div class="container">
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('overall', this)">Overall</button>
+        <button class="tab" onclick="switchTab('crystal', this)">Crystal</button>
+        <button class="tab" onclick="switchTab('sword', this)">Sword</button>
+        <button class="tab" onclick="switchTab('uhc', this)">UHC</button>
+        <button class="tab" onclick="switchTab('smp', this)">SMP</button>
+        <button class="tab" onclick="switchTab('dsmp', this)">DSMP</button>
+        <button class="tab" onclick="switchTab('netpot', this)">NetPot</button>
+        <button class="tab" onclick="switchTab('dpot', this)">DPot</button>
+        <button class="tab" onclick="switchTab('cart', this)">Cart</button>
+        <button class="tab" onclick="switchTab('mace', this)">Mace</button>
+        <button class="tab" onclick="switchTab('diasmp', this)">DiaSMP</button>
+    </div>
+
+    <div id="leaderboard">Loading rankings...</div>
 </div>
 
 <script>
-const iconMap = {
-"sword": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
-"axe": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",
-"uhc": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",
-"smp": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f6/Ender_Pearl_JE3_BE2.png",
-"dpot": "https://minecraft.wiki/images/Splash_Potion_of_Healing_JE2_BE2.png",
-"netpot": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Netherite_Sword_JE2_BE2.png",
-"mace": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png",
-"crystal": "https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",
-"dsmp": "https://cdn.modrinth.com/data/iRzrwt7J/images/82d35276aeaa0d03900fc7e8d74996e7d8135917.png",
-"cart": "https://minecraft.wiki/images/Minecart_with_TNT_JE2_BE2.png?10e68"
-};
-
 const tierPoints = {
   "HT1": 60, "LT1": 45,
   "HT2": 35, "LT2": 25,
@@ -194,38 +193,57 @@ const tierPoints = {
 };
 
 let leaderboardData = [];
+let currentMode = "overall";
 
 async function loadLeaderboard() {
-    try {
-        const response = await fetch('api-1.json');
-        const data = await response.json();
-        leaderboardData = data.map(player => {
-            let totalPoints = 0;
-            const rankings = player.rankings || {};
-            Object.values(rankings).forEach(info => {
-                const type = info.pos === 0 ? "HT" : "LT";
-                const tierKey = type + info.tier;
-                if (tierPoints[tierKey]) totalPoints += tierPoints[tierKey];
-            });
-            player.points = totalPoints;
-            return player;
+    const response = await fetch('api-1.json');
+    const data = await response.json();
+
+    leaderboardData = data.map(player => {
+        let totalPoints = 0;
+
+        Object.values(player.rankings || {}).forEach(info => {
+            const type = info.pos === 0 ? "HT" : "LT";
+            totalPoints += tierPoints[type + info.tier] || 0;
         });
 
-        leaderboardData.sort((a,b) => b.points - a.points);
-        renderLeaderboard();
-    } catch(err) {
-        document.getElementById("leaderboard").innerHTML =
-        `<div class="error">Failed to load api-1.json</div>`;
-    }
+        return { ...player, points: totalPoints };
+    });
+
+    leaderboardData.sort((a,b) => b.points - a.points);
+    renderLeaderboard();
+}
+
+function switchTab(mode, el) {
+    currentMode = mode;
+
+    document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+    el.classList.add('active');
+
+    renderLeaderboard();
 }
 
 function renderLeaderboard(search = "") {
     const container = document.getElementById('leaderboard');
     container.innerHTML = "";
 
-    const filtered = leaderboardData.filter(player =>
+    let filtered = leaderboardData.filter(player =>
         player.name.toLowerCase().includes(search.toLowerCase())
     );
+
+    if (currentMode !== "overall") {
+        filtered = filtered.map(player => {
+            const data = player.rankings?.[currentMode];
+            if (!data) return null;
+
+            const type = data.pos === 0 ? "HT" : "LT";
+            const score = tierPoints[type + data.tier] || 0;
+
+            return { ...player, modeData: data, score };
+        }).filter(Boolean);
+
+        filtered.sort((a,b) => b.score - a.score);
+    }
 
     if(filtered.length === 0) {
         container.innerHTML = `<div class="error">No players found.</div>`;
@@ -236,26 +254,29 @@ function renderLeaderboard(search = "") {
         const row = document.createElement("div");
         row.className = "player-row";
 
-        let tiersHTML = "";
-        const rankings = player.rankings || {};
-        Object.entries(rankings).forEach(([mode,info]) => {
+        let tierHTML = "";
+
+        if (currentMode === "overall") {
+            Object.values(player.rankings || {}).forEach(info => {
+                const type = info.pos === 0 ? "HT" : "LT";
+                tierHTML += `<div class="tier-badge ${type}">${type}${info.tier}</div>`;
+            });
+        } else {
+            const info = player.modeData;
             const type = info.pos === 0 ? "HT" : "LT";
-            const icon = iconMap[mode.toLowerCase()] || "";
-            tiersHTML += `<div class="tier-badge ${type}">
-                <img src="${icon}">
-                ${type}${info.tier}
-            </div>`;
-        });
+            tierHTML = `<div class="tier-badge ${type}">${type}${info.tier}</div>`;
+        }
 
         row.innerHTML = `
-        <div class="rank">#${index+1}</div>
-        <div class="player-info">
-            <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/100">
-            <span class="player-name">${player.name}</span>
-        </div>
-        <div class="points">${player.points} pts</div>
-        <div class="tiers-list">${tiersHTML}</div>
+            <div class="rank">#${index+1}</div>
+            <div class="player-info">
+                <img class="avatar" src="https://mc-heads.net/avatar/${player.uuid}/100">
+                <span class="player-name">${player.name}</span>
+            </div>
+            <div class="points">${player.points} pts</div>
+            <div class="tiers-list">${tierHTML}</div>
         `;
+
         container.appendChild(row);
     });
 }
@@ -269,3 +290,4 @@ loadLeaderboard();
 
 </body>
 </html>
+```
