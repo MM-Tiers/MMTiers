@@ -43,6 +43,10 @@ header h1 { color:var(--accent); }
   color:white;
 }
 
+.search-bar input::placeholder {
+  color: #cbd5e1; /* lighter placeholder for readability */
+}
+
 .tabs {
   display:flex;
   flex-wrap:wrap;
@@ -59,14 +63,14 @@ header h1 { color:var(--accent); }
   border:1px solid #1f2937;
   border-radius:10px;
   cursor:pointer;
-  color: white; /* default tab text white */
+  color: white; /* tab text white */
 }
 
 .tab img { width:16px; }
 
 .tab.active {
   background:var(--accent);
-  color:white; /* changed from black to white */
+  color:white; /* active tab text white */
 }
 
 #leaderboard { transition:opacity 0.25s ease; }
@@ -81,7 +85,7 @@ header h1 { color:var(--accent); }
   border-radius:14px;
   border:1px solid #1f2937;
   cursor:pointer;
-  color:white; /* ensure all player-row text is white */
+  color:white; /* player-row text white */
 }
 
 .rank { color:var(--accent); font-weight:bold; }
@@ -147,7 +151,7 @@ header h1 { color:var(--accent); }
   background:#020617;
   font-size:0.8rem;
   cursor:pointer;
-  color:white; /* ensure player names white */
+  color:white; /* player names white */
 }
 
 .player img { width:22px; border-radius:4px; }
@@ -292,21 +296,32 @@ function getPoints(p){
   return pts;
 }
 
-function openProfile(p,rank=0,points=0){
-  const modal=document.getElementById("modal");
-  const content=document.getElementById("modalContent");
+// Achievement titles
+function getAchievementTitle(points){
+  if(points >= 400) return "Combat Grandmaster";
+  if(points >= 250) return "Combat Master";
+  if(points >= 100) return "Combat Ace";
+  if(points >= 50) return "Combat Specialist";
+  if(points >= 20) return "Combat Cadet";
+  if(points >= 10) return "Combat Novice";
+  return "Rookie";
+}
 
-  let tiers="";
-  Object.entries(p.rankings||{}).forEach(([m,r])=>{
-    const type=r.pos===0?"HT":"LT";
-    tiers+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+function openProfile(p, rank=0, points=0){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modalContent");
+
+  let tiers = "";
+  Object.entries(p.rankings || {}).forEach(([m, r]) => {
+    const type = r.pos===0?"HT":"LT";
+    tiers += `<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
   });
 
-  content.innerHTML=`
+  content.innerHTML = `
     <div class="close" onclick="closeModal()">✖</div>
     <img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
     <div class="profile-name">${p.name}</div>
-    <div class="profile-rank">Combat Master</div>
+    <div class="profile-rank">${getAchievementTitle(points)}</div>
     <div style="margin-top:10px;">#${rank} • ${points} pts</div>
     <div class="tiers-list">${tiers}</div>
   `;
@@ -348,7 +363,7 @@ function render(){
     return;
   }
 
-  /* non-overall mode - tier grid */
+  // Non-overall mode - tier grid
   const tiers={1:[],2:[],3:[],4:[],5:[]};
   players.forEach(p=>{
     const r=p.rankings?.[currentMode];
@@ -368,7 +383,7 @@ function render(){
       const div=document.createElement("div");
       div.className=`player ${p.pos===0?"HT":"LT"}`;
       div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
-      div.onclick=()=>openProfile(p);
+      div.onclick=()=>openProfile(p,getPoints(p));
       col.appendChild(div);
     });
     grid.appendChild(col);
