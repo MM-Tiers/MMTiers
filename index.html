@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MC Tiers Clone</title>
+<title>MMTiers</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -14,40 +16,37 @@
     --lt: #4ade80;
 }
 
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background: radial-gradient(circle at top, #0f172a, #020617);
     color: var(--text);
-    transition: background 0.3s;
 }
 
 /* HEADER */
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
     border-bottom: 1px solid #1f2937;
 }
 
 header h1 {
-    background: linear-gradient(90deg, #f59e0b, #fb7185, #4ade80);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    font-size: 2rem;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
+    color: var(--accent);
+    margin: 0;
 }
 
-/* SEARCH */
 .search-bar input {
     background: #020617;
     border: 1px solid #1f2937;
     padding: 10px;
     border-radius: 10px;
     color: white;
-    width: 200px;
+    width: 220px;
 }
 
 /* TABS */
@@ -55,146 +54,131 @@ header h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 20px;
+    margin: 15px;
 }
 
 .tab {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 10px 14px;
+    padding: 8px 12px;
     background: #020617;
     border: 1px solid #1f2937;
     border-radius: 10px;
     cursor: pointer;
     color: white;
-    transition: all 0.3s ease;
 }
 
-.tab img {
-    width: 16px;
-}
+.tab img { width: 16px; }
 
 .tab.active {
     background: var(--accent);
-    color: #020617;
+    color: black;
 }
 
-/* LEADERBOARD */
-#leaderboard {
-    transition: opacity 0.4s ease;
-    opacity: 1;
-}
-
-/* OVERALL ROW */
+/* PLAYER ROW */
 .player-row {
     display: grid;
-    grid-template-columns: 60px 250px 150px 1fr;
-    padding: 18px;
-    margin: 12px 20px;
+    grid-template-columns: 50px 1fr 100px 1fr;
+    padding: 14px;
+    margin: 10px;
     background: linear-gradient(145deg, #020617, #0f172a);
-    border-radius: 16px;
+    border-radius: 14px;
     border: 1px solid #1f2937;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.2s;
 }
 
 .player-row:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    transform: translateY(-2px);
 }
 
-/* TIER BADGES */
+.rank { color: var(--accent); font-weight: bold; }
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar { width: 36px; border-radius: 6px; }
+
 .tiers-list {
     display: flex;
-    gap: 6px;
     flex-wrap: wrap;
+    gap: 6px;
 }
 
 .tier-badge {
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 4px 8px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    cursor: default;
-    transition: all 0.3s ease;
+    gap: 4px;
+    padding: 3px 7px;
+    border-radius: 6px;
+    font-size: 0.75rem;
 }
 
-@keyframes pulseHT {
-    0%,100%{box-shadow:0 0 6px rgba(251,113,133,0.4);}
-    50%{box-shadow:0 0 14px rgba(251,113,133,0.7);}
-}
+.tier-badge img { width: 14px; }
 
-@keyframes pulseLT {
-    0%,100%{box-shadow:0 0 6px rgba(74,222,128,0.4);}
-    50%{box-shadow:0 0 14px rgba(74,222,128,0.7);}
-}
+.HT { background: rgba(251,113,133,0.15); color: var(--ht); }
+.LT { background: rgba(74,222,128,0.15); color: var(--lt); }
 
-.tier-badge.HT:hover {
-    animation: pulseHT 1.2s infinite ease-in-out;
-}
-.tier-badge.LT:hover {
-    animation: pulseLT 1.2s infinite ease-in-out;
-}
-
-.HT { background: rgba(251,113,133,0.15); color: var(--ht);}
-.LT { background: rgba(74,222,128,0.15); color: var(--lt);}
-
-/* TIER GRID */
+/* GRID */
 .tier-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    padding: 20px;
+    gap: 10px;
+    padding: 10px;
 }
 
 .tier-column {
     background: #0f172a;
     border: 1px solid #1f2937;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 10px;
 }
 
 .tier-title {
     text-align: center;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #fbbf24;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    margin-bottom: 8px;
+    color: var(--accent);
 }
 
-/* PLAYER (MODE TABS) */
 .player {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px;
-    margin-bottom: 6px;
-    border-radius: 8px;
+    gap: 6px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 6px;
     background: #020617;
-    font-size: 0.85rem;
-    border-left: 3px solid transparent;
-    transition: all 0.3s ease;
+    font-size: 0.8rem;
 }
 
-.player.HT { border-left:3px solid var(--ht); box-shadow:0 0 6px rgba(251,113,133,0.4);}
-.player.LT { border-left:3px solid var(--lt); box-shadow:0 0 6px rgba(74,222,128,0.4);}
+.player img { width: 22px; border-radius: 4px; }
 
-.player img { width:24px; border-radius:4px;}
+.player.HT { border-left: 3px solid var(--ht); }
+.player.LT { border-left: 3px solid var(--lt); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .tier-grid { grid-template-columns: repeat(2, 1fr); }
+    .player-row { grid-template-columns: 40px 1fr; }
+}
 </style>
 </head>
 
 <body>
+
 <header>
-    <h1>MC Tiers</h1>
+    <h1>MMTiers</h1>
     <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search player...">
     </div>
 </header>
 
 <div class="tabs" id="tabs"></div>
-<div id="leaderboard"></div>
+<div id="leaderboard">Loading...</div>
 
 <script>
 const iconMap = {
@@ -211,118 +195,138 @@ const iconMap = {
 "overall":"https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
 };
 
-const modes=["overall","crystal","sword","uhc","smp","dsmp","netpot","dpot","cart","mace","axe"];
-const tierPoints={"HT1":60,"LT1":45,"HT2":35,"LT2":25,"HT3":15,"LT3":6,"HT4":4,"LT4":3,"HT5":2,"LT5":1};
+const modes = Object.keys(iconMap);
 
-let leaderboardData=[], currentMode="overall";
+const tierPoints = {
+"HT1":60,"LT1":45,"HT2":35,"LT2":25,
+"HT3":15,"LT3":6,"HT4":4,"LT4":3,"HT5":2,"LT5":1
+};
 
-/* CREATE TABS */
+let data = [];
+let currentMode = "overall";
+
+/* INIT */
+init();
+
+async function init(){
+    createTabs();
+    await loadData();
+    render();
+}
+
+/* LOAD */
+async function loadData(){
+    try{
+        const res = await fetch("api-1.json");
+        data = await res.json();
+    }catch(e){
+        document.getElementById("leaderboard").innerHTML = "Failed to load data.";
+    }
+}
+
+/* TABS */
 function createTabs(){
-    const tabsDiv=document.getElementById("tabs");
-    modes.forEach(mode=>{
-        const btn=document.createElement("button");
-        btn.className="tab";
-        if(mode==="overall") btn.classList.add("active");
-        btn.innerHTML=`<img src="${iconMap[mode]}"> ${mode}`;
-        btn.onclick=()=>switchTab(mode, btn);
-        tabsDiv.appendChild(btn);
+    const tabs = document.getElementById("tabs");
+    modes.forEach(m=>{
+        const btn = document.createElement("button");
+        btn.className = "tab";
+        if(m==="overall") btn.classList.add("active");
+        btn.innerHTML = `<img src="${iconMap[m]}"> ${m}`;
+        btn.onclick = ()=>{
+            currentMode = m;
+            document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+            btn.classList.add("active");
+            render();
+        };
+        tabs.appendChild(btn);
     });
 }
 
-/* LOAD DATA */
-async function loadLeaderboard(){
-    const res=await fetch('api-1.json');
-    leaderboardData=await res.json();
-    renderLeaderboard();
+/* POINTS */
+function getPoints(p){
+    let pts=0;
+    Object.values(p.rankings||{}).forEach(r=>{
+        const type = r.pos===0?"HT":"LT";
+        pts += tierPoints[type+r.tier]||0;
+    });
+    return pts;
 }
 
-/* SWITCH TAB */
-function switchTab(mode, el){
-    const container=document.getElementById("leaderboard");
-    if(mode==="overall"){
-        currentMode=mode;
-        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-        el.classList.add('active');
-        renderLeaderboard();
-        return;
-    }
-    container.style.opacity=0;
-    setTimeout(()=>{
-        currentMode=mode;
-        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-        el.classList.add('active');
-        renderLeaderboard();
-        container.style.opacity=1;
-    },300);
-}
+/* RENDER */
+function render(){
+    const container = document.getElementById("leaderboard");
+    const search = document.getElementById("searchInput").value.toLowerCase();
 
-/* RENDER LEADERBOARD */
-function renderLeaderboard(search=""){
-    const container=document.getElementById("leaderboard");
+    let players = data.filter(p=>p.name.toLowerCase().includes(search));
+
     container.innerHTML="";
 
-    let players=leaderboardData.filter(p=>p.name.toLowerCase().includes(search.toLowerCase()));
-
     if(currentMode==="overall"){
-        players=players.map(p=>{
-            let pts=0;
-            Object.values(p.rankings||{}).forEach(r=>{
-                const type=r.pos===0?"HT":"LT";
-                pts+=tierPoints[type+r.tier]||0;
-            });
-            return {...p, points:pts};
-        });
-        players.sort((a,b)=>b.points-a.points);
+        players = players.map(p=>({...p,points:getPoints(p)}))
+                         .sort((a,b)=>b.points-a.points);
+
         players.forEach((p,i)=>{
             const row=document.createElement("div");
             row.className="player-row";
-            let tiersHTML="";
-            Object.entries(p.rankings||{}).forEach(([mode,info])=>{
-                const type=info.pos===0?"HT":"LT";
-                tiersHTML+=`<div class="tier-badge ${type}" title="${mode.charAt(0).toUpperCase()+mode.slice(1)} ${type}${info.tier}"><img src="${iconMap[mode]}">${type}${info.tier}</div>`;
+
+            let tiers="";
+            Object.entries(p.rankings||{}).forEach(([m,r])=>{
+                const type=r.pos===0?"HT":"LT";
+                tiers+=`<div class="tier-badge ${type}">
+                <img src="${iconMap[m]}">${type}${r.tier}</div>`;
             });
+
             row.innerHTML=`
             <div class="rank">#${i+1}</div>
             <div class="player-info">
                 <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
                 ${p.name}
             </div>
-            <div>${p.points} pts</div>
-            <div class="tiers-list">${tiersHTML}</div>`;
+            <div>${p.points}</div>
+            <div class="tiers-list">${tiers}</div>
+            `;
+
             container.appendChild(row);
         });
         return;
     }
 
+    /* MODE VIEW */
     const tiers={1:[],2:[],3:[],4:[],5:[]};
+
     players.forEach(p=>{
-        const data=p.rankings?.[currentMode];
-        if(!data) return;
-        tiers[data.tier].push({name:p.name, uuid:p.uuid, pos:data.pos});
+        const r=p.rankings?.[currentMode];
+        if(!r) return;
+        tiers[r.tier].push({...p,pos:r.pos});
     });
-    Object.values(tiers).forEach(arr=>arr.sort((a,b)=>a.pos-b.pos));
 
     const grid=document.createElement("div");
     grid.className="tier-grid";
+
     for(let t=1;t<=5;t++){
         const col=document.createElement("div");
         col.className="tier-column";
         col.innerHTML=`<div class="tier-title">Tier ${t}</div>`;
+
+        tiers[t].sort((a,b)=>a.pos-b.pos);
+
         tiers[t].forEach(p=>{
             const div=document.createElement("div");
             div.className=`player ${p.pos===0?"HT":"LT"}`;
             div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
             col.appendChild(div);
         });
+
         grid.appendChild(col);
     }
+
     container.appendChild(grid);
 }
 
-document.getElementById("searchInput").addEventListener("input",e=>renderLeaderboard(e.target.value));
+/* SEARCH */
+document.getElementById("searchInput")
+.addEventListener("input",render);
 
-createTabs();
-loadLeaderboard();
 </script>
 
 </body>
