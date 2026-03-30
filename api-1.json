@@ -63,6 +63,15 @@
   },
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "unknowwpepi",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 5, "pos": 0 },
+      "axe": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "HLaingWanna2010",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
@@ -89,17 +98,16 @@
     "uuid": "d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",
     "name": "ItzMr_greenX2",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 4, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 3, "pos": 1 },
       "smp": { "tier": 4, "pos": 0 }
     }
   },
   {
-    "uuid": "f46828b1-78cf-411a-a84a-fa79e406286d",
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "PotFasterQdrr",
     "rankings": {
       "uhc": { "tier": 2, "pos": 1 },
@@ -256,16 +264,7 @@
     "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
     "name": "360Ascendant",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 },
-      "crystal": { "tier": 4, "pos": 1 }
-    }
-  },
-  {
-    "uuid": "9065e95e-5d46-4dc6-8b78-7000db99420e",
-    "name": "unknownpepi",
-    "rankings": {
-      "crystal": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 }
     }
   }
 ]
