@@ -35,7 +35,6 @@ header h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
-    /* Keep size as before */
     font-size: inherit;
     text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
@@ -78,7 +77,6 @@ header h1 {
 .tab.active {
     background: var(--accent);
     color: #020617;
-    /* No scale change to keep same size */
 }
 
 /* LEADERBOARD CONTAINER TRANSITION */
@@ -122,13 +120,23 @@ header h1 {
     cursor: default;
 }
 
-/* Glow animation */
+/* Pulsing glow animation */
+@keyframes pulseHT {
+    0%, 100% { box-shadow: 0 0 6px rgba(251,113,133,0.4); }
+    50% { box-shadow: 0 0 14px rgba(251,113,133,0.7); }
+}
+
+@keyframes pulseLT {
+    0%, 100% { box-shadow: 0 0 6px rgba(74,222,128,0.4); }
+    50% { box-shadow: 0 0 14px rgba(74,222,128,0.7); }
+}
+
 .tier-badge.HT:hover {
-    box-shadow: 0 0 10px rgba(251,113,133,0.7);
+    animation: pulseHT 1.2s infinite ease-in-out;
 }
 
 .tier-badge.LT:hover {
-    box-shadow: 0 0 10px rgba(74,222,128,0.7);
+    animation: pulseLT 1.2s infinite ease-in-out;
 }
 
 .HT {
