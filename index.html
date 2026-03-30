@@ -28,27 +28,14 @@ body {
 header {
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px;
   border-bottom:1px solid #1f2937;
 }
 
-header h1 {
-  font-weight:700;
-  background: linear-gradient(90deg,#f59e0b,#fb7185,#4ade80,#f59e0b);
-  background-size:300%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:gradientShift 5s linear infinite, glowPulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes gradientShift {
-  0% { background-position:0% }
-  100% { background-position:300% }
-}
-
-@keyframes glowPulse {
-  0% { text-shadow:0 0 5px rgba(245,158,11,0.3); }
-  100% { text-shadow:0 0 20px rgba(245,158,11,0.7); }
+.logo {
+  height:50px; /* adjust as needed */
+  object-fit:contain;
 }
 
 .search-bar input {
@@ -270,10 +257,10 @@ header h1 {
 <body>
 
 <header>
-<h1>MMTiers</h1>
-<div class="search-bar">
-<input id="searchInput" placeholder="Search player...">
-</div>
+  <img src="https://i.imgur.com/Lxk7JHf.png" alt="MMTiers Logo" class="logo">
+  <div class="search-bar">
+    <input id="searchInput" placeholder="Search player...">
+  </div>
 </header>
 
 <div class="tabs" id="tabs"></div>
