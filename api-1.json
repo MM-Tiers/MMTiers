@@ -276,5 +276,12 @@
       "sword": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 4, "pos": 0 }
     }
+  },
+  {
+    "uuid": "1a4619b3-9d36-49de-b9db-462cf4bf7c46",
+    "name": "EibmozNPC",
+    "rankings": {
+      "dmp": { "tier": 3, "pos": 1 }
+    }
   }
 ]
