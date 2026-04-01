@@ -90,9 +90,10 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "NewbiePlayzXD",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 },
+      "crystal": { "tier": 4, "pos": 0 },
       "smp": { "tier": 4, "pos": 0},
-      "dsmp": { "tier": 4, "pos": 1}
+      "dsmp": { "tier": 4, "pos": 1},
+      "axe": { "tier": 4, "pos": 1}
     }
   },
   {
@@ -162,7 +163,8 @@
     "uuid": "7105d20b-7ae1-44cc-acf5-ba66e7d8af15",
     "name": "SayrTea",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 4, "pos": 0 },
+      "axe": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -176,7 +178,7 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "gotnonam3",
     "rankings": {
-      "axe": { "tier": 5, "pos": 1 }
+      "axe": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -212,7 +214,8 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "Dummina",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 4, "pos": 0 }
     }
   },
   {
@@ -298,6 +301,13 @@
     "name": "theooo",
     "rankings": {
       "sword": { "tier": 5, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
+    "name": "_WAyneDebuffs",
+    "rankings": {
+      "uhc": { "tier": 1, "pos": 1 }
     }
   },
   {
