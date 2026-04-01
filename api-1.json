@@ -284,5 +284,19 @@
     "rankings": {
       "dmp": { "tier": 3, "pos": 1 }
     }
+  },
+  {
+    "uuid": "6b730441-7644-4c21-b86e-11f44e7f11c5",
+    "name": "Xkiller85",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "theooo",
+    "rankings": {
+      "sword": { "tier": 5, "pos": 1 }
+    }
   }
 ]
