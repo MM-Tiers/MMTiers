@@ -312,13 +312,6 @@
   },
   {
     "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
-    "name": "_WAyneDebuffs",
-    "rankings": {
-      "uhc": { "tier": 1, "pos": 1 }
-    }
-  },
-  {
-    "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
     "name": "TuffNode",
     "rankings": {
       "axe": { "tier": 4, "pos": 0 }
