@@ -266,7 +266,8 @@
     "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
     "name": "360Ascendant",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 },
+      "crystal": { "tier": 3, "pos": 1 }
     }
   },
   {
