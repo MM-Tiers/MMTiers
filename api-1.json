@@ -8,6 +8,7 @@
       "cart": { "tier": 2, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
+      "smp": { "tier": 1, "pos": 0},
       "dsmp": { "tier": 1, "pos": 0 }
     }
   },
@@ -46,7 +47,7 @@
     "rankings": {
       "dsmp": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 2, "pos": 0 },
+      "axe": { "tier": 3, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 0 }
     }
@@ -126,6 +127,7 @@
     "name": "GOST152",
     "rankings": {
       "uhc": { "tier": 5, "pos": 1 },
+      "axe": { "tier": 3, "pos": 0 },
       "sword": { "tier": 5, "pos": 0}
     }
   },
@@ -185,20 +187,13 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "albxzo",
     "rankings": {
-      "crystal": { "tier": 1, "pos": 1 },
+      "crystal": { "tier": 2, "pos": 0 },
       "sword": { "tier": 5, "pos": 0 }
     }
   },
   {
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "CertifiedTuna",
-    "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
-    }
-  },
-  {
-    "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
-    "name": "zent0",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
     }
@@ -239,8 +234,8 @@
       "dsmp": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 1, "pos": 0},
-      "cart": { "tier":3, "pos": 1},
+      "smp": { "tier": 1, "pos": 1},
+      "cart": { "tier":1, "pos": 0},
       "axe": { "tier": 3, "pos": 1}
     }
   },
