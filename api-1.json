@@ -280,7 +280,8 @@
     "uuid": "6b730441-7644-4c21-b86e-11f44e7f11c5",
     "name": "Xkiller85",
     "rankings": {
-      "sword": { "tier": 4, "pos": 0 }
+      "sword": { "tier": 4, "pos": 0 },
+      "sword": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -309,6 +310,13 @@
     "name": "navy123",
     "rankings": {
       "dpot": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "64f8cdf3-8b61-4205-9ec1-fce6f419c5fd",
+    "name": "xVocal_",
+    "rankings": {
+      "dsmp": { "tier": 4, "pos": 0 }
     }
   }
 ]
