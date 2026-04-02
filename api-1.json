@@ -215,16 +215,6 @@
     }
   },
   {
-    "uuid": "0742e3e4-61d5-4702-810a-fde0e47ea19b",
-    "name": "Itz_Smarmy1245",
-    "rankings": {
-      "uhc": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 1, "pos": 1 },
-      "sword": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 }
-    }
-  },
-  {
     "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
     "name": "Rinleaf",
     "rankings": {
