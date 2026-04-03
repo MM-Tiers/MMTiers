@@ -328,7 +328,7 @@
     }
   },
   {
-        "uuid": "569bed30-d352-4fd5-8a59-dccf36ccb4af",
+    "uuid": "569bed30-d352-4fd5-8a59-dccf36ccb4af",
     "name": "Alyxen",
     "rankings": {
       "sword": { "tier": 4, "pos": 1 },
@@ -345,11 +345,18 @@
     }
   },
   {
-        "uuid": "8b63226d-8fd9-41bc-927e-c41f4cc4deba",
+    "uuid": "8b63226d-8fd9-41bc-927e-c41f4cc4deba",
     "name": "RinnSTier",
     "rankings": {
       "sword": { "tier": 5, "pos": 0 },
       "mace": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "82ecbbc9-b8bb-434e-b157-927721cf85f1",
+    "name": "RazinMonkey",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
     }
   }
 ]
