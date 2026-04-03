@@ -326,5 +326,22 @@
       "uhc": { "tier": 2, "pos": 1 },
       "smp": { "tier": 2, "pos": 0 }
     }
+  },
+  {
+        "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
+    "name": "Alyxen",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 1 },
+      "mace": { "tier": 3, "pos": 1 }
+    }
+    },
+  {
+    "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
+    "name": "MrP1Z2A",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 3, "pos": 1 }
+    }
   }
 ]
