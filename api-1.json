@@ -295,7 +295,9 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "theooo",
     "rankings": {
-      "sword": { "tier": 5, "pos": 1 }
+      "sword": { "tier": 5, "pos": 1 },
+      "crystal": { "tier": 5, "pos": 1 },
+      "axe": { "tier": 5, "pos": 5 }
     }
   },
   {
@@ -381,14 +383,6 @@
     "name": "DingalingM",
     "rankings": {
       "crystal": { "tier": 5, "pos": 0 }
-    }
-  },
-  {
-    "uuid": "de984043-1d11-48ab-8714-2ff1612e8b57",
-    "name": "theoo",
-    "rankings": {
-      "crystal": { "tier": 5, "pos": 1 },
-      "axe": { "tier": 5, "pos": 5 }
-    }
+     }
   }
 ]
