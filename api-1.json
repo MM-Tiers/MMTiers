@@ -231,7 +231,7 @@
       "sword": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 3, "pos": 1 },
+      "dpot": { "tier": 2, "pos": 1 },
       "netpot": { "tier": 4, "pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
       "cart": { "tier": 1, "pos": 0 },
@@ -383,6 +383,13 @@
     "name": "DingalingM",
     "rankings": {
       "crystal": { "tier": 5, "pos": 0 }
+     }
+  },
+  {
+    "uuid": "5b986f22-d753-4861-ac3b-d7f72f267132",
+    "name": "UncleSkylarkk",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 0 }
      }
   }
 ]
