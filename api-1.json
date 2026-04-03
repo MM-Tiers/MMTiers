@@ -8,7 +8,7 @@
       "cart": { "tier": 2, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 1, "pos": 0},
+      "smp": { "tier": 1, "pos": 0 },
       "dsmp": { "tier": 1, "pos": 0 }
     }
   },
@@ -24,8 +24,8 @@
       "cart": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 2, "pos": 0 },
       "netpot": { "tier": 2, "pos": 0 },
-      "smp": { "tier": 2, "pos": 1},
-      "axe": { "tier": 4, "pos": 0}
+      "smp": { "tier": 2, "pos": 1 },
+      "axe": { "tier": 4, "pos": 0 }
     }
   },
   {
@@ -38,7 +38,7 @@
       "dpot": { "tier": 3, "pos": 0 },
       "axe": { "tier": 1, "pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
-      "netpot": { "tier": 2, "pos": 1}
+      "netpot": { "tier": 2, "pos": 1 }
     }
   },
   {
@@ -50,10 +50,10 @@
       "axe": { "tier": 3, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 0 },
-      "dpot": { "tier": 4, "pos": 0},
-      "Netpot": {"tier": 3, "pos": 1}
+      "dpot": { "tier": 4, "pos": 0 },
+      "netpot": { "tier": 3, "pos": 1 }
     }
-  },
+  },,
   {
     "uuid": "5f92b497-cdb8-453f-b752-f2ecc27faec2",
     "name": "NivlaJupiter",
@@ -96,9 +96,9 @@
     "name": "NewbiePlayzXD",
     "rankings": {
       "crystal": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 4, "pos": 0},
-      "dsmp": { "tier": 4, "pos": 1},
-      "axe": { "tier": 4, "pos": 1}
+      "smp": { "tier": 4, "pos": 0 },
+      "dsmp": { "tier": 4, "pos": 1 },
+      "axe": { "tier": 4, "pos": 1 }
     }
   },
   {
@@ -124,7 +124,7 @@
       "netpot": { "tier": 1, "pos": 0 },
       "axe": { "tier": 1, "pos": 1 },
       "sword": { "tier": 2, "pos": 0 },
-      "dsmp": { "tier": 3, "pos" 1}
+      "dsmp": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -133,7 +133,7 @@
     "rankings": {
       "uhc": { "tier": 5, "pos": 1 },
       "axe": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 5, "pos": 0}
+      "sword": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -179,7 +179,7 @@
     "name": "chinese_boy9",
     "rankings": {
       "sword": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 5}
+      "uhc": { "tier": 5, "pos": 5 }
     }
   },
   {
@@ -195,9 +195,9 @@
     "rankings": {
       "crystal": { "tier": 2, "pos": 0 },
       "sword": { "tier": 4, "pos": 1 },
-      "Axe": { "tier": 5, "pos": 1},
-      "uhc": { "tier": 4, "pos": 1},
-      "mace": { "tier": 5, "pos": 5}
+      "axe": { "tier": 5, "pos": 1 },
+      "uhc": { "tier": 4, "pos": 1 },
+      "mace": { "tier": 5, "pos": 5 }
     }
   },
   {
@@ -233,9 +233,9 @@
       "dsmp": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 1, "pos": 1},
-      "cart": { "tier":1, "pos": 0},
-      "axe": { "tier": 3, "pos": 1}
+      "smp": { "tier": 1, "pos": 1 },
+      "cart": { "tier": 1, "pos": 0 },
+      "axe": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -280,7 +280,7 @@
     "uuid": "1a4619b3-9d36-49de-b9db-462cf4bf7c46",
     "name": "EibmozNPC",
     "rankings": {
-      "dmp": { "tier": 3, "pos": 1 }
+      "dsmp": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -310,7 +310,7 @@
     "name": "TuffNode",
     "rankings": {
       "axe": { "tier": 4, "pos": 0 },
-      "sword": { "tier" 5, "pos" 5}
+      "sword": { "tier": 5, "pos": 5 }
     }
   },
   {
@@ -342,7 +342,7 @@
       "sword": { "tier": 4, "pos": 1 },
       "mace": { "tier": 3, "pos": 1 }
     }
-    },
+  },
   {
     "uuid": "fe3b1aad-788c-4282-a95c-265717c9d7c4",
     "name": "MrP1Z2A",
@@ -372,15 +372,15 @@
     "name": "naomigreif",
     "rankings": {
       "crystal": { "tier": 5, "pos": 0 },
-      "sword": { "tier": 4, "pos": 1},
-      "axe": { "tier":5, "pos":1 }
+      "sword": { "tier": 4, "pos": 1 },
+      "axe": { "tier": 5, "pos": 1 }
     }
   },
   {
     "uuid": "de984043-1d11-48ab-8714-2ff1612e8b57",
     "name": "DingalingM",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }   
+      "crystal": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -388,7 +388,7 @@
     "name": "theoo",
     "rankings": {
       "crystal": { "tier": 5, "pos": 1 },
-      "axe": { "tier": 5, "pos": 5}
+      "axe": { "tier": 5, "pos": 5 }
     }
   }
 ]
