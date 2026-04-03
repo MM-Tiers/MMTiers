@@ -49,7 +49,9 @@
       "uhc": { "tier": 3, "pos": 0 },
       "axe": { "tier": 3, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
-      "cart": { "tier": 3, "pos": 0 }
+      "cart": { "tier": 3, "pos": 0 },
+      "dpot": { "tier": 4, "pos": 0},
+      "Netpot": {"tier": 3, "pos": 1}
     }
   },
   {
@@ -121,7 +123,8 @@
       "dpot": { "tier": 1, "pos": 0 },
       "netpot": { "tier": 1, "pos": 0 },
       "axe": { "tier": 1, "pos": 1 },
-      "sword": { "tier": 2, "pos": 0 }
+      "sword": { "tier": 2, "pos": 0 },
+      "dsmp": { "tier": 3, "pos" 1}
     }
   },
   {
@@ -175,7 +178,8 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "chinese_boy9",
     "rankings": {
-      "sword": { "tier": 4, "pos": 1 }
+      "sword": { "tier": 4, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 5}
     }
   },
   {
@@ -190,7 +194,10 @@
     "name": "albxzo",
     "rankings": {
       "crystal": { "tier": 2, "pos": 0 },
-      "sword": { "tier": 5, "pos": 0 }
+      "sword": { "tier": 4, "pos": 1 },
+      "Axe": { "tier": 5, "pos": 1},
+      "uhc": { "tier": 4, "pos": 1},
+      "mace": { "tier": 5, "pos": 5}
     }
   },
   {
@@ -302,7 +309,8 @@
     "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
     "name": "TuffNode",
     "rankings": {
-      "axe": { "tier": 4, "pos": 0 }
+      "axe": { "tier": 4, "pos": 0 },
+      "sword": { "tier" 5, "pos" 5}
     }
   },
   {
@@ -357,6 +365,30 @@
     "name": "RazinMonkey",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "0ba501e5-3ea1-4402-af21-d08b53a7af62",
+    "name": "naomigreif",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 0 },
+      "sword": { "tier": 4, "pos": 1},
+      "axe": { "tier":5, "pos":1 }
+    }
+  },
+  {
+    "uuid": "de984043-1d11-48ab-8714-2ff1612e8b57",
+    "name": "DingalingM",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 0 }   
+    }
+  },
+  {
+    "uuid": "de984043-1d11-48ab-8714-2ff1612e8b57",
+    "name": "theoo",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 1 },
+      "axe": { "tier": 5, "pos": 5}
     }
   }
 ]
