@@ -181,7 +181,7 @@
     "name": "chinese_boy9",
     "rankings": {
       "sword": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 5 }
+      "uhc": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -199,7 +199,7 @@
       "sword": { "tier": 4, "pos": 1 },
       "axe": { "tier": 5, "pos": 1 },
       "uhc": { "tier": 4, "pos": 1 },
-      "mace": { "tier": 5, "pos": 5 }
+      "mace": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -299,7 +299,7 @@
     "rankings": {
       "sword": { "tier": 5, "pos": 1 },
       "crystal": { "tier": 5, "pos": 1 },
-      "axe": { "tier": 5, "pos": 5 }
+      "axe": { "tier": 5, "pos": 0 }
     }
   },
   {
