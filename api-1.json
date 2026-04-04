@@ -408,7 +408,7 @@
     "name": "e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 4, "pos": 0 }
+      "mace": { "tier": 4, "pos": 0 },
       "netpot": { "tier": 2, "pos": 0}
       }
   },
@@ -417,7 +417,7 @@
     "name": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 3, "pos": 1 }
+      "mace": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 2, "pos": 0}
      }
   }
