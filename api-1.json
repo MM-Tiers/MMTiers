@@ -417,8 +417,6 @@
     "name": "_Aidendebuffs",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 3, "pos": 1 },
-      "netpot": { "tier": 2, "pos": 0}
      }
   }
 ]
