@@ -315,7 +315,7 @@
     "name": "TuffNode",
     "rankings": {
       "axe": { "tier": 4, "pos": 0 },
-      "sword": { "tier": 5, "pos": 5 }
+      "sword": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -379,7 +379,7 @@
       "crystal": { "tier": 5, "pos": 0 },
       "sword": { "tier": 4, "pos": 1 },
       "axe": { "tier": 5, "pos": 1 },
-      "uhc" { "tier": 5, "pos": 1}
+      "uhc": { "tier": 5, "pos": 1}
     }
   },
   {
