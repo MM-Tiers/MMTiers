@@ -404,8 +404,8 @@
     }
   },
   {
-    "uuid": "_ZycoDebuffs",
-    "name": "e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",
+    "uuid": "e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",
+    "name": "_ZycoDebuffs",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
       "mace": { "tier": 3, "pos": 0 },
@@ -413,8 +413,8 @@
       }
   },
   {
-    "uuid": "_AidenDebuffs",
-    "name": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
+    "uuid": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
+    "name": "_Aidendebuffs",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
       "mace": { "tier": 3, "pos": 1 },
