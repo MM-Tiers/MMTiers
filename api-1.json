@@ -124,7 +124,9 @@
       "netpot": { "tier": 1, "pos": 0 },
       "axe": { "tier": 1, "pos": 1 },
       "sword": { "tier": 2, "pos": 0 },
-      "dsmp": { "tier": 3, "pos": 1 }
+      "dsmp": { "tier": 3, "pos": 1 },
+      "mace" { "tier": 5, "pos" : 1 },
+      "smp" { "tier": 3, "pos" : 1}
     }
   },
   {
