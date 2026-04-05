@@ -237,7 +237,7 @@
       "netpot": { "tier": 2, "pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
       "cart": { "tier": 1, "pos": 0 },
-      "axe": { "tier": 2, "pos": 0 },
+      "axe": { "tier": 2, "pos": 0 }
     }
   },
   {
@@ -401,7 +401,7 @@
     "uuid": "17bbec70-5107-4c5c-aa36-4bf61237b1eb",
     "name": "Hynixqt",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 }
+      "crystal": { "tier": 3, "pos": 0 }
     }
   },
   {
