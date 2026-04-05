@@ -412,10 +412,11 @@
       "netpot": { "tier": 2, "pos": 0}
       }
   },
-  {
-  "uuid": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
-  "name": "_Aidendebuffs",
-  "rankings": {
-    "sword": { "tier": 3, "pos": 1 },
-      }
-}
+{
+    "uuid": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
+    "name": "_Aidendebuffs",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 }
+    }
+  }
+]
