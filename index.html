@@ -5,250 +5,676 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MMTiers</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-html { zoom: 1.25; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
 :root {
-  --bg:#0b1220;
-  --text:#ffffff;
+  --bg:#06090f;
+  --surface:#0c1018;
+  --card:#0f1420;
+  --card-hover:#141b28;
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(255,255,255,0.12);
+  --text:#f0f2f5;
+  --text-secondary:#8a92a4;
+  --text-muted:#555d6e;
   --accent:#f59e0b;
+  --accent-dim:rgba(245,158,11,0.12);
+  --accent-glow:rgba(245,158,11,0.25);
   --ht:#fb7185;
+  --ht-dim:rgba(251,113,133,0.1);
   --lt:#4ade80;
+  --lt-dim:rgba(74,222,128,0.1);
+  --gold:#fbbf24;
+  --silver:#94a3b8;
+  --bronze:#d97706;
+  --radius:14px;
+  --radius-sm:10px;
+  --radius-xs:8px;
+  --transition:0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+html {
+  zoom:1.25;
+  scroll-behavior:smooth;
 }
 
 body {
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background: radial-gradient(circle at top,#0f172a,#020617);
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
   color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
 
+body::before {
+  content:"";
+  position:fixed;
+  top:-40%;
+  left:-20%;
+  width:80%;
+  height:80%;
+  background:radial-gradient(ellipse,rgba(245,158,11,0.04),transparent 60%);
+  pointer-events:none;
+  z-index:0;
+  animation:bgFloat 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  content:"";
+  position:fixed;
+  bottom:-30%;
+  right:-20%;
+  width:70%;
+  height:70%;
+  background:radial-gradient(ellipse,rgba(251,113,133,0.03),transparent 60%);
+  pointer-events:none;
+  z-index:0;
+  animation:bgFloat2 25s ease-in-out infinite alternate;
+}
+
+@keyframes bgFloat {
+  0%{transform:translate(0,0) scale(1);}
+  100%{transform:translate(10%,10%) scale(1.1);}
+}
+
+@keyframes bgFloat2 {
+  0%{transform:translate(0,0) scale(1);}
+  100%{transform:translate(-8%,-8%) scale(1.15);}
+}
+
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08); border-radius:10px; }
+::-webkit-scrollbar-thumb:hover { background:rgba(255,255,255,0.15); }
+
 header {
+  position:sticky;
+  top:0;
+  z-index:100;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px;
-  border-bottom:1px solid #1f2937;
+  padding:16px 24px;
+  background:rgba(6,9,15,0.8);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
 }
 
 .logo {
-  height:50px; /* adjust as needed */
+  height:42px;
   object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(245,158,11,0.2));
+}
+
+.search-bar {
+  position:relative;
+}
+
+.search-bar::before {
+  content:"🔍";
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:0.85rem;
+  pointer-events:none;
+  opacity:0.4;
 }
 
 .search-bar input {
-  background:#020617;
-  border:1px solid #1f2937;
-  padding:10px;
-  border-radius:10px;
-  color:white;
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:10px 16px 10px 40px;
+  border-radius:var(--radius-sm);
+  color:var(--text);
+  font-family:inherit;
+  font-size:0.85rem;
+  width:240px;
+  outline:none;
+  transition:var(--transition);
 }
 
-.search-bar input::placeholder { color: #cbd5e1; }
+.search-bar input::placeholder { color:var(--text-muted); }
+
+.search-bar input:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-dim), 0 0 20px rgba(245,158,11,0.06);
+}
+
+.tabs-wrapper {
+  position:sticky;
+  top:75px;
+  z-index:90;
+  background:rgba(6,9,15,0.7);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  padding:12px 24px 0;
+  border-bottom:1px solid var(--border);
+}
 
 .tabs {
   display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:15px;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
+
+.tabs::-webkit-scrollbar { display:none; }
 
 .tab {
   display:flex;
   align-items:center;
   gap:6px;
-  padding:8px 12px;
-  background:#020617;
-  border:1px solid #1f2937;
-  border-radius:10px;
+  padding:8px 14px;
+  background:transparent;
+  border:1px solid transparent;
+  border-radius:var(--radius-sm);
   cursor:pointer;
-  color: white;
-  font-weight:700;
-  transition:0.2s;
+  color:var(--text-secondary);
+  font-family:inherit;
+  font-size:0.8rem;
+  font-weight:600;
+  white-space:nowrap;
+  transition:var(--transition);
+  position:relative;
 }
 
-.tab img { width:16px; }
-
-.tab.active {
-  background:var(--accent);
-  color:white;
-}
+.tab img { width:16px; opacity:0.7; transition:var(--transition); }
 
 .tab:hover {
-  transform:scale(1.05);
+  color:var(--text);
+  background:rgba(255,255,255,0.03);
 }
 
-#leaderboard { transition:opacity 0.25s ease; }
+.tab:hover img { opacity:1; }
+
+.tab.active {
+  color:var(--bg);
+  background:var(--accent);
+  border-color:var(--accent);
+  box-shadow:0 2px 12px rgba(245,158,11,0.3);
+}
+
+.tab.active img { opacity:1; filter:brightness(0.3); }
+
+.tab-emoji {
+  font-size:0.9rem;
+  line-height:1;
+}
+
+.sub-tabs-wrapper {
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transition:max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+  padding:0 24px;
+}
+
+.sub-tabs-wrapper.visible {
+  max-height:80px;
+  opacity:1;
+  padding:10px 24px 14px;
+}
+
+.sub-tabs {
+  display:flex;
+  gap:5px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+
+.sub-tabs::-webkit-scrollbar { display:none; }
+
+.sub-tab {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:6px 12px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xs);
+  cursor:pointer;
+  color:var(--text-muted);
+  font-family:inherit;
+  font-size:0.72rem;
+  font-weight:600;
+  white-space:nowrap;
+  transition:var(--transition);
+}
+
+.sub-tab img { width:14px; opacity:0.5; transition:var(--transition); }
+
+.sub-tab:hover {
+  color:var(--text-secondary);
+  background:rgba(255,255,255,0.05);
+  border-color:var(--border-hover);
+}
+
+.sub-tab:hover img { opacity:0.8; }
+
+.sub-tab.active {
+  color:var(--accent);
+  background:var(--accent-dim);
+  border-color:rgba(245,158,11,0.25);
+}
+
+.sub-tab.active img { opacity:1; }
+
+#leaderboard {
+  position:relative;
+  z-index:1;
+  max-width:960px;
+  margin:0 auto;
+  padding:20px 16px 60px;
+  transition:opacity 0.2s ease;
+}
+
 .fade-out { opacity:0; }
 
 .player-row {
   display:grid;
-  grid-template-columns:50px 1fr 1fr;
-  padding:14px;
-  margin:10px;
-  background:linear-gradient(145deg,#020617,#0f172a);
-  border-radius:14px;
-  border:1px solid #1f2937;
+  grid-template-columns:52px 1fr 1fr;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  margin-bottom:8px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
   cursor:pointer;
-  color:white;
+  transition:var(--transition);
+  position:relative;
+  overflow:hidden;
 }
 
-.rank { color:var(--accent); font-weight:bold; }
+.player-row::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.01),transparent);
+  pointer-events:none;
+}
 
-.player-info { display:flex; align-items:center; gap:10px; }
+.player-row:hover {
+  background:var(--card-hover);
+  border-color:var(--border-hover);
+  transform:translateY(-1px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
 
-.avatar { width:36px; border-radius:6px; }
+.rank {
+  font-size:0.95rem;
+  font-weight:800;
+  color:var(--text-muted);
+  text-align:center;
+}
 
-/* NEW TEXT */
-.player-text { display:flex; flex-direction:column; }
+.player-info { display:flex; align-items:center; gap:12px; }
+
+.avatar {
+  width:38px;
+  height:38px;
+  border-radius:var(--radius-xs);
+  border:2px solid var(--border);
+  transition:var(--transition);
+}
+
+.player-row:hover .avatar { border-color:var(--border-hover); }
+
+.player-text { display:flex; flex-direction:column; gap:2px; }
 
 .name-line { display:flex; align-items:center; gap:8px; }
 
-.player-name { font-weight:700; }
-
-.achievement {
-  font-size:0.7rem;
-  padding:2px 8px;
-  border-radius:10px;
-  background:rgba(245,158,11,0.15);
-  color:var(--accent);
+.player-name {
+  font-weight:700;
+  font-size:0.9rem;
+  letter-spacing:-0.01em;
 }
 
-.points { font-size:0.8rem; color:#cbd5e1; }
+.achievement {
+  font-size:0.6rem;
+  font-weight:600;
+  padding:2px 8px;
+  border-radius:20px;
+  background:var(--accent-dim);
+  color:var(--accent);
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+}
+
+.points {
+  font-size:0.75rem;
+  color:var(--text-muted);
+  font-weight:500;
+}
 
 .tiers-list {
   display:flex;
   flex-wrap:wrap;
-  gap:6px;
+  gap:4px;
+  justify-content:flex-end;
 }
 
 .tier-badge {
-  display:flex;
+  display:inline-flex;
   align-items:center;
   gap:4px;
-  padding:3px 7px;
-  border-radius:6px;
-  font-size:0.75rem;
-  color: inherit;
-  animation: pulse 1.5s infinite alternate;
+  padding:3px 8px;
+  border-radius:20px;
+  font-size:0.65rem;
+  font-weight:600;
+  letter-spacing:0.01em;
+  transition:var(--transition);
 }
 
-.tier-badge img { width:14px; }
+.tier-badge img { width:12px; }
 
-.HT { background:rgba(251,113,133,0.15); color:var(--ht); }
-.LT { background:rgba(74,222,128,0.15); color:var(--lt); }
-
-@keyframes pulse {
-  0% { transform: scale(1); filter: brightness(1); }
-  50% { transform: scale(1.05); filter: brightness(1.3); }
-  100% { transform: scale(1); filter: brightness(1); }
+.tier-badge.HT {
+  background:var(--ht-dim);
+  color:var(--ht);
 }
 
-/* TOP 3 */
-.top1, .top2, .top3 {
-  transform:scale(1.02);
-  position:relative;
+.tier-badge.LT {
+  background:var(--lt-dim);
+  color:var(--lt);
 }
+
+.player-row:hover .tier-badge.HT { background:rgba(251,113,133,0.18); }
+.player-row:hover .tier-badge.LT { background:rgba(74,222,128,0.18); }
+
+.top1, .top2, .top3 { position:relative; }
 
 .top1 {
-  border:1px solid gold;
-  box-shadow:0 0 20px rgba(255,215,0,0.4);
+  border-color:rgba(251,191,36,0.3);
+  background:linear-gradient(135deg,rgba(251,191,36,0.06),var(--card) 60%);
+  box-shadow:0 0 30px rgba(251,191,36,0.08), inset 0 1px 0 rgba(251,191,36,0.15);
+}
+
+.top1 .rank { color:var(--gold); font-size:1.1rem; }
+.top1 .avatar { border-color:rgba(251,191,36,0.4); }
+
+.top1:hover {
+  box-shadow:0 4px 30px rgba(251,191,36,0.15), inset 0 1px 0 rgba(251,191,36,0.2);
 }
 
 .top2 {
-  border:1px solid #c0c0c0;
-  box-shadow:0 0 15px rgba(192,192,192,0.4);
+  border-color:rgba(148,163,184,0.2);
+  background:linear-gradient(135deg,rgba(148,163,184,0.04),var(--card) 60%);
+  box-shadow:inset 0 1px 0 rgba(148,163,184,0.1);
 }
+
+.top2 .rank { color:var(--silver); }
+.top2 .avatar { border-color:rgba(148,163,184,0.3); }
 
 .top3 {
-  border:1px solid #cd7f32;
-  box-shadow:0 0 15px rgba(205,127,50,0.4);
+  border-color:rgba(217,119,6,0.2);
+  background:linear-gradient(135deg,rgba(217,119,6,0.04),var(--card) 60%);
+  box-shadow:inset 0 1px 0 rgba(217,119,6,0.1);
 }
 
-.top1::before {
+.top3 .rank { color:var(--bronze); }
+.top3 .avatar { border-color:rgba(217,119,6,0.3); }
+
+.top1::after {
   content:"";
   position:absolute;
-  inset:0;
-  background:linear-gradient(120deg, transparent, rgba(255,215,0,0.3), transparent);
-  animation:shine 2s infinite;
+  top:0;
+  left:-100%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(251,191,36,0.06),transparent);
+  animation:shimmer 3s ease-in-out infinite;
+  pointer-events:none;
 }
 
-@keyframes shine {
-  0% { transform:translateX(-100%); }
-  100% { transform:translateX(100%); }
+@keyframes shimmer {
+  0%,100%{left:-100%;}
+  50%{left:140%;}
 }
 
 .tier-grid {
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:10px;
-  padding:10px;
 }
 
 .tier-column {
-  background:#0f172a;
-  border:1px solid #1f2937;
-  border-radius:10px;
-  padding:10px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px 10px;
+  transition:var(--transition);
 }
 
-.tier-title { text-align:center; font-weight:bold; margin-bottom:8px; color:var(--accent); }
+.tier-column:hover {
+  border-color:var(--border-hover);
+}
+
+.tier-title {
+  text-align:center;
+  font-weight:700;
+  font-size:0.8rem;
+  margin-bottom:12px;
+  color:var(--accent);
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  position:relative;
+  padding-bottom:10px;
+}
+
+.tier-title::after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:24px;
+  height:2px;
+  background:var(--accent);
+  border-radius:2px;
+  opacity:0.4;
+}
 
 .player {
   display:flex;
   align-items:center;
-  gap:6px;
-  padding:5px;
-  margin-bottom:5px;
-  border-radius:6px;
-  background:#020617;
-  font-size:0.8rem;
+  gap:8px;
+  padding:8px 8px;
+  margin-bottom:4px;
+  border-radius:var(--radius-xs);
+  background:var(--surface);
+  font-size:0.78rem;
+  font-weight:500;
   cursor:pointer;
+  border-left:3px solid transparent;
+  transition:var(--transition);
 }
 
-.player img { width:22px; border-radius:4px; }
+.player:hover {
+  background:var(--card-hover);
+  transform:translateX(2px);
+}
 
-.player.HT { border-left:3px solid var(--ht); }
-.player.LT { border-left:3px solid var(--lt); }
+.player img {
+  width:24px;
+  height:24px;
+  border-radius:6px;
+}
+
+.player.HT {
+  border-left-color:var(--ht);
+  color:var(--ht);
+}
+
+.player.LT {
+  border-left-color:var(--lt);
+  color:var(--lt);
+}
 
 .modal {
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   display:flex;
   align-items:center;
   justify-content:center;
+  z-index:1000;
+  opacity:1;
+  transition:opacity 0.25s ease;
 }
 
 .hidden { opacity:0; pointer-events:none; }
 
 .modal-content {
-  background:#020617;
-  border:1px solid #1f2937;
+  background:var(--card);
+  border:1px solid var(--border);
   border-radius:20px;
-  padding:25px;
-  width:300px;
+  padding:32px 28px;
+  width:320px;
   text-align:center;
   position:relative;
+  box-shadow:0 24px 80px rgba(0,0,0,0.5);
+  transform:translateY(0) scale(1);
+  transition:transform 0.25s cubic-bezier(0.4,0,0.2,1);
 }
 
-.close { position:absolute; top:10px; right:15px; cursor:pointer; }
+.modal.hidden .modal-content {
+  transform:translateY(20px) scale(0.96);
+}
 
-.profile-avatar { width:90px; border-radius:50%; border:3px solid var(--accent); }
-.profile-name { font-size:1.4rem; margin:10px 0; }
+.close {
+  position:absolute;
+  top:14px;
+  right:16px;
+  cursor:pointer;
+  color:var(--text-muted);
+  font-size:1rem;
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  transition:var(--transition);
+  background:transparent;
+  border:none;
+  font-family:inherit;
+}
+
+.close:hover {
+  color:var(--text);
+  background:rgba(255,255,255,0.06);
+}
+
+.profile-avatar {
+  width:88px;
+  height:88px;
+  border-radius:50%;
+  border:3px solid var(--accent);
+  box-shadow:0 0 24px var(--accent-dim);
+  margin-bottom:4px;
+}
+
+.profile-name {
+  font-size:1.3rem;
+  font-weight:800;
+  margin:8px 0;
+  letter-spacing:-0.02em;
+}
+
 .profile-rank {
-  background:rgba(245,158,11,0.2);
+  background:var(--accent-dim);
   color:var(--accent);
-  padding:6px 12px;
+  padding:5px 14px;
   border-radius:20px;
   display:inline-block;
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+}
+
+.profile-stats {
+  margin-top:12px;
+  font-size:0.85rem;
+  color:var(--text-secondary);
+  font-weight:500;
+}
+
+.profile-tiers-label {
+  margin-top:16px;
+  margin-bottom:8px;
+  font-size:0.7rem;
+  font-weight:600;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.stats-bar {
+  max-width:960px;
+  margin:0 auto;
+  padding:20px 16px 0;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:1;
+}
+
+.stat-chip {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  font-size:0.75rem;
+  color:var(--text-secondary);
+  font-weight:500;
+}
+
+.stat-chip strong {
+  color:var(--text);
+  font-weight:700;
+}
+
+.empty-state {
+  text-align:center;
+  padding:60px 20px;
+  color:var(--text-muted);
+}
+
+.empty-state-icon {
+  font-size:2.5rem;
+  margin-bottom:12px;
+  opacity:0.4;
+}
+
+.empty-state-text {
+  font-size:0.9rem;
+  font-weight:500;
 }
 
 @media(max-width:768px){
   .tier-grid { grid-template-columns:repeat(2,1fr); }
-  .player-row { grid-template-columns:40px 1fr; }
+  .player-row { grid-template-columns:42px 1fr; }
+  .tiers-list { display:none; }
+  .search-bar input { width:160px; }
+  header { padding:12px 16px; }
+  .tabs-wrapper { padding:10px 16px 0; top:66px; }
+  .sub-tabs-wrapper.visible { padding:8px 16px 12px; }
+  #leaderboard { padding:16px 12px 40px; }
 }
 </style>
 
@@ -259,15 +685,21 @@ header {
 <header>
   <img src="https://i.imgur.com/Lxk7JHf.png" alt="MMTiers Logo" class="logo">
   <div class="search-bar">
-    <input id="searchInput" placeholder="Search player...">
+    <input id="searchInput" placeholder="Search players...">
   </div>
 </header>
 
-<div class="tabs" id="tabs"></div>
+<div class="tabs-wrapper">
+  <div class="tabs" id="tabs"></div>
+  <div class="sub-tabs-wrapper" id="subTabsWrapper">
+    <div class="sub-tabs" id="subTabs"></div>
+  </div>
+</div>
+
 <div id="leaderboard">Loading...</div>
 
 <div id="modal" class="modal hidden">
-<div class="modal-content" id="modalContent"></div>
+  <div class="modal-content" id="modalContent"></div>
 </div>
 
 <script>
@@ -285,23 +717,38 @@ mace:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png
 axe:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png"
 };
 
-const modes=["overall","crystal","sword","uhc","smp","dsmp","netpot","dpot","cart","mace","axe"];
+const tabEmoji={maintiers:"🗡",subtiers:"𖤓"};
+
+const modes=["overall","maintiers","subtiers"];
+const mainModes=["sword","axe","uhc","crystal","mace","dpot","netpot","smp"];
+const subModes=["cart","dsmp"];
 const tierPoints={HT1:60,LT1:45,HT2:35,LT2:25,HT3:15,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
 
 let data=[];
 let currentMode="overall";
+let currentSubMode=null;
 
 init();
 
 async function init(){
   createTabs();
+  buildSubTabs("maintiers");
   await loadData();
   render();
 }
 
 async function loadData(){
-  const res=await fetch("api-1.json");
-  data=await res.json();
+  try {
+    const res=await fetch("api-1.json");
+    if (!res.ok) throw new Error("HTTP "+res.status);
+    data=await res.json();
+  } catch(e) {
+    document.getElementById("leaderboard").innerHTML=`
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <div class="empty-state-text">Failed to load data — ${e.message}</div>
+      </div>`;
+  }
 }
 
 function createTabs(){
@@ -310,22 +757,79 @@ function createTabs(){
     const btn=document.createElement("button");
     btn.className="tab";
     if(m==="overall") btn.classList.add("active");
-    btn.innerHTML=`<img src="${iconMap[m]}">${m}`;
+    btn.dataset.mode=m;
+    const label = m==="maintiers" ? "Main Tiers" : m==="subtiers" ? "Sub Tiers" : m.charAt(0).toUpperCase()+m.slice(1);
+    if(tabEmoji[m]){
+      btn.innerHTML=`<span class="tab-emoji">${tabEmoji[m]}</span>${label}`;
+    } else {
+      btn.innerHTML=`<img src="${iconMap[m]}">${label}`;
+    }
     btn.onclick=()=>switchTab(m,btn);
     tabs.appendChild(btn);
+  });
+}
+
+function buildSubTabs(parentMode){
+  const container=document.getElementById("subTabs");
+  container.innerHTML="";
+
+  const modeList = parentMode==="maintiers" ? mainModes : subModes;
+
+  const allBtn=document.createElement("button");
+  allBtn.className="sub-tab active";
+  allBtn.dataset.submode="all";
+  allBtn.innerHTML=`⭐ All`;
+  allBtn.onclick=()=>switchSubTab("all",allBtn);
+  container.appendChild(allBtn);
+
+  modeList.forEach(m=>{
+    const btn=document.createElement("button");
+    btn.className="sub-tab";
+    btn.dataset.submode=m;
+    const label=m==="dpot"?"DPot":m==="netpot"?"NetPot":m==="smp"?"SMP":m==="dsmp"?"DSMP":m==="cart"?"Cart":m.charAt(0).toUpperCase()+m.slice(1);
+    btn.innerHTML=`<img src="${iconMap[m]}">${label}`;
+    btn.onclick=()=>switchSubTab(m,btn);
+    container.appendChild(btn);
   });
 }
 
 function switchTab(mode,btn){
   const container=document.getElementById("leaderboard");
   container.classList.add("fade-out");
+
+  const subWrapper=document.getElementById("subTabsWrapper");
+
   setTimeout(()=>{
     currentMode=mode;
+    currentSubMode="all";
+
+    if(mode==="maintiers" || mode==="subtiers"){
+      buildSubTabs(mode);
+      subWrapper.classList.add("visible");
+    } else {
+      subWrapper.classList.remove("visible");
+      currentSubMode=null;
+    }
+
     document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    btn.classList.add("active");
+
+    render();
+    container.classList.remove("fade-out");
+  },180);
+}
+
+function switchSubTab(subMode,btn){
+  const container=document.getElementById("leaderboard");
+  container.classList.add("fade-out");
+
+  setTimeout(()=>{
+    currentSubMode=subMode;
+    document.querySelectorAll(".sub-tab").forEach(t=>t.classList.remove("active"));
     btn.classList.add("active");
     render();
     container.classList.remove("fade-out");
-  },200);
+  },180);
 }
 
 function getPoints(p){
@@ -335,6 +839,25 @@ function getPoints(p){
     pts+=tierPoints[type+r.tier]||0;
   });
   return pts;
+}
+
+function getModePoints(p, modeList){
+  let pts=0;
+  modeList.forEach(m=>{
+    const r=(p.rankings||{})[m];
+    if(!r) return;
+    const type=r.pos===0?"HT":"LT";
+    pts+=tierPoints[type+r.tier]||0;
+  });
+  return pts;
+}
+
+function getMainPoints(p){
+  return getModePoints(p, mainModes);
+}
+
+function getSubPoints(p){
+  return getModePoints(p, subModes);
 }
 
 function getAchievementTitle(points){
@@ -349,105 +872,122 @@ function getAchievementTitle(points){
 
 function computeRanks(players){
   players.sort((a,b)=>b.points - a.points);
-  let rank = 1;
-  let lastPoints = null;
-  let skip = 0;
-
+  let rank=1, lastPoints=null, skip=0;
   players.forEach((p)=>{
-    if(lastPoints !== p.points){
-      rank = rank + skip;
-      skip = 1;
-      p.rank = rank;
-      lastPoints = p.points;
+    if(lastPoints!==p.points){
+      rank=rank+skip;
+      skip=1;
+      p.rank=rank;
+      lastPoints=p.points;
     } else {
-      p.rank = rank;
+      p.rank=rank;
       skip++;
     }
   });
-
   return players;
 }
 
-function openProfile(p, rank=0, points=0){
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modalContent");
+function openProfile(p, rank, points){
+  const modal=document.getElementById("modal");
+  const content=document.getElementById("modalContent");
 
-  let tiers = "";
-  Object.entries(p.rankings || {}).forEach(([m, r]) => {
-    const type = r.pos===0?"HT":"LT";
-    tiers += `<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+  let tiers="";
+  Object.entries(p.rankings||{}).forEach(([m,r])=>{
+    const type=r.pos===0?"HT":"LT";
+    tiers+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
   });
 
-  content.innerHTML = `
-    <div class="close" onclick="closeModal()">✖</div>
+  content.innerHTML=`
+    <button class="close" onclick="closeModal()">✕</button>
     <img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
     <div class="profile-name">${p.name}</div>
     <div class="profile-rank">${getAchievementTitle(points)}</div>
-    <div style="margin-top:10px;">#${rank} • ${points} pts</div>
-    <div class="tiers-list">${tiers}</div>
+    <div class="profile-stats">#${rank} &nbsp;•&nbsp; ${points} points</div>
+    <div class="profile-tiers-label">All Tiers</div>
+    <div class="tiers-list" style="justify-content:center;">${tiers}</div>
   `;
 
   modal.classList.remove("hidden");
 }
 
-function closeModal(){ document.getElementById("modal").classList.add("hidden"); }
+function closeModal(){
+  document.getElementById("modal").classList.add("hidden");
+}
 
-function render(){
+document.getElementById("modal").addEventListener("click",(e)=>{
+  if(e.target===e.currentTarget) closeModal();
+});
+
+function renderRankedView(players, pointFn, filterModes){
   const container=document.getElementById("leaderboard");
-  const search=document.getElementById("searchInput").value.toLowerCase();
 
-  let players=data.filter(p=>p.name.toLowerCase().includes(search));
-  container.innerHTML="";
-
-  if(currentMode==="overall"){
-    players = players.map(p=>({...p, points:getPoints(p)}));
-    players = computeRanks(players);
-
-    players.forEach((p)=>{
-      const row = document.createElement("div");
-      row.className="player-row";
-
-      if(p.rank===1) row.classList.add("top1");
-      if(p.rank===2) row.classList.add("top2");
-      if(p.rank===3) row.classList.add("top3");
-
-      let tiersHTML="";
-      Object.entries(p.rankings||{}).forEach(([m,r])=>{
-        const type = r.pos===0?"HT":"LT";
-        tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
-      });
-
-      row.innerHTML=`
-        <div class="rank">
-          ${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}
-        </div>
-
-        <div class="player-info">
-          <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
-          <div class="player-text">
-            <div class="name-line">
-              <span class="player-name">${p.name}</span>
-              <span class="achievement">${getAchievementTitle(p.points)}</span>
-            </div>
-            <div class="points">${p.points} pts</div>
-          </div>
-        </div>
-
-        <div class="tiers-list">${tiersHTML}</div>
-      `;
-
-      row.onclick = ()=>openProfile(p, p.rank, p.points);
-      container.appendChild(row);
-    });
+  if(players.length===0){
+    container.innerHTML=`
+      <div class="empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <div class="empty-state-text">No players found</div>
+      </div>`;
     return;
   }
 
+  players=players.map(p=>({...p, points:pointFn(p)}));
+  players=computeRanks(players);
+
+  players.forEach((p)=>{
+    const row=document.createElement("div");
+    row.className="player-row";
+
+    if(p.rank===1) row.classList.add("top1");
+    if(p.rank===2) row.classList.add("top2");
+    if(p.rank===3) row.classList.add("top3");
+
+    let tiersHTML="";
+    Object.entries(p.rankings||{}).forEach(([m,r])=>{
+      if(filterModes && !filterModes.includes(m)) return;
+      const type=r.pos===0?"HT":"LT";
+      tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
+    });
+
+    row.innerHTML=`
+      <div class="rank">${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}</div>
+      <div class="player-info">
+        <img class="avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
+        <div class="player-text">
+          <div class="name-line">
+            <span class="player-name">${p.name}</span>
+            <span class="achievement">${getAchievementTitle(p.points)}</span>
+          </div>
+          <div class="points">${p.points} pts</div>
+        </div>
+      </div>
+      <div class="tiers-list">${tiersHTML}</div>
+    `;
+
+    row.onclick=()=>openProfile(p, p.rank, p.points);
+    container.appendChild(row);
+  });
+}
+
+function renderTierGrid(mode, players){
+  const container=document.getElementById("leaderboard");
+
   const tiers={1:[],2:[],3:[],4:[],5:[]};
   players.forEach(p=>{
-    const r=p.rankings?.[currentMode];
+    const r=p.rankings?.[mode];
     if(!r) return;
     tiers[r.tier].push({...p,pos:r.pos});
   });
+
+  const hasData=Object.values(tiers).some(t=>t.length>0);
+
+  if(!hasData){
+    container.innerHTML=`
+      <div class="empty-state">
+        <div class="empty-state-icon">📋</div>
+        <div class="empty-state-text">No tier data for this mode</div>
+      </div>`;
+    return;
+  }
 
   const grid=document.createElement("div");
   grid.className="tier-grid";
@@ -461,7 +1001,8 @@ function render(){
       const div=document.createElement("div");
       div.className=`player ${p.pos===0?"HT":"LT"}`;
       div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100">${p.name}`;
-      div.onclick=()=>openProfile(p,getPoints(p));
+      const pts=getPoints(p);
+      div.onclick=()=>openProfile(p, 0, pts);
       col.appendChild(div);
     });
     grid.appendChild(col);
@@ -470,7 +1011,42 @@ function render(){
   container.appendChild(grid);
 }
 
+function render(){
+  const container=document.getElementById("leaderboard");
+  const search=document.getElementById("searchInput").value.toLowerCase();
+
+  let players=data.filter(p=>p.name.toLowerCase().includes(search));
+  container.innerHTML="";
+
+  if(currentMode==="overall"){
+    renderRankedView(players, getPoints, null);
+    return;
+  }
+
+  if(currentMode==="maintiers"){
+    if(currentSubMode==="all"){
+      renderRankedView(players, getMainPoints, mainModes);
+      return;
+    }
+    renderTierGrid(currentSubMode, players);
+    return;
+  }
+
+  if(currentMode==="subtiers"){
+    if(currentSubMode==="all"){
+      renderRankedView(players, getSubPoints, subModes);
+      return;
+    }
+    renderTierGrid(currentSubMode, players);
+    return;
+  }
+}
+
 document.getElementById("searchInput").addEventListener("input",render);
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape") closeModal();
+});
 </script>
 
 </body>
