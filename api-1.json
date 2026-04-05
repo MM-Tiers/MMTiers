@@ -307,7 +307,8 @@
     "name": "_WAyneDebuffs",
     "rankings": {
       "uhc": { "tier": 1, "pos": 0 },
-      "axe": { "tier": 1, "pos": 1}
+      "axe": { "tier": 1, "pos": 1},
+      "mace" { "tier": 3, "pos": 1}
     }
   },
   {
@@ -408,7 +409,7 @@
     "name": "_ZycoDebuffs",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 3, "pos": 0 },
+      "mace": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 2, "pos": 0}
       }
   },
