@@ -22,7 +22,7 @@
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 2, "pos": 0 },
+      "dpot": { "tier": 2, "pos": 0 "peaked_tier": 2, "peaked_pos": 0},
       "netpot": { "tier": 2, "pos": 0 },
       "smp": { "tier": 2, "pos": 1 },
       "axe": { "tier": 1, "pos": 0 }
@@ -36,7 +36,7 @@
       "uhc": { "tier": 2, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 1, "pos": 0 },
+      "axe": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
       "netpot": { "tier": 2, "pos": 1 }
     }
@@ -228,7 +228,7 @@
     "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
     "name": "Rinleaf",
     "rankings": {
-      "crystal": { "tier": 1, "pos": 0 },
+      "crystal": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
       "mace": { "tier": 3, "pos": 1 },
       "sword": { "tier": 2, "pos": 0 },
       "uhc": { "tier": 2, "pos": 1 },
