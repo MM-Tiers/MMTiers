@@ -233,7 +233,7 @@
       "sword": { "tier": 2, "pos": 0 },
       "uhc": { "tier": 2, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 2, "pos": 1 },
+      "dpot": { "tier": 2, "pos": 0 },
       "netpot": { "tier": 2, "pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
       "cart": { "tier": 1, "pos": 0 },
