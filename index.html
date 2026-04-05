@@ -111,6 +111,40 @@ header {
   filter:drop-shadow(0 0 12px rgba(245,158,11,0.2));
 }
 
+.header-right {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.info-btn {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  color:var(--text-secondary);
+  font-size:0.82rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:var(--transition);
+  font-family:inherit;
+  flex-shrink:0;
+}
+
+.info-btn:hover {
+  color:var(--accent);
+  border-color:rgba(245,158,11,0.25);
+  background:var(--accent-dim);
+}
+
+.info-btn-icon {
+  font-size:0.85rem;
+  line-height:1;
+}
+
 .search-bar {
   position:relative;
 }
@@ -343,10 +377,43 @@ header {
   font-weight:600;
   padding:2px 8px;
   border-radius:20px;
-  background:var(--accent-dim);
-  color:var(--accent);
   letter-spacing:0.02em;
   text-transform:uppercase;
+}
+
+.achievement.grandmaster {
+  background:rgba(251,191,36,0.18);
+  color:#fbbf24;
+}
+
+.achievement.master {
+  background:rgba(245,158,11,0.15);
+  color:#f59e0b;
+}
+
+.achievement.ace {
+  background:rgba(251,113,133,0.12);
+  color:#fb7185;
+}
+
+.achievement.specialist {
+  background:rgba(168,85,247,0.12);
+  color:#a855f7;
+}
+
+.achievement.cadet {
+  background:rgba(59,130,246,0.12);
+  color:#60a5fa;
+}
+
+.achievement.novice {
+  background:rgba(148,163,184,0.12);
+  color:#94a3b8;
+}
+
+.achievement.rookie {
+  background:rgba(100,116,139,0.1);
+  color:#64748b;
 }
 
 .points {
@@ -405,22 +472,30 @@ header {
 }
 
 .top2 {
-  border-color:rgba(148,163,184,0.2);
-  background:linear-gradient(135deg,rgba(148,163,184,0.04),var(--card) 60%);
-  box-shadow:inset 0 1px 0 rgba(148,163,184,0.1);
+  border-color:rgba(148,163,184,0.3);
+  background:linear-gradient(135deg,rgba(148,163,184,0.06),var(--card) 60%);
+  box-shadow:0 0 30px rgba(148,163,184,0.06), inset 0 1px 0 rgba(148,163,184,0.15);
 }
 
-.top2 .rank { color:var(--silver); }
-.top2 .avatar { border-color:rgba(148,163,184,0.3); }
+.top2 .rank { color:var(--silver); font-size:1.05rem; }
+.top2 .avatar { border-color:rgba(148,163,184,0.4); }
+
+.top2:hover {
+  box-shadow:0 4px 30px rgba(148,163,184,0.12), inset 0 1px 0 rgba(148,163,184,0.2);
+}
 
 .top3 {
-  border-color:rgba(217,119,6,0.2);
-  background:linear-gradient(135deg,rgba(217,119,6,0.04),var(--card) 60%);
-  box-shadow:inset 0 1px 0 rgba(217,119,6,0.1);
+  border-color:rgba(217,119,6,0.3);
+  background:linear-gradient(135deg,rgba(217,119,6,0.06),var(--card) 60%);
+  box-shadow:0 0 30px rgba(217,119,6,0.06), inset 0 1px 0 rgba(217,119,6,0.15);
 }
 
-.top3 .rank { color:var(--bronze); }
-.top3 .avatar { border-color:rgba(217,119,6,0.3); }
+.top3 .rank { color:var(--bronze); font-size:1rem; }
+.top3 .avatar { border-color:rgba(217,119,6,0.4); }
+
+.top3:hover {
+  box-shadow:0 4px 30px rgba(217,119,6,0.12), inset 0 1px 0 rgba(217,119,6,0.2);
+}
 
 .top1::after {
   content:"";
@@ -429,12 +504,46 @@ header {
   left:-100%;
   width:60%;
   height:100%;
-  background:linear-gradient(90deg,transparent,rgba(251,191,36,0.06),transparent);
-  animation:shimmer 3s ease-in-out infinite;
+  background:linear-gradient(90deg,transparent,rgba(251,191,36,0.07),transparent);
+  animation:shimmerGold 3s ease-in-out infinite;
   pointer-events:none;
 }
 
-@keyframes shimmer {
+.top2::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(148,163,184,0.07),transparent);
+  animation:shimmerSilver 3.5s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.top3::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(217,119,6,0.07),transparent);
+  animation:shimmerBronze 4s ease-in-out infinite;
+  pointer-events:none;
+}
+
+@keyframes shimmerGold {
+  0%,100%{left:-100%;}
+  50%{left:140%;}
+}
+
+@keyframes shimmerSilver {
+  0%,100%{left:-100%;}
+  50%{left:140%;}
+}
+
+@keyframes shimmerBronze {
   0%,100%{left:-100%;}
   50%{left:140%;}
 }
@@ -592,8 +701,6 @@ header {
 }
 
 .profile-rank {
-  background:var(--accent-dim);
-  color:var(--accent);
   padding:5px 14px;
   border-radius:20px;
   display:inline-block;
@@ -666,6 +773,163 @@ header {
   font-weight:500;
 }
 
+.info-modal-content {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px 24px 28px;
+  width:360px;
+  position:relative;
+  box-shadow:0 24px 80px rgba(0,0,0,0.5);
+  transform:translateY(0) scale(1);
+  transition:transform 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+.info-modal.hidden .info-modal-content {
+  transform:translateY(20px) scale(0.96);
+}
+
+.info-modal-tabs {
+  display:flex;
+  gap:4px;
+  margin-bottom:20px;
+  background:var(--surface);
+  border-radius:var(--radius-sm);
+  padding:3px;
+}
+
+.info-modal-tab {
+  flex:1;
+  padding:8px 0;
+  background:transparent;
+  border:none;
+  border-radius:var(--radius-xs);
+  cursor:pointer;
+  color:var(--text-muted);
+  font-family:inherit;
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  transition:var(--transition);
+}
+
+.info-modal-tab:hover {
+  color:var(--text-secondary);
+}
+
+.info-modal-tab.active {
+  color:var(--bg);
+  background:var(--accent);
+  box-shadow:0 2px 8px rgba(245,158,11,0.25);
+}
+
+.info-section-title {
+  font-size:0.8rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:16px;
+  letter-spacing:-0.01em;
+}
+
+.info-points-list {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.info-tier-row {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  background:var(--surface);
+  border-radius:var(--radius-xs);
+  border:1px solid var(--border);
+}
+
+.info-tier-label {
+  font-size:0.72rem;
+  font-weight:700;
+  color:var(--text-muted);
+  min-width:52px;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+
+.info-tier-values {
+  display:flex;
+  gap:8px;
+  margin-left:auto;
+}
+
+.info-tier-val {
+  display:flex;
+  align-items:center;
+  gap:4px;
+  font-size:0.78rem;
+  font-weight:700;
+}
+
+.info-tier-val.ht {
+  color:var(--ht);
+}
+
+.info-tier-val.lt {
+  color:var(--lt);
+}
+
+.info-tier-val .val-label {
+  font-size:0.6rem;
+  font-weight:600;
+  opacity:0.6;
+}
+
+.info-titles-list {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.info-title-row {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 14px;
+  background:var(--surface);
+  border-radius:var(--radius-xs);
+  border:1px solid var(--border);
+}
+
+.info-title-icon {
+  font-size:1rem;
+  width:24px;
+  text-align:center;
+  flex-shrink:0;
+}
+
+.info-title-name {
+  font-size:0.78rem;
+  font-weight:600;
+  color:var(--text);
+  flex:1;
+}
+
+.info-title-pts {
+  font-size:0.7rem;
+  font-weight:700;
+  color:var(--text-muted);
+  white-space:nowrap;
+}
+
+.info-panel {
+  display:none;
+}
+
+.info-panel.visible {
+  display:block;
+}
+
 @media(max-width:768px){
   .tier-grid { grid-template-columns:repeat(2,1fr); }
   .player-row { grid-template-columns:42px 1fr; }
@@ -675,6 +939,8 @@ header {
   .tabs-wrapper { padding:10px 16px 0; top:66px; }
   .sub-tabs-wrapper.visible { padding:8px 16px 12px; }
   #leaderboard { padding:16px 12px 40px; }
+  .info-modal-content { width:calc(100vw - 32px); max-width:360px; }
+  .info-btn-text { display:none; }
 }
 </style>
 
@@ -684,8 +950,14 @@ header {
 
 <header>
   <img src="https://i.imgur.com/Lxk7JHf.png" alt="MMTiers Logo" class="logo">
-  <div class="search-bar">
-    <input id="searchInput" placeholder="Search players...">
+  <div class="header-right">
+    <button class="info-btn" onclick="openInfoModal()">
+      <span class="info-btn-icon">ⓘ</span>
+      <span class="info-btn-text">Information</span>
+    </button>
+    <div class="search-bar">
+      <input id="searchInput" placeholder="Search players...">
+    </div>
   </div>
 </header>
 
@@ -700,6 +972,98 @@ header {
 
 <div id="modal" class="modal hidden">
   <div class="modal-content" id="modalContent"></div>
+</div>
+
+<div id="infoModal" class="modal info-modal hidden">
+  <div class="info-modal-content">
+    <button class="close" onclick="closeInfoModal()">✕</button>
+    <div class="info-modal-tabs">
+      <button class="info-modal-tab active" onclick="switchInfoTab('points',this)">Points</button>
+      <button class="info-modal-tab" onclick="switchInfoTab('titles',this)">Titles</button>
+    </div>
+
+    <div id="infoPoints" class="info-panel visible">
+      <div class="info-section-title">How ranking points are calculated</div>
+      <div class="info-points-list">
+        <div class="info-tier-row">
+          <div class="info-tier-label">Tier 1</div>
+          <div class="info-tier-values">
+            <div class="info-tier-val ht"><span class="val-label">HT</span> 60</div>
+            <div class="info-tier-val lt"><span class="val-label">LT</span> 45</div>
+          </div>
+        </div>
+        <div class="info-tier-row">
+          <div class="info-tier-label">Tier 2</div>
+          <div class="info-tier-values">
+            <div class="info-tier-val ht"><span class="val-label">HT</span> 30</div>
+            <div class="info-tier-val lt"><span class="val-label">LT</span> 20</div>
+          </div>
+        </div>
+        <div class="info-tier-row">
+          <div class="info-tier-label">Tier 3</div>
+          <div class="info-tier-values">
+            <div class="info-tier-val ht"><span class="val-label">HT</span> 10</div>
+            <div class="info-tier-val lt"><span class="val-label">LT</span> 6</div>
+          </div>
+        </div>
+        <div class="info-tier-row">
+          <div class="info-tier-label">Tier 4</div>
+          <div class="info-tier-values">
+            <div class="info-tier-val ht"><span class="val-label">HT</span> 4</div>
+            <div class="info-tier-val lt"><span class="val-label">LT</span> 3</div>
+          </div>
+        </div>
+        <div class="info-tier-row">
+          <div class="info-tier-label">Tier 5</div>
+          <div class="info-tier-values">
+            <div class="info-tier-val ht"><span class="val-label">HT</span> 2</div>
+            <div class="info-tier-val lt"><span class="val-label">LT</span> 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="infoTitles" class="info-panel">
+      <div class="info-section-title">How to obtain Achievement Titles</div>
+      <div class="info-titles-list">
+        <div class="info-title-row">
+          <div class="info-title-icon">🏆</div>
+          <div class="info-title-name">Combat Grandmaster</div>
+          <div class="info-title-pts">400+ pts</div>
+        </div>
+        <div class="info-title-row">
+          <div class="info-title-icon">🥇</div>
+          <div class="info-title-name">Combat Master</div>
+          <div class="info-title-pts">250+ pts</div>
+        </div>
+        <div class="info-title-row">
+          <div class="info-title-icon">⚡</div>
+          <div class="info-title-name">Combat Ace</div>
+          <div class="info-title-pts">100+ pts</div>
+        </div>
+        <div class="info-title-row">
+          <div class="info-title-icon">🎖️</div>
+          <div class="info-title-name">Combat Specialist</div>
+          <div class="info-title-pts">50+ pts</div>
+        </div>
+        <div class="info-title-row">
+          <div class="info-title-icon">🎖️</div>
+          <div class="info-title-name">Combat Cadet</div>
+          <div class="info-title-pts">20+ pts</div>
+        </div>
+        <div class="info-title-row">
+          <div class="info-title-icon">🎖️</div>
+          <div class="info-title-name">Combat Novice</div>
+          <div class="info-title-pts">10+ pts</div>
+        </div>
+        <div class="info-title-row">
+          <div class="info-title-icon">🔹</div>
+          <div class="info-title-name">Rookie</div>
+          <div class="info-title-pts">&lt;10 pts</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -717,11 +1081,12 @@ mace:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png
 axe:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png"
 };
 
-const tabEmoji={maintiers:"🗡",subtiers:"𖤓"};
+const tabEmoji={maintiers:"🗡",subtiers:"𖤓",exclusivetiers:"⚡"};
 
-const modes=["overall","maintiers","subtiers"];
+const modes=["overall","maintiers","subtiers","exclusivetiers"];
 const mainModes=["sword","axe","uhc","crystal","mace","dpot","netpot","smp"];
 const subModes=["cart","dsmp"];
+const exclusiveModes=[];
 const tierPoints={HT1:60,LT1:45,HT2:35,LT2:25,HT3:15,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
 
 let data=[];
@@ -758,7 +1123,7 @@ function createTabs(){
     btn.className="tab";
     if(m==="overall") btn.classList.add("active");
     btn.dataset.mode=m;
-    const label = m==="maintiers" ? "Main Tiers" : m==="subtiers" ? "Sub Tiers" : m.charAt(0).toUpperCase()+m.slice(1);
+    const label = m==="maintiers" ? "Main Tiers" : m==="subtiers" ? "Sub Tiers" : m==="exclusivetiers" ? "Exclusive Tier" : m.charAt(0).toUpperCase()+m.slice(1);
     if(tabEmoji[m]){
       btn.innerHTML=`<span class="tab-emoji">${tabEmoji[m]}</span>${label}`;
     } else {
@@ -773,7 +1138,7 @@ function buildSubTabs(parentMode){
   const container=document.getElementById("subTabs");
   container.innerHTML="";
 
-  const modeList = parentMode==="maintiers" ? mainModes : subModes;
+  const modeList = parentMode==="maintiers" ? mainModes : parentMode==="subtiers" ? subModes : exclusiveModes;
 
   const allBtn=document.createElement("button");
   allBtn.className="sub-tab active";
@@ -803,7 +1168,7 @@ function switchTab(mode,btn){
     currentMode=mode;
     currentSubMode="all";
 
-    if(mode==="maintiers" || mode==="subtiers"){
+    if(mode==="maintiers" || mode==="subtiers" || mode==="exclusivetiers"){
       buildSubTabs(mode);
       subWrapper.classList.add("visible");
     } else {
@@ -860,14 +1225,18 @@ function getSubPoints(p){
   return getModePoints(p, subModes);
 }
 
+function getExclusivePoints(p){
+  return getModePoints(p, exclusiveModes);
+}
+
 function getAchievementTitle(points){
-  if(points>=400) return "Combat Grandmaster";
-  if(points>=250) return "Combat Master";
-  if(points>=100) return "Combat Ace";
-  if(points>=50) return "Combat Specialist";
-  if(points>=20) return "Combat Cadet";
-  if(points>=10) return "Combat Novice";
-  return "Rookie";
+  if(points>=400) return {name:"Combat Grandmaster",cls:"grandmaster"};
+  if(points>=250) return {name:"Combat Master",cls:"master"};
+  if(points>=100) return {name:"Combat Ace",cls:"ace"};
+  if(points>=50) return {name:"Combat Specialist",cls:"specialist"};
+  if(points>=20) return {name:"Combat Cadet",cls:"cadet"};
+  if(points>=10) return {name:"Combat Novice",cls:"novice"};
+  return {name:"Rookie",cls:"rookie"};
 }
 
 function computeRanks(players){
@@ -897,11 +1266,13 @@ function openProfile(p, rank, points){
     tiers+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
   });
 
+  const titleInfo = getAchievementTitle(points);
+
   content.innerHTML=`
     <button class="close" onclick="closeModal()">✕</button>
     <img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
     <div class="profile-name">${p.name}</div>
-    <div class="profile-rank">${getAchievementTitle(points)}</div>
+    <div class="profile-rank achievement ${titleInfo.cls}">${titleInfo.name}</div>
     <div class="profile-stats">#${rank} &nbsp;•&nbsp; ${points} points</div>
     <div class="profile-tiers-label">All Tiers</div>
     <div class="tiers-list" style="justify-content:center;">${tiers}</div>
@@ -918,8 +1289,30 @@ document.getElementById("modal").addEventListener("click",(e)=>{
   if(e.target===e.currentTarget) closeModal();
 });
 
+function openInfoModal(){
+  document.getElementById("infoModal").classList.remove("hidden");
+}
+
+function closeInfoModal(){
+  document.getElementById("infoModal").classList.add("hidden");
+}
+
+document.getElementById("infoModal").addEventListener("click",(e)=>{
+  if(e.target===e.currentTarget) closeInfoModal();
+});
+
+function switchInfoTab(tab,btn){
+  document.querySelectorAll(".info-modal-tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll(".info-panel").forEach(p=>p.classList.remove("visible"));
+  document.getElementById(tab==="points"?"infoPoints":"infoTitles").classList.add("visible");
+}
+
 function renderRankedView(players, pointFn, filterModes){
   const container=document.getElementById("leaderboard");
+
+  players=players.map(p=>({...p, points:pointFn(p)}));
+  players=players.filter(p=>p.points > 0);
 
   if(players.length===0){
     container.innerHTML=`
@@ -930,7 +1323,6 @@ function renderRankedView(players, pointFn, filterModes){
     return;
   }
 
-  players=players.map(p=>({...p, points:pointFn(p)}));
   players=computeRanks(players);
 
   players.forEach((p)=>{
@@ -948,6 +1340,8 @@ function renderRankedView(players, pointFn, filterModes){
       tiersHTML+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
     });
 
+    const titleInfo = getAchievementTitle(p.points);
+
     row.innerHTML=`
       <div class="rank">${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}</div>
       <div class="player-info">
@@ -955,7 +1349,7 @@ function renderRankedView(players, pointFn, filterModes){
         <div class="player-text">
           <div class="name-line">
             <span class="player-name">${p.name}</span>
-            <span class="achievement">${getAchievementTitle(p.points)}</span>
+            <span class="achievement ${titleInfo.cls}">${titleInfo.name}</span>
           </div>
           <div class="points">${p.points} pts</div>
         </div>
@@ -1040,12 +1434,24 @@ function render(){
     renderTierGrid(currentSubMode, players);
     return;
   }
+
+  if(currentMode==="exclusivetiers"){
+    if(currentSubMode==="all"){
+      renderRankedView(players, getExclusivePoints, exclusiveModes);
+      return;
+    }
+    renderTierGrid(currentSubMode, players);
+    return;
+  }
 }
 
 document.getElementById("searchInput").addEventListener("input",render);
 
 document.addEventListener("keydown",(e)=>{
-  if(e.key==="Escape") closeModal();
+  if(e.key==="Escape"){
+    closeModal();
+    closeInfoModal();
+  }
 });
 </script>
 
