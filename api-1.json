@@ -420,5 +420,12 @@
     "rankings": {
       "sword": { "tier": 3, "pos": 1 }
     }
+  },
+  {
+    "uuid": "47a259e8-35ef-434f-8344-3a23b6a3dd95",
+    "name": "NixfelzNik_",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 },      
+    }
   }
 ]
