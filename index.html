@@ -256,25 +256,13 @@ header {
 .tier-badge.HT { background:var(--ht-dim);color:var(--ht); }
 .tier-badge.LT { background:var(--lt-dim);color:var(--lt); }
 
-.tier-badge.peaked-ht {
-  background:rgba(192,132,252,0.12);color:var(--peaked);
-  border:1px solid rgba(192,132,252,0.2);
-}
-.tier-badge.peaked-lt {
-  background:rgba(192,132,252,0.08);color:rgba(192,132,252,0.85);
+.tier-badge.has-peaked {
   border:1px solid rgba(192,132,252,0.15);
-}
-
-.tier-badge .peaked-star {
-  font-size:0.5rem;
-  animation:peakedPulse 2.5s ease-in-out infinite;
-  margin-left:1px;
 }
 
 .player-row:hover .tier-badge.HT { background:rgba(251,113,133,0.18); }
 .player-row:hover .tier-badge.LT { background:rgba(74,222,128,0.18); }
-.player-row:hover .tier-badge.peaked-ht { background:rgba(192,132,252,0.2);box-shadow:0 0 12px rgba(192,132,252,0.12); }
-.player-row:hover .tier-badge.peaked-lt { background:rgba(192,132,252,0.15); }
+.player-row:hover .tier-badge.has-peaked { border-color:rgba(192,132,252,0.3); }
 
 .badge-tooltip {
   position:fixed;
@@ -340,7 +328,12 @@ header {
 
 .badge-tooltip-tier.ht { color:var(--ht); }
 .badge-tooltip-tier.lt { color:var(--lt); }
-.badge-tooltip-tier.peaked { color:var(--peaked); }
+
+.badge-tooltip-peaked-section {
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
 
 .badge-tooltip-peak-label {
   font-size:0.6rem;
@@ -348,16 +341,23 @@ header {
   color:var(--peaked);
   letter-spacing:0.04em;
   text-transform:uppercase;
-  margin-top:4px;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:3px;
+  margin-bottom:4px;
 }
 
 .badge-tooltip-peak-label::before {
   content:"✦";
   font-size:0.5rem;
+}
+
+.badge-tooltip-peak-tier {
+  font-size:0.95rem;
+  font-weight:800;
+  color:var(--peaked);
+  letter-spacing:-0.01em;
 }
 
 .badge-tooltip-points {
@@ -374,11 +374,20 @@ header {
   font-weight:700;
 }
 
-.badge-tooltip-current {
-  font-size:0.6rem;
-  color:var(--text-muted);
-  margin-top:4px;
-  font-weight:500;
+.badge-tooltip-points-note {
+  font-size:0.55rem;
+  color:var(--peaked);
+  font-weight:600;
+  margin-top:3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+}
+
+.badge-tooltip-points-note::before {
+  content:"✦";
+  font-size:0.45rem;
 }
 
 .badge-tooltip-arrow {
@@ -480,7 +489,6 @@ header {
 .player img { width:24px;height:24px;border-radius:6px;flex-shrink:0; }
 .player.HT { border-left-color:var(--ht);color:var(--ht); }
 .player.LT { border-left-color:var(--lt);color:var(--lt); }
-.player.peaked-from-drop { border-left-color:var(--peaked);color:var(--peaked);font-style:italic; }
 .player-name-cell { flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
 .player-peaked-star {
   font-size:0.6rem;color:var(--peaked);flex-shrink:0;
@@ -743,7 +751,7 @@ header {
     <div id="infoPeaked" class="info-panel">
       <div class="info-section-title">What are Peaked Tiers?</div>
       <div class="info-peaked-desc">
-        A <strong>Peaked Tier</strong> locks in your points at a specific tier and position (HT or LT), even if your current tier drops later. You earn it by passing a verification test at that level.
+        A <strong>Peaked Tier</strong> locks in your points at a specific tier and position (HT or LT), even if your current tier drops later. The badge always shows your current tier — hover over it to see your peaked tier.
       </div>
       <div class="info-peaked-note">
         ✦ Peaked tiers <strong>do affect points</strong>. Points use whichever is higher: current or peaked.
@@ -754,16 +762,15 @@ header {
           <strong>1.</strong> Reach a tier in any game mode (e.g. HT1 Sword)<br>
           <strong>2.</strong> Request a peaked test from staff<br>
           <strong>3.</strong> Pass the test → your points are locked at that tier<br>
-          <strong>4.</strong> If your tier later drops, you still keep the peaked points<br>
-          <strong>5.</strong> Your badge shows the peaked tier with a ✦ star
+          <strong>4.</strong> Your badge still shows your <strong>current</strong> tier<br>
+          <strong>5.</strong> Hover the badge to reveal your peaked tier and points
         </div>
       </div>
       <div class="info-peaked-section">
-        <div class="info-peaked-title">Examples</div>
+        <div class="info-peaked-title">Example</div>
         <div class="info-peaked-desc">
-          Peaked <strong>HT1</strong>, currently LT1 → earns 60 pts (HT1)<br>
-          Peaked <strong>LT1</strong>, currently LT2 → earns 45 pts (LT1)<br>
-          Peaked <strong>HT2</strong>, currently HT2 → earns 30 pts (no change)
+          Badge shows: <strong style="color:var(--lt)">LT1</strong><br>
+          Hover reveals: ✦ Peak <strong style="color:var(--peaked)">HT1</strong> — 60 points
         </div>
         <div class="info-example">"sword": {
   "tier": 1, "pos": 1,
@@ -823,36 +830,63 @@ const tooltipInner=document.getElementById("badgeTooltipInner");
 
 function showBadgeTooltip(badgeEl,mode,ranking){
   clearTimeout(tooltipTimer);
-  const eff=getEffectiveTier(ranking);
-  const pts=getRankingPoints(ranking);
+
+  // Always show current tier as the main display
   const currentType=ranking.pos===0?"HT":"LT";
   const currentLabel=currentType+ranking.tier;
-
-  let tierColorClass=eff.type==="HT"?"ht":"lt";
-  if(eff.isPeaked) tierColorClass="peaked";
+  const currentPts=tierPoints[currentType+ranking.tier]||0;
+  const pts=getRankingPoints(ranking);
+  const tierColorClass=currentType==="HT"?"ht":"lt";
 
   let html=`
     <div class="badge-tooltip-modes">
       <img class="badge-tooltip-mode-icon" src="${iconMap[mode]}">
       <span class="badge-tooltip-mode-label">${modeLabels[mode]||mode}</span>
     </div>
-    <div class="badge-tooltip-tier ${tierColorClass}">${eff.type}${eff.tier}</div>
+    <div class="badge-tooltip-tier ${tierColorClass}">${currentLabel}</div>
   `;
 
-  if(eff.isPeaked){
-    html+=`<div class="badge-tooltip-peak-label">Peak ${eff.type}${eff.tier}</div>`;
+  // Show peaked section only if peaked exists AND gives more points than current
+  if(ranking.peaked_tier!=null){
+    const peakedType=ranking.peaked_pos===0?"HT":"LT";
+    const peakedPts=tierPoints[peakedType+ranking.peaked_tier]||0;
+    const peakedLabel=peakedType+ranking.peaked_tier;
+
+    if(peakedPts>currentPts){
+      // Peaked is higher — show it
+      html+=`
+        <div class="badge-tooltip-peaked-section">
+          <div class="badge-tooltip-peak-label">Peak ${peakedLabel}</div>
+          <div class="badge-tooltip-peak-tier">${peakedLabel}</div>
+        </div>
+      `;
+    } else if(peakedPts===currentPts && (ranking.peaked_tier!==ranking.tier || ranking.peaked_pos!==ranking.pos)){
+      // Same points but different label (e.g. peaked HT2, current LT2 — both 20pts... wait no HT2=30 LT2=20)
+      // Actually this case is rare but handle it: same points, different tier label
+      html+=`
+        <div class="badge-tooltip-peaked-section">
+          <div class="badge-tooltip-peak-label">Peak ${peakedLabel}</div>
+          <div class="badge-tooltip-peak-tier">${peakedLabel}</div>
+        </div>
+      `;
+    }
   }
 
   html+=`<div class="badge-tooltip-points"><strong>${pts}</strong> points</div>`;
 
-  if(eff.isPeaked&&eff.hasDropped){
-    html+=`<div class="badge-tooltip-current">Current: ${currentLabel}</div>`;
+  // If peaked gives more points, show a note
+  if(ranking.peaked_tier!=null){
+    const peakedType=ranking.peaked_pos===0?"HT":"LT";
+    const peakedPts=tierPoints[peakedType+ranking.peaked_tier]||0;
+    if(peakedPts>currentPts){
+      html+=`<div class="badge-tooltip-points-note">from peaked tier</div>`;
+    }
   }
 
   tooltipInner.innerHTML=html;
 
   const rect=badgeEl.getBoundingClientRect();
-  const tw=150;
+  const tw=160;
   const th=tooltipInner.offsetHeight||120;
 
   let left=rect.left+rect.width/2-tw/2;
@@ -1005,7 +1039,6 @@ function switchSubTab(subMode,btn){
   },180);
 }
 
-// peaked_pos: 0 = HT, 1 = LT — fully respected
 function getRankingPoints(ranking){
   const currentType=ranking.pos===0?"HT":"LT";
   const currentPts=tierPoints[currentType+ranking.tier]||0;
@@ -1015,6 +1048,15 @@ function getRankingPoints(ranking){
     return Math.max(currentPts,peakedPts);
   }
   return currentPts;
+}
+
+function hasActivePeaked(ranking){
+  if(ranking.peaked_tier==null) return false;
+  const peakedType=ranking.peaked_pos===0?"HT":"LT";
+  const peakedPts=tierPoints[peakedType+ranking.peaked_tier]||0;
+  const currentType=ranking.pos===0?"HT":"LT";
+  const currentPts=tierPoints[currentType+ranking.tier]||0;
+  return peakedPts>currentPts || (peakedPts===currentPts && (ranking.peaked_tier!==ranking.tier || ranking.peaked_pos!==ranking.pos));
 }
 
 function getEffectiveTier(ranking){
@@ -1080,14 +1122,12 @@ function getFilterModes(){
   return exclusiveModes;
 }
 
+// Badge ALWAYS shows current tier
 function buildTierBadgeHTML(mode,ranking,filterModes){
   if(filterModes&&!filterModes.includes(mode)) return "";
-  const eff=getEffectiveTier(ranking);
-  if(eff.isPeaked){
-    const cls=eff.type==="HT"?"peaked-ht":"peaked-lt";
-    return `<div class="tier-badge ${cls}" data-mode="${mode}"><img src="${iconMap[mode]}">${eff.type}${eff.tier}<span class="peaked-star">✦</span></div>`;
-  }
-  return `<div class="tier-badge ${eff.type}" data-mode="${mode}"><img src="${iconMap[mode]}">${eff.type}${eff.tier}</div>`;
+  const currentType=ranking.pos===0?"HT":"LT";
+  const extraClass=hasActivePeaked(ranking)?"has-peaked":"";
+  return `<div class="tier-badge ${currentType} ${extraClass}" data-mode="${mode}"><img src="${iconMap[mode]}">${currentType}${ranking.tier}</div>`;
 }
 
 function openProfile(p,rank,points){
@@ -1105,7 +1145,7 @@ function openProfile(p,rank,points){
     const currentType=r.pos===0?"HT":"LT";
     const currentLabel=currentType+r.tier;
     const effectiveLabel=eff.type+eff.tier;
-    if(eff.isPeaked) peakedCount++;
+    if(eff.isPeaked&&eff.hasDropped) peakedCount++;
 
     let effectiveHTML="";
     if(eff.isPeaked&&eff.hasDropped){
@@ -1121,7 +1161,9 @@ function openProfile(p,rank,points){
   });
 
   let totalPeakedAll=0;
-  Object.values(p.rankings||{}).forEach(r=>{if(r.peaked_tier!=null)totalPeakedAll++;});
+  Object.values(p.rankings||{}).forEach(r=>{
+    if(r.peaked_tier!=null&&hasActivePeaked(r)) totalPeakedAll++;
+  });
 
   content.innerHTML=`
     <button class="close" onclick="closeModal()">✕</button>
@@ -1207,11 +1249,11 @@ function renderTierGrid(mode,players){
   const container=document.getElementById("leaderboard");
   const tiers={1:[],2:[],3:[],4:[],5:[]};
 
+  // Tier grid places at CURRENT tier
   players.forEach(p=>{
     const r=p.rankings?.[mode];
     if(!r) return;
-    const eff=getEffectiveTier(r);
-    tiers[eff.tier].push({...p,pos:eff.pos,isPeaked:eff.isPeaked,hasDropped:eff.hasDropped,currentTier:r.tier,currentPos:r.pos,mode:mode});
+    tiers[r.tier].push({...p,pos:r.pos,currentTier:r.tier,currentPos:r.pos,mode:mode,ranking:r});
   });
 
   if(!Object.values(tiers).some(t=>t.length)){
@@ -1232,12 +1274,11 @@ function renderTierGrid(mode,players){
       const type=p.pos===0?"HT":"LT";
       div._playerData=p;
 
-      if(p.isPeaked&&p.hasDropped){
-        div.className="player peaked-from-drop";
-        div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span><span class="player-peaked-star" title="Peaked ${type}${t} — currently ${p.currentPos===0?"HT":"LT"}${p.currentTier}">✦</span>`;
-      }else if(p.isPeaked){
+      const peaked=hasActivePeaked(p.ranking);
+
+      if(peaked){
         div.className=`player ${type}`;
-        div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span><span class="player-peaked-star" title="Peaked ${type}${t}">✦</span>`;
+        div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span><span class="player-peaked-star" title="Has peaked tier — hover for details">✦</span>`;
       }else{
         div.className=`player ${type}`;
         div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span>`;
