@@ -743,38 +743,38 @@ header {
     <div id="infoPeaked" class="info-panel">
       <div class="info-section-title">What are Peaked Tiers?</div>
       <div class="info-peaked-desc">
-        A <strong>Peaked Tier</strong> locks in your points at a tier level, even if your current tier drops later. You earn it by passing a verification test at that tier.
+        A <strong>Peaked Tier</strong> locks in your points at a specific tier and position (HT or LT), even if your current tier drops later. You earn it by passing a verification test at that level.
       </div>
       <div class="info-peaked-note">
-        ✦ Peaked tiers <strong>do affect points</strong>. If you peaked HT1 but dropped to LT1, you still earn 60 points for that mode — not 45.
+        ✦ Peaked tiers <strong>do affect points</strong>. Points use whichever is higher: current or peaked.
       </div>
       <div class="info-peaked-section">
         <div class="info-peaked-title">How it works</div>
         <div class="info-peaked-desc">
           <strong>1.</strong> Reach a tier in any game mode (e.g. HT1 Sword)<br>
           <strong>2.</strong> Request a peaked test from staff<br>
-          <strong>3.</strong> Pass the test → your points are locked at HT1 (60 pts)<br>
-          <strong>4.</strong> If your tier later drops to LT1, you still get 60 pts<br>
+          <strong>3.</strong> Pass the test → your points are locked at that tier<br>
+          <strong>4.</strong> If your tier later drops, you still keep the peaked points<br>
           <strong>5.</strong> Your badge shows the peaked tier with a ✦ star
         </div>
       </div>
       <div class="info-peaked-section">
-        <div class="info-peaked-title">Example</div>
+        <div class="info-peaked-title">Examples</div>
         <div class="info-peaked-desc">
-          Pwllow is currently <strong>LT1</strong> in Sword but <strong>peaked HT1</strong>.<br>
-          Without peaked: 45 pts (LT1).<br>
-          With peaked: <strong style="color:var(--peaked)">60 pts</strong> (HT1).
+          Peaked <strong>HT1</strong>, currently LT1 → earns 60 pts (HT1)<br>
+          Peaked <strong>LT1</strong>, currently LT2 → earns 45 pts (LT1)<br>
+          Peaked <strong>HT2</strong>, currently HT2 → earns 30 pts (no change)
         </div>
         <div class="info-example">"sword": {
-  "tier": 1,
-  "pos": 1,
-  "peaked_tier": 1
-}</div>
+  "tier": 1, "pos": 1,
+  "peaked_tier": 1, "peaked_pos": 0
+}
+// peaked_pos: 0 = HT, 1 = LT</div>
       </div>
       <div class="info-peaked-section">
         <div class="info-peaked-title">Important rules</div>
         <div class="info-peaked-desc">
-          <strong>•</strong> You can only peak at a tier you've actually reached<br>
+          <strong>•</strong> <strong>peaked_pos</strong> matters: 0 = HT, 1 = LT<br>
           <strong>•</strong> Points use whichever is higher: current or peaked<br>
           <strong>•</strong> You cannot "lose" a peaked tier once earned<br>
           <strong>•</strong> If your current tier surpasses your peaked tier, current is used
@@ -1005,11 +1005,13 @@ function switchSubTab(subMode,btn){
   },180);
 }
 
+// peaked_pos: 0 = HT, 1 = LT — fully respected
 function getRankingPoints(ranking){
   const currentType=ranking.pos===0?"HT":"LT";
   const currentPts=tierPoints[currentType+ranking.tier]||0;
   if(ranking.peaked_tier!=null){
-    const peakedPts=tierPoints["HT"+ranking.peaked_tier]||0;
+    const peakedType=ranking.peaked_pos===0?"HT":"LT";
+    const peakedPts=tierPoints[peakedType+ranking.peaked_tier]||0;
     return Math.max(currentPts,peakedPts);
   }
   return currentPts;
@@ -1019,9 +1021,16 @@ function getEffectiveTier(ranking){
   const currentType=ranking.pos===0?"HT":"LT";
   const currentPts=tierPoints[currentType+ranking.tier]||0;
   if(ranking.peaked_tier!=null){
-    const peakedPts=tierPoints["HT"+ranking.peaked_tier]||0;
+    const peakedType=ranking.peaked_pos===0?"HT":"LT";
+    const peakedPts=tierPoints[peakedType+ranking.peaked_tier]||0;
     if(peakedPts>=currentPts){
-      return {type:"HT",tier:ranking.peaked_tier,pos:0,isPeaked:true,hasDropped:peakedPts>currentPts};
+      return {
+        type:peakedType,
+        tier:ranking.peaked_tier,
+        pos:ranking.peaked_pos,
+        isPeaked:true,
+        hasDropped:peakedPts>currentPts
+      };
     }
   }
   return {type:currentType,tier:ranking.tier,pos:ranking.pos,isPeaked:false,hasDropped:false};
