@@ -29,7 +29,6 @@
   --lt-dim:rgba(74,222,128,0.1);
   --peaked:#c084fc;
   --peaked-dim:rgba(192,132,252,0.1);
-  --peaked-glow:rgba(192,132,252,0.2);
   --gold:#fbbf24;
   --silver:#94a3b8;
   --bronze:#d97706;
@@ -40,7 +39,7 @@
 }
 
 html {
-  font-size:20px;
+  font-size:17.6px;
   scroll-behavior:smooth;
 }
 
@@ -56,43 +55,26 @@ body {
 body::before {
   content:"";
   position:fixed;
-  top:-40%;
-  left:-20%;
-  width:80%;
-  height:80%;
+  top:-40%;left:-20%;
+  width:80%;height:80%;
   background:radial-gradient(ellipse,rgba(245,158,11,0.04),transparent 60%);
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none;z-index:0;
   animation:bgFloat 20s ease-in-out infinite alternate;
 }
 
 body::after {
   content:"";
   position:fixed;
-  bottom:-30%;
-  right:-20%;
-  width:70%;
-  height:70%;
+  bottom:-30%;right:-20%;
+  width:70%;height:70%;
   background:radial-gradient(ellipse,rgba(251,113,133,0.03),transparent 60%);
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none;z-index:0;
   animation:bgFloat2 25s ease-in-out infinite alternate;
 }
 
-@keyframes bgFloat {
-  0%{transform:translate(0,0) scale(1);}
-  100%{transform:translate(10%,10%) scale(1.1);}
-}
-
-@keyframes bgFloat2 {
-  0%{transform:translate(0,0) scale(1);}
-  100%{transform:translate(-8%,-8%) scale(1.15);}
-}
-
-@keyframes peakedPulse {
-  0%,100%{opacity:0.7;}
-  50%{opacity:1;}
-}
+@keyframes bgFloat { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(10%,10%) scale(1.1);} }
+@keyframes bgFloat2 { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(-8%,-8%) scale(1.15);} }
+@keyframes peakedPulse { 0%,100%{opacity:0.6;} 50%{opacity:1;} }
 
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after {
@@ -109,974 +91,585 @@ body::after {
 ::-webkit-scrollbar-thumb:hover { background:rgba(255,255,255,0.15); }
 
 header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  position:sticky;top:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
   padding:16px 24px;
   background:rgba(6,9,15,0.8);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 
 .logo {
-  height:42px;
-  object-fit:contain;
+  height:42px;object-fit:contain;
   filter:drop-shadow(0 0 12px rgba(245,158,11,0.2));
 }
 
-.header-right {
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.header-right { display:flex;align-items:center;gap:10px; }
 
 .info-btn {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:8px 14px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  color:var(--text-secondary);
-  font-size:0.82rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:var(--transition);
-  font-family:inherit;
-  flex-shrink:0;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  color:var(--text-secondary);font-size:0.82rem;font-weight:600;
+  cursor:pointer;transition:var(--transition);font-family:inherit;flex-shrink:0;
 }
+.info-btn:hover { color:var(--accent);border-color:rgba(245,158,11,0.25);background:var(--accent-dim); }
+.info-btn-icon { font-size:0.85rem;line-height:1; }
 
-.info-btn:hover {
-  color:var(--accent);
-  border-color:rgba(245,158,11,0.25);
-  background:var(--accent-dim);
-}
-
-.info-btn-icon {
-  font-size:0.85rem;
-  line-height:1;
-}
-
-.search-bar {
-  position:relative;
-}
-
+.search-bar { position:relative; }
 .search-bar::before {
-  content:"🔍";
-  position:absolute;
-  left:14px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:0.85rem;
-  pointer-events:none;
-  opacity:0.4;
+  content:"🔍";position:absolute;left:14px;top:50%;
+  transform:translateY(-50%);font-size:0.85rem;pointer-events:none;opacity:0.4;
 }
-
 .search-bar input {
-  background:var(--surface);
-  border:1px solid var(--border);
-  padding:10px 16px 10px 40px;
-  border-radius:var(--radius-sm);
-  color:var(--text);
-  font-family:inherit;
-  font-size:0.85rem;
-  width:240px;
-  outline:none;
-  transition:var(--transition);
+  background:var(--surface);border:1px solid var(--border);
+  padding:10px 16px 10px 40px;border-radius:var(--radius-sm);
+  color:var(--text);font-family:inherit;font-size:0.85rem;width:240px;
+  outline:none;transition:var(--transition);
 }
-
 .search-bar input::placeholder { color:var(--text-muted); }
-
 .search-bar input:focus {
   border-color:var(--accent);
-  box-shadow:0 0 0 3px var(--accent-dim), 0 0 20px rgba(245,158,11,0.06);
+  box-shadow:0 0 0 3px var(--accent-dim),0 0 20px rgba(245,158,11,0.06);
 }
 
 .tabs-wrapper {
-  position:sticky;
-  top:75px;
-  z-index:90;
+  position:sticky;top:75px;z-index:90;
   background:rgba(6,9,15,0.7);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  padding:12px 24px 0;
-  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  padding:12px 24px 0;border-bottom:1px solid var(--border);
 }
 
 .tabs {
-  display:flex;
-  gap:6px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
+  display:flex;gap:6px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
 }
-
 .tabs::-webkit-scrollbar { display:none; }
 
 .tab {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:8px 14px;
-  background:transparent;
-  border:1px solid transparent;
-  border-radius:var(--radius-sm);
-  cursor:pointer;
-  color:var(--text-secondary);
-  font-family:inherit;
-  font-size:0.8rem;
-  font-weight:600;
-  white-space:nowrap;
-  transition:var(--transition);
-  position:relative;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;background:transparent;border:1px solid transparent;
+  border-radius:var(--radius-sm);cursor:pointer;
+  color:var(--text-secondary);font-family:inherit;
+  font-size:0.8rem;font-weight:600;white-space:nowrap;
+  transition:var(--transition);position:relative;
 }
-
-.tab img { width:16px; opacity:0.7; transition:var(--transition); }
-
-.tab:hover {
-  color:var(--text);
-  background:rgba(255,255,255,0.03);
-}
-
+.tab img { width:16px;opacity:0.7;transition:var(--transition); }
+.tab:hover { color:var(--text);background:rgba(255,255,255,0.03); }
 .tab:hover img { opacity:1; }
-
 .tab.active {
-  color:var(--bg);
-  background:var(--accent);
-  border-color:var(--accent);
+  color:var(--bg);background:var(--accent);border-color:var(--accent);
   box-shadow:0 2px 12px rgba(245,158,11,0.3);
 }
-
-.tab.active img { opacity:1; filter:brightness(0.3); }
-
-.tab-emoji {
-  font-size:0.9rem;
-  line-height:1;
-}
+.tab.active img { opacity:1;filter:brightness(0.3); }
+.tab-emoji { font-size:0.9rem;line-height:1; }
 
 .sub-tabs-wrapper {
-  overflow:hidden;
-  max-height:0;
-  opacity:0;
-  transition:max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+  overflow:hidden;max-height:0;opacity:0;
+  transition:max-height 0.3s ease,opacity 0.25s ease,padding 0.3s ease;
   padding:0 24px;
 }
-
-.sub-tabs-wrapper.visible {
-  max-height:80px;
-  opacity:1;
-  padding:10px 24px 14px;
-}
+.sub-tabs-wrapper.visible { max-height:80px;opacity:1;padding:10px 24px 14px; }
 
 .sub-tabs {
-  display:flex;
-  gap:5px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
+  display:flex;gap:5px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
 }
-
 .sub-tabs::-webkit-scrollbar { display:none; }
 
 .sub-tab {
-  display:flex;
-  align-items:center;
-  gap:5px;
-  padding:6px 12px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid var(--border);
-  border-radius:var(--radius-xs);
-  cursor:pointer;
-  color:var(--text-muted);
-  font-family:inherit;
-  font-size:0.72rem;
-  font-weight:600;
-  white-space:nowrap;
+  display:flex;align-items:center;gap:5px;
+  padding:6px 12px;background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);border-radius:var(--radius-xs);
+  cursor:pointer;color:var(--text-muted);font-family:inherit;
+  font-size:0.72rem;font-weight:600;white-space:nowrap;
   transition:var(--transition);
 }
-
-.sub-tab img { width:14px; opacity:0.5; transition:var(--transition); }
-
-.sub-tab:hover {
-  color:var(--text-secondary);
-  background:rgba(255,255,255,0.05);
-  border-color:var(--border-hover);
-}
-
+.sub-tab img { width:14px;opacity:0.5;transition:var(--transition); }
+.sub-tab:hover { color:var(--text-secondary);background:rgba(255,255,255,0.05);border-color:var(--border-hover); }
 .sub-tab:hover img { opacity:0.8; }
-
-.sub-tab.active {
-  color:var(--accent);
-  background:var(--accent-dim);
-  border-color:rgba(245,158,11,0.25);
-}
-
+.sub-tab.active { color:var(--accent);background:var(--accent-dim);border-color:rgba(245,158,11,0.25); }
 .sub-tab.active img { opacity:1; }
 
 #leaderboard {
-  position:relative;
-  z-index:1;
-  max-width:960px;
-  margin:0 auto;
-  padding:20px 16px 60px;
+  position:relative;z-index:1;max-width:960px;
+  margin:0 auto;padding:20px 16px 60px;
   transition:opacity 0.2s ease;
 }
-
 .fade-out { opacity:0; }
 
 .player-row {
-  display:grid;
-  grid-template-columns:52px 1fr 1fr;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  margin-bottom:8px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  cursor:pointer;
-  transition:var(--transition);
-  position:relative;
-  overflow:hidden;
+  display:grid;grid-template-columns:58px 1fr 1fr;
+  align-items:center;gap:14px;
+  padding:16px 18px;margin-bottom:9px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);cursor:pointer;
+  transition:var(--transition);position:relative;overflow:hidden;
 }
-
 .player-row::before {
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(255,255,255,0.01),transparent);
   pointer-events:none;
 }
-
 .player-row:hover {
-  background:var(--card-hover);
-  border-color:var(--border-hover);
-  transform:translateY(-1px);
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  background:var(--card-hover);border-color:var(--border-hover);
+  transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,0.3);
 }
 
-.rank {
-  font-size:0.95rem;
-  font-weight:800;
-  color:var(--text-muted);
-  text-align:center;
-}
-
-.player-info { display:flex; align-items:center; gap:12px; }
+.rank { font-size:1.05rem;font-weight:800;color:var(--text-muted);text-align:center; }
+.player-info { display:flex;align-items:center;gap:14px; }
 
 .avatar {
-  width:38px;
-  height:38px;
-  border-radius:var(--radius-xs);
-  border:2px solid var(--border);
-  transition:var(--transition);
+  width:42px;height:42px;border-radius:var(--radius-xs);
+  border:2px solid var(--border);transition:var(--transition);
 }
-
 .player-row:hover .avatar { border-color:var(--border-hover); }
 
-.player-text { display:flex; flex-direction:column; gap:2px; }
-
-.name-line { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-
-.player-name {
-  font-weight:700;
-  font-size:0.9rem;
-  letter-spacing:-0.01em;
-}
+.player-text { display:flex;flex-direction:column;gap:2px; }
+.name-line { display:flex;align-items:center;gap:8px;flex-wrap:wrap; }
+.player-name { font-weight:700;font-size:0.95rem;letter-spacing:-0.01em; }
 
 .achievement {
-  font-size:0.6rem;
-  font-weight:600;
-  padding:2px 8px;
-  border-radius:20px;
-  letter-spacing:0.02em;
-  text-transform:uppercase;
+  font-size:0.63rem;font-weight:600;padding:2px 9px;
+  border-radius:20px;letter-spacing:0.02em;text-transform:uppercase;
 }
+.achievement.grandmaster { background:rgba(251,191,36,0.18);color:#fbbf24; }
+.achievement.master { background:rgba(245,158,11,0.15);color:#f59e0b; }
+.achievement.ace { background:rgba(251,113,133,0.12);color:#fb7185; }
+.achievement.specialist { background:rgba(168,85,247,0.12);color:#a855f7; }
+.achievement.cadet { background:rgba(59,130,246,0.12);color:#60a5fa; }
+.achievement.novice { background:rgba(148,163,184,0.12);color:#94a3b8; }
+.achievement.rookie { background:rgba(100,116,139,0.1);color:#64748b; }
 
-.achievement.grandmaster {
-  background:rgba(251,191,36,0.18);
-  color:#fbbf24;
-}
+.points { font-size:0.8rem;color:var(--text-muted);font-weight:500; }
 
-.achievement.master {
-  background:rgba(245,158,11,0.15);
-  color:#f59e0b;
-}
-
-.achievement.ace {
-  background:rgba(251,113,133,0.12);
-  color:#fb7185;
-}
-
-.achievement.specialist {
-  background:rgba(168,85,247,0.12);
-  color:#a855f7;
-}
-
-.achievement.cadet {
-  background:rgba(59,130,246,0.12);
-  color:#60a5fa;
-}
-
-.achievement.novice {
-  background:rgba(148,163,184,0.12);
-  color:#94a3b8;
-}
-
-.achievement.rookie {
-  background:rgba(100,116,139,0.1);
-  color:#64748b;
-}
-
-.points {
-  font-size:0.75rem;
-  color:var(--text-muted);
-  font-weight:500;
-}
-
-.tiers-list {
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
-  justify-content:flex-end;
-}
+.tiers-list { display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end; }
 
 .tier-badge {
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  padding:3px 8px;
-  border-radius:20px;
-  font-size:0.65rem;
-  font-weight:600;
-  letter-spacing:0.01em;
-  transition:var(--transition);
-  position:relative;
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 9px;border-radius:20px;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.01em;
+  transition:var(--transition);position:relative;
+  cursor:default;
+}
+.tier-badge img { width:13px; }
+.tier-badge.HT { background:var(--ht-dim);color:var(--ht); }
+.tier-badge.LT { background:var(--lt-dim);color:var(--lt); }
+
+.tier-badge.peaked-ht {
+  background:rgba(192,132,252,0.12);color:var(--peaked);
+  border:1px solid rgba(192,132,252,0.2);
+}
+.tier-badge.peaked-lt {
+  background:rgba(192,132,252,0.08);color:rgba(192,132,252,0.85);
+  border:1px solid rgba(192,132,252,0.15);
 }
 
-.tier-badge img { width:12px; }
-
-.tier-badge.HT {
-  background:var(--ht-dim);
-  color:var(--ht);
-}
-
-.tier-badge.LT {
-  background:var(--lt-dim);
-  color:var(--lt);
-}
-
-.tier-badge.peaked {
-  background:var(--peaked-dim);
-  color:var(--peaked);
-  box-shadow:0 0 8px rgba(192,132,252,0.1);
-}
-
-.tier-badge.peaked::before {
-  content:"✦";
+.tier-badge .peaked-star {
   font-size:0.5rem;
   animation:peakedPulse 2.5s ease-in-out infinite;
+  margin-left:1px;
 }
 
 .player-row:hover .tier-badge.HT { background:rgba(251,113,133,0.18); }
 .player-row:hover .tier-badge.LT { background:rgba(74,222,128,0.18); }
-.player-row:hover .tier-badge.peaked { background:rgba(192,132,252,0.18); box-shadow:0 0 12px rgba(192,132,252,0.15); }
+.player-row:hover .tier-badge.peaked-ht { background:rgba(192,132,252,0.2);box-shadow:0 0 12px rgba(192,132,252,0.12); }
+.player-row:hover .tier-badge.peaked-lt { background:rgba(192,132,252,0.15); }
 
-.top1, .top2, .top3 { position:relative; }
+.badge-tooltip {
+  position:fixed;
+  z-index:9999;
+  pointer-events:none;
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity 0.15s ease, transform 0.15s ease;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+}
 
+.badge-tooltip.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.badge-tooltip-inner {
+  background:linear-gradient(145deg, #161c2a, #0f1420);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;
+  padding:14px 16px;
+  min-width:150px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.badge-tooltip-inner::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,0.03), transparent 60%);
+  pointer-events:none;
+}
+
+.badge-tooltip-modes {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-bottom:10px;
+}
+
+.badge-tooltip-mode-icon {
+  width:22px;height:22px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.badge-tooltip-mode-label {
+  font-size:0.7rem;
+  font-weight:600;
+  color:var(--text-muted);
+  letter-spacing:0.02em;
+}
+
+.badge-tooltip-tier {
+  font-size:1.15rem;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  line-height:1.2;
+}
+
+.badge-tooltip-tier.ht { color:var(--ht); }
+.badge-tooltip-tier.lt { color:var(--lt); }
+.badge-tooltip-tier.peaked { color:var(--peaked); }
+
+.badge-tooltip-peak-label {
+  font-size:0.6rem;
+  font-weight:700;
+  color:var(--peaked);
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  margin-top:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+}
+
+.badge-tooltip-peak-label::before {
+  content:"✦";
+  font-size:0.5rem;
+}
+
+.badge-tooltip-points {
+  font-size:0.75rem;
+  font-weight:600;
+  color:var(--text-secondary);
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+.badge-tooltip-points strong {
+  color:var(--text);
+  font-weight:700;
+}
+
+.badge-tooltip-current {
+  font-size:0.6rem;
+  color:var(--text-muted);
+  margin-top:4px;
+  font-weight:500;
+}
+
+.badge-tooltip-arrow {
+  position:absolute;
+  bottom:-5px;
+  left:50%;
+  transform:translateX(-50%) rotate(45deg);
+  width:10px;height:10px;
+  background:linear-gradient(145deg, #161c2a, #0f1420);
+  border-right:1px solid rgba(255,255,255,0.1);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.badge-tooltip-arrow.top {
+  bottom:auto;
+  top:-5px;
+  border-right:none;
+  border-bottom:none;
+  border-left:1px solid rgba(255,255,255,0.1);
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.top1,.top2,.top3 { position:relative; }
 .top1 {
   border-color:rgba(251,191,36,0.3);
   background:linear-gradient(135deg,rgba(251,191,36,0.06),var(--card) 60%);
-  box-shadow:0 0 30px rgba(251,191,36,0.08), inset 0 1px 0 rgba(251,191,36,0.15);
+  box-shadow:0 0 30px rgba(251,191,36,0.08),inset 0 1px 0 rgba(251,191,36,0.15);
 }
-
-.top1 .rank { color:var(--gold); font-size:1.1rem; }
+.top1 .rank { color:var(--gold);font-size:1.2rem; }
 .top1 .avatar { border-color:rgba(251,191,36,0.4); }
-
-.top1:hover {
-  box-shadow:0 4px 30px rgba(251,191,36,0.15), inset 0 1px 0 rgba(251,191,36,0.2);
-}
+.top1:hover { box-shadow:0 4px 30px rgba(251,191,36,0.15),inset 0 1px 0 rgba(251,191,36,0.2); }
 
 .top2 {
   border-color:rgba(148,163,184,0.3);
   background:linear-gradient(135deg,rgba(148,163,184,0.06),var(--card) 60%);
-  box-shadow:0 0 30px rgba(148,163,184,0.06), inset 0 1px 0 rgba(148,163,184,0.15);
+  box-shadow:0 0 30px rgba(148,163,184,0.06),inset 0 1px 0 rgba(148,163,184,0.15);
 }
-
-.top2 .rank { color:var(--silver); font-size:1.05rem; }
+.top2 .rank { color:var(--silver);font-size:1.15rem; }
 .top2 .avatar { border-color:rgba(148,163,184,0.4); }
-
-.top2:hover {
-  box-shadow:0 4px 30px rgba(148,163,184,0.12), inset 0 1px 0 rgba(148,163,184,0.2);
-}
+.top2:hover { box-shadow:0 4px 30px rgba(148,163,184,0.12),inset 0 1px 0 rgba(148,163,184,0.2); }
 
 .top3 {
   border-color:rgba(217,119,6,0.3);
   background:linear-gradient(135deg,rgba(217,119,6,0.06),var(--card) 60%);
-  box-shadow:0 0 30px rgba(217,119,6,0.06), inset 0 1px 0 rgba(217,119,6,0.15);
+  box-shadow:0 0 30px rgba(217,119,6,0.06),inset 0 1px 0 rgba(217,119,6,0.15);
 }
-
-.top3 .rank { color:var(--bronze); font-size:1rem; }
+.top3 .rank { color:var(--bronze);font-size:1.1rem; }
 .top3 .avatar { border-color:rgba(217,119,6,0.4); }
-
-.top3:hover {
-  box-shadow:0 4px 30px rgba(217,119,6,0.12), inset 0 1px 0 rgba(217,119,6,0.2);
-}
+.top3:hover { box-shadow:0 4px 30px rgba(217,119,6,0.12),inset 0 1px 0 rgba(217,119,6,0.2); }
 
 .top1::after {
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:60%;
-  height:100%;
+  content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
   background:linear-gradient(90deg,transparent,rgba(251,191,36,0.07),transparent);
-  animation:shimmerGold 3s ease-in-out infinite;
-  pointer-events:none;
+  animation:shimmerGold 3s ease-in-out infinite;pointer-events:none;
 }
-
 .top2::after {
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:60%;
-  height:100%;
+  content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
   background:linear-gradient(90deg,transparent,rgba(148,163,184,0.07),transparent);
-  animation:shimmerSilver 3.5s ease-in-out infinite;
-  pointer-events:none;
+  animation:shimmerSilver 3.5s ease-in-out infinite;pointer-events:none;
 }
-
 .top3::after {
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:60%;
-  height:100%;
+  content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
   background:linear-gradient(90deg,transparent,rgba(217,119,6,0.07),transparent);
-  animation:shimmerBronze 4s ease-in-out infinite;
-  pointer-events:none;
+  animation:shimmerBronze 4s ease-in-out infinite;pointer-events:none;
 }
 
 @keyframes shimmerGold { 0%,100%{left:-100%;} 50%{left:140%;} }
 @keyframes shimmerSilver { 0%,100%{left:-100%;} 50%{left:140%;} }
 @keyframes shimmerBronze { 0%,100%{left:-100%;} 50%{left:140%;} }
 
-.tier-grid {
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
-}
+.tier-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:10px; }
 
 .tier-column {
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:14px 10px;
-  transition:var(--transition);
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px 10px;transition:var(--transition);
 }
-
-.tier-column:hover {
-  border-color:var(--border-hover);
-}
+.tier-column:hover { border-color:var(--border-hover); }
 
 .tier-title {
-  text-align:center;
-  font-weight:700;
-  font-size:0.8rem;
-  margin-bottom:12px;
-  color:var(--accent);
-  letter-spacing:0.03em;
-  text-transform:uppercase;
-  position:relative;
-  padding-bottom:10px;
+  text-align:center;font-weight:700;font-size:0.8rem;
+  margin-bottom:12px;color:var(--accent);
+  letter-spacing:0.03em;text-transform:uppercase;
+  position:relative;padding-bottom:10px;
 }
-
 .tier-title::after {
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:24px;
-  height:2px;
-  background:var(--accent);
-  border-radius:2px;
-  opacity:0.4;
+  content:"";position:absolute;bottom:0;left:50%;
+  transform:translateX(-50%);width:24px;height:2px;
+  background:var(--accent);border-radius:2px;opacity:0.4;
 }
 
 .player {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 8px;
-  margin-bottom:4px;
-  border-radius:var(--radius-xs);
-  background:var(--surface);
-  font-size:0.78rem;
-  font-weight:500;
-  cursor:pointer;
-  border-left:3px solid transparent;
-  transition:var(--transition);
-  position:relative;
+  display:flex;align-items:center;gap:8px;
+  padding:8px 8px;margin-bottom:4px;
+  border-radius:var(--radius-xs);background:var(--surface);
+  font-size:0.78rem;font-weight:500;cursor:pointer;
+  border-left:3px solid transparent;transition:var(--transition);
 }
-
-.player:hover {
-  background:var(--card-hover);
-  transform:translateX(2px);
-}
-
-.player img {
-  width:24px;
-  height:24px;
-  border-radius:6px;
-  flex-shrink:0;
-}
-
-.player.HT {
-  border-left-color:var(--ht);
-  color:var(--ht);
-}
-
-.player.LT {
-  border-left-color:var(--lt);
-  color:var(--lt);
-}
-
-.player-name-cell {
-  flex:1;
-  min-width:0;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
+.player:hover { background:var(--card-hover);transform:translateX(2px); }
+.player img { width:24px;height:24px;border-radius:6px;flex-shrink:0; }
+.player.HT { border-left-color:var(--ht);color:var(--ht); }
+.player.LT { border-left-color:var(--lt);color:var(--lt); }
+.player.peaked-from-drop { border-left-color:var(--peaked);color:var(--peaked);font-style:italic; }
+.player-name-cell { flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
 .player-peaked-star {
-  font-size:0.6rem;
-  color:var(--peaked);
-  flex-shrink:0;
+  font-size:0.6rem;color:var(--peaked);flex-shrink:0;
   animation:peakedPulse 2.5s ease-in-out infinite;
-  opacity:0;
-  transition:opacity 0.2s;
-}
-
-.player.has-peaked .player-peaked-star {
-  opacity:1;
 }
 
 .modal {
-  position:fixed;
-  inset:0;
+  position:fixed;inset:0;
   background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
-  opacity:1;
-  transition:opacity 0.25s ease;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;opacity:1;transition:opacity 0.25s ease;
 }
-
-.hidden { opacity:0; pointer-events:none; }
+.hidden { opacity:0;pointer-events:none; }
 
 .modal-content {
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:32px 28px;
-  width:340px;
-  max-height:85vh;
-  overflow-y:auto;
-  text-align:center;
-  position:relative;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:32px 28px;width:340px;max-height:85vh;
+  overflow-y:auto;text-align:center;position:relative;
   box-shadow:0 24px 80px rgba(0,0,0,0.5);
   transform:translateY(0) scale(1);
   transition:transform 0.25s cubic-bezier(0.4,0,0.2,1);
 }
-
-.modal.hidden .modal-content {
-  transform:translateY(20px) scale(0.96);
-}
+.modal.hidden .modal-content { transform:translateY(20px) scale(0.96); }
 
 .close {
-  position:absolute;
-  top:14px;
-  right:16px;
-  cursor:pointer;
-  color:var(--text-muted);
-  font-size:1rem;
-  width:28px;
-  height:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  transition:var(--transition);
-  background:transparent;
-  border:none;
-  font-family:inherit;
+  position:absolute;top:14px;right:16px;cursor:pointer;
+  color:var(--text-muted);font-size:1rem;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:var(--transition);
+  background:transparent;border:none;font-family:inherit;
 }
-
-.close:hover {
-  color:var(--text);
-  background:rgba(255,255,255,0.06);
-}
+.close:hover { color:var(--text);background:rgba(255,255,255,0.06); }
 
 .profile-avatar {
-  width:88px;
-  height:88px;
-  border-radius:50%;
-  border:3px solid var(--accent);
-  box-shadow:0 0 24px var(--accent-dim);
-  margin-bottom:4px;
+  width:88px;height:88px;border-radius:50%;
+  border:3px solid var(--accent);box-shadow:0 0 24px var(--accent-dim);margin-bottom:4px;
 }
-
-.profile-name {
-  font-size:1.3rem;
-  font-weight:800;
-  margin:8px 0;
-  letter-spacing:-0.02em;
-}
-
+.profile-name { font-size:1.3rem;font-weight:800;margin:8px 0;letter-spacing:-0.02em; }
 .profile-rank {
-  padding:5px 14px;
-  border-radius:20px;
-  display:inline-block;
-  font-size:0.7rem;
-  font-weight:700;
-  letter-spacing:0.03em;
-  text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;display:inline-block;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;
 }
-
-.profile-stats {
-  margin-top:12px;
-  font-size:0.85rem;
-  color:var(--text-secondary);
-  font-weight:500;
-}
+.profile-stats { margin-top:12px;font-size:0.85rem;color:var(--text-secondary);font-weight:500; }
 
 .profile-tiers-label {
-  margin-top:18px;
-  margin-bottom:8px;
-  font-size:0.7rem;
-  font-weight:600;
-  color:var(--text-muted);
-  text-transform:uppercase;
-  letter-spacing:0.06em;
+  margin-top:18px;margin-bottom:8px;font-size:0.7rem;font-weight:600;
+  color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;
 }
 
-.profile-peaked-label {
-  margin-top:14px;
-  margin-bottom:8px;
-  font-size:0.7rem;
-  font-weight:600;
-  color:var(--peaked);
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
+.profile-current-row {
+  display:flex;align-items:center;gap:6px;margin-bottom:6px;
+  font-size:0.72rem;color:var(--text-muted);
+}
+.profile-current-row .mode-icon { width:16px;opacity:0.5; }
+.profile-current-row .mode-label { min-width:56px;text-align:left;font-weight:600; }
+.profile-current-row .current-tier { font-weight:500; }
+.profile-current-row .arrow { color:var(--peaked);font-size:0.65rem; }
+.profile-current-row .effective-tier { font-weight:700; }
+.profile-current-row .effective-tier.from-peaked { color:var(--peaked); }
+.profile-current-row .effective-tier.from-current { color:var(--text-secondary); }
+
+.profile-peaked-section {
+  margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--border);
 }
 
-.profile-peaked-label::before {
-  content:"✦";
-  font-size:0.6rem;
-}
-
-.stats-bar {
-  max-width:960px;
-  margin:0 auto;
-  padding:20px 16px 0;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  position:relative;
-  z-index:1;
-}
-
-.stat-chip {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:6px 14px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  font-size:0.75rem;
-  color:var(--text-secondary);
-  font-weight:500;
-}
-
-.stat-chip strong {
-  color:var(--text);
-  font-weight:700;
-}
-
-.empty-state {
-  text-align:center;
-  padding:60px 20px;
-  color:var(--text-muted);
-}
-
-.empty-state-icon {
-  font-size:2.5rem;
-  margin-bottom:12px;
-  opacity:0.4;
-}
-
-.empty-state-text {
-  font-size:0.9rem;
-  font-weight:500;
-}
+.empty-state { text-align:center;padding:60px 20px;color:var(--text-muted); }
+.empty-state-icon { font-size:2.5rem;margin-bottom:12px;opacity:0.4; }
+.empty-state-text { font-size:0.9rem;font-weight:500; }
 
 .info-modal-content {
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:24px 24px 28px;
-  width:380px;
-  max-height:85vh;
-  overflow-y:auto;
-  position:relative;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:24px 24px 28px;width:380px;max-height:85vh;
+  overflow-y:auto;position:relative;
   box-shadow:0 24px 80px rgba(0,0,0,0.5);
   transform:translateY(0) scale(1);
   transition:transform 0.25s cubic-bezier(0.4,0,0.2,1);
 }
-
-.info-modal.hidden .info-modal-content {
-  transform:translateY(20px) scale(0.96);
-}
+.info-modal.hidden .info-modal-content { transform:translateY(20px) scale(0.96); }
 
 .info-modal-tabs {
-  display:flex;
-  gap:4px;
-  margin-bottom:20px;
-  background:var(--surface);
-  border-radius:var(--radius-sm);
-  padding:3px;
+  display:flex;gap:4px;margin-bottom:20px;
+  background:var(--surface);border-radius:var(--radius-sm);padding:3px;
 }
-
 .info-modal-tab {
-  flex:1;
-  padding:8px 0;
-  background:transparent;
-  border:none;
-  border-radius:var(--radius-xs);
-  cursor:pointer;
-  color:var(--text-muted);
-  font-family:inherit;
-  font-size:0.72rem;
-  font-weight:700;
-  letter-spacing:0.02em;
-  text-transform:uppercase;
-  transition:var(--transition);
+  flex:1;padding:8px 0;background:transparent;border:none;
+  border-radius:var(--radius-xs);cursor:pointer;
+  color:var(--text-muted);font-family:inherit;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.02em;
+  text-transform:uppercase;transition:var(--transition);
 }
-
-.info-modal-tab:hover {
-  color:var(--text-secondary);
-}
-
+.info-modal-tab:hover { color:var(--text-secondary); }
 .info-modal-tab.active {
-  color:var(--bg);
-  background:var(--accent);
+  color:var(--bg);background:var(--accent);
   box-shadow:0 2px 8px rgba(245,158,11,0.25);
 }
 
 .info-section-title {
-  font-size:0.8rem;
-  font-weight:700;
-  color:var(--text);
-  margin-bottom:16px;
-  letter-spacing:-0.01em;
+  font-size:0.8rem;font-weight:700;color:var(--text);
+  margin-bottom:16px;letter-spacing:-0.01em;
 }
 
-.info-points-list {
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
+.info-points-list { display:flex;flex-direction:column;gap:6px; }
 
 .info-tier-row {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  background:var(--surface);
-  border-radius:var(--radius-xs);
-  border:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;background:var(--surface);
+  border-radius:var(--radius-xs);border:1px solid var(--border);
 }
-
 .info-tier-label {
-  font-size:0.72rem;
-  font-weight:700;
-  color:var(--text-muted);
-  min-width:52px;
-  text-transform:uppercase;
-  letter-spacing:0.04em;
+  font-size:0.72rem;font-weight:700;color:var(--text-muted);
+  min-width:52px;text-transform:uppercase;letter-spacing:0.04em;
 }
-
-.info-tier-values {
-  display:flex;
-  gap:8px;
-  margin-left:auto;
-}
-
-.info-tier-val {
-  display:flex;
-  align-items:center;
-  gap:4px;
-  font-size:0.78rem;
-  font-weight:700;
-}
-
+.info-tier-values { display:flex;gap:8px;margin-left:auto; }
+.info-tier-val { display:flex;align-items:center;gap:4px;font-size:0.78rem;font-weight:700; }
 .info-tier-val.ht { color:var(--ht); }
 .info-tier-val.lt { color:var(--lt); }
+.info-tier-val .val-label { font-size:0.6rem;font-weight:600;opacity:0.6; }
 
-.info-tier-val .val-label {
-  font-size:0.6rem;
-  font-weight:600;
-  opacity:0.6;
-}
-
-.info-titles-list {
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-
+.info-titles-list { display:flex;flex-direction:column;gap:5px; }
 .info-title-row {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:9px 14px;
-  background:var(--surface);
-  border-radius:var(--radius-xs);
-  border:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  padding:9px 14px;background:var(--surface);
+  border-radius:var(--radius-xs);border:1px solid var(--border);
 }
+.info-title-icon { font-size:1rem;width:24px;text-align:center;flex-shrink:0; }
+.info-title-name { font-size:0.78rem;font-weight:600;color:var(--text);flex:1; }
+.info-title-pts { font-size:0.7rem;font-weight:700;color:var(--text-muted);white-space:nowrap; }
 
-.info-title-icon {
-  font-size:1rem;
-  width:24px;
-  text-align:center;
-  flex-shrink:0;
+.info-panel { display:none; }
+.info-panel.visible { display:block; }
+
+.info-peaked-desc {
+  font-size:0.72rem;color:var(--text-muted);line-height:1.6;font-weight:400;
 }
+.info-peaked-desc strong { color:var(--text-secondary);font-weight:600; }
 
-.info-title-name {
-  font-size:0.78rem;
-  font-weight:600;
-  color:var(--text);
-  flex:1;
-}
-
-.info-title-pts {
-  font-size:0.7rem;
-  font-weight:700;
-  color:var(--text-muted);
-  white-space:nowrap;
-}
-
-.info-panel {
-  display:none;
-}
-
-.info-panel.visible {
-  display:block;
+.info-peaked-note {
+  margin-top:10px;padding:8px 12px;
+  background:var(--peaked-dim);border:1px solid rgba(192,132,252,0.15);
+  border-radius:var(--radius-xs);font-size:0.68rem;
+  color:var(--peaked);font-weight:500;line-height:1.5;
 }
 
 .info-peaked-section {
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid var(--border);
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--border);
 }
-
 .info-peaked-title {
-  font-size:0.78rem;
-  font-weight:700;
-  color:var(--peaked);
-  margin-bottom:10px;
-  display:flex;
-  align-items:center;
-  gap:6px;
+  font-size:0.78rem;font-weight:700;color:var(--peaked);
+  margin-bottom:10px;display:flex;align-items:center;gap:6px;
 }
+.info-peaked-title::before { content:"✦";font-size:0.65rem; }
 
-.info-peaked-title::before {
-  content:"✦";
-  font-size:0.65rem;
-}
-
-.info-peaked-desc {
-  font-size:0.72rem;
-  color:var(--text-muted);
-  line-height:1.6;
-  font-weight:400;
-}
-
-.info-peaked-desc strong {
-  color:var(--text-secondary);
-  font-weight:600;
-}
-
-.info-peaked-note {
-  margin-top:8px;
-  padding:8px 12px;
-  background:var(--peaked-dim);
-  border:1px solid rgba(192,132,252,0.15);
+.info-example {
+  margin-top:8px;padding:10px 12px;
+  background:var(--surface);border:1px solid var(--border);
   border-radius:var(--radius-xs);
-  font-size:0.68rem;
-  color:var(--peaked);
-  font-weight:500;
-  line-height:1.5;
+  font-family:monospace;font-size:0.6rem;
+  line-height:1.7;white-space:pre-wrap;color:var(--text-secondary);
 }
 
 .skeleton-row {
-  display:grid;
-  grid-template-columns:52px 1fr 1fr;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  margin-bottom:8px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  pointer-events:none;
+  display:grid;grid-template-columns:58px 1fr 1fr;
+  align-items:center;gap:14px;padding:16px 18px;margin-bottom:9px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);pointer-events:none;
 }
+.skeleton-blob { background:rgba(255,255,255,0.04);border-radius:6px; }
 
-.skeleton-blob {
-  background:rgba(255,255,255,0.04);
-  border-radius:6px;
-}
-
-.tab:focus-visible,
-.sub-tab:focus-visible,
-.player-row:focus-visible,
-.info-btn:focus-visible,
-.close:focus-visible,
-.info-modal-tab:focus-visible {
-  outline:2px solid var(--accent);
-  outline-offset:2px;
+.tab:focus-visible,.sub-tab:focus-visible,.player-row:focus-visible,
+.info-btn:focus-visible,.close:focus-visible,.info-modal-tab:focus-visible {
+  outline:2px solid var(--accent);outline-offset:2px;
 }
 
 @media(max-width:768px){
   .tier-grid { grid-template-columns:repeat(2,1fr); }
   .tier-column:last-child:nth-child(odd) { grid-column:1 / -1; }
-  .player-row { grid-template-columns:42px 1fr; }
+  .player-row { grid-template-columns:46px 1fr; }
   .tiers-list { display:none; }
   .search-bar input { width:160px; }
   header { padding:12px 16px; }
-  .tabs-wrapper { padding:10px 16px 0; top:66px; }
+  .tabs-wrapper { padding:10px 16px 0;top:66px; }
   .sub-tabs-wrapper.visible { padding:8px 16px 12px; }
   #leaderboard { padding:16px 12px 40px; }
-  .info-modal-content { width:calc(100vw - 32px); max-width:380px; }
-  .modal-content { width:calc(100vw - 32px); max-width:340px; }
+  .info-modal-content { width:calc(100vw - 32px);max-width:380px; }
+  .modal-content { width:calc(100vw - 32px);max-width:340px; }
   .info-btn-text { display:none; }
+  .profile-current-row .mode-label { min-width:44px;font-size:0.65rem; }
 }
 </style>
 
@@ -1106,6 +699,10 @@ header {
 
 <div id="leaderboard">Loading...</div>
 
+<div id="badgeTooltip" class="badge-tooltip">
+  <div class="badge-tooltip-inner" id="badgeTooltipInner"></div>
+</div>
+
 <div id="modal" class="modal hidden">
   <div class="modal-content" id="modalContent"></div>
 </div>
@@ -1122,111 +719,66 @@ header {
     <div id="infoPoints" class="info-panel visible">
       <div class="info-section-title">How ranking points are calculated</div>
       <div class="info-points-list">
-        <div class="info-tier-row">
-          <div class="info-tier-label">Tier 1</div>
-          <div class="info-tier-values">
-            <div class="info-tier-val ht"><span class="val-label">HT</span> 60</div>
-            <div class="info-tier-val lt"><span class="val-label">LT</span> 45</div>
-          </div>
-        </div>
-        <div class="info-tier-row">
-          <div class="info-tier-label">Tier 2</div>
-          <div class="info-tier-values">
-            <div class="info-tier-val ht"><span class="val-label">HT</span> 30</div>
-            <div class="info-tier-val lt"><span class="val-label">LT</span> 20</div>
-          </div>
-        </div>
-        <div class="info-tier-row">
-          <div class="info-tier-label">Tier 3</div>
-          <div class="info-tier-values">
-            <div class="info-tier-val ht"><span class="val-label">HT</span> 10</div>
-            <div class="info-tier-val lt"><span class="val-label">LT</span> 6</div>
-          </div>
-        </div>
-        <div class="info-tier-row">
-          <div class="info-tier-label">Tier 4</div>
-          <div class="info-tier-values">
-            <div class="info-tier-val ht"><span class="val-label">HT</span> 4</div>
-            <div class="info-tier-val lt"><span class="val-label">LT</span> 3</div>
-          </div>
-        </div>
-        <div class="info-tier-row">
-          <div class="info-tier-label">Tier 5</div>
-          <div class="info-tier-values">
-            <div class="info-tier-val ht"><span class="val-label">HT</span> 2</div>
-            <div class="info-tier-val lt"><span class="val-label">LT</span> 1</div>
-          </div>
-        </div>
+        <div class="info-tier-row"><div class="info-tier-label">Tier 1</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 60</div><div class="info-tier-val lt"><span class="val-label">LT</span> 45</div></div></div>
+        <div class="info-tier-row"><div class="info-tier-label">Tier 2</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 30</div><div class="info-tier-val lt"><span class="val-label">LT</span> 20</div></div></div>
+        <div class="info-tier-row"><div class="info-tier-label">Tier 3</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 10</div><div class="info-tier-val lt"><span class="val-label">LT</span> 6</div></div></div>
+        <div class="info-tier-row"><div class="info-tier-label">Tier 4</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 4</div><div class="info-tier-val lt"><span class="val-label">LT</span> 3</div></div></div>
+        <div class="info-tier-row"><div class="info-tier-label">Tier 5</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 2</div><div class="info-tier-val lt"><span class="val-label">LT</span> 1</div></div></div>
       </div>
     </div>
 
     <div id="infoTitles" class="info-panel">
       <div class="info-section-title">How to obtain Achievement Titles</div>
       <div class="info-titles-list">
-        <div class="info-title-row">
-          <div class="info-title-icon">🏆</div>
-          <div class="info-title-name">Combat Grandmaster</div>
-          <div class="info-title-pts">400+ pts</div>
-        </div>
-        <div class="info-title-row">
-          <div class="info-title-icon">🥇</div>
-          <div class="info-title-name">Combat Master</div>
-          <div class="info-title-pts">250+ pts</div>
-        </div>
-        <div class="info-title-row">
-          <div class="info-title-icon">⚡</div>
-          <div class="info-title-name">Combat Ace</div>
-          <div class="info-title-pts">100+ pts</div>
-        </div>
-        <div class="info-title-row">
-          <div class="info-title-icon">🎖️</div>
-          <div class="info-title-name">Combat Specialist</div>
-          <div class="info-title-pts">50+ pts</div>
-        </div>
-        <div class="info-title-row">
-          <div class="info-title-icon">🎖️</div>
-          <div class="info-title-name">Combat Cadet</div>
-          <div class="info-title-pts">20+ pts</div>
-        </div>
-        <div class="info-title-row">
-          <div class="info-title-icon">🎖️</div>
-          <div class="info-title-name">Combat Novice</div>
-          <div class="info-title-pts">10+ pts</div>
-        </div>
-        <div class="info-title-row">
-          <div class="info-title-icon">🔹</div>
-          <div class="info-title-name">Rookie</div>
-          <div class="info-title-pts">&lt;10 pts</div>
-        </div>
+        <div class="info-title-row"><div class="info-title-icon">🏆</div><div class="info-title-name">Combat Grandmaster</div><div class="info-title-pts">400+ pts</div></div>
+        <div class="info-title-row"><div class="info-title-icon">🥇</div><div class="info-title-name">Combat Master</div><div class="info-title-pts">250+ pts</div></div>
+        <div class="info-title-row"><div class="info-title-icon">⚡</div><div class="info-title-name">Combat Ace</div><div class="info-title-pts">100+ pts</div></div>
+        <div class="info-title-row"><div class="info-title-icon">🎖️</div><div class="info-title-name">Combat Specialist</div><div class="info-title-pts">50+ pts</div></div>
+        <div class="info-title-row"><div class="info-title-icon">🎖️</div><div class="info-title-name">Combat Cadet</div><div class="info-title-pts">20+ pts</div></div>
+        <div class="info-title-row"><div class="info-title-icon">🎖️</div><div class="info-title-name">Combat Novice</div><div class="info-title-pts">10+ pts</div></div>
+        <div class="info-title-row"><div class="info-title-icon">🔹</div><div class="info-title-name">Rookie</div><div class="info-title-pts">&lt;10 pts</div></div>
       </div>
     </div>
 
     <div id="infoPeaked" class="info-panel">
       <div class="info-section-title">What are Peaked Tiers?</div>
       <div class="info-peaked-desc">
-        A <strong>Peaked Tier</strong> is a confirmed record of your highest tier in a game mode.
-        To earn it, you must pass a verification test at that tier level.
+        A <strong>Peaked Tier</strong> locks in your points at a tier level, even if your current tier drops later. You earn it by passing a verification test at that tier.
       </div>
       <div class="info-peaked-note">
-        ✦ Peaked tiers are cosmetic — they do not affect your ranking points. Points are always calculated from your current tier.
+        ✦ Peaked tiers <strong>do affect points</strong>. If you peaked HT1 but dropped to LT1, you still earn 60 points for that mode — not 45.
       </div>
       <div class="info-peaked-section">
         <div class="info-peaked-title">How it works</div>
         <div class="info-peaked-desc">
           <strong>1.</strong> Reach a tier in any game mode (e.g. HT1 Sword)<br>
           <strong>2.</strong> Request a peaked test from staff<br>
-          <strong>3.</strong> Pass the test → your tier is locked as "Peaked HT1"<br>
-          <strong>4.</strong> If your current tier later drops to HT3, you still keep the Peaked HT1 badge<br>
-          <strong>5.</strong> Points are based on HT3 (current), not HT1 (peaked)
+          <strong>3.</strong> Pass the test → your points are locked at HT1 (60 pts)<br>
+          <strong>4.</strong> If your tier later drops to LT1, you still get 60 pts<br>
+          <strong>5.</strong> Your badge shows the peaked tier with a ✦ star
         </div>
       </div>
       <div class="info-peaked-section">
-        <div class="info-peaked-title">In the data</div>
-        <div class="info-peaked-desc" style="font-family:monospace;font-size:0.65rem;background:var(--surface);padding:10px;border-radius:var(--radius-xs);margin-top:6px;border:1px solid var(--border);line-height:1.7;white-space:pre-wrap;color:var(--text-secondary);">"sword": {
-  "tier": 3, "pos": 0,
-  "peaked_tier": 1,
-  "peaked_pos": 0
+        <div class="info-peaked-title">Example</div>
+        <div class="info-peaked-desc">
+          Pwllow is currently <strong>LT1</strong> in Sword but <strong>peaked HT1</strong>.<br>
+          Without peaked: 45 pts (LT1).<br>
+          With peaked: <strong style="color:var(--peaked)">60 pts</strong> (HT1).
+        </div>
+        <div class="info-example">"sword": {
+  "tier": 1,
+  "pos": 1,
+  "peaked_tier": 1
 }</div>
+      </div>
+      <div class="info-peaked-section">
+        <div class="info-peaked-title">Important rules</div>
+        <div class="info-peaked-desc">
+          <strong>•</strong> You can only peak at a tier you've actually reached<br>
+          <strong>•</strong> Points use whichever is higher: current or peaked<br>
+          <strong>•</strong> You cannot "lose" a peaked tier once earned<br>
+          <strong>•</strong> If your current tier surpasses your peaked tier, current is used
+        </div>
       </div>
     </div>
   </div>
@@ -1248,18 +800,113 @@ const iconMap={
 };
 
 const tabEmoji={maintiers:"🗡",subtiers:"𖤓",exclusivetiers:"⚡"};
-
 const modes=["overall","maintiers","subtiers","exclusivetiers"];
 const mainModes=["sword","axe","uhc","crystal","mace","dpot","netpot","smp"];
 const subModes=["cart","dsmp"];
 const exclusiveModes=[];
-// Fixed: HT2=30, LT2=20 (was HT2=35)
 const tierPoints={HT1:60,LT1:45,HT2:30,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
+
+const modeLabels={
+  sword:"Sword",axe:"Axe",uhc:"UHC",crystal:"Crystal",
+  mace:"Mace",dpot:"DPot",netpot:"NetPot",smp:"SMP",
+  cart:"Cart",dsmp:"DSMP"
+};
 
 let data=[];
 let currentMode="overall";
 let currentSubMode=null;
 let searchTimeout;
+let tooltipTimer=null;
+
+const tooltipEl=document.getElementById("badgeTooltip");
+const tooltipInner=document.getElementById("badgeTooltipInner");
+
+function showBadgeTooltip(badgeEl,mode,ranking){
+  clearTimeout(tooltipTimer);
+  const eff=getEffectiveTier(ranking);
+  const pts=getRankingPoints(ranking);
+  const currentType=ranking.pos===0?"HT":"LT";
+  const currentLabel=currentType+ranking.tier;
+
+  let tierColorClass=eff.type==="HT"?"ht":"lt";
+  if(eff.isPeaked) tierColorClass="peaked";
+
+  let html=`
+    <div class="badge-tooltip-modes">
+      <img class="badge-tooltip-mode-icon" src="${iconMap[mode]}">
+      <span class="badge-tooltip-mode-label">${modeLabels[mode]||mode}</span>
+    </div>
+    <div class="badge-tooltip-tier ${tierColorClass}">${eff.type}${eff.tier}</div>
+  `;
+
+  if(eff.isPeaked){
+    html+=`<div class="badge-tooltip-peak-label">Peak ${eff.type}${eff.tier}</div>`;
+  }
+
+  html+=`<div class="badge-tooltip-points"><strong>${pts}</strong> points</div>`;
+
+  if(eff.isPeaked&&eff.hasDropped){
+    html+=`<div class="badge-tooltip-current">Current: ${currentLabel}</div>`;
+  }
+
+  tooltipInner.innerHTML=html;
+
+  const rect=badgeEl.getBoundingClientRect();
+  const tw=150;
+  const th=tooltipInner.offsetHeight||120;
+
+  let left=rect.left+rect.width/2-tw/2;
+  let top=rect.top-th-10;
+
+  if(left<8) left=8;
+  if(left+tw>window.innerWidth-8) left=window.innerWidth-tw-8;
+
+  let arrowClass="";
+  if(top<8){
+    top=rect.bottom+10;
+    arrowClass="top";
+  }
+
+  tooltipEl.style.left=left+"px";
+  tooltipEl.style.top=top+"px";
+  tooltipEl.style.width=tw+"px";
+
+  const existingArrow=tooltipInner.querySelector(".badge-tooltip-arrow");
+  if(existingArrow) existingArrow.remove();
+  const arrow=document.createElement("div");
+  arrow.className="badge-tooltip-arrow "+arrowClass;
+  tooltipInner.appendChild(arrow);
+
+  tooltipEl.classList.add("visible");
+}
+
+function hideBadgeTooltip(){
+  tooltipTimer=setTimeout(()=>{
+    tooltipEl.classList.remove("visible");
+  },80);
+}
+
+document.addEventListener("mouseover",(e)=>{
+  const badge=e.target.closest(".tier-badge[data-mode]");
+  if(!badge) return;
+  const mode=badge.dataset.mode;
+  const row=badge.closest(".player-row")||badge.closest(".player");
+  if(!row||!row._playerData) return;
+  const ranking=row._playerData.rankings?.[mode];
+  if(!ranking) return;
+  showBadgeTooltip(badge,mode,ranking);
+});
+
+document.addEventListener("mouseout",(e)=>{
+  const badge=e.target.closest(".tier-badge[data-mode]");
+  if(!badge) return;
+  const related=e.relatedTarget;
+  if(related&&related.closest&&related.closest(".badge-tooltip")) return;
+  hideBadgeTooltip();
+});
+
+tooltipEl.addEventListener("mouseenter",()=>{clearTimeout(tooltipTimer);});
+tooltipEl.addEventListener("mouseleave",()=>{hideBadgeTooltip();});
 
 init();
 
@@ -1272,31 +919,23 @@ async function init(){
 }
 
 function showSkeleton(){
-  const c=document.getElementById("leaderboard");
-  c.innerHTML=Array.from({length:8},()=>`
+  document.getElementById("leaderboard").innerHTML=Array.from({length:8},()=>`
     <div class="skeleton-row">
       <div class="skeleton-blob" style="width:24px;height:20px;margin:0 auto"></div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div class="skeleton-blob" style="width:38px;height:38px;border-radius:8px"></div>
-        <div>
-          <div class="skeleton-blob" style="width:120px;height:14px;margin-bottom:6px"></div>
-          <div class="skeleton-blob" style="width:60px;height:10px"></div>
-        </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="skeleton-blob" style="width:42px;height:42px;border-radius:8px"></div>
+        <div><div class="skeleton-blob" style="width:120px;height:14px;margin-bottom:6px"></div><div class="skeleton-blob" style="width:60px;height:10px"></div></div>
       </div>
-      <div style="display:flex;gap:4px;justify-content:flex-end">
-        <div class="skeleton-blob" style="width:50px;height:22px;border-radius:20px"></div>
-        <div class="skeleton-blob" style="width:50px;height:22px;border-radius:20px"></div>
-      </div>
-    </div>
-  `).join("");
+      <div style="display:flex;gap:4px;justify-content:flex-end"><div class="skeleton-blob" style="width:50px;height:22px;border-radius:20px"></div><div class="skeleton-blob" style="width:50px;height:22px;border-radius:20px"></div></div>
+    </div>`).join("");
 }
 
 async function loadData(){
-  try {
+  try{
     const res=await fetch("api-1.json");
-    if (!res.ok) throw new Error("HTTP "+res.status);
+    if(!res.ok) throw new Error("HTTP "+res.status);
     data=await res.json();
-  } catch(e) {
+  }catch(e){
     document.getElementById("leaderboard").innerHTML=`
       <div class="empty-state">
         <div class="empty-state-icon">⚠️</div>
@@ -1314,36 +953,29 @@ function createTabs(){
     if(m==="overall") btn.classList.add("active");
     btn.dataset.mode=m;
     const label=m==="maintiers"?"Main Tiers":m==="subtiers"?"Sub Tiers":m==="exclusivetiers"?"Exclusive Tier":m.charAt(0).toUpperCase()+m.slice(1);
-    if(tabEmoji[m]){
-      btn.innerHTML=`<span class="tab-emoji">${tabEmoji[m]}</span>${label}`;
-    } else {
-      btn.innerHTML=`<img src="${iconMap[m]}">${label}`;
-    }
+    btn.innerHTML=tabEmoji[m]?`<span class="tab-emoji">${tabEmoji[m]}</span>${label}`:`<img src="${iconMap[m]}">${label}`;
     btn.onclick=()=>switchTab(m,btn);
     tabs.appendChild(btn);
   });
 }
 
 function buildSubTabs(parentMode){
-  const container=document.getElementById("subTabs");
-  container.innerHTML="";
-  const modeList=parentMode==="maintiers"?mainModes:parentMode==="subtiers"?subModes:exclusiveModes;
-
+  const c=document.getElementById("subTabs");
+  c.innerHTML="";
+  const list=parentMode==="maintiers"?mainModes:parentMode==="subtiers"?subModes:exclusiveModes;
   const allBtn=document.createElement("button");
   allBtn.className="sub-tab active";
   allBtn.dataset.submode="all";
   allBtn.textContent="⭐ All";
   allBtn.onclick=()=>switchSubTab("all",allBtn);
-  container.appendChild(allBtn);
-
-  modeList.forEach(m=>{
+  c.appendChild(allBtn);
+  list.forEach(m=>{
     const btn=document.createElement("button");
     btn.className="sub-tab";
     btn.dataset.submode=m;
-    const label=m==="dpot"?"DPot":m==="netpot"?"NetPot":m==="smp"?"SMP":m==="dsmp"?"DSMP":m==="cart"?"Cart":m.charAt(0).toUpperCase()+m.slice(1);
-    btn.innerHTML=`<img src="${iconMap[m]}">${label}`;
+    btn.innerHTML=`<img src="${iconMap[m]}">${modeLabels[m]||m.charAt(0).toUpperCase()+m.slice(1)}`;
     btn.onclick=()=>switchSubTab(m,btn);
-    container.appendChild(btn);
+    c.appendChild(btn);
   });
 }
 
@@ -1351,24 +983,14 @@ function switchTab(mode,btn){
   const container=document.getElementById("leaderboard");
   container.classList.add("fade-out");
   const subWrapper=document.getElementById("subTabsWrapper");
-
   setTimeout(()=>{
-    currentMode=mode;
-    currentSubMode="all";
-
+    currentMode=mode;currentSubMode="all";
     if(mode==="maintiers"||mode==="subtiers"||mode==="exclusivetiers"){
-      buildSubTabs(mode);
-      subWrapper.classList.add("visible");
-    } else {
-      subWrapper.classList.remove("visible");
-      currentSubMode=null;
-    }
-
+      buildSubTabs(mode);subWrapper.classList.add("visible");
+    }else{subWrapper.classList.remove("visible");currentSubMode=null;}
     document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
     btn.classList.add("active");
-
-    render();
-    container.classList.remove("fade-out");
+    render();container.classList.remove("fade-out");
   },180);
 }
 
@@ -1379,35 +1001,47 @@ function switchSubTab(subMode,btn){
     currentSubMode=subMode;
     document.querySelectorAll(".sub-tab").forEach(t=>t.classList.remove("active"));
     btn.classList.add("active");
-    render();
-    container.classList.remove("fade-out");
+    render();container.classList.remove("fade-out");
   },180);
 }
 
-// Points are ALWAYS based on current tier — peaked tiers are cosmetic only
+function getRankingPoints(ranking){
+  const currentType=ranking.pos===0?"HT":"LT";
+  const currentPts=tierPoints[currentType+ranking.tier]||0;
+  if(ranking.peaked_tier!=null){
+    const peakedPts=tierPoints["HT"+ranking.peaked_tier]||0;
+    return Math.max(currentPts,peakedPts);
+  }
+  return currentPts;
+}
+
+function getEffectiveTier(ranking){
+  const currentType=ranking.pos===0?"HT":"LT";
+  const currentPts=tierPoints[currentType+ranking.tier]||0;
+  if(ranking.peaked_tier!=null){
+    const peakedPts=tierPoints["HT"+ranking.peaked_tier]||0;
+    if(peakedPts>=currentPts){
+      return {type:"HT",tier:ranking.peaked_tier,pos:0,isPeaked:true,hasDropped:peakedPts>currentPts};
+    }
+  }
+  return {type:currentType,tier:ranking.tier,pos:ranking.pos,isPeaked:false,hasDropped:false};
+}
+
 function getPoints(p){
   let pts=0;
-  Object.values(p.rankings||{}).forEach(r=>{
-    const type=r.pos===0?"HT":"LT";
-    pts+=tierPoints[type+r.tier]||0;
-  });
+  Object.values(p.rankings||{}).forEach(r=>{pts+=getRankingPoints(r);});
   return pts;
 }
 
-function getModePoints(p, modeList){
+function getModePoints(p,modeList){
   let pts=0;
-  modeList.forEach(m=>{
-    const r=(p.rankings||{})[m];
-    if(!r) return;
-    const type=r.pos===0?"HT":"LT";
-    pts+=tierPoints[type+r.tier]||0;
-  });
+  modeList.forEach(m=>{const r=(p.rankings||{})[m];if(r)pts+=getRankingPoints(r);});
   return pts;
 }
 
-function getMainPoints(p){ return getModePoints(p, mainModes); }
-function getSubPoints(p){ return getModePoints(p, subModes); }
-function getExclusivePoints(p){ return getModePoints(p, exclusiveModes); }
+function getMainPoints(p){return getModePoints(p,mainModes);}
+function getSubPoints(p){return getModePoints(p,subModes);}
+function getExclusivePoints(p){return getModePoints(p,exclusiveModes);}
 
 function getAchievementTitle(points){
   if(points>=400) return {name:"Combat Grandmaster",cls:"grandmaster"};
@@ -1421,22 +1055,14 @@ function getAchievementTitle(points){
 
 function computeRanks(players){
   players.sort((a,b)=>b.points-a.points);
-  let rank=1, lastPoints=null, skip=0;
+  let rank=1,lastPoints=null,skip=0;
   players.forEach((p)=>{
-    if(lastPoints!==p.points){
-      rank=rank+skip;
-      skip=1;
-      p.rank=rank;
-      lastPoints=p.points;
-    } else {
-      p.rank=rank;
-      skip++;
-    }
+    if(lastPoints!==p.points){rank=rank+skip;skip=1;p.rank=rank;lastPoints=p.points;}
+    else{p.rank=rank;skip++;}
   });
   return players;
 }
 
-// Returns filter modes for the current view context
 function getFilterModes(){
   if(currentMode==="overall") return null;
   if(currentSubMode&&currentSubMode!=="all") return [currentSubMode];
@@ -1445,65 +1071,58 @@ function getFilterModes(){
   return exclusiveModes;
 }
 
-// Build a tier badge HTML — handles peaked vs current display
-function buildTierBadgeHTML(mode, ranking, filterModes){
-  if(!filterModes || filterModes.includes(mode)){
-    const type=ranking.pos===0?"HT":"LT";
-    // If this mode has a peaked tier that differs from current, show peaked badge instead
-    if(ranking.peaked_tier!=null && (ranking.peaked_tier!==ranking.tier || ranking.peaked_pos!==ranking.pos)){
-      const pType=ranking.peaked_pos===0?"HT":"LT";
-      return `<div class="tier-badge peaked" title="Peaked ${pType}${ranking.peaked_tier} (Current: ${type}${ranking.tier})"><img src="${iconMap[mode]}">${pType}${ranking.peaked_tier}</div>`;
-    }
-    // If peaked equals current, still show peaked style (they passed the test)
-    if(ranking.peaked_tier!=null){
-      const pType=ranking.peaked_pos===0?"HT":"LT";
-      return `<div class="tier-badge peaked" title="Peaked ${pType}${ranking.peaked_tier}"><img src="${iconMap[mode]}">${pType}${ranking.peaked_tier}</div>`;
-    }
-    return `<div class="tier-badge ${type}"><img src="${iconMap[mode]}">${type}${ranking.tier}</div>`;
+function buildTierBadgeHTML(mode,ranking,filterModes){
+  if(filterModes&&!filterModes.includes(mode)) return "";
+  const eff=getEffectiveTier(ranking);
+  if(eff.isPeaked){
+    const cls=eff.type==="HT"?"peaked-ht":"peaked-lt";
+    return `<div class="tier-badge ${cls}" data-mode="${mode}"><img src="${iconMap[mode]}">${eff.type}${eff.tier}<span class="peaked-star">✦</span></div>`;
   }
-  return "";
+  return `<div class="tier-badge ${eff.type}" data-mode="${mode}"><img src="${iconMap[mode]}">${eff.type}${eff.tier}</div>`;
 }
 
-function openProfile(p, rank, points){
+function openProfile(p,rank,points){
   const modal=document.getElementById("modal");
   const content=document.getElementById("modalContent");
   const filterModes=getFilterModes();
-
-  // Current tiers (filtered to current view)
-  let currentTiers="";
-  let peakedTiers="";
-  let hasPeaked=false;
+  const titleInfo=getAchievementTitle(points);
+  let tierRows="";
+  let peakedCount=0;
 
   Object.entries(p.rankings||{}).forEach(([m,r])=>{
     const inFilter=!filterModes||filterModes.includes(m);
     if(!inFilter) return;
+    const eff=getEffectiveTier(r);
+    const currentType=r.pos===0?"HT":"LT";
+    const currentLabel=currentType+r.tier;
+    const effectiveLabel=eff.type+eff.tier;
+    if(eff.isPeaked) peakedCount++;
 
-    const type=r.pos===0?"HT":"LT";
-    currentTiers+=`<div class="tier-badge ${type}"><img src="${iconMap[m]}">${type}${r.tier}</div>`;
-
-    if(r.peaked_tier!=null){
-      hasPeaked=true;
-      const pType=r.peaked_pos===0?"HT":"LT";
-      const isSame=r.peaked_tier===r.tier&&r.peaked_pos===r.pos;
-      peakedTiers+=`<div class="tier-badge peaked" style="${isSame?'':'opacity:0.7;'}" title="${isSame?'Currently at peaked tier':'Dropped from peaked tier'}"><img src="${iconMap[m]}">${pType}${r.peaked_tier}${isSame?'':' → '+type+r.tier}</div>`;
+    let effectiveHTML="";
+    if(eff.isPeaked&&eff.hasDropped){
+      effectiveHTML=`<span class="current-tier" style="color:var(--text-muted)">${currentLabel}</span> <span class="arrow">→</span> <span class="effective-tier from-peaked">${effectiveLabel} ✦</span>`;
+    }else if(eff.isPeaked){
+      effectiveHTML=`<span class="effective-tier from-peaked">${effectiveLabel} ✦</span>`;
+    }else{
+      effectiveHTML=`<span class="effective-tier from-current">${effectiveLabel}</span>`;
     }
+
+    const pts=getRankingPoints(r);
+    tierRows+=`<div class="profile-current-row"><img class="mode-icon" src="${iconMap[m]}"><span class="mode-label">${modeLabels[m]||m}</span>${effectiveHTML}<span style="margin-left:auto;font-size:0.65rem;color:var(--text-muted);font-weight:600">${pts}pts</span></div>`;
   });
 
-  const titleInfo=getAchievementTitle(points);
-
-  // Count peaked across ALL modes (not just filtered)
-  let totalPeaked=0;
-  Object.values(p.rankings||{}).forEach(r=>{ if(r.peaked_tier!=null) totalPeaked++; });
+  let totalPeakedAll=0;
+  Object.values(p.rankings||{}).forEach(r=>{if(r.peaked_tier!=null)totalPeakedAll++;});
 
   content.innerHTML=`
     <button class="close" onclick="closeModal()">✕</button>
     <img class="profile-avatar" src="https://mc-heads.net/avatar/${p.uuid}/100">
     <div class="profile-name">${p.name}</div>
     <div class="profile-rank achievement ${titleInfo.cls}">${titleInfo.name}</div>
-    <div class="profile-stats">#${rank} &nbsp;•&nbsp; ${points} points${totalPeaked>0?' &nbsp;•&nbsp; ✦ '+totalPeaked+' peaked':''}</div>
-    <div class="profile-tiers-label">Current Tiers</div>
-    <div class="tiers-list" style="justify-content:center;">${currentTiers||'<span style="font-size:0.75rem;color:var(--text-muted)">None</span>'}</div>
-    ${hasPeaked?`<div class="profile-peaked-label">Peaked Tiers</div><div class="tiers-list" style="justify-content:center;">${peakedTiers}</div>`:""}
+    <div class="profile-stats">#${rank} &nbsp;•&nbsp; ${points} points${totalPeakedAll>0?' &nbsp;•&nbsp; ✦ '+totalPeakedAll+' peaked':''}</div>
+    <div class="profile-tiers-label">Tier Breakdown</div>
+    <div style="text-align:left">${tierRows||'<div style="text-align:center;font-size:0.75rem;color:var(--text-muted);padding:12px 0">No tiers</div>'}</div>
+    ${peakedCount>0?`<div class="profile-peaked-section"><div style="font-size:0.65rem;color:var(--peaked);text-align:center;font-weight:500">✦ = points from peaked tier (current tier is lower)</div></div>`:""}
   `;
 
   modal.classList.remove("hidden");
@@ -1511,25 +1130,12 @@ function openProfile(p, rank, points){
   if(focusable.length) focusable[0].focus();
 }
 
-function closeModal(){
-  document.getElementById("modal").classList.add("hidden");
-}
+function closeModal(){document.getElementById("modal").classList.add("hidden");}
+document.getElementById("modal").addEventListener("click",(e)=>{if(e.target===e.currentTarget)closeModal();});
 
-document.getElementById("modal").addEventListener("click",(e)=>{
-  if(e.target===e.currentTarget) closeModal();
-});
-
-function openInfoModal(){
-  document.getElementById("infoModal").classList.remove("hidden");
-}
-
-function closeInfoModal(){
-  document.getElementById("infoModal").classList.add("hidden");
-}
-
-document.getElementById("infoModal").addEventListener("click",(e)=>{
-  if(e.target===e.currentTarget) closeInfoModal();
-});
+function openInfoModal(){document.getElementById("infoModal").classList.remove("hidden");}
+function closeInfoModal(){document.getElementById("infoModal").classList.add("hidden");}
+document.getElementById("infoModal").addEventListener("click",(e)=>{if(e.target===e.currentTarget)closeInfoModal();});
 
 function switchInfoTab(tab,btn){
   document.querySelectorAll(".info-modal-tab").forEach(t=>t.classList.remove("active"));
@@ -1538,44 +1144,24 @@ function switchInfoTab(tab,btn){
   document.getElementById("info"+tab.charAt(0).toUpperCase()+tab.slice(1)).classList.add("visible");
 }
 
-function renderRankedView(players, pointFn){
+function renderRankedView(players,pointFn){
   const container=document.getElementById("leaderboard");
   const filterModes=getFilterModes();
-
-  players=players.map(p=>({...p, points:pointFn(p)}));
+  players=players.map(p=>({...p,points:pointFn(p)}));
   players=players.filter(p=>p.points>0);
 
-  if(players.length===0){
-    container.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-state-icon">🔍</div>
-        <div class="empty-state-text">No players found</div>
-      </div>`;
+  if(!players.length){
+    container.innerHTML=`<div class="empty-state"><div class="empty-state-icon">🔍</div><div class="empty-state-text">No players found</div></div>`;
     return;
   }
 
   players=computeRanks(players);
 
-  // Stats bar
-  const bar=document.createElement("div");
-  bar.className="stats-bar";
-  const peakedCount=players.filter(p=>{
-    return Object.values(p.rankings||{}).some((r,fm)=>{
-      if(filterModes && !filterModes.includes(fm)) return false;
-      return r.peaked_tier!=null;
-    });
-  }).length;
-  bar.innerHTML=`
-    <div class="stat-chip"><strong>${players.length}</strong> players ranked</div>
-    <div class="stat-chip"><strong>${peakedCount}</strong> with peaked tiers</div>
-  `;
-  container.appendChild(bar);
-
   players.forEach((p)=>{
     const row=document.createElement("div");
     row.className="player-row";
     row.setAttribute("tabindex","0");
-
+    row._playerData=p;
     if(p.rank===1) row.classList.add("top1");
     if(p.rank===2) row.classList.add("top2");
     if(p.rank===3) row.classList.add("top3");
@@ -1586,7 +1172,6 @@ function renderRankedView(players, pointFn){
     });
 
     const titleInfo=getAchievementTitle(p.points);
-
     row.innerHTML=`
       <div class="rank">${p.rank===1?"👑":p.rank===2?"🥈":p.rank===3?"🥉":"#"+p.rank}</div>
       <div class="player-info">
@@ -1602,31 +1187,26 @@ function renderRankedView(players, pointFn){
       <div class="tiers-list">${tiersHTML}</div>
     `;
 
-    const openFn=()=>openProfile(p, p.rank, p.points);
+    const openFn=()=>openProfile(p,p.rank,p.points);
     row.onclick=openFn;
-    row.onkeydown=(e)=>{ if(e.key==="Enter") openFn(); };
+    row.onkeydown=(e)=>{if(e.key==="Enter")openFn();};
     container.appendChild(row);
   });
 }
 
-function renderTierGrid(mode, players){
+function renderTierGrid(mode,players){
   const container=document.getElementById("leaderboard");
   const tiers={1:[],2:[],3:[],4:[],5:[]};
 
   players.forEach(p=>{
     const r=p.rankings?.[mode];
     if(!r) return;
-    tiers[r.tier].push({...p,pos:r.pos,peaked_tier:r.peaked_tier,peaked_pos:r.peaked_pos,mode:mode});
+    const eff=getEffectiveTier(r);
+    tiers[eff.tier].push({...p,pos:eff.pos,isPeaked:eff.isPeaked,hasDropped:eff.hasDropped,currentTier:r.tier,currentPos:r.pos,mode:mode});
   });
 
-  const hasData=Object.values(tiers).some(t=>t.length>0);
-
-  if(!hasData){
-    container.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-state-icon">📋</div>
-        <div class="empty-state-text">No tier data for this mode</div>
-      </div>`;
+  if(!Object.values(tiers).some(t=>t.length)){
+    container.innerHTML=`<div class="empty-state"><div class="empty-state-icon">📋</div><div class="empty-state-text">No tier data for this mode</div></div>`;
     return;
   }
 
@@ -1641,25 +1221,22 @@ function renderTierGrid(mode, players){
     tiers[t].forEach(p=>{
       const div=document.createElement("div");
       const type=p.pos===0?"HT":"LT";
-      div.className=`player ${type}`;
+      div._playerData=p;
 
-      // Check if player has peaked in this mode
-      const hasPeaked=p.peaked_tier!=null;
-      const peakedHigher=hasPeaked && (p.peaked_tier<t || (p.peaked_tier===t && p.peaked_pos<p.pos));
-      if(hasPeaked) div.classList.add("has-peaked");
-
-      let peakedLabel="";
-      if(hasPeaked){
-        const pType=p.peaked_pos===0?"HT":"LT";
-        if(peakedHigher){
-          peakedLabel=`<span class="player-peaked-star" title="Peaked ${pType}${p.peaked_tier}">✦</span>`;
-        }
+      if(p.isPeaked&&p.hasDropped){
+        div.className="player peaked-from-drop";
+        div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span><span class="player-peaked-star" title="Peaked ${type}${t} — currently ${p.currentPos===0?"HT":"LT"}${p.currentTier}">✦</span>`;
+      }else if(p.isPeaked){
+        div.className=`player ${type}`;
+        div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span><span class="player-peaked-star" title="Peaked ${type}${t}">✦</span>`;
+      }else{
+        div.className=`player ${type}`;
+        div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span>`;
       }
 
-      div.innerHTML=`<img src="https://mc-heads.net/avatar/${p.uuid}/100" loading="lazy"><span class="player-name-cell">${p.name}</span>${peakedLabel}`;
       const pts=getPoints(p);
-      div.onclick=()=>openProfile(p, 0, pts);
-      grid===grid && col.appendChild(div);
+      div.onclick=()=>openProfile(p,0,pts);
+      col.appendChild(div);
     });
     grid.appendChild(col);
   }
@@ -1670,53 +1247,31 @@ function renderTierGrid(mode, players){
 function render(){
   const container=document.getElementById("leaderboard");
   const search=document.getElementById("searchInput").value.toLowerCase();
-
   let players=data.filter(p=>p.name.toLowerCase().includes(search));
   container.innerHTML="";
 
-  if(currentMode==="overall"){
-    renderRankedView(players, getPoints);
-    return;
-  }
-
+  if(currentMode==="overall"){renderRankedView(players,getPoints);return;}
   if(currentMode==="maintiers"){
-    if(currentSubMode==="all"){
-      renderRankedView(players, getMainPoints);
-      return;
-    }
-    renderTierGrid(currentSubMode, players);
-    return;
+    if(currentSubMode==="all"){renderRankedView(players,getMainPoints);return;}
+    renderTierGrid(currentSubMode,players);return;
   }
-
   if(currentMode==="subtiers"){
-    if(currentSubMode==="all"){
-      renderRankedView(players, getSubPoints);
-      return;
-    }
-    renderTierGrid(currentSubMode, players);
-    return;
+    if(currentSubMode==="all"){renderRankedView(players,getSubPoints);return;}
+    renderTierGrid(currentSubMode,players);return;
   }
-
   if(currentMode==="exclusivetiers"){
-    container.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-state-icon">🔒</div>
-        <div class="empty-state-text">Exclusive tiers coming soon</div>
-      </div>`;
+    container.innerHTML=`<div class="empty-state"><div class="empty-state-icon">🔒</div><div class="empty-state-text">Exclusive tiers coming soon</div></div>`;
     return;
   }
 }
 
 document.getElementById("searchInput").addEventListener("input",()=>{
   clearTimeout(searchTimeout);
-  searchTimeout=setTimeout(render, 200);
+  searchTimeout=setTimeout(render,200);
 });
 
 document.addEventListener("keydown",(e)=>{
-  if(e.key==="Escape"){
-    closeModal();
-    closeInfoModal();
-  }
+  if(e.key==="Escape"){closeModal();closeInfoModal();}
 });
 </script>
 
