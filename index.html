@@ -35,64 +35,21 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .search-bar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
 .tabs-wrapper{position:sticky;top:92px;z-index:90;background:rgba(6,9,15,0.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:14px 28px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
 .tabs{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.tabs::-webkit-scrollbar{display:none}
-
-/* ── Base tab ── */
 .tab{display:flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;border:1px solid transparent;border-radius:var(--radius-sm);cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:700;white-space:nowrap;transition:var(--transition);position:relative;letter-spacing:-.01em;color:var(--text-muted)}
 .tab-emoji{font-size:1.05rem;line-height:1;transition:filter .25s ease}
 .tab:hover{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06);color:var(--text-secondary)}
 .tab:hover .tab-emoji{filter:drop-shadow(0 0 3px rgba(255,255,255,0.25))}
 .tab-separator{width:1px;background:rgba(255,255,255,0.06);margin:0 4px;flex-shrink:0;align-self:stretch}
-
-/* ── Hall of Fame: yellow-orange neon glow ── */
-.tab[data-mode="halloffame"].active{
-  color:#fbbf24;
-  border-color:rgba(251,191,36,0.55);
-  background:rgba(251,191,36,0.07);
-  box-shadow:0 0 6px rgba(251,191,36,0.35),0 0 18px rgba(251,146,60,0.2),0 0 36px rgba(251,146,60,0.08),inset 0 1px 0 rgba(251,191,36,0.1);
-  text-shadow:0 0 8px rgba(251,191,36,0.5),0 0 16px rgba(251,146,60,0.25)
-}
+.tab[data-mode="halloffame"].active{color:#fbbf24;border-color:rgba(251,191,36,0.55);background:rgba(251,191,36,0.07);box-shadow:0 0 6px rgba(251,191,36,0.35),0 0 18px rgba(251,146,60,0.2),0 0 36px rgba(251,146,60,0.08),inset 0 1px 0 rgba(251,191,36,0.1);text-shadow:0 0 8px rgba(251,191,36,0.5),0 0 16px rgba(251,146,60,0.25)}
 .tab[data-mode="halloffame"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(251,191,36,0.8)) drop-shadow(0 0 12px rgba(251,146,60,0.5))}
-
-/* ── Overall: yellow-orange neon glow ── */
-.tab[data-mode="overall"].active{
-  color:#fbbf24;
-  border-color:rgba(251,191,36,0.55);
-  background:rgba(251,191,36,0.07);
-  box-shadow:0 0 6px rgba(251,191,36,0.35),0 0 18px rgba(251,146,60,0.2),0 0 36px rgba(251,146,60,0.08),inset 0 1px 0 rgba(251,191,36,0.1);
-  text-shadow:0 0 8px rgba(251,191,36,0.5),0 0 16px rgba(251,146,60,0.25)
-}
+.tab[data-mode="overall"].active{color:#fbbf24;border-color:rgba(251,191,36,0.55);background:rgba(251,191,36,0.07);box-shadow:0 0 6px rgba(251,191,36,0.35),0 0 18px rgba(251,146,60,0.2),0 0 36px rgba(251,146,60,0.08),inset 0 1px 0 rgba(251,191,36,0.1);text-shadow:0 0 8px rgba(251,191,36,0.5),0 0 16px rgba(251,146,60,0.25)}
 .tab[data-mode="overall"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(251,191,36,0.8)) drop-shadow(0 0 12px rgba(251,146,60,0.5))}
-
-/* ── Main Tiers: cyan + red neon glow ── */
-.tab[data-mode="maintiers"].active{
-  color:#22d3ee;
-  border-color:rgba(34,211,238,0.5);
-  background:rgba(34,211,238,0.06);
-  box-shadow:0 0 6px rgba(34,211,238,0.35),0 0 16px rgba(248,113,113,0.12),0 0 32px rgba(34,211,238,0.08),inset 0 1px 0 rgba(34,211,238,0.08);
-  text-shadow:0 0 8px rgba(34,211,238,0.5),0 0 14px rgba(248,113,113,0.15)
-}
+.tab[data-mode="maintiers"].active{color:#22d3ee;border-color:rgba(34,211,238,0.5);background:rgba(34,211,238,0.06);box-shadow:0 0 6px rgba(34,211,238,0.35),0 0 16px rgba(248,113,113,0.12),0 0 32px rgba(34,211,238,0.08),inset 0 1px 0 rgba(34,211,238,0.08);text-shadow:0 0 8px rgba(34,211,238,0.5),0 0 14px rgba(248,113,113,0.15)}
 .tab[data-mode="maintiers"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(34,211,238,0.7)) drop-shadow(0 0 10px rgba(248,113,113,0.3))}
-
-/* ── Sub Tiers: purple + pink neon glow ── */
-.tab[data-mode="subtiers"].active{
-  color:#c084fc;
-  border-color:rgba(192,132,252,0.5);
-  background:rgba(192,132,252,0.06);
-  box-shadow:0 0 6px rgba(192,132,252,0.35),0 0 16px rgba(236,72,153,0.15),0 0 32px rgba(192,132,252,0.08),inset 0 1px 0 rgba(192,132,252,0.08);
-  text-shadow:0 0 8px rgba(192,132,252,0.5),0 0 14px rgba(236,72,153,0.18)
-}
+.tab[data-mode="subtiers"].active{color:#c084fc;border-color:rgba(192,132,252,0.5);background:rgba(192,132,252,0.06);box-shadow:0 0 6px rgba(192,132,252,0.35),0 0 16px rgba(236,72,153,0.15),0 0 32px rgba(192,132,252,0.08),inset 0 1px 0 rgba(192,132,252,0.08);text-shadow:0 0 8px rgba(192,132,252,0.5),0 0 14px rgba(236,72,153,0.18)}
 .tab[data-mode="subtiers"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(192,132,252,0.7)) drop-shadow(0 0 10px rgba(236,72,153,0.35))}
-
-/* ── Exclusive Tiers: yellow + orange neon glow ── */
-.tab[data-mode="exclusivetiers"].active{
-  color:#fb923c;
-  border-color:rgba(251,146,60,0.5);
-  background:rgba(251,146,60,0.06);
-  box-shadow:0 0 6px rgba(251,146,60,0.35),0 0 18px rgba(251,191,36,0.18),0 0 36px rgba(251,146,60,0.08),inset 0 1px 0 rgba(251,146,60,0.08);
-  text-shadow:0 0 8px rgba(251,146,60,0.5),0 0 16px rgba(251,191,36,0.2)
-}
+.tab[data-mode="exclusivetiers"].active{color:#fb923c;border-color:rgba(251,146,60,0.5);background:rgba(251,146,60,0.06);box-shadow:0 0 6px rgba(251,146,60,0.35),0 0 18px rgba(251,191,36,0.18),0 0 36px rgba(251,146,60,0.08),inset 0 1px 0 rgba(251,146,60,0.08);text-shadow:0 0 8px rgba(251,146,60,0.5),0 0 16px rgba(251,191,36,0.2)}
 .tab[data-mode="exclusivetiers"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(251,146,60,0.8)) drop-shadow(0 0 12px rgba(251,191,36,0.4))}
-
 .sub-tabs-wrapper{overflow:hidden;max-height:0;opacity:0;transition:max-height .25s ease,opacity .2s ease,padding .25s ease;padding:0 28px}
 .sub-tabs-wrapper.visible{max-height:90px;opacity:1;padding:12px 28px 16px}
 .sub-tabs{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:4px 0}.sub-tabs::-webkit-scrollbar{display:none}
@@ -273,8 +230,6 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .info-peaked-title{font-size:.75rem;font-weight:700;color:var(--peaked);margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .info-peaked-title::before{content:"✦";font-size:.6rem}
 .info-example{margin-top:6px;padding:8px 10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xs);font-family:monospace;font-size:.58rem;line-height:1.6;white-space:pre-wrap;color:var(--text-secondary)}
-
-/* ── Hall of Fame ── */
 .hof-container{max-width:600px;margin:0 auto;padding:40px 20px 60px}
 .hof-entry{display:flex;align-items:center;gap:20px;padding:24px 28px;margin-bottom:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:var(--transition);position:relative;animation:fadeRow .35s ease-out both}
 .hof-entry:nth-child(2){animation-delay:.06s}.hof-entry:nth-child(3){animation-delay:.12s}
@@ -283,13 +238,10 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .hof-info{display:flex;flex-direction:column;gap:5px;min-width:0}
 .hof-name{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
 .hof-role{font-size:1rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
-/* Owner: green + cyan */
 .hof-role-owner{background:linear-gradient(90deg,#22d3ee,#4ade80,#22d3ee);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 10px rgba(34,211,238,0.6)) drop-shadow(0 0 18px rgba(74,222,128,0.4));animation:ownerGlow 3s ease-in-out infinite}
 @keyframes ownerGlow{0%,100%{filter:drop-shadow(0 0 10px rgba(34,211,238,0.6)) drop-shadow(0 0 18px rgba(74,222,128,0.4));background-position:0% 50%}50%{filter:drop-shadow(0 0 16px rgba(34,211,238,0.85)) drop-shadow(0 0 28px rgba(74,222,128,0.65)) drop-shadow(0 0 40px rgba(34,211,238,0.3));background-position:100% 50%}}
-/* Developer: magenta + cyan */
 .hof-role-dev{background:linear-gradient(90deg,#ec4899,#22d3ee,#ec4899,#22d3ee);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 10px rgba(236,72,153,0.6)) drop-shadow(0 0 18px rgba(34,211,238,0.4));animation:devGlow 2.8s ease-in-out infinite}
 @keyframes devGlow{0%,100%{filter:drop-shadow(0 0 10px rgba(236,72,153,0.6)) drop-shadow(0 0 18px rgba(34,211,238,0.4));background-position:0% 50%}50%{filter:drop-shadow(0 0 16px rgba(236,72,153,0.85)) drop-shadow(0 0 28px rgba(34,211,238,0.65)) drop-shadow(0 0 42px rgba(236,72,153,0.3));background-position:100% 50%}}
-
 .soon-container{display:flex;align-items:center;justify-content:center;min-height:50vh;text-align:center}
 .soon-text{font-size:5rem;font-weight:900;letter-spacing:.15em;color:#fff;text-shadow:0 0 4px rgba(255,255,255,0.5),0 0 8px rgba(255,255,255,0.25);animation:soonPulse 3s ease-in-out infinite;user-select:none}
 @keyframes soonPulse{0%,100%{text-shadow:0 0 4px rgba(255,255,255,0.5),0 0 8px rgba(255,255,255,0.25);transform:scale(1)}50%{text-shadow:0 0 6px rgba(255,255,255,0.65),0 0 12px rgba(255,255,255,0.35);transform:scale(1.01)}}
@@ -367,19 +319,53 @@ var data=[],currentMode="overall",currentSubMode=null,searchTimeout=null,tooltip
 var tooltipEl=document.getElementById("badgeTooltip"),tooltipInner=document.getElementById("badgeTooltipInner");
 var fallbackData=[
 {name:"_ShinT",uuid:"bde54791-317f-4349-bef3-10e7e71630e5",rankings:{mace:{tier:1,pos:1},uhc:{tier:1,pos:1},cart:{tier:2,pos:1},sword:{tier:2,pos:1},crystal:{tier:3,pos:1},smp:{tier:1,pos:0},dsmp:{tier:1,pos:0}}},
-{name:"Pwllow",uuid:"6b41d5d4-53a7-4be8-b98c-b7f87e3357fb",rankings:{sword:{tier:1,pos:0},crystal:{tier:2,pos:0},uhc:{tier:2,pos:1},dpot:{tier:2,pos:0,peaked_tier:2,peaked_pos:0},netpot:{tier:2,pos:0},axe:{tier:1,pos:0},smp:{tier:2,pos:1},dsmp:{tier:3,pos:1},mace:{tier:3,pos:1},cart:{tier:3,pos:1}}},
-{name:"kway4",uuid:"f94d9814-2b63-4512-981d-61b7dfc90c80",rankings:{mace:{tier:1,pos:0},uhc:{tier:2,pos:1},sword:{tier:2,pos:1},dpot:{tier:3,pos:0},axe:{tier:1,pos:1,peaked_tier:1,peaked_pos:0},smp:{tier:1,pos:1},netpot:{tier:2,pos:1}}},
-{name:"Rinleaf",uuid:"4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",rankings:{crystal:{tier:1,pos:0,peaked_tier:1,peaked_pos:0},sword:{tier:2,pos:0},uhc:{tier:2,pos:1},dsmp:{tier:3,pos:1},dpot:{tier:2,pos:0},netpot:{tier:2,pos:0},smp:{tier:1,pos:1},cart:{tier:1,pos:0},axe:{tier:2,pos:0},mace:{tier:3,pos:1}}},
+{name:"Pwllow",uuid:"6b41d5d4-53a7-4be8-b98c-b7f87e3357fb",rankings:{sword:{tier:1,pos:0},crystal:{tier:2,pos:0},uhc:{tier:2,pos:1},dsmp:{tier:3,pos:1},mace:{tier:3,pos:1},cart:{tier:3,pos:1},dpot:{tier:2,pos:0,peaked_tier:2,peaked_pos:0},netpot:{tier:2,pos:0},smp:{tier:2,pos:1},axe:{tier:1,pos:0}}},
+{name:"kway4",uuid:"f94d9814-2b63-4512-981d-61b7dfc90c80",rankings:{mace:{tier:1,pos:0},uhc:{tier:2,pos:1},sword:{tier:2,pos:1},dpot:{tier:3,pos:0},axe:{tier:1,pos:1,peaked_tier:1,peaked_pos:0},smp:{tier:1,pos:1},netpot:{tier:2,pos:1},crystal:{tier:4,pos:1}}},
 {name:"RebornColter",uuid:"52258f7a-e2dd-4afd-979d-f1364551058f",rankings:{dsmp:{tier:3,pos:1},uhc:{tier:3,pos:0},axe:{tier:3,pos:0},sword:{tier:3,pos:1},cart:{tier:3,pos:0},dpot:{tier:4,pos:0},netpot:{tier:3,pos:1}}},
 {name:"NivlaJupiter",uuid:"5f92b497-cdb8-453f-b752-f2ecc27faec2",rankings:{crystal:{tier:2,pos:0},sword:{tier:4,pos:1},cart:{tier:3,pos:0},mace:{tier:2,pos:1},axe:{tier:4,pos:1},uhc:{tier:3,pos:1}}},
-{name:"Qdrr_",uuid:"bde54791-0001-0001-0001-000000000001",rankings:{uhc:{tier:2,pos:1},dpot:{tier:1,pos:0},netpot:{tier:1,pos:0},axe:{tier:1,pos:1},sword:{tier:2,pos:0},smp:{tier:1,pos:1},dsmp:{tier:3,pos:1},mace:{tier:5,pos:1}}},
-{name:"_WAyneDebuffs",uuid:"3a8ad98d-428e-43fd-a4ac-42978f1d244c",rankings:{uhc:{tier:1,pos:0},axe:{tier:1,pos:1},mace:{tier:3,pos:1}}},
-{name:"Pipeeew",uuid:"d0d6b908-bf68-4aa1-9448-475e27ca91a7",rankings:{uhc:{tier:2,pos:1},smp:{tier:2,pos:0}}},
-{name:"ItzMr_greenX2",uuid:"d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",rankings:{crystal:{tier:3,pos:1},sword:{tier:3,pos:1},cart:{tier:3,pos:1},dsmp:{tier:3,pos:0},dpot:{tier:3,pos:1},smp:{tier:4,pos:0},uhc:{tier:3,pos:0},axe:{tier:3,pos:1}}},
-{name:"Clowny_XD",uuid:"bde54791-0001-0001-0001-000000000002",rankings:{sword:{tier:3,pos:0},crystal:{tier:2,pos:0}}},
-{name:"albxzo",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",rankings:{crystal:{tier:2,pos:0},sword:{tier:4,pos:1},axe:{tier:5,pos:0},uhc:{tier:4,pos:1},mace:{tier:5,pos:0}}},
+{name:"unknowwpepi",uuid:"bde54791-317f-4349-bef3-10e7e71630e6",rankings:{crystal:{tier:3,pos:0},sword:{tier:4,pos:1},axe:{tier:4,pos:0}}},
+{name:"HLaingWanna2010",uuid:"bde54791-317f-4349-bef3-10e7e71630e7",rankings:{crystal:{tier:3,pos:1}}},
 {name:"7taps__",uuid:"6922774c-b5e2-45d7-941f-87ca334520bf",rankings:{uhc:{tier:4,pos:0},sword:{tier:3,pos:1},crystal:{tier:4,pos:0}}},
-{name:"Xkiller85",uuid:"6b730441-7644-4c21-b86e-11f44e7f11c5",rankings:{sword:{tier:4,pos:0},axe:{tier:5,pos:0}}}
+{name:"NewbiePlayzXD",uuid:"bde54791-317f-4349-bef3-10e7e71630e8",rankings:{crystal:{tier:4,pos:0},smp:{tier:4,pos:0},dsmp:{tier:4,pos:1},axe:{tier:4,pos:1}}},
+{name:"ItzMr_greenX2",uuid:"d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",rankings:{crystal:{tier:3,pos:1},sword:{tier:3,pos:1},cart:{tier:3,pos:1},dsmp:{tier:3,pos:0},dpot:{tier:3,pos:1},smp:{tier:4,pos:0},uhc:{tier:3,pos:0},axe:{tier:3,pos:1}}},
+{name:"Qdrr_",uuid:"bde54791-317f-4349-bef3-10e7e71630e9",rankings:{uhc:{tier:2,pos:1},dpot:{tier:1,pos:0},netpot:{tier:1,pos:0},axe:{tier:1,pos:1},sword:{tier:2,pos:0},dsmp:{tier:3,pos:1},mace:{tier:5,pos:1},smp:{tier:1,pos:1}}},
+{name:"GOST152",uuid:"bde54791-317f-4349-bef3-10e7e71630ea",rankings:{uhc:{tier:5,pos:1},axe:{tier:3,pos:0},sword:{tier:5,pos:0}}},
+{name:"Clowny_XD",uuid:"bde54791-317f-4349-bef3-10e7e71630eb",rankings:{sword:{tier:3,pos:0},crystal:{tier:2,pos:0}}},
+{name:"MilooooooID",uuid:"bde54791-317f-4349-bef3-10e7e71630ec",rankings:{uhc:{tier:5,pos:0},crystal:{tier:5,pos:0}}},
+{name:"ThatSanno",uuid:"bde54791-317f-4349-bef3-10e7e71630ed",rankings:{dsmp:{tier:4,pos:0}}},
+{name:"Itz_ryanz",uuid:"bde54791-317f-4349-bef3-10e7e71630ee",rankings:{crystal:{tier:4,pos:0}}},
+{name:"SayrTea",uuid:"7105d20b-7ae1-44cc-acf5-ba66e7d8af15",rankings:{crystal:{tier:4,pos:0},axe:{tier:5,pos:0}}},
+{name:"chinese_boy9",uuid:"bde54791-317f-4349-bef3-10e7e71630ef",rankings:{sword:{tier:4,pos:1},uhc:{tier:5,pos:0}}},
+{name:"gotnonam3",uuid:"bde54791-317f-4349-bef3-10e7e71630f0",rankings:{axe:{tier:5,pos:0}}},
+{name:"albxzo",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab",rankings:{crystal:{tier:2,pos:0},sword:{tier:4,pos:1},axe:{tier:5,pos:0},uhc:{tier:4,pos:1},mace:{tier:5,pos:0}}},
+{name:"CertifiedTuna",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64ac",rankings:{crystal:{tier:3,pos:1}}},
+{name:"PrinzeLord_",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64ad",rankings:{mace:{tier:5,pos:0}}},
+{name:"Dummina",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64ae",rankings:{crystal:{tier:3,pos:1},axe:{tier:4,pos:0}}},
+{name:"Rinleaf",uuid:"4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",rankings:{crystal:{tier:1,pos:0,peaked_tier:1,peaked_pos:0},mace:{tier:3,pos:1},sword:{tier:2,pos:0},uhc:{tier:2,pos:1},dsmp:{tier:3,pos:1},dpot:{tier:2,pos:0},netpot:{tier:2,pos:0},smp:{tier:1,pos:1},cart:{tier:1,pos:0},axe:{tier:2,pos:0}}},
+{name:"Chika_",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64af",rankings:{sword:{tier:4,pos:1}}},
+{name:"Justincookie",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64b0",rankings:{sword:{tier:4,pos:1},dsmp:{tier:4,pos:1}}},
+{name:"KenjiOp200k",uuid:"88bd1f55-3354-4fa0-826b-c229f23eb790",rankings:{dsmp:{tier:4,pos:0}}},
+{name:"360Ascendant",uuid:"4a5aa283-10e5-444c-88a5-33cf4d38e03f",rankings:{dsmp:{tier:4,pos:0},crystal:{tier:3,pos:1}}},
+{name:"MyatIsDumb",uuid:"e22d42b9-5c3d-4b9a-8a57-991f3dcf64b1",rankings:{sword:{tier:3,pos:0},dpot:{tier:4,pos:0}}},
+{name:"EibmozNPC",uuid:"1a4619b3-9d36-49de-b9db-462cf4bf7c46",rankings:{dsmp:{tier:3,pos:1}}},
+{name:"Xkiller85",uuid:"6b730441-7644-4c21-b86e-11f44e7f11c5",rankings:{sword:{tier:4,pos:0},axe:{tier:5,pos:0}}},
+{name:"theooo",uuid:"bde54791-317f-4349-bef3-10e7e71630f1",rankings:{sword:{tier:5,pos:1},crystal:{tier:5,pos:1},axe:{tier:5,pos:0}}},
+{name:"_WAyneDebuffs",uuid:"3a8ad98d-428e-43fd-a4ac-42978f1d244c",rankings:{uhc:{tier:1,pos:0},axe:{tier:1,pos:1},mace:{tier:3,pos:1}}},
+{name:"TuffNode",uuid:"3a8ad98d-428e-43fd-a4ac-42978f1d244d",rankings:{axe:{tier:4,pos:0},sword:{tier:5,pos:0}}},
+{name:"navy123",uuid:"64f8cdf3-8b61-4205-9ec1-fce6f419c5fd",rankings:{dpot:{tier:3,pos:1}}},
+{name:"xVocal_",uuid:"ba8d71b0-d215-4c67-b334-05af340bbbc9",rankings:{dsmp:{tier:4,pos:0}}},
+{name:"Pipeeew",uuid:"d0d6b908-bf68-4aa1-9448-475e27ca91a7",rankings:{uhc:{tier:2,pos:1},smp:{tier:2,pos:0}}},
+{name:"Alyxen",uuid:"569bed30-d352-4fd5-8a59-dccf36ccb4af",rankings:{sword:{tier:4,pos:1},mace:{tier:3,pos:1}}},
+{name:"MrP1Z2A",uuid:"fe3b1aad-788c-4282-a95c-265717c9d7c4",rankings:{sword:{tier:3,pos:1},uhc:{tier:3,pos:1},axe:{tier:3,pos:1}}},
+{name:"RinnSTier",uuid:"8b63226d-8fd9-41bc-927e-c41f4cc4deba",rankings:{sword:{tier:5,pos:0},mace:{tier:5,pos:0}}},
+{name:"RazinMonkey",uuid:"82ecbbc9-b8bb-434e-b157-927721cf85f1",rankings:{crystal:{tier:3,pos:1}}},
+{name:"naomigreif",uuid:"0ba501e5-3ea1-4402-af21-d08b53a7af62",rankings:{crystal:{tier:5,pos:0},sword:{tier:4,pos:1},axe:{tier:5,pos:0},uhc:{tier:5,pos:1}}},
+{name:"DingalingM",uuid:"de984043-1d11-48ab-8714-2ff1612e8b57",rankings:{crystal:{tier:5,pos:0}}},
+{name:"UncleSkylarkk",uuid:"5b986f22-d753-4861-ac3b-d7f72f267132",rankings:{crystal:{tier:4,pos:0}}},
+{name:"Hynixqt",uuid:"17bbec70-5107-4c5c-aa36-4bf61237b1eb",rankings:{crystal:{tier:3,pos:0}}},
+{name:"_ZycoDebuffs",uuid:"e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",rankings:{sword:{tier:3,pos:1},mace:{tier:3,pos:1},netpot:{tier:2,pos:0},smp:{tier:3,pos:1}}},
+{name:"_Aidendebuffs",uuid:"49e31b06-0ccf-4811-a12f-1deefd180c3f",rankings:{sword:{tier:3,pos:1}}},
+{name:"NixfelzNik_",uuid:"47a259e8-35ef-434f-8344-3a23b6a3dd95",rankings:{sword:{tier:3,pos:1}}}
 ];
 
 function showBadgeTooltip(badgeEl,mode,ranking){clearTimeout(tooltipTimer);var ct=ranking.pos===0?"HT":"LT",cl=ct+ranking.tier,cp=tierPoints[ct+ranking.tier]||0,pts=getRankingPoints(ranking),tcc=ct==="HT"?"ht":"lt";var h='<div class="badge-tooltip-modes"><img class="badge-tooltip-mode-icon" src="'+iconMap[mode]+'"><span class="badge-tooltip-mode-label">'+(modeLabels[mode]||mode)+'</span></div><div class="badge-tooltip-tier '+tcc+'">'+cl+'</div>';if(ranking.peaked_tier!=null){var pt=ranking.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+ranking.peaked_tier]||0,pl=pt+ranking.peaked_tier;if(pp>cp||pp===cp&&(ranking.peaked_tier!==ranking.tier||ranking.peaked_pos!==ranking.pos)){h+='<div class="badge-tooltip-peaked-section"><div class="badge-tooltip-peak-label">Peak '+pl+'</div><div class="badge-tooltip-peak-tier">'+pl+'</div></div>';}}h+='<div class="badge-tooltip-points"><strong>'+pts+'</strong> points</div>';if(ranking.peaked_tier!=null){var pt2=ranking.peaked_pos===0?"HT":"LT",pp2=tierPoints[pt2+ranking.peaked_tier]||0;if(pp2>cp)h+='<div class="badge-tooltip-points-note">from peaked tier</div>';}tooltipInner.innerHTML=h;var r=badgeEl.getBoundingClientRect(),tw=155,t=r.top-tooltipInner.offsetHeight-10,l=r.left+r.width/2-tw/2;if(l<8)l=8;if(l+tw>window.innerWidth-8)l=window.innerWidth-tw-8;var ac="";if(t<8){t=r.bottom+10;ac="top";}tooltipEl.style.left=l+"px";tooltipEl.style.top=t+"px";tooltipEl.style.width=tw+"px";var ea=tooltipInner.querySelector(".badge-tooltip-arrow");if(ea)ea.remove();var arrow=document.createElement("div");arrow.className="badge-tooltip-arrow "+ac;tooltipInner.appendChild(arrow);tooltipEl.classList.add("visible");}
@@ -438,4 +424,3 @@ window.addEventListener("DOMContentLoaded",init);
 </script>
 </body>
 </html>
-
