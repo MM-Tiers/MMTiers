@@ -744,4 +744,9 @@ function render(){
   if(currentMode==="exclusivetiers"){if(currentSubMode==="all"){renderRankedView(players,getExclusivePoints);return;}renderTierGrid(currentSubMode,players,true);return;}
 }
 
-document.getElementById("searchInput").addEventListener("input",function(){clearTimeout(searchTimeout);searchTimeout
+document.getElementById("searchInput").addEventListener("input",function(){clearTimeout(searchTimeout);searchTimeout=setTimeout(render,200);});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeModal();closeInfoModal();}});
+window.addEventListener("DOMContentLoaded",init);
+</script>
+</body>
+</html>
