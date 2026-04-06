@@ -462,12 +462,12 @@ function esc(s){if(s==null)return'';_escDiv.textContent=String(s);return _escDiv
     windTimer++;if(windTimer>250+Math.random()*300){windTarget=(Math.random()-0.5)*0.3;windTimer=0;}
     wind+=(windTarget-wind)*0.003;mouse.vx*=0.9;mouse.vy*=0.9;
     var sunX=W*0.85,sunY=-H*0.1;ctx.save();
-    for(var r=0;r<3;r++){var angle=-0.6+r*0.25+Math.sin(time*0.0004+r)*0.04;var rayLen=H*1.6+Math.sin(time*0.0005+r*1.3)*H*0.2;var rayW=35+r*12;var rayOp=0.01+Math.sin(time*0.0004+r*2)*0.005;ctx.save();ctx.translate(sunX,sunY);ctx.rotate(angle);var rayGrad=ctx.createLinearGradient(0,0,0,rayLen);rayGrad.addColorStop(0,"rgba(253,224,71,"+rayOp+")");rayGrad.addColorStop(0.4,"rgba(251,191,36,"+(rayOp*0.5)+")");rayGrad.addColorStop(1,"rgba(251,191,36,0)");ctx.fillStyle=rayGrad;ctx.beginPath();ctx.moveTo(-rayW*0.3,0);ctx.lineTo(rayW*0.3,0);ctx.lineTo(rayW,rayLen);ctx.lineTo(-rayW,rayLen);ctx.closePath();ctx.fill();ctx.restore();}
+    for(var r=0;r<3;r++){var angle=-0.6+r*0.25+Math.sin(time*0.0004+r)*0.04;var rayLen=H*1.6+Math.sin(time*0.0005+r*1.3)*H*0.2;var rayW=35+r*12;var rayOp=0.01+Math.sin(time*0.0004+r)*0.005;ctx.save();ctx.translate(sunX,sunY);ctx.rotate(angle);var rayGrad=ctx.createLinearGradient(0,0,0,rayLen);rayGrad.addColorStop(0,"rgba(253,224,71,"+rayOp+")");rayGrad.addColorStop(0.4,"rgba(251,191,36,"+(rayOp*0.5)+")");rayGrad.addColorStop(1,"rgba(251,191,36,0)");ctx.fillStyle=rayGrad;ctx.beginPath();ctx.moveTo(-rayW*0.3,0);ctx.lineTo(rayW*0.3,0);ctx.lineTo(rayW,rayLen);ctx.lineTo(-rayW,rayLen);ctx.closePath();ctx.fill();ctx.restore();}
     var sunGlow=ctx.createRadialGradient(sunX,sunY,0,sunX,sunY,Math.max(1,H*0.4));sunGlow.addColorStop(0,"rgba(253,224,71,0.05)");sunGlow.addColorStop(0.4,"rgba(251,191,36,0.02)");sunGlow.addColorStop(1,"rgba(251,191,36,0)");ctx.fillStyle=sunGlow;ctx.fillRect(0,0,W,H);ctx.restore();
     for(var i=0;i<blobs.length;i++){var b=blobs[i];b.phase+=b.pulseSpeed;b.r=b.baseR*(1+Math.sin(b.phase)*b.breathAmp);b.x+=b.vx;b.y+=b.vy;if(mouse.x>0){var dx=mouse.x-b.x,dy=mouse.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<450&&d>1){var f=0.0001*(450-d);b.vx+=dx/d*f;b.vy+=dy/d*f;}}b.vx*=0.997;b.vy*=0.997;var pad=b.r*0.3;if(b.x<-pad)b.x=W+pad;if(b.x>W+pad)b.x=-pad;if(b.y<-pad)b.y=H+pad;if(b.y>H+pad)b.y=-pad;var safeR=Math.max(2,b.r);var grad=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,safeR);var c=b.color;grad.addColorStop(0,"rgba("+c.r+","+c.g+","+c.b+","+b.opacity+")");grad.addColorStop(0.5,"rgba("+c.r+","+c.g+","+c.b+","+(b.opacity*0.3)+")");grad.addColorStop(1,"rgba("+c.r+","+c.g+","+c.b+",0)");ctx.fillStyle=grad;ctx.beginPath();ctx.arc(b.x,b.y,safeR,0,Math.PI*2);ctx.fill();}
     for(var i=0;i<motes.length;i++){var m=motes[i];m.age++;m.twinklePhase+=m.twinkleSpeed;var parallax=m.layer===0?0.02:0.04;m.x+=m.vx+wind*(0.25+m.layer*0.25);m.y+=m.vy;var drawY=m.y-scrollY*parallax;if(mouse.x>0){var dx=m.x-mouse.x,dy=drawY-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<80&&d>0.5){var push=(80-d)/80*0.15;m.x+=dx/d*push+mouse.vx*push*0.04;m.y+=dy/d*push*0.06;}}if(m.y<-30||m.age>m.maxLife){m.x=Math.random()*W;m.y=H+30;m.age=0;m.vx=(Math.random()-0.5)*0.06;m.vy=-(Math.random()*0.15+0.03);m.color=pickColor();}if(drawY<-30||drawY>H+30)continue;var tw=Math.sin(m.twinklePhase)*0.5+0.5;var alpha=m.opacity*tw*Math.min(m.age/40,1)*Math.min((m.maxLife-m.age)/40,1);if(alpha>0.01){ctx.beginPath();ctx.arc(m.x,drawY,Math.max(0.3,m.size),0,Math.PI*2);ctx.fillStyle="rgba("+m.color.r+","+m.color.g+","+m.color.b+","+alpha+")";ctx.fill();}}
     for(var i=0;i<fireflies.length;i++){var f=fireflies[i];f.pulsePhase+=f.pulseSpeed;f.retargetTimer--;if(f.retargetTimer<=0){f.targetX=Math.random()*W;f.targetY=Math.random()*H;f.retargetTimer=Math.floor(Math.random()*300+150);}var dx=f.targetX-f.x,dy=f.targetY-f.y,d=Math.sqrt(dx*dx+dy*dy)||1;f.vx+=(dx/d*0.01-f.vx*0.02);f.vy+=(dy/d*0.01-f.vy*0.02);f.x+=f.vx+wind*0.15;f.y+=f.vy;var drawY=f.y-scrollY*0.06;if(drawY<-50||drawY>H+50){f.y=H+50;f.x=Math.random()*W;}var pulse=Math.sin(f.pulsePhase)*0.5+0.5;var coreAlpha=0.3+pulse*0.4;var safeGR=Math.max(1,f.glowR*(0.7+pulse*0.3));var gGrad=ctx.createRadialGradient(f.x,drawY,0,f.x,drawY,safeGR);gGrad.addColorStop(0,"rgba("+f.color.r+","+f.color.g+","+f.color.b+","+(0.04+pulse*0.06)+")");gGrad.addColorStop(0.5,"rgba("+f.color.r+","+f.color.g+","+f.color.b+","+(0.01+pulse*0.02)+")");gGrad.addColorStop(1,"rgba("+f.color.r+","+f.color.g+","+f.color.b+",0)");ctx.fillStyle=gGrad;ctx.beginPath();ctx.arc(f.x,drawY,safeGR,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(f.x,drawY,Math.max(0.5,f.size*(0.6+pulse*0.3)),0,Math.PI*2);ctx.fillStyle="rgba(255,255,240,"+coreAlpha+")";ctx.fill();}
-    var vigH=H*0.18;var vigTop=ctx.createLinearGradient(0,0,0,vigH);vigTop.addColorStop(0,"rgba(6,9,15,0.4)");vigTop.addColorStop(1,"rgba(6,9,15,0)");ctx.fillStyle=vigTop;ctx.fillRect(0,0,W,vigH);var vigBot=ctx.createLinearGradient(0,H-vigH,0,H);vigBot.addColorStop(0,"rgba(6,9,15,0)");vigBot.addColorStop(1,"rgba(6,9,15,0.4)");ctx.fillStyle=vigBot;ctx.fillRect(0,H-vigH,W,vigH);
+    var vigH=H*0.18;var vigTop=ctx.createLinearGradient(0,0,0,vigH);vigTop.addColorStop(0,"rgba(6,9,15,0.4)");vigTop.addColorStop(1,"rgba(6,9,15,0)");ctx.fillStyle=vigTop;ctx.fillRect(0,0,W,vigH);var vigBot=ctx.createLinearGradient(0,H-vigH,0,H);vigBot.addColorStop(0,"rgba(6,9,15,0)");vigBot.addColorStop(1,"rgba(6,9,15,0.4)");ctx.fillStyle=vigBot;ctx.fillRect(0,H-vigH,W,H);
     requestAnimationFrame(animate);
   }
   window.addEventListener("resize",function(){resize();initBlobs();initMotes();initFireflies();});
@@ -569,16 +569,21 @@ function getMainPoints(p){return getModePoints(p,mainModes);}
 function getSubPoints(p){return getModePoints(p,subModes);}
 function getExclusivePoints(p){return getModePoints(p,exclusiveModes);}
 function getAchievementTitle(pts){if(pts>=400)return{name:"Combat Grandmaster",cls:"grandmaster"};if(pts>=250)return{name:"Combat Master",cls:"master"};if(pts>=100)return{name:"Combat Ace",cls:"ace"};if(pts>=50)return{name:"Combat Specialist",cls:"specialist"};if(pts>=20)return{name:"Combat Cadet",cls:"cadet"};if(pts>=10)return{name:"Combat Novice",cls:"novice"};return{name:"Rookie",cls:"rookie"};}
+
+/* === DENSE RANKING: 1, 2, 3, 4, 5... (no gaps, ties share same number) === */
 function computeFullRankLookup(pointFn){
   var ranked=data.map(function(p){return{uuid:p.uuid,points:pointFn(p)};}).filter(function(p){return p.points>0;});
   ranked.sort(function(a,b){return b.points-a.points;});
   var map={},rank=1;
   for(var i=0;i<ranked.length;i++){
-    if(i>0&&ranked[i].points<ranked[i-1].points){rank++;}
+    if(i>0 && ranked[i].points !== ranked[i-1].points){
+      rank = i + 1;
+    }
     map[ranked[i].uuid]=rank;
   }
   return map;
 }
+
 function getCategoryPointFn(){if(currentMode==="maintiers")return getMainPoints;if(currentMode==="subtiers")return getSubPoints;if(currentMode==="exclusivetiers")return getExclusivePoints;return getPoints;}
 function getCategoryLabel(){if(currentMode==="maintiers")return"Main Tiers";if(currentMode==="subtiers")return"Sub Tiers";if(currentMode==="exclusivetiers")return"Exclusive Tiers";return"Overall";}
 function getFilterModes(){if(currentMode==="overall")return null;if(currentSubMode&&currentSubMode!=="all"&&currentSubMode!=="credits"&&currentSubMode!=="alltime")return[currentSubMode];if(currentMode==="maintiers")return mainModes;if(currentMode==="subtiers")return subModes;if(currentMode==="exclusivetiers")return exclusiveModes;return[];}
@@ -605,13 +610,24 @@ function switchInfoTab(tab,btn){var tabs=document.querySelectorAll(".info-modal-
 
 function renderRankedView(players,pointFn,forceFilterModes){
   var container=document.getElementById("leaderboard"),filterModes=forceFilterModes||getFilterModes(),frag=document.createDocumentFragment();
-  var rankLookup=computeFullRankLookup(pointFn);
-  players=players.map(function(p){return{name:p.name,uuid:p.uuid,rankings:p.rankings,points:pointFn(p),rank:rankLookup[p.uuid]||9999};});
-  players=players.filter(function(p){return p.points>0;});
-  if(!players.length){container.innerHTML='<div class="empty-state"><div class="empty-icon">\uD83D\uDD0D</div><div class="empty-text">No players found</div></div>';return;}
-  players.sort(function(a,b){return a.rank-b.rank;});
-  for(var i=0;i<players.length;i++){
-    var p=players[i],row=document.createElement("div");row.className="player-row";row.setAttribute("tabindex","0");row._playerData=p;row.style.animationDelay=(i*0.03)+"s";
+  
+  /* Build the displayed list with computed ranks */
+  var displayList=players.map(function(p){return{name:p.name,uuid:p.uuid,rankings:p.rankings,points:pointFn(p)};}).filter(function(p){return p.points>0;});
+  displayList.sort(function(a,b){return b.points-a.points;});
+  
+  /* Apply DENSE RANKING directly to the displayed list */
+  var rank=1;
+  for(var i=0;i<displayList.length;i++){
+    if(i>0 && displayList[i].points !== displayList[i-1].points){
+      rank = i + 1;
+    }
+    displayList[i].rank = rank;
+  }
+  
+  if(!displayList.length){container.innerHTML='<div class="empty-state"><div class="empty-icon">\uD83D\uDD0D</div><div class="empty-text">No players found</div></div>';return;}
+  
+  for(var i=0;i<displayList.length;i++){
+    var p=displayList[i],row=document.createElement("div");row.className="player-row";row.setAttribute("tabindex","0");row._playerData=p;row.style.animationDelay=(i*0.03)+"s";
     if(p.rank===1)row.classList.add("top1");if(p.rank===2)row.classList.add("top2");if(p.rank===3)row.classList.add("top3");
     var tierEntries=[],rk=p.rankings||{};for(var k in rk){if(rk.hasOwnProperty(k)){var res=buildTierBadgeHTML(k,rk[k],filterModes);if(res.html)tierEntries.push({html:res.html,pts:res.pts});}}
     tierEntries.sort(function(a,b){return b.pts-a.pts;});var tiersHTML="";for(var j=0;j<tierEntries.length;j++)tiersHTML+=tierEntries[j].html;
@@ -652,10 +668,15 @@ function getBestTier1Pos(ranking){
   var curTier=ranking.tier,curPos=ranking.pos;
   var hasTier1=false,bestPos=1;
   if(curTier===1){hasTier1=true;bestPos=curPos;}
-  if(ranking.peaked_tier!=null&&ranking.peaked_pos!=null&&ranking.peaked_tier===1){
-    hasTier1=true;
-    if(ranking.peaked_pos===0)bestPos=0;
-    else if(!hasTier1)bestPos=ranking.peaked_pos;
+  if (ranking.peaked_tier != null && ranking.peaked_pos != null && ranking.peaked_tier === 1) {
+    if (!hasTier1) {
+      hasTier1 = true;
+      bestPos = ranking.peaked_pos;
+    } else {
+      if (ranking.peaked_pos < bestPos) {
+        bestPos = ranking.peaked_pos;
+      }
+    }
   }
   return hasTier1?bestPos:null;
 }
@@ -723,9 +744,4 @@ function render(){
   if(currentMode==="exclusivetiers"){if(currentSubMode==="all"){renderRankedView(players,getExclusivePoints);return;}renderTierGrid(currentSubMode,players,true);return;}
 }
 
-document.getElementById("searchInput").addEventListener("input",function(){clearTimeout(searchTimeout);searchTimeout=setTimeout(render,200);});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeModal();closeInfoModal();}});
-window.addEventListener("DOMContentLoaded",init);
-</script>
-</body>
-</html>
+document.getElementById("searchInput").addEventListener("input",function(){clearTimeout(searchTimeout);searchTimeout
