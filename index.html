@@ -572,10 +572,9 @@ function getAchievementTitle(pts){if(pts>=400)return{name:"Combat Grandmaster",c
 function computeFullRankLookup(pointFn){
   var ranked=data.map(function(p){return{uuid:p.uuid,points:pointFn(p)};}).filter(function(p){return p.points>0;});
   ranked.sort(function(a,b){return b.points-a.points;});
-  var map={},rank=1,lastPts=null,skip=0;
+  var map={},rank=1;
   for(var i=0;i<ranked.length;i++){
-    if(lastPts!==ranked[i].points){rank=rank+skip;skip=1;lastPts=ranked[i].points;}
-    else{skip++;}
+    if(i>0&&ranked[i].points<ranked[i-1].points){rank++;}
     map[ranked[i].uuid]=rank;
   }
   return map;
