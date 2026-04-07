@@ -236,7 +236,7 @@
     "rankings": {
       "crystal": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
       "mace": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 2, "pos": 0 },
+      "sword": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 2, "pos": 0 },
