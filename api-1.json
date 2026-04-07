@@ -62,6 +62,7 @@
       "crystal": { "tier": 2, "pos": 0 },
       "sword": { "tier": 4, "pos": 1 },
       "cart": { "tier": 3, "pos": 0 },
+      "dsmp": { "tier": 4, "pos": 0 },
       "mace": { "tier": 2, "pos": 1 },
       "axe": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 }
