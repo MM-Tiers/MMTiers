@@ -11,6 +11,7 @@
 html{font-size:17.6px;scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
+/* === PAGE FADE-IN OVERLAY === */
 #pageLoader{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity 0.8s cubic-bezier(0.4,0,0.2,1),visibility 0.8s cubic-bezier(0.4,0,0.2,1);pointer-events:none}
 #pageLoader.loaded{opacity:0;visibility:hidden}
 #pageLoader .loader-content{text-align:center;opacity:1;transform:scale(1);transition:opacity 0.5s ease,transform 0.5s ease}
@@ -23,6 +24,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 @keyframes loaderPulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 20px rgba(251,146,60,0.9)) drop-shadow(0 0 40px rgba(251,191,36,0.7)) drop-shadow(0 0 60px rgba(236,72,153,0.5))}50%{transform:scale(1.04);filter:drop-shadow(0 0 28px rgba(251,146,60,1)) drop-shadow(0 0 56px rgba(251,191,36,0.85)) drop-shadow(0 0 80px rgba(236,72,153,0.65))}}
 @keyframes loaderDot{0%,80%,100%{opacity:0.2;transform:scale(0.8)}40%{opacity:1;transform:scale(1.2)}}
 
+/* === MAIN CONTENT FADE-IN === */
 #pageContent{opacity:0;transform:translateY(12px);transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1) 0.15s,transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.15s}
 #pageContent.visible{opacity:1;transform:translateY(0)}
 
@@ -338,6 +340,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 </head>
 <body>
 
+<!-- FADE-IN LOADER OVERLAY -->
 <div id="pageLoader">
   <div class="loader-content">
     <img src="https://z-cdn-media.chatglm.cn/files/116deebf-59c9-457c-ba9e-3c4c3e9d05d7.png?auth_key=1875408317-dc44a8779707404892248b89fab40903-0-9809fd57c7e33ad28c6b33f994ddeac9" alt="MMTiers" class="loader-logo">
@@ -349,6 +352,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
   </div>
 </div>
 
+<!-- MAIN CONTENT WRAPPER -->
 <div id="pageContent">
 <canvas id="bgCanvas"></canvas>
 <header>
@@ -369,6 +373,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 <div class="tabs-wrapper"><div class="tabs" id="tabs"></div><div class="sub-tabs-wrapper" id="subTabsWrapper"><div class="sub-tabs" id="subTabs"></div></div></div>
 <div id="leaderboard">Loading...</div>
 </div>
+<!-- END MAIN CONTENT WRAPPER -->
 
 <div id="badgeTooltip" class="badge-tooltip"><div class="badge-tooltip-inner" id="badgeTooltipInner"></div></div>
 <div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-content" id="modalContent"></div></div>
@@ -410,21 +415,32 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 </div></div></div>
 
 <script>
+/* === PAGE FADE-IN LOGIC === */
 (function(){
   var loader=document.getElementById("pageLoader");
   var content=document.getElementById("pageContent");
   function revealPage(){
     loader.classList.add("loaded");
-    setTimeout(function(){content.classList.add("visible");},100);
-    setTimeout(function(){loader.style.display="none";},900);
+    setTimeout(function(){
+      content.classList.add("visible");
+    },100);
+    setTimeout(function(){
+      loader.style.display="none";
+    },900);
   }
-  if(document.readyState==="complete"){setTimeout(revealPage,600);}
-  else{window.addEventListener("load",function(){setTimeout(revealPage,600);});}
+  if(document.readyState==="complete"){
+    setTimeout(revealPage,600);
+  }else{
+    window.addEventListener("load",function(){
+      setTimeout(revealPage,600);
+    });
+  }
 })();
 
 var _escDiv=document.createElement('div');
 function esc(s){if(s==null)return'';_escDiv.textContent=String(s);return _escDiv.innerHTML;}
 
+/* === OPTIMIZED CANVAS BACKGROUND === */
 (function(){
   var canvas=document.getElementById("bgCanvas"),ctx=canvas.getContext("2d"),W,H,dpr;
   var mouse={x:-9999,y:-9999,vx:0,vy:0};
@@ -547,28 +563,22 @@ function switchSubTab(sm,btn){var c=document.getElementById("leaderboard");c.cla
 
 function getRankingPoints(r){if(r==null||r.tier==null||r.pos==null)return 0;var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=r.peaked_pos===0?"HT":"LT";return Math.max(cp,tierPoints[pt+r.peaked_tier]||0);}return cp;}
 function hasActivePeaked(r){if(r==null||r.peaked_tier==null||r.peaked_pos==null)return false;var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0;var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;return pp>cp||(pp===cp&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos));}
-
-/* === POINTS: Overall excludes exclusive modes; Exclusive Tiers only shows exclusive === */
-function getPoints(p){
-  var pts=0,rk=p.rankings||{};
-  for(var k in rk){
-    if(rk.hasOwnProperty(k)&&exclusiveModes.indexOf(k)===-1)
-      pts+=getRankingPoints(rk[k]);
-  }
-  return pts;
-}
+function getPoints(p){var pts=0,rk=p.rankings||{};for(var k in rk){if(rk.hasOwnProperty(k))pts+=getRankingPoints(rk[k]);}return pts;}
 function getModePoints(p,ml){var pts=0;for(var i=0;i<ml.length;i++){var r=(p.rankings||{})[ml[i]];if(r)pts+=getRankingPoints(r);}return pts;}
 function getMainPoints(p){return getModePoints(p,mainModes);}
 function getSubPoints(p){return getModePoints(p,subModes);}
 function getExclusivePoints(p){return getModePoints(p,exclusiveModes);}
 function getAchievementTitle(pts){if(pts>=400)return{name:"Combat Grandmaster",cls:"grandmaster"};if(pts>=250)return{name:"Combat Master",cls:"master"};if(pts>=100)return{name:"Combat Ace",cls:"ace"};if(pts>=50)return{name:"Combat Specialist",cls:"specialist"};if(pts>=20)return{name:"Combat Cadet",cls:"cadet"};if(pts>=10)return{name:"Combat Novice",cls:"novice"};return{name:"Rookie",cls:"rookie"};}
 
+/* === DENSE RANKING: 1, 2, 3, 4, 5... (no gaps, ties share same number) === */
 function computeFullRankLookup(pointFn){
   var ranked=data.map(function(p){return{uuid:p.uuid,points:pointFn(p)};}).filter(function(p){return p.points>0;});
   ranked.sort(function(a,b){return b.points-a.points;});
   var map={},rank=1;
   for(var i=0;i<ranked.length;i++){
-    if(i>0&&ranked[i].points!==ranked[i-1].points){rank=i+1;}
+    if(i>0 && ranked[i].points !== ranked[i-1].points){
+      rank = i + 1;
+    }
     map[ranked[i].uuid]=rank;
   }
   return map;
@@ -600,14 +610,22 @@ function switchInfoTab(tab,btn){var tabs=document.querySelectorAll(".info-modal-
 
 function renderRankedView(players,pointFn,forceFilterModes){
   var container=document.getElementById("leaderboard"),filterModes=forceFilterModes||getFilterModes(),frag=document.createDocumentFragment();
+  
+  /* Build the displayed list with computed ranks */
   var displayList=players.map(function(p){return{name:p.name,uuid:p.uuid,rankings:p.rankings,points:pointFn(p)};}).filter(function(p){return p.points>0;});
   displayList.sort(function(a,b){return b.points-a.points;});
+  
+  /* Apply DENSE RANKING directly to the displayed list */
   var rank=1;
   for(var i=0;i<displayList.length;i++){
-    if(i>0&&displayList[i].points!==displayList[i-1].points){rank=i+1;}
-    displayList[i].rank=rank;
+    if(i>0 && displayList[i].points !== displayList[i-1].points){
+      rank = i + 1;
+    }
+    displayList[i].rank = rank;
   }
+  
   if(!displayList.length){container.innerHTML='<div class="empty-state"><div class="empty-icon">\uD83D\uDD0D</div><div class="empty-text">No players found</div></div>';return;}
+  
   for(var i=0;i<displayList.length;i++){
     var p=displayList[i],row=document.createElement("div");row.className="player-row";row.setAttribute("tabindex","0");row._playerData=p;row.style.animationDelay=(i*0.03)+"s";
     if(p.rank===1)row.classList.add("top1");if(p.rank===2)row.classList.add("top2");if(p.rank===3)row.classList.add("top3");
@@ -650,9 +668,15 @@ function getBestTier1Pos(ranking){
   var curTier=ranking.tier,curPos=ranking.pos;
   var hasTier1=false,bestPos=1;
   if(curTier===1){hasTier1=true;bestPos=curPos;}
-  if(ranking.peaked_tier!=null&&ranking.peaked_pos!=null&&ranking.peaked_tier===1){
-    if(!hasTier1){hasTier1=true;bestPos=ranking.peaked_pos;}
-    else{if(ranking.peaked_pos<bestPos)bestPos=ranking.peaked_pos;}
+  if (ranking.peaked_tier != null && ranking.peaked_pos != null && ranking.peaked_tier === 1) {
+    if (!hasTier1) {
+      hasTier1 = true;
+      bestPos = ranking.peaked_pos;
+    } else {
+      if (ranking.peaked_pos < bestPos) {
+        bestPos = ranking.peaked_pos;
+      }
+    }
   }
   return hasTier1?bestPos:null;
 }
