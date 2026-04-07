@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#06090f;--surface:#0c1018;--card:#0f1420;--card-hover:#141b28;--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12);--text:#f0f2f5;--text-secondary:#8a92a4;--text-muted:#555d6e;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.12);--ht:#fb7185;--ht-dim:rgba(251,113,133,0.1);--lt:#4ade80;--lt-dim:rgba(74,222,128,0.1);--peaked:#c084fc;--peaked-dim:rgba(192,132,252,0.1);--rt:#f97316;--rt-dim:rgba(249,115,22,0.12);--gold:#fbbf24;--silver:#94a3b8;--bronze:#d97706;--tier4:#9ca3af;--tier5:#6b7280;--radius:14px;--radius-sm:10px;--radius-xs:8px;--transition:0.22s cubic-bezier(0.4,0,0.2,1)}
+:root{--bg:#06090f;--surface:#0c1018;--card:#0f1420;--card-hover:#141b28;--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12);--text:#f0f2f5;--text-secondary:#8a92a4;--text-muted:#555d6e;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.12);--ht:#fb7185;--ht-dim:rgba(251,113,133,0.1);--lt:#4ade80;--lt-dim:rgba(74,222,128,0.1);--peaked:#c084fc;--peaked-dim:rgba(192,132,252,0.1);--gold:#fbbf24;--silver:#94a3b8;--bronze:#d97706;--tier4:#9ca3af;--tier5:#6b7280;--radius:14px;--radius-sm:10px;--radius-xs:8px;--transition:0.22s cubic-bezier(0.4,0,0.2,1)}
 html{font-size:17.6px;scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
@@ -47,6 +47,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 @keyframes ownerGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(34,211,238,0.5)) drop-shadow(0 0 16px rgba(74,222,128,0.35));background-position:0% 50%}50%{filter:drop-shadow(0 0 14px rgba(34,211,238,0.75)) drop-shadow(0 0 26px rgba(74,222,128,0.55));background-position:100% 50%}}
 @keyframes devGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(168,85,247,0.5)) drop-shadow(0 0 16px rgba(236,72,153,0.35));background-position:0% 50%}50%{filter:drop-shadow(0 0 14px rgba(168,85,247,0.75)) drop-shadow(0 0 26px rgba(236,72,153,0.55));background-position:100% 50%}}
 @keyframes dev2Glow{0%,100%{filter:drop-shadow(0 0 8px rgba(248,113,113,0.5)) drop-shadow(0 0 16px rgba(251,146,60,0.35));background-position:0% 50%}50%{filter:drop-shadow(0 0 14px rgba(248,113,113,0.75)) drop-shadow(0 0 26px rgba(251,146,60,0.55));background-position:100% 50%}}
+@keyframes ownerBorderGlow{0%,100%{border:1.5px solid rgba(34,211,238,0.4);box-shadow:0 0 14px rgba(34,211,238,0.18),0 0 32px rgba(74,222,128,0.12),inset 0 0 14px rgba(34,211,238,0.05)}33%{border:1.5px solid rgba(74,222,128,0.55);box-shadow:0 0 22px rgba(74,222,128,0.28),0 0 48px rgba(34,211,238,0.2),inset 0 0 20px rgba(74,222,128,0.07)}66%{border:1.5px solid rgba(34,211,238,0.5);box-shadow:0 0 18px rgba(34,211,238,0.25),0 0 40px rgba(74,222,128,0.16),inset 0 0 16px rgba(34,211,238,0.06)}}
+@keyframes devBorderGlow{0%,100%{border:1.5px solid rgba(168,85,247,0.4);box-shadow:0 0 14px rgba(168,85,247,0.18),0 0 32px rgba(236,72,153,0.12),inset 0 0 14px rgba(168,85,247,0.05)}33%{border:1.5px solid rgba(236,72,153,0.55);box-shadow:0 0 22px rgba(236,72,153,0.28),0 0 48px rgba(168,85,247,0.2),inset 0 0 20px rgba(236,72,153,0.07)}66%{border:1.5px solid rgba(192,132,252,0.5);box-shadow:0 0 18px rgba(192,132,252,0.25),0 0 40px rgba(236,72,153,0.16),inset 0 0 16px rgba(192,132,252,0.06)}}
+@keyframes rinleafBorderGlow{0%,100%{border:1.5px solid rgba(248,113,113,0.4);box-shadow:0 0 14px rgba(248,113,113,0.18),0 0 32px rgba(251,146,60,0.12),inset 0 0 14px rgba(248,113,113,0.05)}33%{border:1.5px solid rgba(251,146,60,0.55);box-shadow:0 0 22px rgba(251,146,60,0.28),0 0 48px rgba(248,113,113,0.2),inset 0 0 20px rgba(251,146,60,0.07)}66%{border:1.5px solid rgba(248,113,113,0.5);box-shadow:0 0 18px rgba(248,113,113,0.25),0 0 40px rgba(251,146,60,0.16),inset 0 0 16px rgba(248,113,113,0.06)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}#pageLoader{display:none!important}#pageContent{opacity:1!important;transform:none!important}header,.tabs-wrapper,#leaderboard{animation:none!important;opacity:1!important;transform:none!important}#bgCanvas{display:none}}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:10px}
 header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(6,9,15,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,158,11,0.1);box-shadow:0 1px 0 rgba(245,158,11,0.05),0 4px 16px rgba(0,0,0,0.3);animation:enterDown .5s ease-out both}
@@ -135,11 +138,9 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .tier-badge img{width:20px;height:20px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen}
 .tier-badge.HT{background:var(--ht-dim);color:var(--ht);border-color:rgba(251,113,133,0.06)}
 .tier-badge.LT{background:var(--lt-dim);color:var(--lt);border-color:rgba(74,222,128,0.06)}
-.tier-badge.RT{background:var(--rt-dim);color:var(--rt);border-color:rgba(249,115,22,0.08)}
 .tier-badge.has-peaked{border-color:rgba(192,132,252,0.18);box-shadow:0 0 6px rgba(192,132,252,0.06)}
 .player-row:hover .tier-badge.HT{background:rgba(251,113,133,0.14);border-color:rgba(251,113,133,0.12)}
 .player-row:hover .tier-badge.LT{background:rgba(74,222,128,0.14);border-color:rgba(74,222,128,0.12)}
-.player-row:hover .tier-badge.RT{background:rgba(249,115,22,0.14);border-color:rgba(249,115,22,0.12)}
 .player-row:hover .tier-badge.has-peaked{border-color:rgba(192,132,252,0.3);box-shadow:0 0 10px rgba(192,132,252,0.1)}
 .badge-tooltip{position:fixed;z-index:9999;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.4))}
 .badge-tooltip.visible{opacity:1;transform:translateY(0)}
@@ -148,7 +149,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .badge-tooltip-mode-icon{width:20px;height:20px;border-radius:5px;border:1px solid rgba(255,255,255,0.06);mix-blend-mode:screen}
 .badge-tooltip-mode-label{font-size:.65rem;font-weight:600;color:var(--text-muted)}
 .badge-tooltip-tier{font-size:1.1rem;font-weight:800;letter-spacing:-.02em}
-.badge-tooltip-tier.ht{color:var(--ht)}.badge-tooltip-tier.lt{color:var(--lt)}.badge-tooltip-tier.rt{color:var(--rt)}
+.badge-tooltip-tier.ht{color:var(--ht)}.badge-tooltip-tier.lt{color:var(--lt)}
 .badge-tooltip-peaked-section{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05)}
 .badge-tooltip-peak-label{font-size:.55rem;font-weight:700;color:var(--peaked);letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
 .badge-tooltip-peak-tier{font-size:.9rem;font-weight:800;color:var(--peaked)}
@@ -198,7 +199,6 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .player:hover img{transform:scale(1.06)}
 .player.HT{border-left-color:var(--ht);color:var(--ht)}
 .player.LT{border-left-color:var(--lt);color:var(--lt)}
-.player.RT{border-left-color:var(--rt);color:var(--rt)}
 .player-name-cell{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .player-peaked-star{font-size:.8rem;color:var(--peaked);flex-shrink:0;animation:peakedPulse 2.5s ease-in-out infinite}
 .season-banner{text-align:center;padding:16px 0 20px;font-size:1.1rem;font-weight:800;letter-spacing:.02em}
@@ -282,7 +282,6 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .profile-current-row .effective-tier{font-weight:700}
 .profile-current-row .effective-tier.from-peaked{color:var(--peaked)}
 .profile-current-row .effective-tier.from-current{color:var(--text-secondary)}
-.profile-current-row .effective-tier.from-retired{color:var(--rt)}
 .profile-peaked-section{margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
 .info-modal-content{background:var(--card);border:1px solid rgba(245,158,11,0.12);border-radius:18px;padding:22px 22px 26px;width:370px;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.4);transform:translateY(0) scale(1);transition:transform .2s ease}
 .info-modal.hidden .info-modal-content{transform:translateY(16px) scale(0.97)}
@@ -364,7 +363,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 <span class="tiktok-btn-text">TikTok</span>
 </a>
 <a class="discord-btn" href="https://discord.gg/jtKbsqVVcz" target="_blank" rel="noopener noreferrer" aria-label="Join Discord">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .027-.124c-2.275-3.553-2.921-6.998-2.611-10.399a.076.076 0 0 1 .031-.055 19.839 19.839 0 0 1 5.993-3.03.077.077 0 0 1 .084.028c.462.63.874 1.295 1.226 1.994a.076.076 0 0 0 .041.106c.61.258 1.19.574 1.742.952a.077.077 0 0 1-.008.128 13.1 13.1 0 0 1-1.872.892.076.076 0 0 0-.041.106c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 5.993-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 0 .027-.124c-2.275-3.553-2.921-6.998-2.611-10.399a.076.076 0 0 1 .031-.055 19.839 19.839 0 0 1 5.993-3.03.077.077 0 0 1 .084.028c.462.63.874 1.295 1.226 1.994a.076.076 0 0 0 .041.106c.61.258 1.19.574 1.742.952a.077.077 0 0 1-.008.128 13.1 13.1 0 0 1-1.872.892.076.076 0 0 0-.041.106c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 5.993-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
 <span class="discord-btn-text">Discord</span>
 </a>
 <button class="info-btn" onclick="openInfoModal()" aria-label="Information"><span>&#9432;</span><span class="info-btn-text">Information</span></button>
@@ -488,22 +487,16 @@ var tierPoints={HT1:60,LT1:45,HT2:30,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1
 var data=[],currentMode="overall",currentSubMode=null,searchTimeout=null,tooltipTimer=null;
 var tooltipEl=document.getElementById("badgeTooltip"),tooltipInner=document.getElementById("badgeTooltipInner");
 
-/* ✅ UPDATED: Supports Retired badges (RT) with orange color */
 function showBadgeTooltip(badgeEl,mode,ranking){
   clearTimeout(tooltipTimer);
-  if(ranking==null)return;
-  var isRetired=ranking.retired_tier!=null&&ranking.retired_pos!=null;
-  var tierVal=isRetired?ranking.retired_tier:ranking.tier;
-  var posVal=isRetired?ranking.retired_pos:ranking.pos;
-  if(tierVal==null||posVal==null)return;
-  var ct=posVal===0?"HT":"LT",cl=(isRetired?"R":"")+ct+tierVal,cp=tierPoints[ct+tierVal]||0;
-  var pts=getRankingPoints(ranking),tcc=isRetired?"rt":(ct==="HT"?"ht":"lt");
+  if(ranking==null||ranking.tier==null||ranking.pos==null)return;
+  var ct=ranking.pos===0?"HT":"LT",cl=ct+ranking.tier,cp=tierPoints[ct+ranking.tier]||0;
+  var pts=getRankingPoints(ranking),tcc=ct==="HT"?"ht":"lt";
   var safeLabel=esc(modeLabels[mode]||mode);
-  var h='<div class="badge-tooltip-modes"><img class="badge-tooltip-mode-icon" src="'+iconMap[mode]+'"><span class="badge-tooltip-mode-label">'+safeLabel+'</span></div><div class="badge-tooltip-tier '+tcc+'">'+esc(cl)+(isRetired?' <span style="font-size:.7rem;font-weight:600;opacity:.7">(Retired)</span>':'')+'</div>';
-  if(ranking.peaked_tier!=null){var pt=ranking.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+ranking.peaked_tier]||0,pl=pt+ranking.peaked_tier;if(pp>cp||pp===cp&&(ranking.peaked_tier!==tierVal||ranking.peaked_pos!==posVal)){h+='<div class="badge-tooltip-peaked-section"><div class="badge-tooltip-peak-label">Peak '+esc(pl)+'</div><div class="badge-tooltip-peak-tier">'+esc(pl)+'</div></div>';}}
+  var h='<div class="badge-tooltip-modes"><img class="badge-tooltip-mode-icon" src="'+iconMap[mode]+'"><span class="badge-tooltip-mode-label">'+safeLabel+'</span></div><div class="badge-tooltip-tier '+tcc+'">'+esc(cl)+'</div>';
+  if(ranking.peaked_tier!=null){var pt=ranking.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+ranking.peaked_tier]||0,pl=pt+ranking.peaked_tier;if(pp>cp||pp===cp&&(ranking.peaked_tier!==ranking.tier||ranking.peaked_pos!==ranking.pos)){h+='<div class="badge-tooltip-peaked-section"><div class="badge-tooltip-peak-label">Peak '+esc(pl)+'</div><div class="badge-tooltip-peak-tier">'+esc(pl)+'</div></div>';}}
   h+='<div class="badge-tooltip-points"><strong>'+pts+'</strong> points</div>';
   if(ranking.peaked_tier!=null){var pt2=ranking.peaked_pos===0?"HT":"LT",pp2=tierPoints[pt2+ranking.peaked_tier]||0;if(pp2>cp)h+='<div class="badge-tooltip-points-note">from peaked tier</div>';}
-  if(isRetired)h+='<div class="badge-tooltip-points-note" style="color:var(--rt)">Retired Player</div>';
   tooltipInner.innerHTML=h;
   var r=badgeEl.getBoundingClientRect(),tw=155,th=tooltipInner.offsetHeight;
   var t=r.top-th-10,l=r.left+r.width/2-tw/2,ac="";
@@ -568,43 +561,9 @@ function switchTab(mode,btn){
 }
 function switchSubTab(sm,btn){var c=document.getElementById("leaderboard");c.classList.add("fade-out");setTimeout(function(){currentSubMode=sm;var tabs=document.querySelectorAll(".sub-tab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");btn.classList.add("active");render();c.classList.remove("fade-out");},100);}
 
-/* ✅ UPDATED: Supports Retired tiers for point calculation */
-function getRankingPoints(r){
-  if(r==null)return 0;
-  var isRetired=r.retired_tier!=null&&r.retired_pos!=null;
-  var tierVal=isRetired?r.retired_tier:r.tier;
-  var posVal=isRetired?r.retired_pos:r.pos;
-  if(tierVal==null||posVal==null)return 0;
-  var ct=posVal===0?"HT":"LT",cp=tierPoints[ct+tierVal]||0;
-  if(r.peaked_tier!=null&&r.peaked_pos!=null){
-    var pt=r.peaked_pos===0?"HT":"LT";
-    return Math.max(cp,tierPoints[pt+r.peaked_tier]||0);
-  }
-  return cp;
-}
-
-/* ✅ UPDATED: Supports Retired tiers for peaked detection */
-function hasActivePeaked(r){
-  if(r==null||r.peaked_tier==null||r.peaked_pos==null)return false;
-  var isRetired=r.retired_tier!=null&&r.retired_pos!=null;
-  var curTier=isRetired?r.retired_tier:r.tier;
-  var curPos=isRetired?r.retired_pos:r.pos;
-  var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0;
-  var ct=curPos===0?"HT":"LT",cp=tierPoints[ct+curTier]||0;
-  return pp>cp||(pp===cp&&(r.peaked_tier!==curTier||r.peaked_pos!==curPos));
-}
-
-/* ✅ UPDATED: Excludes bridge & lifesteal from Overall tab */
-function getPoints(p){
-  var pts=0,rk=p.rankings||{};
-  var excludedModes=["bridge","lifesteal"];
-  for(var k in rk){
-    if(rk.hasOwnProperty(k) && excludedModes.indexOf(k)===-1)
-      pts+=getRankingPoints(rk[k]);
-  }
-  return pts;
-}
-
+function getRankingPoints(r){if(r==null||r.tier==null||r.pos==null)return 0;var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=r.peaked_pos===0?"HT":"LT";return Math.max(cp,tierPoints[pt+r.peaked_tier]||0);}return cp;}
+function hasActivePeaked(r){if(r==null||r.peaked_tier==null||r.peaked_pos==null)return false;var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0;var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;return pp>cp||(pp===cp&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos));}
+function getPoints(p){var pts=0,rk=p.rankings||{};for(var k in rk){if(rk.hasOwnProperty(k))pts+=getRankingPoints(rk[k]);}return pts;}
 function getModePoints(p,ml){var pts=0;for(var i=0;i<ml.length;i++){var r=(p.rankings||{})[ml[i]];if(r)pts+=getRankingPoints(r);}return pts;}
 function getMainPoints(p){return getModePoints(p,mainModes);}
 function getSubPoints(p){return getModePoints(p,subModes);}
@@ -627,55 +586,18 @@ function computeFullRankLookup(pointFn){
 
 function getCategoryPointFn(){if(currentMode==="maintiers")return getMainPoints;if(currentMode==="subtiers")return getSubPoints;if(currentMode==="exclusivetiers")return getExclusivePoints;return getPoints;}
 function getCategoryLabel(){if(currentMode==="maintiers")return"Main Tiers";if(currentMode==="subtiers")return"Sub Tiers";if(currentMode==="exclusivetiers")return"Exclusive Tiers";return"Overall";}
-function getFilterModes(){if(currentMode==="overall")return null;if(currentSubMode&&currentSubMode!=="all"&&currentSubMode!=="credits"&&currentSubMode!=="alltime")return[currentSubMode];if(currentMode==="maintiers")return mainModes;if(currentMode==="subtiers") return subModes;if(currentMode==="exclusivetiers") return exclusiveModes;return[];}
-
-/* ✅ UPDATED: Builds Retired badges (RT) with R prefix */
-function buildTierBadgeHTML(mode,ranking,fm){
-  if(fm&&!fm.includes(mode))return{html:"",pts:0};
-  if(ranking==null)return{html:"",pts:0};
-  var isRetired=ranking.retired_tier!=null&&ranking.retired_pos!=null;
-  var tierVal=isRetired?ranking.retired_tier:ranking.tier;
-  var posVal=isRetired?ranking.retired_pos:ranking.pos;
-  if(tierVal==null||posVal==null)return{html:"",pts:0};
-  var prefix=isRetired?"R":"";
-  var ct=posVal===0?"HT":"LT";
-  var displayType=isRetired?"RT":ct;
-  var ec=hasActivePeaked(ranking)?"has-peaked":"";
-  var pts=getRankingPoints(ranking);
-  return{html:'<div class="tier-badge '+displayType+" "+ec+'" data-mode="'+esc(mode)+'"><img src="'+iconMap[mode]+'">'+esc(prefix+ct+tierVal)+"</div>",pts:pts};
-}
-
+function getFilterModes(){if(currentMode==="overall")return null;if(currentSubMode&&currentSubMode!=="all"&&currentSubMode!=="credits"&&currentSubMode!=="alltime")return[currentSubMode];if(currentMode==="maintiers")return mainModes;if(currentMode==="subtiers")return subModes;if(currentMode==="exclusivetiers")return exclusiveModes;return[];}
+function buildTierBadgeHTML(mode,ranking,fm){if(fm&&!fm.includes(mode))return{html:"",pts:0};if(ranking==null||ranking.tier==null||ranking.pos==null)return{html:"",pts:0};var ct=ranking.pos===0?"HT":"LT",ec=hasActivePeaked(ranking)?"has-peaked":"",pts=getRankingPoints(ranking);return{html:'<div class="tier-badge '+ct+" "+ec+'" data-mode="'+esc(mode)+'"><img src="'+iconMap[mode]+'">'+esc(ct+ranking.tier)+"</div>",pts:pts};}
 function buildCategoryRankLookup(){var fn=getCategoryPointFn();return computeFullRankLookup(fn);}
 
-/* ✅ UPDATED: Shows RET tag for retired players in profile modal */
 function openProfile(p,rank,points,contextLabel){
   var content=document.getElementById("modalContent"),filterModes=getFilterModes(),ti=getAchievementTitle(points),tr="",pc=0,rk=p.rankings||{},se=[];
   for(var k in rk){if(rk.hasOwnProperty(k)&&(!filterModes||filterModes.indexOf(k)!==-1))se.push([k,rk[k]]);}
   se.sort(function(a,b){return getRankingPoints(b[1])-getRankingPoints(a[1]);});
-  for(var i=0;i<se.length;i++){
-    var m=se[i][0],r=se[i][1];
-    if(r==null)continue;
-    var isRetired=r.retired_tier!=null&&r.retired_pos!=null;
-    var tierVal=isRetired?r.retired_tier:r.tier;
-    var posVal=isRetired?r.retired_pos:r.pos;
-    if(tierVal==null||posVal==null)continue;
-    var ct=posVal===0?"HT":"LT",cl=(isRetired?"R":"")+ct+tierVar;
-    var eh='<span class="effective-tier '+(isRetired?'from-retired':'from-current')+'" '+(isRetired?'style="color:var(--rt)"':'')+'>'+esc(cl)+'</span>'+(isRetired?'<span style="font-size:.55rem;color:var(--rt);font-weight:600;margin-left:3px">RET</span>':'');
-    if(r.peaked_tier!=null&&r.peaked_pos!=null){
-      var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0,cp2=tierPoints[ct+tierVal]||0;
-      if(pp>cp2){
-        eh='<span class="current-tier" style="color:var(--text-muted)">'+esc(cl)+'</span> <span class="arrow">\u2192</span> <span class="effective-tier from-peaked">'+esc(pt+tierVar)+" \u2726</span>";
-        pc++;
-      }else if(pp===cp2&&(r.peaked_tier!==tierVar||r.peaked_pos!==posVar)){
-        eh='<span class="effective-tier from-peaked">'+esc(cl)+" \u2726</span>";
-        pc++;
-      }
-    }
-    tr+='<div class="profile-current-row"><img class="mode-icon" src="'+iconMap[m]+'"><span class="mode-label">'+esc(modeLabels[m]||m)+'</span>'+eh+'<span style="margin-left:auto;font-size:.63rem;color:var(--text-muted);font-weight:600">'+getRankingPoints(r)+"pts</span></div>';
-  }
-  var ctxHTML=contextLabel?'<div class="profile-context">'+esc(contextLabel)+'</div>':"",tp=0;
-  for(var k2 in rk){if(rk.hasOwnProperty(k2)&&rk[k2].peaked_tier!=null&&hasActivePeaked(rk[k2]))tp++;}
-  content.innerHTML='<button class="close" onclick="closeModal()" aria-label="Close profile">\u2715</button><img class="profile-avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" onerror="this.classList.add(\'avatar-error\')"><div class="profile-name">'+esc(p.name)+'</div><div class="profile-rank '+ti.cls+'">'+esc(ti.name)+'</div><div class="profile-stats">#'+rank+" \u2022 "+points+" points"+(tp>0?" \u2022 \u2726 "+tp+" peaked":"")+"</div>"+ctxHTML+'<div class="profile-tiers-label">Tier Breakdown</div><div style="text-align:left">'+(tr||'<div style="text-align:center;font-size:.75rem;color:var(--text-muted);padding:12px 0">No tiers</div>')+'</div>'+(pc>0?'<div class="profile-peaked-section"><div style="font-size:.63rem;color:var(--peaked);text-align:center;font-weight:500">\u2726 = points from peaked tier</div></div>':"');
+  for(var i=0;i<se.length;i++){var m=se[i][0],r=se[i][1];if(r==null||r.tier==null||r.pos==null)continue;var ct=r.pos===0?"HT":"LT",cl=ct+r.tier;var eh='<span class="effective-tier from-current">'+esc(cl)+'</span>';if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0,cp2=tierPoints[ct+r.tier]||0;if(pp>cp2){eh='<span class="current-tier" style="color:var(--text-muted)">'+esc(cl)+'</span> <span class="arrow">\u2192</span> <span class="effective-tier from-peaked">'+esc(pt+r.tier)+" \u2726</span>";pc++;}else if(pp===cp2&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos)){eh='<span class="effective-tier from-peaked">'+esc(cl)+" \u2726</span>";pc++;}}
+  tr+='<div class="profile-current-row"><img class="mode-icon" src="'+iconMap[m]+'"><span class="mode-label">'+esc(modeLabels[m]||m)+'</span>'+eh+'<span style="margin-left:auto;font-size:.63rem;color:var(--text-muted);font-weight:600">'+getRankingPoints(r)+"pts</span></div>";}
+  var ctxHTML=contextLabel?'<div class="profile-context">'+esc(contextLabel)+'</div>':"",tp=0;for(var k2 in rk){if(rk.hasOwnProperty(k2)&&rk[k2].peaked_tier!=null&&hasActivePeaked(rk[k2]))tp++;}
+  content.innerHTML='<button class="close" onclick="closeModal()" aria-label="Close profile">\u2715</button><img class="profile-avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" onerror="this.classList.add(\'avatar-error\')"><div class="profile-name">'+esc(p.name)+'</div><div class="profile-rank '+ti.cls+'">'+esc(ti.name)+'</div><div class="profile-stats">#'+rank+" \u2022 "+points+" points"+(tp>0?" \u2022 \u2726 "+tp+" peaked":"")+"</div>"+ctxHTML+'<div class="profile-tiers-label">Tier Breakdown</div><div style="text-align:left">'+(tr||'<div style="text-align:center;font-size:.75rem;color:var(--text-muted);padding:12px 0">No tiers</div>')+'</div>'+(pc>0?'<div class="profile-peaked-section"><div style="font-size:.63rem;color:var(--peaked);text-align:center;font-weight:500">\u2726 = points from peaked tier</div></div>':"");
   document.getElementById("modal").classList.remove("hidden");
 }
 function closeModal(){document.getElementById("modal").classList.add("hidden");}
@@ -684,7 +606,7 @@ document.getElementById("modal").addEventListener("click",function(e){if(e.targe
 function openInfoModal(){document.getElementById("infoModal").classList.remove("hidden");}
 function closeInfoModal(){document.getElementById("infoModal").classList.add("hidden");}
 document.getElementById("infoModal").addEventListener("click",function(e){if(e.target===e.currentTarget)closeInfoModal();});
-function switchInfoTab(tab,btn){var tabs=document.querySelectorAll(".info-modal-tab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");btn.classList.add("active");var panels=document.querySelectorAll(".info-panel");for(var j=0;j<panels.length;j++)panels[j].classList.remove("visible");document.getElementById(info.charAt(0).toUpperCase()+tab.slice(1)).classList.add("visible");}
+function switchInfoTab(tab,btn){var tabs=document.querySelectorAll(".info-modal-tab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");btn.classList.add("active");var panels=document.querySelectorAll(".info-panel");for(var j=0;j<panels.length;j++)panels[j].classList.remove("visible");document.getElementById("info"+tab.charAt(0).toUpperCase()+tab.slice(1)).classList.add("visible");}
 
 function renderRankedView(players,pointFn,forceFilterModes){
   var container=document.getElementById("leaderboard"),filterModes=forceFilterModes||getFilterModes(),frag=document.createDocumentFragment();
@@ -710,7 +632,7 @@ function renderRankedView(players,pointFn,forceFilterModes){
     var tierEntries=[],rk=p.rankings||{};for(var k in rk){if(rk.hasOwnProperty(k)){var res=buildTierBadgeHTML(k,rk[k],filterModes);if(res.html)tierEntries.push({html:res.html,pts:res.pts});}}
     tierEntries.sort(function(a,b){return b.pts-a.pts;});var tiersHTML="";for(var j=0;j<tierEntries.length;j++)tiersHTML+=tierEntries[j].html;
     var ti=getAchievementTitle(p.points);
-    row.innerHTML='<img class="avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><div class="player-info"><div class="name-line"><span class="rank">#'+p.rank+'</span><span class="player-name">'+esc(p.name)+'</span></div><span class="achievement '+ti.cls+'">'+esc(ti.name)+'</span><div class="points">'+p.points+" pts</div></div>"+(tiersHTML?'<div class="tiers-grid">'+tiersHTML+"</div>':"");
+    row.innerHTML='<img class="avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><div class="player-info"><div class="name-line"><span class="rank">#'+p.rank+'</span><span class="player-name">'+esc(p.name)+'</span></div><span class="achievement '+ti.cls+'">'+esc(ti.name)+'</span><div class="points">'+p.points+" pts</div></div>"+(tiersHTML?'<div class="tiers-grid">'+tiersHTML+"</div>":"");
     (function(pl,rk2,pts2){row.onclick=function(){openProfile(pl,rk2,pts2);};row.onkeydown=function(e){if(e.key==="Enter")openProfile(pl,rk2,pts2);};})(p,p.rank,p.points);
     frag.appendChild(row);
   }
@@ -732,7 +654,7 @@ function renderTierGrid(mode,players,isExclusive){
     var pd=col.querySelector(".tier-players");
     if(tiers[t].length){tiers[t].sort(function(a,b){return a.pos-b.pos;});for(var j=0;j<tiers[t].length;j++){
       var pl=tiers[t][j],div=document.createElement("div"),type=pl.pos===0?"HT":"LT";div._playerData=pl;div.className="player "+type;var peaked=hasActivePeaked(pl.ranking);
-      div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="player-name-cell">'+esc(pl.name)+'</span>'+(peaked?'<span class="player-peaked-star">\u2726</span>':"');
+      div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="player-name-cell">'+esc(pl.name)+'</span>'+(peaked?'<span class="player-peaked-star">\u2726</span>':"");
       (function(plData,md,rL){div.onclick=function(){var fn=getCategoryPointFn(),cr=rL[plData.uuid]||0;openProfile({name:plData.name,uuid:plData.uuid,rankings:plData.rankings},cr,fn({name:plData.name,rankings:plData.rankings}),getCategoryLabel()+" \u2014 "+(modeLabels[md]||md));};})(pl,mode,rankLookup);
       pd.appendChild(div);
     }}
