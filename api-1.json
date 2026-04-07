@@ -89,8 +89,9 @@
     "rankings": {
       "uhc": { "tier": 4, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 0 },
-      "cart": { "tier": 3, "pos": 0 }
+      "crystal": { "tier": 3, "pos": 1 },
+      "cart": { "tier": 3, "pos": 0 },
+      "axe": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -145,7 +146,8 @@
     "name": "Clowny_XD",
     "rankings": {
       "sword": { "tier": 3, "pos": 0 },
-      "crystal": { "tier": 2, "pos": 0 }
+      "crystal": { "tier": 2, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1}
     }
   },
   {
