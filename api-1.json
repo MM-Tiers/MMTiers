@@ -32,7 +32,7 @@
     "uuid": "f94d9814-2b63-4512-981d-61b7dfc90c80",
     "name": "kway4",
     "rankings": {
-      "mace": { "tier": 1, "pos": 0 },
+      "mace": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
       "uhc": { "tier": 2, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
