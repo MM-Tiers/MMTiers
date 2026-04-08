@@ -54,7 +54,8 @@
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 4, "pos": 0 },
-      "netpot": { "tier": 3, "pos": 1 }
+      "netpot": { "tier": 3, "pos": 1 },
+      "lifesteal": { "tier": 3, "pos": 1 }
     }
   },
   {
