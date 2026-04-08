@@ -564,6 +564,7 @@ function switchSubTab(sm,btn){var c=document.getElementById("leaderboard");c.cla
 function getRankingPoints(r){if(r==null||r.tier==null||r.pos==null)return 0;var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=r.peaked_pos===0?"HT":"LT";return Math.max(cp,tierPoints[pt+r.peaked_tier]||0);}return cp;}
 function hasActivePeaked(r){if(r==null||r.peaked_tier==null||r.peaked_pos==null)return false;var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0;var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;return pp>cp||(pp===cp&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos));}
 function getPoints(p){var pts=0,rk=p.rankings||{};for(var k in rk){if(rk.hasOwnProperty(k))pts+=getRankingPoints(rk[k]);}return pts;}
+function getOverallPoints(p){return getModePoints(p,allModes.filter(function(m){return exclusiveModes.indexOf(m)===-1;}));}
 function getModePoints(p,ml){var pts=0;for(var i=0;i<ml.length;i++){var r=(p.rankings||{})[ml[i]];if(r)pts+=getRankingPoints(r);}return pts;}
 function getMainPoints(p){return getModePoints(p,mainModes);}
 function getSubPoints(p){return getModePoints(p,subModes);}
@@ -584,7 +585,7 @@ function computeFullRankLookup(pointFn){
   return map;
 }
 
-function getCategoryPointFn(){if(currentMode==="maintiers")return getMainPoints;if(currentMode==="subtiers")return getSubPoints;if(currentMode==="exclusivetiers")return getExclusivePoints;return getPoints;}
+function getCategoryPointFn(){if(currentMode==="maintiers")return getMainPoints;if(currentMode==="subtiers")return getSubPoints;if(currentMode==="exclusivetiers")return getExclusivePoints;return getOverallPoints;}
 function getCategoryLabel(){if(currentMode==="maintiers")return"Main Tiers";if(currentMode==="subtiers")return"Sub Tiers";if(currentMode==="exclusivetiers")return"Exclusive Tiers";return"Overall";}
 function getFilterModes(){if(currentMode==="overall")return allModes.filter(function(m){return exclusiveModes.indexOf(m)===-1});if(currentSubMode&&currentSubMode!=="all"&&currentSubMode!=="credits"&&currentSubMode!=="alltime")return[currentSubMode];if(currentMode==="maintiers")return mainModes;if(currentMode==="subtiers")return subModes;if(currentMode==="exclusivetiers")return exclusiveModes;return[];}
 function buildTierBadgeHTML(mode,ranking,fm){if(fm&&!fm.includes(mode))return{html:"",pts:0};if(ranking==null||ranking.tier==null||ranking.pos==null)return{html:"",pts:0};var ct=ranking.pos===0?"HT":"LT",ec=hasActivePeaked(ranking)?"has-peaked":"",pts=getRankingPoints(ranking);return{html:'<div class="tier-badge '+ct+" "+ec+'" data-mode="'+esc(mode)+'"><img src="'+iconMap[mode]+'">'+esc(ct+ranking.tier)+"</div>",pts:pts};}
@@ -738,7 +739,7 @@ function render(){
   var players=data.filter(function(p){return p.name.toLowerCase().indexOf(search)!==-1;});
   container.innerHTML="";
   if(currentMode==="halloffame"){if(currentSubMode==="credits"){renderCredits();}else if(currentSubMode==="alltime"){renderAllTimeTiers();}return;}
-  if(currentMode==="overall"){renderRankedView(players,getPoints);return;}
+  if(currentMode==="overall"){renderRankedView(players,getOverallPoints);return;}
   if(currentMode==="maintiers"){if(currentSubMode==="all"){renderRankedView(players,getMainPoints);return;}renderTierGrid(currentSubMode,players,false);return;}
   if(currentMode==="subtiers"){if(currentSubMode==="all"){renderRankedView(players,getSubPoints);return;}renderTierGrid(currentSubMode,players,false);return;}
   if(currentMode==="exclusivetiers"){if(currentSubMode==="all"){renderRankedView(players,getExclusivePoints);return;}renderTierGrid(currentSubMode,players,true);return;}
