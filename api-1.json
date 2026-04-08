@@ -41,6 +41,7 @@
       "smp": { "tier": 1, "pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 4, "pos": 1 }
+      "bridge": { "tier": 1, "pos": 0 }
     }
   },
   {
@@ -245,6 +246,7 @@
       "smp": { "tier": 1, "pos": 0 },
       "cart": { "tier": 1, "pos": 0 },
       "axe": { "tier": 2, "pos": 0 }
+      "lifesteal": { "tier": 2, "pos": 1 }
     }
   },
   {
