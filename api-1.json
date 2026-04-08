@@ -26,7 +26,7 @@
       "netpot": { "tier": 2, "pos": 0 },
       "smp": { "tier": 2, "pos": 1 },
       "axe": { "tier": 1, "pos": 0 },
-      "bridge": { "tier": 3, "pos": 1 }
+      "bridge": { "tier": 2, "pos": 1 }
     }
   },
   {
@@ -383,12 +383,13 @@
   },
   {
     "uuid": "0ba501e5-3ea1-4402-af21-d08b53a7af62",
-    "name": "naomigreif",
+    "name": "naomigrief",
     "rankings": {
       "crystal": { "tier": 4, "pos": 1 },
       "sword": { "tier": 4, "pos": 1 },
       "axe": { "tier": 5, "pos": 0 },
-      "uhc": { "tier": 5, "pos": 1}
+      "uhc": { "tier": 5, "pos": 1},
+      "bridge": { "tier": 5, "pos": 0}
     }
   },
   {
