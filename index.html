@@ -586,7 +586,7 @@ function computeFullRankLookup(pointFn){
 
 function getCategoryPointFn(){if(currentMode==="maintiers")return getMainPoints;if(currentMode==="subtiers")return getSubPoints;if(currentMode==="exclusivetiers")return getExclusivePoints;return getPoints;}
 function getCategoryLabel(){if(currentMode==="maintiers")return"Main Tiers";if(currentMode==="subtiers")return"Sub Tiers";if(currentMode==="exclusivetiers")return"Exclusive Tiers";return"Overall";}
-function getFilterModes(){if(currentMode==="overall")return allModes.filter(function(m){return exclusiveModes.indexOf(m)===-1;});if(currentSubMode&¤tSubMode!=="all"&¤tSubMode!=="credits"&¤tSubMode!=="alltime")return[currentSubMode];if(currentMode==="maintiers")return mainModes;if(currentMode==="subtiers")return subModes;if(currentMode==="exclusivetiers")return exclusiveModes;return[];}
+function getFilterModes(){if(currentMode==="overall")return null;if(currentSubMode&&currentSubMode!=="all"&&currentSubMode!=="credits"&&currentSubMode!=="alltime")return[currentSubMode];if(currentMode==="maintiers")return mainModes;if(currentMode==="subtiers")return subModes;if(currentMode==="exclusivetiers")return exclusiveModes;return[];}
 function buildTierBadgeHTML(mode,ranking,fm){if(fm&&!fm.includes(mode))return{html:"",pts:0};if(ranking==null||ranking.tier==null||ranking.pos==null)return{html:"",pts:0};var ct=ranking.pos===0?"HT":"LT",ec=hasActivePeaked(ranking)?"has-peaked":"",pts=getRankingPoints(ranking);return{html:'<div class="tier-badge '+ct+" "+ec+'" data-mode="'+esc(mode)+'"><img src="'+iconMap[mode]+'">'+esc(ct+ranking.tier)+"</div>",pts:pts};}
 function buildCategoryRankLookup(){var fn=getCategoryPointFn();return computeFullRankLookup(fn);}
 
