@@ -236,3 +236,217 @@
     "rankings": {
       "crystal": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
       "mace": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 3, "pos": 0 },
+      "uhc": { "tier": 2, "pos": 1 },
+      "dsmp": { "tier": 3, "pos": 1 },
+      "dpot": { "tier": 3, "pos": 0 },
+      "netpot": { "tier": 2, "pos": 1 },
+      "smp": { "tier": 1, "pos": 0 },
+      "cart": { "tier": 1, "pos": 0 },
+      "axe": { "tier": 2, "pos": 0 },
+      "lifesteal": { "tier": 2, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
+    "name": "Chika_",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
+    "name": "Justincookie",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 1 },
+      "dsmp": { "tier": 4, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "88bd1f55-3354-4fa0-826b-c229f23eb790",
+    "name": "KenjiOp200k",
+    "rankings": {
+      "dsmp": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
+    "name": "360Ascendant",
+    "rankings": {
+      "dsmp": { "tier": 4, "pos": 0 },
+      "crystal": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
+    "name": "MyatIsDumb",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 0 },
+      "dpot": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "1a4619b3-9d36-49de-b9db-462cf4bf7c46",
+    "name": "EibmozNPC",
+    "rankings": {
+      "dsmp": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "6b730441-7644-4c21-b86e-11f44e7f11c5",
+    "name": "Xkiller85",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 0 },
+      "axe": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "theooo",
+    "rankings": {
+      "sword": { "tier": 5, "pos": 1 },
+      "crystal": { "tier": 5, "pos": 1 },
+      "axe": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
+    "name": "_WAyneDebuffs",
+    "rankings": {
+      "uhc": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0},
+      "axe": { "tier": 1, "pos": 1},
+      "mace": { "tier": 3, "pos": 0}
+    }
+  },
+  {
+    "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
+    "name": "TuffNode",
+    "rankings": {
+      "axe": { "tier": 4, "pos": 0 },
+      "sword": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "64f8cdf3-8b61-4205-9ec1-fce6f419c5fd",
+    "name": "navy123",
+    "rankings": {
+      "dpot": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "ba8d71b0-d215-4c67-b334-05af340bbbc9",
+    "name": "xVocal_",
+    "rankings": {
+      "dsmp": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "d0d6b908-bf68-4aa1-9448-475e27ca91a7",
+    "name": "Pipeeew",
+    "rankings": {
+      "uhc": { "tier": 2, "pos": 1 },
+      "smp": { "tier": 2, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "569bed30-d352-4fd5-8a59-dccf36ccb4af",
+    "name": "Alyxen",
+    "rankings": {
+      "sword": { "tier": 4, "pos": 1 },
+      "mace": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "fe3b1aad-788c-4282-a95c-265717c9d7c4",
+    "name": "MrP1Z2A",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "8b63226d-8fd9-41bc-927e-c41f4cc4deba",
+    "name": "RinnSTier",
+    "rankings": {
+      "sword": { "tier": 5, "pos": 0 },
+      "mace": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "82ecbbc9-b8bb-434e-b157-927721cf85f1",
+    "name": "RazinMonkey",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "0ba501e5-3ea1-4402-af21-d08b53a7af62",
+    "name": "naomigreif",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 1 },
+      "sword": { "tier": 4, "pos": 1 },
+      "axe": { "tier": 5, "pos": 0 },
+      "uhc": { "tier": 5, "pos": 1}
+    }
+  },
+  {
+    "uuid": "de984043-1d11-48ab-8714-2ff1612e8b57",
+    "name": "DingalingM",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "5b986f22-d753-4861-ac3b-d7f72f267132",
+    "name": "UncleSkylarkk",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "17bbec70-5107-4c5c-aa36-4bf61237b1eb",
+    "name": "Hynixqt",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",
+    "name": "_ZycoDebuffs",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 },
+      "mace": { "tier": 3, "pos": 1 },
+      "netpot": { "tier": 2, "pos": 0},
+      "smp": { "tier": 3, "pos": 1}
+    }
+  },
+  {
+    "uuid": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
+    "name": "_Aidendebuffs",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "47a259e8-35ef-434f-8344-3a23b6a3dd95",
+    "name": "NixfelzNik_",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 }      
+    }
+  },
+  {
+    "uuid": "d8bd00bd-c997-40cd-abda-19bb9fd211da",
+    "name": "67DDee",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "391ae3bc-600c-4aff-a619-baa7b53d5cc0",
+    "name": "Top1immortal",
+    "rankings": {
+      "dsmp": { "tier": 4, "pos": 1 }
+    }
+  }
+]
