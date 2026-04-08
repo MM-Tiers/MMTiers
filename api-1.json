@@ -40,7 +40,7 @@
       "axe": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 }
+      "crystal": { "tier": 4, "pos": 1 },
       "bridge": { "tier": 1, "pos": 0 }
     }
   },
