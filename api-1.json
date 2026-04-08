@@ -8,7 +8,7 @@
       "cart": { "tier": 2, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 1, "pos": 0 },
+      "smp": { "tier": 2, "pos": 1 },
       "dsmp": { "tier": 1, "pos": 0 }
     }
   },
@@ -18,7 +18,7 @@
     "rankings": {
       "sword": { "tier": 1, "pos": 0 },
       "crystal": { "tier": 2, "pos": 0 },
-      "uhc": { "tier": 2, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
@@ -238,11 +238,11 @@
       "crystal": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
       "mace": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 3, "pos": 0 },
+      "uhc": { "tier": 2, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
       "netpot": { "tier": 2, "pos": 1 },
-      "smp": { "tier": 1, "pos": 1 },
+      "smp": { "tier": 1, "pos": 0 },
       "cart": { "tier": 1, "pos": 0 },
       "axe": { "tier": 2, "pos": 0 }
     }
