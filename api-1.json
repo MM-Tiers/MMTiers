@@ -27,6 +27,9 @@
       "smp": { "tier": 2, "pos": 1 },
       "axe": { "tier": 1, "pos": 0 },
       "bridge": { "tier": 2, "pos": 1 }
+      "speed": { "tier": 3, "pos": 0 }
+      "ogv": { "tier": 3, "pos": 0 }
+      "shieldless": { "tier": 3, "pos": 0 }
     }
   },
   {
