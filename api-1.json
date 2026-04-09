@@ -239,7 +239,8 @@
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 },
       "axe": { "tier": 4, "pos": 0 },
-      "uhc": { "tier": 4, "pos": 1 }
+      "uhc": { "tier": 4, "pos": 1 },
+      "sword": { "tier": 4, "pos": 1 }
     }
   },
   {
@@ -406,7 +407,8 @@
       "axe": { "tier": 5, "pos": 0 },
       "cart": { "tier": 5, "pos": 1 },
       "uhc": { "tier": 5, "pos": 1},
-      "bridge": { "tier": 5, "pos": 0}
+      "bridge": { "tier": 5, "pos": 0},
+      "lifesteal": { "tier": 5, "pos": 0 }
     }
   },
   {
