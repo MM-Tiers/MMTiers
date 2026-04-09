@@ -29,7 +29,7 @@
       "bridge": { "tier": 2, "pos": 1 },
       "speed": { "tier": 3, "pos": 0 },
       "ogv": { "tier": 3, "pos": 0 },
-      "shieldless": { "tier": 3, "pos": 0 }
+      "shieldlessuhc": { "tier": 3, "pos": 0 }
     }
   },
   {
