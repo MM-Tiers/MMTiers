@@ -123,7 +123,8 @@
       "dpot": { "tier": 3, "pos": 1 },
       "smp": { "tier": 4, "pos": 0 },
       "uhc": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 3, "pos": 1 }
+      "axe": { "tier": 3, "pos": 1 },
+      "shieldlessuhc": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -137,7 +138,10 @@
       "sword": { "tier": 2, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 5, "pos" : 1 },
-      "smp": { "tier": 1, "pos" : 1 }
+      "smp": { "tier": 1, "pos" : 1 },
+      "ipot": { "tier": 3, "pos": 0 },
+      "doorpvp": { "tier": 3, "pos": 0 },
+      "speed": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -211,7 +215,8 @@
       "sword": { "tier": 4, "pos": 1 },
       "axe": { "tier": 5, "pos": 0 },
       "uhc": { "tier": 4, "pos": 1 },
-      "mace": { "tier": 5, "pos": 0 }
+      "mace": { "tier": 5, "pos": 0 },
+      "doorpvp": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -253,6 +258,9 @@
       "axe": { "tier": 2, "pos": 0 },
       "lifesteal": { "tier": 2, "pos": 1 },
       "bridge": { "tier": 4, "pos": 1 }
+      "doorpvp": { "tier": 3, "pos": 0 },
+      "shieldlessuhc": { "tier": 3, "pos": 0 },
+      "trident": { "tier": 3, "pos": 0 }
     }
   },
   {
