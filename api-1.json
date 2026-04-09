@@ -139,7 +139,7 @@
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 5, "pos" : 1 },
       "smp": { "tier": 1, "pos" : 1 },
-      "ipot": { "tier": 3, "pos": 0 },
+      "ironpot": { "tier": 3, "pos": 0 },
       "doorpvp": { "tier": 3, "pos": 0 },
       "speed": { "tier": 3, "pos": 0 }
     }
