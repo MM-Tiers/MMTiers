@@ -408,7 +408,8 @@
     "uuid": "5b986f22-d753-4861-ac3b-d7f72f267132",
     "name": "UncleSkylarkk",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 }
+      "crystal": { "tier": 4, "pos": 0 },
+      "mace": { "tier": 5, "pos": 1 }
     }
   },
   {
