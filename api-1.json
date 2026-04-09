@@ -9,7 +9,7 @@
       "sword": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
       "smp": { "tier": 2, "pos": 0 },
-      "dsmp": { "tier": 1, "pos": 0 }
+      "dsmp": { "tier": 1, "pos": 1 }
     }
   },
   {
@@ -55,7 +55,8 @@
       "cart": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 4, "pos": 0 },
       "netpot": { "tier": 3, "pos": 1 },
-      "lifesteal": { "tier": 3, "pos": 1 }
+      "lifesteal": { "tier": 3, "pos": 1 },
+      "bridge": {"tier": 4, "pos": 0 }
     }
   },
   {
@@ -347,7 +348,8 @@
     "name": "Pipeeew",
     "rankings": {
       "uhc": { "tier": 2, "pos": 1 },
-      "smp": { "tier": 2, "pos": 0 }
+      "smp": { "tier": 2, "pos": 0 },
+      "dsmp"L { "tier": 1, "pos": 0 }
     }
   },
   {
