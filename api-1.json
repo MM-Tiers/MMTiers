@@ -493,7 +493,8 @@
     "uuid": "9fe67f74-dd64-4dc1-a646-12800024e6b4",
     "name": "havime",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 },
+      "sword": { "tier": 4, "pos": 1 }
     }
   }
 ]
