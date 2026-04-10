@@ -222,7 +222,8 @@
       "uhc": { "tier": 4, "pos": 1 },
       "mace": { "tier": 5, "pos": 0 },
       "doorpvp": { "tier": 3, "pos": 0 },
-      "trident": { "tier": 4, "pos": 1 }
+      "trident": { "tier": 4, "pos": 1 },
+      "speed": { "tier": 5, "pos": 0 }
     }
   },
   {
