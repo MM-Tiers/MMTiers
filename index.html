@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#06090f;--surface:#0c1018;--card:#0f1420;--card-hover:#141b28;--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12);--text:#f0f2f5;--text-secondary:#8a92a4;--text-muted:#555d6e;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.12);--ht:#fb7185;--ht-dim:rgba(251,113,133,0.1);--lt:#4ade80;--lt-dim:rgba(74,222,128,0.1);--peaked:#c084fc;--peaked-dim:rgba(192,132,252,0.1);--gold:#fbbf24;--silver:#94a3b8;--bronze:#d97706;--tier4:#9ca3af;--tier5:#6b7280;--radius:14px;--radius-sm:10px;--radius-xs:8px;--transition:0.22s cubic-bezier(0.4,0,0.2,1)}
+:root{--bg:#06090f;--surface:#0c1018;--card:#0f1420;--card-hover:#141b28;--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12);--text:#f0f2f5;--text-secondary:#8a92a4;--text-muted:#555d6e;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.12);--ht:#fb7185;--ht-dim:rgba(251,113,133,0.1);--lt:#4ade80;--lt-dim:rgba(74,222,128,0.1);--peaked:#c084fc;--peaked-dim:rgba(192,132,252,0.1);--gold:#fbbf24;--silver:#94a3b8;--bronze:#d97706;--tier4:#9ca3af;--tier5:#6b7280;--retired:#facc15;--retired-dim:rgba(250,204,21,0.12);--radius:14px;--radius-sm:10px;--radius-xs:8px;--transition:0.22s cubic-bezier(0.4,0,0.2,1)}
 html{font-size:17.6px;scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 #pageLoader{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .8s cubic-bezier(.4,0,.2,1),visibility .8s cubic-bezier(.4,0,.2,1);pointer-events:none}
@@ -133,9 +133,13 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .tier-badge img{width:20px;height:20px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen}
 .tier-badge.HT{background:var(--ht-dim);color:var(--ht);border-color:rgba(251,113,133,.06)}
 .tier-badge.LT{background:var(--lt-dim);color:var(--lt);border-color:rgba(74,222,128,.06)}
+.tier-badge.RHT{background:var(--retired-dim);color:var(--retired);border-color:rgba(250,204,21,.06)}
+.tier-badge.RLT{background:var(--retired-dim);color:var(--retired);border-color:rgba(250,204,21,.06)}
 .tier-badge.has-peaked{border-color:rgba(192,132,252,.18);box-shadow:0 0 6px rgba(192,132,252,.06)}
 .player-row:hover .tier-badge.HT{background:rgba(251,113,133,.14);border-color:rgba(251,113,133,.12)}
 .player-row:hover .tier-badge.LT{background:rgba(74,222,128,.14);border-color:rgba(74,222,128,.12)}
+.player-row:hover .tier-badge.RHT{background:rgba(250,204,21,.14);border-color:rgba(250,204,21,.12)}
+.player-row:hover .tier-badge.RLT{background:rgba(250,204,21,.14);border-color:rgba(250,204,21,.12)}
 .player-row:hover .tier-badge.has-peaked{border-color:rgba(192,132,252,.3);box-shadow:0 0 10px rgba(192,132,252,.1)}
 .badge-tooltip{position:fixed;z-index:9999;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease;filter:drop-shadow(0 6px 20px rgba(0,0,0,.4))}
 .badge-tooltip.visible{opacity:1;transform:translateY(0)}
@@ -144,7 +148,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .badge-tooltip-mode-icon{width:20px;height:20px;border-radius:5px;border:1px solid rgba(255,255,255,.06);mix-blend-mode:screen}
 .badge-tooltip-mode-label{font-size:.65rem;font-weight:600;color:var(--text-muted)}
 .badge-tooltip-tier{font-size:1.1rem;font-weight:800;letter-spacing:-.02em}
-.badge-tooltip-tier.ht{color:var(--ht)}.badge-tooltip-tier.lt{color:var(--lt)}
+.badge-tooltip-tier.ht{color:var(--ht)}.badge-tooltip-tier.lt{color:var(--lt)}.badge-tooltip-tier.rht{color:var(--retired)}.badge-tooltip-tier.rlt{color:var(--retired)}
 .badge-tooltip-peaked-section{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05)}
 .badge-tooltip-peak-label{font-size:.55rem;font-weight:700;color:var(--peaked);letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
 .badge-tooltip-peak-tier{font-size:.9rem;font-weight:800;color:var(--peaked)}
@@ -194,6 +198,8 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .player:hover img{transform:scale(1.06)}
 .player.HT{border-left-color:var(--ht);color:var(--ht)}
 .player.LT{border-left-color:var(--lt);color:var(--lt)}
+.player.RHT{border-left-color:var(--retired);color:var(--retired)}
+.player.RLT{border-left-color:var(--retired);color:var(--retired)}
 .player-name-cell{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .player-peaked-star{font-size:.8rem;color:var(--peaked);flex-shrink:0;animation:peakedPulse 2.5s ease-in-out infinite}
 .season-banner{text-align:center;padding:16px 0 20px;font-size:1.1rem;font-weight:800;letter-spacing:.02em}
@@ -213,9 +219,13 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .att-player:hover img{transform:scale(1.06)}
 .att-player.ht1{border-left-color:var(--lt);color:var(--lt)}
 .att-player.lt1{border-left-color:var(--ht);color:var(--ht)}
+.att-player.rht1{border-left-color:var(--retired);color:var(--retired)}
+.att-player.rlt1{border-left-color:var(--retired);color:var(--retired)}
 .att-player .att-tag{font-size:.55rem;font-weight:800;padding:1px 6px;border-radius:4px;flex-shrink:0;letter-spacing:.04em}
 .att-player.ht1 .att-tag{background:rgba(74,222,128,.12);color:var(--lt)}
 .att-player.lt1 .att-tag{background:rgba(251,113,133,.12);color:var(--ht)}
+.att-player.rht1 .att-tag{background:rgba(250,204,21,.12);color:var(--retired)}
+.att-player.rlt1 .att-tag{background:rgba(250,204,21,.12);color:var(--retired)}
 .att-player .att-pname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .att-empty{font-size:.62rem;color:var(--text-muted);text-align:center;padding:12px 4px;font-weight:500;opacity:.6}
 .credits-container{max-width:940px;margin:0 auto;padding:40px 20px 60px;display:flex;flex-direction:row;gap:18px;align-items:stretch;justify-content:center}
@@ -277,6 +287,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .profile-current-row .effective-tier{font-weight:700}
 .profile-current-row .effective-tier.from-peaked{color:var(--peaked)}
 .profile-current-row .effective-tier.from-current{color:var(--text-secondary)}
+.profile-current-row .effective-tier.from-retired{color:var(--retired)}
 .profile-peaked-section{margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
 .info-modal-content{background:var(--card);border:1px solid rgba(245,158,11,.12);border-radius:18px;padding:22px 22px 26px;width:370px;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.4);transform:translateY(0) scale(1);transition:transform .2s ease}
 .info-modal.hidden .info-modal-content{transform:translateY(16px) scale(.97)}
@@ -298,7 +309,7 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .info-tier-label.tier-5{color:var(--tier5)}
 .info-tier-values{display:flex;gap:8px;margin-left:auto}
 .info-tier-val{display:flex;align-items:center;gap:3px;font-size:.76rem;font-weight:700}
-.info-tier-val.ht{color:var(--ht)}.info-tier-val.lt{color:var(--lt)}
+.info-tier-val.ht{color:var(--ht)}.info-tier-val.lt{color:var(--lt)}.info-tier-val.rht{color:var(--retired)}.info-tier-val.rlt{color:var(--retired)}
 .info-tier-val .val-label{font-size:.58rem;font-weight:600;opacity:.6}
 .info-titles-list{display:flex;flex-direction:column;gap:4px}
 .info-title-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--surface);border-radius:var(--radius-xs);border:1px solid var(--border);transition:var(--transition)}
@@ -376,11 +387,11 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 <div id="infoPoints" class="info-panel visible">
 <div class="info-section-title">How ranking points are calculated</div>
 <div class="info-points-list">
-<div class="info-tier-row"><div class="info-tier-label tier-1">Tier 1</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 60</div><div class="info-tier-val lt"><span class="val-label">LT</span> 45</div></div></div>
-<div class="info-tier-row"><div class="info-tier-label tier-2">Tier 2</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 30</div><div class="info-tier-val lt"><span class="val-label">LT</span> 20</div></div></div>
-<div class="info-tier-row"><div class="info-tier-label tier-3">Tier 3</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 10</div><div class="info-tier-val lt"><span class="val-label">LT</span> 6</div></div></div>
-<div class="info-tier-row"><div class="info-tier-label tier-4">Tier 4</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 4</div><div class="info-tier-val lt"><span class="val-label">LT</span> 3</div></div></div>
-<div class="info-tier-row"><div class="info-tier-label tier-5">Tier 5</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 2</div><div class="info-tier-val lt"><span class="val-label">LT</span> 1</div></div></div>
+<div class="info-tier-row"><div class="info-tier-label tier-1">Tier 1</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 60</div><div class="info-tier-val lt"><span class="val-label">LT</span> 45</div><div class="info-tier-val rht"><span class="val-label">RHT</span> 60</div><div class="info-tier-val rlt"><span class="val-label">RLT</span> 45</div></div></div>
+<div class="info-tier-row"><div class="info-tier-label tier-2">Tier 2</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 30</div><div class="info-tier-val lt"><span class="val-label">LT</span> 20</div><div class="info-tier-val rht"><span class="val-label">RHT</span> 30</div><div class="info-tier-val rlt"><span class="val-label">RLT</span> 20</div></div></div>
+<div class="info-tier-row"><div class="info-tier-label tier-3">Tier 3</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 10</div><div class="info-tier-val lt"><span class="val-label">LT</span> 6</div><div class="info-tier-val rht"><span class="val-label">RHT</span> 10</div><div class="info-tier-val rlt"><span class="val-label">RLT</span> 6</div></div></div>
+<div class="info-tier-row"><div class="info-tier-label tier-4">Tier 4</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 4</div><div class="info-tier-val lt"><span class="val-label">LT</span> 3</div><div class="info-tier-val rht"><span class="val-label">RHT</span> 4</div><div class="info-tier-val rlt"><span class="val-label">RLT</span> 3</div></div></div>
+<div class="info-tier-row"><div class="info-tier-label tier-5">Tier 5</div><div class="info-tier-values"><div class="info-tier-val ht"><span class="val-label">HT</span> 2</div><div class="info-tier-val lt"><span class="val-label">LT</span> 1</div><div class="info-tier-val rht"><span class="val-label">RHT</span> 2</div><div class="info-tier-val rlt"><span class="val-label">RLT</span> 1</div></div></div>
 </div></div>
 <div id="infoTitles" class="info-panel">
 <div class="info-section-title">How to obtain Achievement Titles</div>
@@ -398,8 +409,8 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 <div class="info-peaked-desc">A <strong>Peaked Tier</strong> locks in your points at a specific tier and position (HT or LT), even if your current tier drops later. The badge always shows your current tier &#8212; hover over it to see your peaked tier.</div>
 <div class="info-peaked-note">&#10022; Peaked tiers <strong>do affect points</strong>. Points use whichever is higher: current or peaked.</div>
 <div class="info-peaked-section"><div class="info-peaked-title">How it works</div><div class="info-peaked-desc"><strong>1.</strong> Reach a tier in any game mode (e.g. HT1 Sword)<br><strong>2.</strong> Request a peaked test from staff<br><strong>3.</strong> Pass the test &#8594; your points are locked at that tier<br><strong>4.</strong> Your badge still shows your <strong>current</strong> tier<br><strong>5.</strong> Hover the badge to reveal your peaked tier and points</div></div>
-<div class="info-peaked-section"><div class="info-peaked-title">Example</div><div class="info-peaked-desc">Badge shows: <strong style="color:var(--lt)">LT1</strong><br>Hover reveals: &#10022; Peak <strong style="color:var(--peaked)">HT1</strong> &#8212; 60 points</div><div class="info-example">"sword": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 } // pos: 0=HT, 1=LT</div></div>
-<div class="info-peaked-section"><div class="info-peaked-title">Important rules</div><div class="info-peaked-desc"><strong>&#8226;</strong> <strong>pos</strong> matters: 0 = HT, 1 = LT<br><strong>&#8226;</strong> Points use whichever is higher: current or peaked<br><strong>&#8226;</strong> You cannot "lose" a peaked tier once earned<br><strong>&#8226;</strong> If your current tier surpasses your peaked tier, current is used</div></div>
+<div class="info-peaked-section"><div class="info-peaked-title">Example</div><div class="info-peaked-desc">Badge shows: <strong style="color:var(--lt)">LT1</strong><br>Hover reveals: &#10022; Peak <strong style="color:var(--peaked)">HT1</strong> &#8212; 60 points</div><div class="info-example">"sword": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 } // pos: 0=HT, 1=LT, 2=RLT, 3=RHT</div></div>
+<div class="info-peaked-section"><div class="info-peaked-title">Important rules</div><div class="info-peaked-desc"><strong>&#8226;</strong> <strong>pos</strong> matters: 0 = HT, 1 = LT, 2 = RLT (Retired Low Tier), 3 = RHT (Retired High Tier)<br><strong>&#8226;</strong> Retired tiers have the same point values as their active counterparts<br><strong>&#8226;</strong> Points use whichever is higher: current or peaked<br><strong>&#8226;</strong> You cannot "lose" a peaked tier once earned<br><strong>&#8226;</strong> If your current tier surpasses your peaked tier, current is used</div></div>
 </div></div></div>
 
 <script>
@@ -501,19 +512,45 @@ var hallOfFame=[
   {name:"Rinleaf",uuid:"4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",role:"Developer"}
 ];
 
-var tierPoints={HT1:60,LT1:45,HT2:30,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
+// Updated tier points to include retired tiers (RHT and RLT)
+var tierPoints={HT1:60,LT1:45,HT2:30,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1,RHT1:60,RLT1:45,RHT2:30,RLT2:20,RHT3:10,RLT3:6,RHT4:4,RLT4:3,RHT5:2,RLT5:1};
 var data=[],currentMode="overall",currentSubMode=null,searchTimeout=null,tooltipTimer=null;
 var tooltipEl=document.getElementById("badgeTooltip"),tooltipInner=document.getElementById("badgeTooltipInner");
+
+// Helper function to convert pos value to tier type string
+function getPosType(pos){
+  if(pos===0)return"HT";
+  if(pos===1)return"LT";
+  if(pos===2)return"RLT";
+  if(pos===3)return"RHT";
+  return null;
+}
 
 function showBadgeTooltip(badgeEl,mode,ranking){
   clearTimeout(tooltipTimer);
   if(!ranking||ranking.tier==null||ranking.pos==null)return;
-  var ct=ranking.pos===0?"HT":"LT",cl=ct+ranking.tier,cp=tierPoints[ct+ranking.tier]||0;
-  var pts=getRankingPoints(ranking),tcc=ct==="HT"?"ht":"lt";
+  var ct=getPosType(ranking.pos);
+  if(!ct)return;
+  var cl=ct+ranking.tier,cp=tierPoints[cl]||0;
+  var pts=getRankingPoints(ranking),tcc=ct.toLowerCase();
   var h='<div class="badge-tooltip-modes"><img class="badge-tooltip-mode-icon" src="'+iconMap[mode]+'"><span class="badge-tooltip-mode-label">'+esc(modeLabels[mode]||mode)+'</span></div><div class="badge-tooltip-tier '+tcc+'">'+esc(cl)+'</div>';
-  if(ranking.peaked_tier!=null){var pt=ranking.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+ranking.peaked_tier]||0,pl=pt+ranking.peaked_tier;if(pp>cp||pp===cp&&(ranking.peaked_tier!==ranking.tier||ranking.peaked_pos!==ranking.pos)){h+='<div class="badge-tooltip-peaked-section"><div class="badge-tooltip-peak-label">Peak '+esc(pl)+'</div><div class="badge-tooltip-peak-tier">'+esc(pl)+'</div></div>';}}
+  if(ranking.peaked_tier!=null){
+    var pt=getPosType(ranking.peaked_pos);
+    if(pt){
+      var pp=tierPoints[pt+ranking.peaked_tier]||0,pl=pt+ranking.peaked_tier;
+      if(pp>cp||pp===cp&&(ranking.peaked_tier!==ranking.tier||ranking.peaked_pos!==ranking.pos)){
+        h+='<div class="badge-tooltip-peaked-section"><div class="badge-tooltip-peak-label">Peak '+esc(pl)+'</div><div class="badge-tooltip-peak-tier">'+esc(pl)+'</div></div>';
+      }
+    }
+  }
   h+='<div class="badge-tooltip-points"><strong>'+pts+'</strong> points</div>';
-  if(ranking.peaked_tier!=null){var pt2=ranking.peaked_pos===0?"HT":"LT",pp2=tierPoints[pt2+ranking.peaked_tier]||0;if(pp2>cp)h+='<div class="badge-tooltip-points-note">from peaked tier</div>';}
+  if(ranking.peaked_tier!=null){
+    var pt2=getPosType(ranking.peaked_pos);
+    if(pt2){
+      var pp2=tierPoints[pt2+ranking.peaked_tier]||0;
+      if(pp2>cp)h+='<div class="badge-tooltip-points-note">from peaked tier</div>';
+    }
+  }
   tooltipInner.innerHTML=h;
   var r=badgeEl.getBoundingClientRect(),tw=155;
   var t=r.top-tooltipInner.offsetHeight-10,l=r.left+r.width/2-tw/2,ac="";
@@ -618,15 +655,26 @@ function switchSubTab(sm,btn){
 
 function getRankingPoints(r){
   if(!r||r.tier==null||r.pos==null)return 0;
-  var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;
-  if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=r.peaked_pos===0?"HT":"LT";return Math.max(cp,tierPoints[pt+r.peaked_tier]||0);}
+  var ct=getPosType(r.pos);
+  if(!ct)return 0;
+  var cp=tierPoints[ct+r.tier]||0;
+  if(r.peaked_tier!=null&&r.peaked_pos!=null){
+    var pt=getPosType(r.peaked_pos);
+    if(pt){
+      return Math.max(cp,tierPoints[pt+r.peaked_tier]||0);
+    }
+  }
   return cp;
 }
 
 function hasActivePeaked(r){
   if(!r||r.peaked_tier==null||r.peaked_pos==null)return false;
-  var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0;
-  var ct=r.pos===0?"HT":"LT",cp=tierPoints[ct+r.tier]||0;
+  var pt=getPosType(r.peaked_pos);
+  if(!pt)return false;
+  var pp=tierPoints[pt+r.peaked_tier]||0;
+  var ct=getPosType(r.pos);
+  if(!ct)return false;
+  var cp=tierPoints[ct+r.tier]||0;
   return pp>cp||(pp===cp&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos));
 }
 
@@ -671,7 +719,9 @@ function getFilterModes(){
 function buildTierBadgeHTML(mode,ranking,fm){
   if(fm&&fm.indexOf(mode)===-1)return{html:"",pts:0};
   if(!ranking||ranking.tier==null||ranking.pos==null)return{html:"",pts:0};
-  var ct=ranking.pos===0?"HT":"LT",ec=hasActivePeaked(ranking)?"has-peaked":"",pts=getRankingPoints(ranking);
+  var ct=getPosType(ranking.pos);
+  if(!ct)return{html:"",pts:0};
+  var ec=hasActivePeaked(ranking)?"has-peaked":"",pts=getRankingPoints(ranking);
   return{html:'<div class="tier-badge '+ct+" "+ec+'" data-mode="'+esc(mode)+'"><img src="'+iconMap[mode]+'">'+esc(ct+ranking.tier)+"</div>",pts:pts};
 }
 
@@ -681,12 +731,23 @@ function openProfile(p,rank,points,contextLabel){
   se.sort(function(a,b){return getRankingPoints(b[1])-getRankingPoints(a[1]);});
   for(var i=0;i<se.length;i++){
     var m=se[i][0],r=se[i][1];if(!r||r.tier==null||r.pos==null)continue;
-    var ct=r.pos===0?"HT":"LT",cl=ct+r.tier;
+    var ct=getPosType(r.pos);
+    if(!ct)continue;
+    var cl=ct+r.tier;
     var eh='<span class="effective-tier from-current">'+esc(cl)+'</span>';
     if(r.peaked_tier!=null&&r.peaked_pos!=null){
-      var pt=r.peaked_pos===0?"HT":"LT",pp=tierPoints[pt+r.peaked_tier]||0,cp2=tierPoints[ct+r.tier]||0;
-      if(pp>cp2){eh='<span class="current-tier" style="color:var(--text-muted)">'+esc(cl)+'</span> <span class="arrow">\u2192</span> <span class="effective-tier from-peaked">'+esc(pt+r.peaked_tier)+" \u2726</span>";pc++;}
-      else if(pp===cp2&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos)){eh='<span class="effective-tier from-peaked">'+esc(cl)+" \u2726</span>";pc++;}
+      var pt=getPosType(r.peaked_pos);
+      if(pt){
+        var pp=tierPoints[pt+r.peaked_tier]||0,cp2=tierPoints[ct+r.tier]||0;
+        if(pp>cp2){
+          var fromClass=ct==="RLT"||ct==="RHT"?"from-retired":"from-peaked";
+          eh='<span class="current-tier" style="color:var(--text-muted)">'+esc(cl)+'</span> <span class="arrow">\u2192</span> <span class="effective-tier '+fromClass+'">'+esc(pt+r.peaked_tier)+" \u2726</span>";
+          pc++;
+        }else if(pp===cp2&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos)){
+          eh='<span class="effective-tier from-peaked">'+esc(cl)+" \u2726</span>";
+          pc++;
+        }
+      }
     }
     tr+='<div class="profile-current-row"><img class="mode-icon" src="'+iconMap[m]+'"><span class="mode-label">'+esc(modeLabels[m]||m)+'</span>'+eh+'<span style="margin-left:auto;font-size:.63rem;color:var(--text-muted);font-weight:600">'+getRankingPoints(r)+"pts</span></div>";
   }
@@ -705,7 +766,7 @@ function switchInfoTab(tab,btn){
   var tabs=document.querySelectorAll(".info-modal-tab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");
   btn.classList.add("active");
   var panels=document.querySelectorAll(".info-panel");for(var j=0;j<panels.length;j++)panels[j].classList.remove("visible");
-  document.getElementById("info"+tab.charAt(0).toUpperCase()+tab.slice(1)).classList.add("visible");
+  document.getElementById("info"+tab.charAt(0).toUpperCase()+tab.slice(1)).addClass("visible");
 }
 
 function renderRankedView(players,pointFn,forceFilterModes){
@@ -751,7 +812,7 @@ function renderTierGrid(mode,players,isExclusive){
     if(tiers[t].length){
       tiers[t].sort(function(a,b){return a.pos-b.pos;});
       for(var j=0;j<tiers[t].length;j++){
-        var pl=tiers[t][j],div=document.createElement("div"),type=pl.pos===0?"HT":"LT";
+        var pl=tiers[t][j],div=document.createElement("div"),type=getPosType(pl.pos)||"LT";
         div._playerData=pl;div.className="player "+type;
         var peaked=hasActivePeaked(pl.ranking);
         div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="player-name-cell">'+esc(pl.name)+'</span>'+(peaked?'<span class="player-peaked-star">\u2726</span>':"");
@@ -790,21 +851,26 @@ function renderAllTimeTiers(){
     var bracket=document.createElement("div");bracket.className="att-bracket";bracket.style.animationDelay=(mi*0.04)+"s";
     bracket.innerHTML='<div class="att-title" style="color:'+gc+'"><img src="'+iconMap[mode]+'" style="filter:drop-shadow(0 0 4px '+gc+')">'+esc(modeLabels[mode]||mode)+'</div><div class="att-players"></div>';
     var pd=bracket.querySelector(".att-players");
-    var ht1Players=[],lt1Players=[];
+    var ht1Players=[],lt1Players=[],rht1Players=[],rlt1Players=[];
     for(var pi=0;pi<data.length;pi++){
       var p=data[pi],rk=p.rankings&&p.rankings[mode];
       var pos=getBestTier1Pos(rk);
       if(pos===null)continue;
       var entry={name:p.name,uuid:p.uuid,rankings:p.rankings,pos:pos};
-      if(pos===0)ht1Players.push(entry);else lt1Players.push(entry);
+      if(pos===0)ht1Players.push(entry);
+      else if(pos===1)lt1Players.push(entry);
+      else if(pos===3)rht1Players.push(entry);
+      else if(pos===2)rlt1Players.push(entry);
     }
-    var allEntries=ht1Players.concat(lt1Players);
+    var allEntries=ht1Players.concat(lt1Players).concat(rht1Players).concat(rlt1Players);
     if(allEntries.length){
       for(var j=0;j<allEntries.length;j++){
         var pl=allEntries[j],div=document.createElement("div");
-        div.className="att-player "+(pl.pos===0?"ht1":"lt1");
+        var cls=pl.pos===0?"ht1":pl.pos===1?"lt1":pl.pos===3?"rht1":"rlt1";
+        div.className="att-player "+cls;
         div._playerData={name:pl.name,uuid:pl.uuid,rankings:pl.rankings};
-        div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="att-pname">'+esc(pl.name)+'</span><span class="att-tag">'+(pl.pos===0?"HT1":"LT1")+'</span>';
+        var tag=pl.pos===0?"HT1":pl.pos===1?"LT1":pl.pos===3?"RHT1":"RLT1";
+        div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="att-pname">'+esc(pl.name)+'</span><span class="att-tag">'+tag+'</span>';
         (function(plData,md){
           div.onclick=function(){
             openProfile({name:plData.name,uuid:plData.uuid,rankings:plData.rankings},0,getPoints({name:plData.name,rankings:plData.rankings}),"All Time Tiers \u2014 "+(modeLabels[md]||md));
