@@ -72,7 +72,8 @@
       "dsmp": { "tier": 4, "pos": 0 },
       "mace": { "tier": 2, "pos": 0 },
       "axe": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 3, "pos": 1 }
+      "uhc": { "tier": 3, "pos": 1 },
+      "trident": { "tier": 4, "pos": 1 }
     }
   },
   {
