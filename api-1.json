@@ -506,9 +506,18 @@
     }
   },
   {
-    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "uuid": "742ab01a-a987-460d-b871-c30ce7d9caec",
     "name": "Itz_night24",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
+    },
+      {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "Nokuy",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 1 }
+      "npot": { "tier": 3, "pos": 1 }
+      "dpot": { "tier": 3, "pos": 1 }
     }
-]
+  }
