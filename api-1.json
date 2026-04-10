@@ -266,7 +266,7 @@
       "lifesteal": { "tier": 2, "pos": 1 },
       "bridge": { "tier": 4, "pos": 1 },
       "doorpvp": { "tier": 3, "pos": 0 },
-      "shieldlessuhc": { "tier": 3, "pos": 0 },
+      "shieldlessuhc": { "tier": 2, "pos": 1 },
       "trident": { "tier": 3, "pos": 0 }
     }
   },
