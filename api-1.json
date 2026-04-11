@@ -419,7 +419,8 @@
       "uhc": { "tier": 5, "pos": 1},
       "bridge": { "tier": 5, "pos": 0},
       "shieldlessuhc": { "tier": 5, "pos": 1},
-      "lifesteal": { "tier": 5, "pos": 0 }
+      "lifesteal": { "tier": 5, "pos": 0 },
+      "trident": { "tier": 5, "pos": 1 }
     }
   },
   {
