@@ -17,7 +17,7 @@
     "name": "Pwllow",
     "rankings": {
       "sword": { "tier": 1, "pos": 3},
-      "crystal": { "tier": 2, "pos": 0 },
+      "crystal": { "tier": 2, "pos": 1 },
       "uhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 3, "pos": 1 },
@@ -475,7 +475,7 @@
     "uuid": "d8bd00bd-c997-40cd-abda-19bb9fd211da",
     "name": "67DDee",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 0 }
+      "crystal": { "tier": 2, "pos": 0 }
     }
   },
   {
@@ -510,6 +510,13 @@
     "name": "Itz_night24",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "d103d89d-eb15-41df-8d50-ebf9b6626338",
+    "name": "ImACatboyUwU",
+    "rankings": {
+      "crystal": { "tier": 2, "pos": 0 }
     }
   }
 ]
