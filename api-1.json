@@ -171,7 +171,7 @@
     "name": "MilooooooID",
     "rankings": {
       "uhc": { "tier": 5, "pos": 0 },
-      "mace": { "tier": 5, "pos" : 0 },
+      "mace": { "tier": 4, "pos" : 1 },
       "crystal": { "tier": 5, "pos": 0 },
       "dsmp": { "tier": 4, "pos": 0 },
       "sword": { "tier": 4, "pos": 1 }
@@ -294,7 +294,8 @@
     "uuid": "88bd1f55-3354-4fa0-826b-c229f23eb790",
     "name": "KenjiOp200k",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 },
+      "mace": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -386,7 +387,7 @@
     "rankings": {
       "sword": { "tier": 4, "pos": 1 },
       "mace": { "tier": 3, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -403,7 +404,8 @@
     "name": "RinnSTier",
     "rankings": {
       "sword": { "tier": 5, "pos": 0 },
-      "mace": { "tier": 5, "pos": 0 }
+      "dsmp": { "tier": 5, "pos": 0 },
+      "mace": { "tier": 4, "pos": 0 }
     }
   },
   {
