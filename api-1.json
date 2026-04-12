@@ -27,7 +27,7 @@
       "smp": { "tier": 2, "pos": 1 },
       "axe": { "tier": 1, "pos": 0 },
       "bridge": { "tier": 2, "pos": 1 },
-      "speed": { "tier": 3, "pos": 0 },
+      "speed": { "tier": 1, "pos": 1 },
       "ogv": { "tier": 3, "pos": 0 },
       "shieldlessuhc": { "tier": 3, "pos": 0 }
     }
@@ -143,7 +143,7 @@
       "smp": { "tier": 1, "pos" : 1 },
       "ironpot": { "tier": 3, "pos": 0 },
       "doorpvp": { "tier": 3, "pos": 0 },
-      "speed": { "tier": 3, "pos": 0 }
+      "speed": { "tier": 1, "pos": 0 }
     }
   },
   {
@@ -308,7 +308,9 @@
     "name": "MyatIsDumb",
     "rankings": {
       "sword": { "tier": 3, "pos": 0 },
-      "dpot": { "tier": 4, "pos": 0 }
+      "dpot": { "tier": 4, "pos": 0 },
+      "speed": { "tier": 4, "pos": 1 }
+      
     }
   },
   {
