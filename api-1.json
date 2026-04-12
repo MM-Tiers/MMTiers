@@ -478,6 +478,7 @@
     "rankings": {
       "sword": { "tier": 3, "pos": 0 },
       "axe": { "tier": 5, "pos": 0 },
+      "dpot": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 }
     }
   },
