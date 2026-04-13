@@ -271,7 +271,7 @@
       "doorpvp": { "tier": 3, "pos": 0 },
       "shieldlessuhc": { "tier": 2, "pos": 1 },
       "trident": { "tier": 1, "pos": 0 },
-      "ogv": { "tier": 3, "pos": 0 },
+      "ogv": { "tier": 2, "pos": 1 },
       "speed": { "tier": 3, "pos": 1 }
     }
   },
