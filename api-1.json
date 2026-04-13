@@ -256,7 +256,7 @@
     "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
     "name": "Rinleaf",
     "rankings": {
-      "crystal": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
+      "crystal": { "tier": 1, "pos": 3 },
       "mace": { "tier": 3, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
       "uhc": { "tier": 2, "pos": 1 },
@@ -531,7 +531,7 @@
     "uuid": "d103d89d-eb15-41df-8d50-ebf9b6626338",
     "name": "ImACatboyUwU",
     "rankings": {
-      "crystal": { "tier": 1, "pos": 1 }
+      "crystal": { "tier": 1, "pos": 0 }
     }
   },
   {
