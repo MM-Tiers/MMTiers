@@ -314,7 +314,7 @@
       "dpot": { "tier": 4, "pos": 0 },
       "speed": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 4, "pos": 1 },
-      "crystal": { "tier": 4,"pos": 1}
+      "crystal": { "tier": 4,"pos": 1},
       "axe": { "tier": 3, "pos": 0 },
       "bridge": { "tier": 2, "pos": 1 },
       "netpot": { "tier": 3, "pos": 1}
