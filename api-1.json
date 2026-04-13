@@ -308,11 +308,16 @@
   },
   {
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
-    "name": "MyatIsDumb",
+    "name": "tryme___",
     "rankings": {
       "sword": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 4, "pos": 0 },
-      "speed": { "tier": 4, "pos": 1 }
+      "speed": { "tier": 4, "pos": 1 },
+      "uhc": { "tier": 4, "pos": 1 },
+      "crystal": { "tier": 4,"pos": 1}
+      "axe": { "tier": 3, "pos": 0 },
+      "bridge": { "tier": 2, "pos": 1 },
+      "netpot": { "tier": 3, "pos": 1}
       
     }
   },
