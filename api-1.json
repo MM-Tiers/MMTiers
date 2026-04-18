@@ -492,6 +492,8 @@
       "dpot": { "tier": 3, "pos": 1 },
       "cpvp": { "tier": 5, "pos": 1 },
       "cart": { "tier": 5, "pos": 1 },
+      "mace": { "tier": 5, "pos": 0 },
+      "netpot": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 5, "pos": 1 },
       "shieldlessuhc": { "tier": 5, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 }
@@ -576,7 +578,7 @@
   },
   {
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
-    "name": "Felisia Aurel",
+    "name": "Felisia_Aurel",
     "rankings": {
       "axe": { "tier": 5, "pos": 0 }
     }
