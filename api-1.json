@@ -70,7 +70,7 @@
       "sword": { "tier": 4, "pos": 1 },
       "cart": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 4, "pos": 0 },
-      "mace": { "tier": 2, "pos": 0 },
+      "mace": { "tier": 3, "pos": 0 },
       "axe": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 },
       "trident": { "tier": 4, "pos": 1 },
@@ -174,7 +174,9 @@
       "mace": { "tier": 4, "pos" : 1 },
       "crystal": { "tier": 5, "pos": 0 },
       "dsmp": { "tier": 4, "pos": 0 },
-      "sword": { "tier": 4, "pos": 1 }
+      "sword": { "tier": 4, "pos": 1 },
+      "smp": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 4, "pos": 1 }
     }
   },
   {
@@ -225,7 +227,8 @@
       "mace": { "tier": 5, "pos": 0 },
       "doorpvp": { "tier": 3, "pos": 0 },
       "trident": { "tier": 4, "pos": 1 },
-      "speed": { "tier": 5, "pos": 0 }
+      "speed": { "tier": 5, "pos": 0 },
+      "bridge": { "tier": 4, "pos": 1 }
     }
   },
   {
@@ -317,7 +320,8 @@
       "crystal": { "tier": 3,"pos": 1},
       "axe": { "tier": 3, "pos": 0 },
       "bridge": { "tier": 2, "pos": 1 },
-      "netpot": { "tier": 3, "pos": 1}
+      "netpot": { "tier": 3, "pos": 1},
+      "dsmp": { "tier": 4, "pos": 1 }
       
     }
   },
@@ -432,7 +436,8 @@
       "bridge": { "tier": 5, "pos": 0},
       "shieldlessuhc": { "tier": 5, "pos": 1},
       "lifesteal": { "tier": 5, "pos": 0 },
-      "trident": { "tier": 5, "pos": 1 }
+      "trident": { "tier": 5, "pos": 1 },
+      "mace": { "tier": 5, "pos": 1 }
     }
   },
   {
@@ -553,6 +558,20 @@
     "name": "EnzraMc",
     "rankings": {
       "uhc": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "SimplyHein",
+    "rankings": {
+      "UHC": { "tier": 4, "pos": 1 },
+      "dsmp": { "tier": 4, "pos": 0 },
+      "mace": { "tier": 5, "pos": 1 },
+      "axe": { "tier": 5, "pos": 0 },
+      "cart": { "tier": 5, "pos": 1 },
+      "npot": { "tier": 5, "pos": 0 },
+      "dpot": { "tier": 5, "pos": 0 },
+      "smp": { "tier": 5, "pos": 0}
     }
   }
 ]
