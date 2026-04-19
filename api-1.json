@@ -589,5 +589,19 @@
     "rankings": {
       "crystal": { "tier": 5, "pos": 0 }
     }
+  },
+  {
+    "uuid": "226761ac-8450-469a-b267-4342dffa7cd0",
+    "name": "OriginallyNero",
+    "rankings": {
+      "mace": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "64c585ce-a4c2-4713-9783-b2ce5e0face0",
+    "name": "Crucifyr",
+    "rankings": {
+      "mace": { "tier": 3, "pos": 1 }
+    }
   }
 ]
