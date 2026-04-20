@@ -127,7 +127,8 @@
       "smp": { "tier": 4, "pos": 0 },
       "uhc": { "tier": 3, "pos": 0 },
       "axe": { "tier": 3, "pos": 1 },
-      "shieldlessuhc": { "tier": 3, "pos": 0 }
+      "shieldlessuhc": { "tier": 3, "pos": 0 },
+      "netpot": { "tier": 3, "pos": 0 }
     }
   },
   {
