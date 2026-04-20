@@ -492,12 +492,12 @@
       "sword": { "tier": 3, "pos": 0 },
       "axe": { "tier": 4, "pos": 0 },
       "dpot": { "tier": 3, "pos": 0 },
-      "cpvp": { "tier": 5, "pos": 0 },
-      "cart": { "tier": 5, "pos": 0 },
-      "mace": { "tier": 5, "pos": 0 },
+      "cpvp": { "tier": 4, "pos": 1 },
+      "cart": { "tier": 4, "pos": 1 },
+      "mace": { "tier": 4, "pos": 0 },
       "netpot": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 3, "pos": 1 },
-      "shieldlessuhc": { "tier": 4, "pos": 0 },
+      "shieldlessuhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 }
     }
   },
