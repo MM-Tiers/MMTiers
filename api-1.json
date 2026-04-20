@@ -496,7 +496,7 @@
       "cart": { "tier": 4, "pos": 0 },
       "mace": { "tier": 4, "pos": 0 },
       "netpot": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 0 },
       "shieldlessuhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 0 }
     }
