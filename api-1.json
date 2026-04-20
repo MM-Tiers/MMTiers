@@ -605,5 +605,12 @@
     "rankings": {
       "mace": { "tier": 3, "pos": 1 }
     }
+  },
+  {
+    "uuid": "44a87a41-3a99-40cb-a6d3-276803dc33c8",
+    "name": "Alexyzax",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
+    }
   }
 ]
