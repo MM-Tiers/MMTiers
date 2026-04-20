@@ -414,7 +414,8 @@
     "rankings": {
       "sword": { "tier": 5, "pos": 0 },
       "dsmp": { "tier": 5, "pos": 0 },
-      "mace": { "tier": 4, "pos": 0 }
+      "mace": { "tier": 3, "pos": 0 },
+      "crystal": { "tier": 4, "pos": 1 }
     }
   },
   {
