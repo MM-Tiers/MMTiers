@@ -477,7 +477,7 @@ var iconMap={
   bridge:"https://z-cdn-media.chatglm.cn/files/c6eee831-0199-416d-8bc6-34882909d53c.jpg?auth_key=1875451015-aee65c0cf8ea495d897d11e03f8d95b2-0-af67ed88553abb43eded0bee28aecc69",
   lifesteal:"https://z-cdn-media.chatglm.cn/files/1a69385a-0a1a-445d-b674-da18854b516a.png?auth_key=1875451015-01954c63d4f44da9a1c1cab094a048c5-0-4391b84428874c19a5a384edb506b102",
   ironpot:"https://z-cdn-media.chatglm.cn/files/628b6903-1bde-480e-bf83-c0ca124f318e.png?auth_key=1875708167-10877e0e7cdf498c8f3f8d4ce42bd9b8-0-f5b44dc4cd09ac44cda843ed601e0d8b",
-  doorpvp:"https://z-cdn-media.chatglm.cn/files/bcc4c9d2-3432-4e6a-8ac8-349581135d5c.png?auth_key=1875708167-ab1199e3f59044e9834e97c4177f2e5e-0-48aed79257c73008a045c4ae3a54eb56",
+  spmace:"https://z-cdn-media.chatglm.cn/files/8f880e89-d18c-4254-bc7c-909f0dca2bbe.png?auth_key=1876752703-b9b5e577748b447d81c52b238aef7c3c-0-7a85aff27ef503dbf616515fc478a1c1",
   speed:"https://z-cdn-media.chatglm.cn/files/56382859-860e-4d6b-a056-51046d2f45ab.png?auth_key=1875708167-b2db69589ded44f5938d390e930ea5c2-0-a49bb98e9859fe84e7247b71735d5153",
   ogv:"https://z-cdn-media.chatglm.cn/files/159ac58f-3140-4a2e-9314-95a715abe657.png?auth_key=1875708167-13f8e4666c1f49d68891ed020be0f29a-0-2a50e43b864516cb9f9a82488e25f71a",
   shieldlessuhc:"https://z-cdn-media.chatglm.cn/files/7d5e01e6-ab59-4f92-8a6b-252a2b498407.png?auth_key=1875708167-8306c0be2cba41508132db2b6661aba6-0-2b8c0046e9a94f7873d65af537b7f375",
@@ -488,7 +488,7 @@ var modeColorMap={
   sword:"#7dd3fc",axe:"#7dd3fc",uhc:"#fb923c",crystal:"#f0abfc",mace:"#a3a3a3",
   dpot:"#c084fc",netpot:"#a8a29e",smp:"#4ade80",cart:"#f87171",dsmp:"#60a5fa",
   bridge:"#60a5fa",lifesteal:"#f87171",
-  ironpot:"#b0b8c4",doorpvp:"#8b95a5",speed:"#38bdf8",
+  ironpot:"#b0b8c4",spmace:"#8b95a5",speed:"#38bdf8",
   ogv:"#fbbf24",shieldlessuhc:"#f59e0b",trident:"#2dd4bf"
 };
 
@@ -496,13 +496,13 @@ var modeLabels={
   sword:"Sword",axe:"Axe",uhc:"UHC",crystal:"Crystal",mace:"Mace",
   dpot:"DPot",netpot:"NetPot",smp:"SMP",cart:"Cart",dsmp:"DSMP",
   bridge:"Bridge",lifesteal:"Lifesteal",
-  ironpot:"Iron Pot",doorpvp:"Door PVP",speed:"Speed",
+  ironpot:"Iron Pot",spmace:"Spear Mace",speed:"Speed",
   ogv:"OGV",shieldlessuhc:"Shieldless UHC",trident:"Trident"
 };
 
 var modes=["halloffame","overall","maintiers","subtiers","exclusivetiers"];
 var mainModes=["sword","axe","uhc","crystal","mace","dpot","netpot","smp"];
-var subModes=["dsmp","cart","ironpot","doorpvp","speed","ogv","shieldlessuhc","trident"];
+var subModes=["dsmp","cart","ironpot","spmace","speed","ogv","shieldlessuhc","trident"];
 var exclusiveModes=["bridge","lifesteal"];
 var allModes=mainModes.concat(subModes).concat(exclusiveModes);
 
@@ -769,6 +769,31 @@ function switchInfoTab(tab,btn){
   document.getElementById("info"+tab.charAt(0).toUpperCase()+tab.slice(1)).addClass("visible");
 }
 
+function render(){
+  var container=document.getElementById("leaderboard");
+  var search=document.getElementById("searchInput").value.toLowerCase();
+  var players=data.filter(function(p){return p.name.toLowerCase().indexOf(search)!==-1;});
+  container.innerHTML="";
+  if(currentMode==="halloffame"){
+    if(currentSubMode==="credits")renderCredits();
+    else if(currentSubMode==="alltime")renderAllTimeTiers();
+    return;
+  }
+  if(currentMode==="overall"){renderRankedView(players,getOverallPoints);return;}
+  if(currentMode==="maintiers"){
+    if(currentSubMode==="all"){renderRankedView(players,getMainPoints);return;}
+    renderTierGrid(currentSubMode,players,false);return;
+  }
+  if(currentMode==="subtiers"){
+    if(currentSubMode==="all"){renderRankedView(players,getSubPoints);return;}
+    renderTierGrid(currentSubMode,players,false);return;
+  }
+  if(currentMode==="exclusivetiers"){
+    if(currentSubMode==="all"){renderRankedView(players,getExclusivePoints);return;}
+    renderTierGrid(currentSubMode,players,true);return;
+  }
+}
+
 function renderRankedView(players,pointFn,forceFilterModes){
   var container=document.getElementById("leaderboard"),filterModes=forceFilterModes||getFilterModes(),frag=document.createDocumentFragment();
   var displayList=players.map(function(p){return{name:p.name,uuid:p.uuid,rankings:p.rankings,points:pointFn(p)};}).filter(function(p){return p.points>0;});
@@ -901,34 +926,7 @@ function renderCredits(){
   frag.appendChild(wrapper);container.appendChild(frag);
 }
 
-function render(){
-  var container=document.getElementById("leaderboard");
-  var search=document.getElementById("searchInput").value.toLowerCase();
-  var players=data.filter(function(p){return p.name.toLowerCase().indexOf(search)!==-1;});
-  container.innerHTML="";
-  if(currentMode==="halloffame"){
-    if(currentSubMode==="credits")renderCredits();
-    else if(currentSubMode==="alltime")renderAllTimeTiers();
-    return;
-  }
-  if(currentMode==="overall"){renderRankedView(players,getOverallPoints);return;}
-  if(currentMode==="maintiers"){
-    if(currentSubMode==="all"){renderRankedView(players,getMainPoints);return;}
-    renderTierGrid(currentSubMode,players,false);return;
-  }
-  if(currentMode==="subtiers"){
-    if(currentSubMode==="all"){renderRankedView(players,getSubPoints);return;}
-    renderTierGrid(currentSubMode,players,false);return;
-  }
-  if(currentMode==="exclusivetiers"){
-    if(currentSubMode==="all"){renderRankedView(players,getExclusivePoints);return;}
-    renderTierGrid(currentSubMode,players,true);return;
-  }
-}
-
 document.getElementById("searchInput").addEventListener("input",function(){clearTimeout(searchTimeout);searchTimeout=setTimeout(render,200);});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeModal();closeInfoModal();}});
 window.addEventListener("DOMContentLoaded",init);
 </script>
-</body>
-</html>
