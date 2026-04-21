@@ -119,7 +119,7 @@
     "uuid": "d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",
     "name": "ItzMr_greenX2",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 3, "pos": 0 },
       "sword": { "tier": 3, "pos": 0 },
       "cart": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 0 },
@@ -129,6 +129,7 @@
       "axe": { "tier": 3, "pos": 1 },
       "shieldlessuhc": { "tier": 3, "pos": 0 },
       "netpot": { "tier": 3, "pos": 0 }
+      "mace": { "tier": 4, "pos": 0 }
     }
   },
   {
