@@ -97,11 +97,12 @@
     "uuid": "6922774c-b5e2-45d7-941f-87ca334520bf",
     "name": "7taps__",
     "rankings": {
-      "uhc": { "tier": 4, "pos": 0 },
+      "uhc": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
       "cart": { "tier": 2, "pos": 1 },
-      "axe": { "tier": 3, "pos": 1 }
+      "axe": { "tier": 3, "pos": 1 },
+      "dpot": { "tier": 3, "pos": 1 }
     }
   },
   {
