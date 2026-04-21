@@ -330,7 +330,10 @@
     "uuid": "1a4619b3-9d36-49de-b9db-462cf4bf7c46",
     "name": "EibmozNPC",
     "rankings": {
-      "dsmp": { "tier": 3, "pos": 1 }
+      "dsmp": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 3, "pos": 1 },
+      "cart": { "tier": 3, "pos": 1 }
     }
   },
   {
