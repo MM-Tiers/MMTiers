@@ -31,7 +31,8 @@
       "bridge": { "tier": 2, "pos": 1 },
       "speed": { "tier": 1, "pos": 1 },
       "ogv": { "tier": 3, "pos": 0 },
-      "shieldlessuhc": { "tier": 3, "pos": 0 }
+      "shieldlessuhc": { "tier": 3, "pos": 0 },
+      "spmace": { "tier" 3 , "pos": 0 }
     }
   },
   {
@@ -76,7 +77,8 @@
       "axe": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 },
       "trident": { "tier": 4, "pos": 1 },
-      "lifesteal": { "tier": 4, "pos": 1 }
+      "lifesteal": { "tier": 4, "pos": 1 },
+      "spmace": { "tier": 2, "pos": 1 }
     }
   },
   {
