@@ -387,7 +387,8 @@
     "uuid": "ba8d71b0-d215-4c67-b334-05af340bbbc9",
     "name": "xVocal_",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 },
+      "uhc": { "tier": 4, "pos": 0 }
     }
   },
   {
