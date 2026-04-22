@@ -256,7 +256,7 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "Dummina",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 3, "pos": 0 },
       "axe": { "tier": 4, "pos": 0 },
       "uhc": { "tier": 4, "pos": 1 },
       "sword": { "tier": 4, "pos": 0 }
