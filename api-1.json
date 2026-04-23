@@ -44,7 +44,7 @@
       "sword": { "tier": 2, "pos": 1, "peaked_tier": 2, "peaked_pos": 1 },
       "dpot": { "tier": 2, "pos": 1 },
       "axe": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 0 },
-      "smp": { "tier": 1, "pos": 1 },
+      "smp": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
       "bridge": { "tier": 1, "pos": 0 }
@@ -62,7 +62,8 @@
       "dpot": { "tier": 4, "pos": 0 },
       "netpot": { "tier": 3, "pos": 1 },
       "lifesteal": { "tier": 3, "pos": 1 },
-      "bridge": { "tier": 4, "pos": 0 }
+      "bridge": { "tier": 4, "pos": 0 },
+      "smp": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -161,7 +162,8 @@
     "rankings": {
       "uhc": { "tier": 5, "pos": 1 },
       "axe": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 3, "pos": 1 }
+      "sword": { "tier": 3, "pos": 1 },
+      "smp": { "tier": 3, "pos": 0 }
     }
   },
   {
