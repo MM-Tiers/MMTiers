@@ -641,6 +641,17 @@
     "rankings": {
       "crystal": { "tier": 4, "pos": 1 },
       "sword": { "tier": 5, "pos": 0 }
+}
+  },
+  {
+    "uuid": "41ba8400-3f5f-4664-8ffc-2b053c516b4f",
+    "name": "AgentJackkzz",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 1 },
+      "sword": { "tier": 4, "pos": 0 },
+      "uhc": { "tier": 4, "pos": 1 },
+      "mace": { "tier": 3, "pos": 1 },
+      "netpot": { "tier": 4, "pos": 1 }
     }
   }
 ]
