@@ -6,7 +6,7 @@
       "mace": { "tier": 1, "pos": 2 },
       "uhc": { "tier": 1, "pos": 1 },
       "cart": { "tier": 2, "pos": 1 },
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
       "smp": { "tier": 2, "pos": 0 },
       "dsmp": { "tier": 1, "pos": 1 },
@@ -272,7 +272,7 @@
     "rankings": {
       "crystal": { "tier": 1, "pos": 3 },
       "mace": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 2, "pos": 1 },
       "uhc": { "tier": 2, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 3, "pos": 0 },
