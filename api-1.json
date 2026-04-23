@@ -453,7 +453,7 @@
       "shieldlessuhc": { "tier": 5, "pos": 0},
       "lifesteal": { "tier": 5, "pos": 0 },
       "trident": { "tier": 5, "pos": 1 },
-      "mace": { "tier": 5, "pos": 0 }
+      "mace": { "tier": 5, "pos": 0 },
       "speed": { "tier": 5, "pos": 0 }
     }
   },
