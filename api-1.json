@@ -107,7 +107,8 @@
       "crystal": { "tier": 3, "pos": 1 },
       "cart": { "tier": 2, "pos": 1 },
       "axe": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 3, "pos": 1 }
+      "dpot": { "tier": 3, "pos": 1 },
+      "smp": { "tier": 3, "pos": 1 }
     }
   },
   {
