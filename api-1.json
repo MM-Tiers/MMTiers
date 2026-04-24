@@ -121,7 +121,8 @@
       "axe": { "tier": 4, "pos": 1 },
       "sword": { "tier": 5, "pos": 0 },
       "uhc": { "tier": 5, "pos": 1 },
-      "mace": { "tier": 5, "pos": 0 }
+      "mace": { "tier": 5, "pos": 0 },
+      "netpot": { "tier": 3, "pos": 1 }
     }
   },
   {
