@@ -319,7 +319,7 @@
     "name": "360Ascendant",
     "rankings": {
       "dsmp": { "tier": 4, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 0 }
     }
   },
   {
