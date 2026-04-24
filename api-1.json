@@ -677,6 +677,14 @@
     "rankings": {
       "axe": { "tier": 5, "pos": 1 },
       "sword": { "tier": 5, "pos": 1 }
+}
+  },
+  {
+    "uuid": "13517b01-289b-48d3-81e2-3f90465e8029",
+    "name": "HulkSpect",
+    "rankings": {
+      "axe": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 3, "pos": 1 }
     }
   }
 ]
