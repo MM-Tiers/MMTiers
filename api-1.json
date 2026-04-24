@@ -654,6 +654,14 @@
       "mace": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 4, "pos": 1 },
       "dsmp": { "tier": 4, "pos": 0 }
+}
+  },
+  {
+    "uuid": "c6aaef77-981c-43d3-8506-97b8744aaaa2",
+    "name": "jetterfly_",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 0 },
+      "uhc": { "tier": 3, "pos": 1 }
     }
   }
 ]
