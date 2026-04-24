@@ -210,7 +210,8 @@
     "rankings": {
       "crystal": { "tier": 4, "pos": 0 },
       "axe": { "tier": 5, "pos": 0 },
-      "dsmp": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 },
+      "cart": { "tier": 5, "pos": 0 }
     }
   },
   {
