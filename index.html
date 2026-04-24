@@ -74,6 +74,10 @@ header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-betw
 .tab[data-mode="halloffame"] .tab-emoji{filter:drop-shadow(0 0 3px rgba(251,191,36,.3))}
 .tab[data-mode="halloffame"].active{color:#fbbf24;border-color:rgba(251,191,36,.7);box-shadow:0 0 0 1.5px rgba(251,191,36,.65),0 0 10px rgba(251,191,36,.35),0 0 22px rgba(251,146,60,.12),inset 0 1px 0 rgba(251,191,36,.1);text-shadow:0 0 10px rgba(251,191,36,.6)}
 .tab[data-mode="halloffame"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(251,191,36,.8)) drop-shadow(0 0 12px rgba(251,146,60,.5))}
+.tab[data-mode="overall"]{color:rgba(251,191,36,.5);text-shadow:0 0 6px rgba(251,191,36,.18);background:rgba(251,191,36,.015);border-color:rgba(251,191,36,.04)}
+.tab[data-mode="overall"] .tab-emoji{filter:drop-shadow(0 0 3px rgba(251,191,36,.3))}
+.tab[data-mode="overall"].active{color:#fbbf24;border-color:rgba(251,191,36,.7);box-shadow:0 0 0 1.5px rgba(251,191,36,.65),0 0 10px rgba(251,191,36,.35),0 0 22px rgba(251,146,60,.12),inset 0 1px 0 rgba(251,191,36,.1);text-shadow:0 0 10px rgba(251,191,36,.6)}
+.tab[data-mode="overall"].active .tab-emoji{filter:drop-shadow(0 0 6px rgba(251,191,36,.8)) drop-shadow(0 0 12px rgba(251,146,60,.5))}
 .tab[data-mode="maintiers"]{color:rgba(34,211,238,.45);text-shadow:0 0 6px rgba(34,211,238,.15);background:rgba(34,211,238,.015);border-color:rgba(34,211,238,.04)}
 .tab[data-mode="maintiers"] .tab-emoji{filter:drop-shadow(0 0 3px rgba(34,211,238,.25))}
 .tab[data-mode="maintiers"].active{color:#22d3ee;border-color:rgba(34,211,238,.7);box-shadow:0 0 0 1.5px rgba(34,211,238,.6),0 0 10px rgba(34,211,238,.3),0 0 22px rgba(248,113,113,.08),inset 0 1px 0 rgba(34,211,238,.08);text-shadow:0 0 10px rgba(34,211,238,.5)}
@@ -496,8 +500,7 @@ var modeLabels={
   ogv:"OGV",shieldlessuhc:"Shieldless UHC",trident:"Trident"
 };
 
-// Removed "overall" from modes array
-var modes=["halloffame","maintiers","subtiers","exclusivetiers"];
+var modes=["halloffame","overall","maintiers","subtiers","exclusivetiers"];
 var mainModes=["sword","axe","uhc","crystal","mace","dpot","netpot","smp"];
 var subModes=["dsmp","cart","ironpot","spmace","speed","ogv","shieldlessuhc","trident"];
 var exclusiveModes=["bridge","lifesteal"];
@@ -511,7 +514,7 @@ var hallOfFame=[
 
 // Updated tier points to include retired tiers (RHT and RLT)
 var tierPoints={HT1:60,LT1:45,HT2:30,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1,RHT1:60,RLT1:45,RHT2:30,RLT2:20,RHT3:10,RLT3:6,RHT4:4,RLT4:3,RHT5:2,RLT5:1};
-var data=[],currentMode="maintiers",currentSubMode=null,searchTimeout=null,tooltipTimer=null;
+var data=[],currentMode="overall",currentSubMode=null,searchTimeout=null,tooltipTimer=null;
 var tooltipEl=document.getElementById("badgeTooltip"),tooltipInner=document.getElementById("badgeTooltipInner");
 
 // Helper function to convert pos value to tier type string
@@ -596,12 +599,12 @@ async function loadLeaderboard(){
 
 function createTabs(){
   var t=document.getElementById("tabs");
-  var emojis={halloffame:"\uD83C\uDFC6",maintiers:"\uD83D\uDDE1",subtiers:"\uD806\uDD13",exclusivetiers:"\u26A1"};
-  var labels={halloffame:"Hall of Fame",maintiers:"Main Tiers",subtiers:"Sub Tiers",exclusivetiers:"Exclusive Tiers"};
+  var emojis={halloffame:"\uD83C\uDFC6",overall:"\u2B50",maintiers:"\uD83D\uDDE1",subtiers:"\uD806\uDD13",exclusivetiers:"\u26A1"};
+  var labels={halloffame:"Hall of Fame",overall:"Overall",maintiers:"Main Tiers",subtiers:"Sub Tiers",exclusivetiers:"Exclusive Tiers"};
   for(var i=0;i<modes.length;i++){
     var m=modes[i];
-    // Removed separator logic since we removed the "overall" tab
-    var b=document.createElement("button");b.className="tab";if(m==="maintiers")b.classList.add("active");
+    if(i===1){var sep=document.createElement("div");sep.className="tab-separator";t.appendChild(sep);}
+    var b=document.createElement("button");b.className="tab";if(m==="overall")b.classList.add("active");
     b.dataset.mode=m;b.innerHTML='<span class="tab-emoji">'+emojis[m]+'</span>'+labels[m];
     b.setAttribute("tabindex","0");b.setAttribute("role","tab");
     (function(mode,btn){btn.onclick=function(){switchTab(mode,btn);};btn.onkeydown=function(e){if(e.key==="Enter")switchTab(mode,btn);};})(m,b);
@@ -696,15 +699,16 @@ function getCategoryPointFn(){
   if(currentMode==="maintiers")return getMainPoints;
   if(currentMode==="subtiers")return getSubPoints;
   if(currentMode==="exclusivetiers")return getExclusivePoints;
-  return getMainPoints; // Default to main points instead of overall
+  return getOverallPoints;
 }
 function getCategoryLabel(){
   if(currentMode==="maintiers")return"Main Tiers";
   if(currentMode==="subtiers")return"Sub Tiers";
   if(currentMode==="exclusivetiers")return"Exclusive Tiers";
-  return"Main Tiers"; // Default label
+  return"Overall";
 }
 function getFilterModes(){
+  if(currentMode==="overall")return allModes.filter(function(m){return exclusiveModes.indexOf(m)===-1;});
   if(currentSubMode&&currentSubMode!=="all"&&currentSubMode!=="credits"&&currentSubMode!=="alltime")return[currentSubMode];
   if(currentMode==="maintiers")return mainModes;
   if(currentMode==="subtiers")return subModes;
@@ -749,7 +753,7 @@ function openProfile(p,rank,points,contextLabel){
   }
   var ctxHTML=contextLabel?'<div class="profile-context">'+esc(contextLabel)+'</div>':"";
   var tp=0;for(var k2 in rk){if(rk.hasOwnProperty(k2)&&rk[k2].peaked_tier!=null&&hasActivePeaked(rk[k2]))tp++;}
-  content.innerHTML='<button class="close" onclick="closeModal()" aria-label="Close profile">\u2715</button><img class="profile-avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" onerror="this.classList.add('avatar-error')"><div class="profile-name">'+esc(p.name)+'</div><div class="profile-rank '+ti.cls+'">'+esc(ti.name)+'</div><div class="profile-stats">#'+rank+" \u2022 "+points+" points"+(tp>0?" \u2022 \u2726 "+tp+" peaked":"")+"</div>"+ctxHTML+'<div class="profile-tiers-label">Tier Breakdown</div><div style="text-align:left">'+(tr||'<div style="text-align:center;font-size:.75rem;color:var(--text-muted);padding:12px 0">No tiers</div>')+'</div>'+(pc>0?'<div class="profile-peaked-section"><div style="font-size:.63rem;color:var(--peaked);text-align:center;font-weight:500">\u2726 = points from peaked tier</div></div>':"");
+  content.innerHTML='<button class="close" onclick="closeModal()" aria-label="Close profile">\u2715</button><img class="profile-avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" onerror="this.classList.add(\'avatar-error\')"><div class="profile-name">'+esc(p.name)+'</div><div class="profile-rank '+ti.cls+'">'+esc(ti.name)+'</div><div class="profile-stats">#'+rank+" \u2022 "+points+" points"+(tp>0?" \u2022 \u2726 "+tp+" peaked":"")+"</div>"+ctxHTML+'<div class="profile-tiers-label">Tier Breakdown</div><div style="text-align:left">'+(tr||'<div style="text-align:center;font-size:.75rem;color:var(--text-muted);padding:12px 0">No tiers</div>')+'</div>'+(pc>0?'<div class="profile-peaked-section"><div style="font-size:.63rem;color:var(--peaked);text-align:center;font-weight:500">\u2726 = points from peaked tier</div></div>':"");
   document.getElementById("modal").classList.remove("hidden");
 }
 function closeModal(){document.getElementById("modal").classList.add("hidden");}
@@ -775,7 +779,7 @@ function render(){
     else if(currentSubMode==="alltime")renderAllTimeTiers();
     return;
   }
-  // Removed overall mode handling, now defaults to appropriate category view
+  if(currentMode==="overall"){renderRankedView(players,getOverallPoints);return;}
   if(currentMode==="maintiers"){
     if(currentSubMode==="all"){renderRankedView(players,getMainPoints);return;}
     renderTierGrid(currentSubMode,players,false);return;
@@ -804,7 +808,7 @@ function renderRankedView(players,pointFn,forceFilterModes){
     for(var k in rk){if(rk.hasOwnProperty(k)){var res=buildTierBadgeHTML(k,rk[k],filterModes);if(res.html)tierEntries.push({html:res.html,pts:res.pts});}}
     tierEntries.sort(function(a,b){return b.pts-a.pts;});var tiersHTML="";for(var j=0;j<tierEntries.length;j++)tiersHTML+=tierEntries[j].html;
     var ti=getAchievementTitle(p.points);
-    row.innerHTML='<img class="avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" loading="lazy" onerror="this.classList.add('avatar-error')"><div class="player-info"><div class="name-line"><span class="rank">#'+p.rank+'</span><span class="player-name">'+esc(p.name)+'</span></div><span class="achievement '+ti.cls+'">'+esc(ti.name)+'</span><div class="points">'+p.points+" pts</div></div>"+(tiersHTML?'<div class="tiers-grid">'+tiersHTML+"</div>":"");
+    row.innerHTML='<img class="avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><div class="player-info"><div class="name-line"><span class="rank">#'+p.rank+'</span><span class="player-name">'+esc(p.name)+'</span></div><span class="achievement '+ti.cls+'">'+esc(ti.name)+'</span><div class="points">'+p.points+" pts</div></div>"+(tiersHTML?'<div class="tiers-grid">'+tiersHTML+"</div>":"");
     (function(pl,rk2,pts2){row.onclick=function(){openProfile(pl,rk2,pts2);};row.onkeydown=function(e){if(e.key==="Enter")openProfile(pl,rk2,pts2);};})(p,p.rank,p.points);
     frag.appendChild(row);
   }
@@ -836,7 +840,7 @@ function renderTierGrid(mode,players,isExclusive){
         var pl=tiers[t][j],div=document.createElement("div"),type=getPosType(pl.pos)||"LT";
         div._playerData=pl;div.className="player "+type;
         var peaked=hasActivePeaked(pl.ranking);
-        div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add('avatar-error')"><span class="player-name-cell">'+esc(pl.name)+'</span>'+(peaked?'<span class="player-peaked-star">\u2726</span>':"");
+        div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="player-name-cell">'+esc(pl.name)+'</span>'+(peaked?'<span class="player-peaked-star">\u2726</span>':"");
         (function(plData,md){
           div.onclick=function(){
             var fn=getCategoryPointFn(),pts=fn({name:plData.name,rankings:plData.rankings});
@@ -891,7 +895,7 @@ function renderAllTimeTiers(){
         div.className="att-player "+cls;
         div._playerData={name:pl.name,uuid:pl.uuid,rankings:pl.rankings};
         var tag=pl.pos===0?"HT1":pl.pos===1?"LT1":pl.pos===3?"RHT1":"RLT1";
-        div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add('avatar-error')"><span class="att-pname">'+esc(pl.name)+'</span><span class="att-tag">'+tag+'</span>';
+        div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="att-pname">'+esc(pl.name)+'</span><span class="att-tag">'+tag+'</span>';
         (function(plData,md){
           div.onclick=function(){
             openProfile({name:plData.name,uuid:plData.uuid,rankings:plData.rankings},0,getPoints({name:plData.name,rankings:plData.rankings}),"All Time Tiers \u2014 "+(modeLabels[md]||md));
@@ -916,7 +920,7 @@ function renderCredits(){
   for(var i=0;i<hallOfFame.length;i++){
     var e=hallOfFame[i],cfg=cardConfigs[i];
     var card=document.createElement("div");card.className="credit-card "+cfg.cls;card.style.animationDelay=(i*0.1)+"s";
-    card.innerHTML='<img class="credit-avatar" src="https://mc-heads.net/body/'+e.uuid+'/120" onerror="this.classList.add('avatar-error')"><div class="credit-name">'+esc(e.name)+'</div><div class="credit-role '+cfg.roleCls+'">'+esc(e.role)+'</div><div class="credit-divider '+cfg.divCls+'"></div>';
+    card.innerHTML='<img class="credit-avatar" src="https://mc-heads.net/body/'+e.uuid+'/120" onerror="this.classList.add(\'avatar-error\')"><div class="credit-name">'+esc(e.name)+'</div><div class="credit-role '+cfg.roleCls+'">'+esc(e.role)+'</div><div class="credit-divider '+cfg.divCls+'"></div>';
     wrapper.appendChild(card);
   }
   frag.appendChild(wrapper);container.appendChild(frag);
@@ -926,4 +930,3 @@ document.getElementById("searchInput").addEventListener("input",function(){clear
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeModal();closeInfoModal();}});
 window.addEventListener("DOMContentLoaded",init);
 </script>
-
