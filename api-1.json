@@ -279,7 +279,7 @@
       "dsmp": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 3, "pos": 0 },
       "netpot": { "tier": 2, "pos": 1 },
-      "smp": { "tier": 1, "pos": 0 },
+      "smp": { "tier": 1, "pos": 0,"peaked_tier": 1, "peaked_pos": 0},
       "cart": { "tier": 1, "pos": 3 },
       "axe": { "tier": 2, "pos": 0 },
       "lifesteal": { "tier": 2, "pos": 1 },
