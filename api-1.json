@@ -632,7 +632,8 @@
     "uuid": "64c585ce-a4c2-4713-9783-b2ce5e0face0",
     "name": "Crucifyr",
     "rankings": {
-      "mace": { "tier": 3, "pos": 1 }
+      "mace": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 4, "pos": 1 }
     }
   },
   {
