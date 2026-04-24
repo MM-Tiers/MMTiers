@@ -662,6 +662,13 @@
     "rankings": {
       "crystal": { "tier": 4, "pos": 0 },
       "uhc": { "tier": 3, "pos": 1 }
+}
+  },
+  {
+    "uuid": "195153b3-8fca-4aff-8c58-95f5cb07cbea",
+    "name": "qMarco",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
     }
   }
 ]
