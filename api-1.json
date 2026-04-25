@@ -369,7 +369,8 @@
       "crystal": { "tier": 3, "pos": 1 },
       "axe": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 2, "pos": 1 }
+      "smp": { "tier": 2, "pos": 1 },
+      "mace": { "tier": 3, "pos": 1 }
     }
   },
   {
