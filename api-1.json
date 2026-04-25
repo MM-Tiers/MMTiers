@@ -112,20 +112,6 @@
     }
   },
   {
-    "uuid": "72af842d-3c5b-4517-b54e-ccc382ed8435",
-    "name": "NewbiePlayzXD",
-    "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 4, "pos": 0 },
-      "dsmp": { "tier": 4, "pos": 1 },
-      "axe": { "tier": 4, "pos": 1 },
-      "sword": { "tier": 3, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 1 },
-      "mace": { "tier": 5, "pos": 0 },
-      "netpot": { "tier": 3, "pos": 1 }
-    }
-  },
-  {
     "uuid": "d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",
     "name": "ItzMr_greenX2",
     "rankings": {
