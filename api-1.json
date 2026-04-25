@@ -705,6 +705,13 @@
     "rankings": {
       "dsmp": { "tier": 4, "pos": 0 },
       "crystal": { "tier": 4, "pos": 1 }
+}
+  },
+  {
+    "uuid": "b132f32b-4449-4652-bcb2-3f02400c15be",
+    "name": "tardigrade37",
+    "rankings": {
+      "sword": { "tier": 3, "pos": 1 }
     }
   }
 ]
