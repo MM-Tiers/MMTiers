@@ -236,7 +236,7 @@
     "name": "albxzo",
     "rankings": {
       "crystal": { "tier": 2, "pos": 0 },
-      "sword": { "tier": 4, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "axe": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 4, "pos": 1 },
       "mace": { "tier": 5, "pos": 0 },
@@ -590,21 +590,6 @@
     "name": "EnzraMc",
     "rankings": {
       "uhc": { "tier": 4, "pos": 0 }
-    }
-  },
-  {
-    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
-    "name": "SimplyHein",
-    "rankings": {
-      "uhc": { "tier": 4, "pos": 1 },
-      "dsmp": { "tier": 4, "pos": 0 },
-      "mace": { "tier": 5, "pos": 0 },
-      "axe": { "tier": 5, "pos": 0 },
-      "cart": { "tier": 5, "pos": 1 },
-      "netpot": { "tier": 5, "pos": 0 },
-      "dpot": { "tier": 5, "pos": 0 },
-      "smp": { "tier": 5, "pos": 0},
-      "sword": { "tier": 4, "pos": 1 }
     }
   },
   {
