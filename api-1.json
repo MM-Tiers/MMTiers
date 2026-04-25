@@ -674,7 +674,8 @@
     "uuid": "b6836ba0-f117-4cc0-a22d-ffb27f2c31b5",
     "name": "RepWep",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 }
+      "crystal": { "tier": 4, "pos": 1 },
+      "sword": { "tier": 3, "pos": 1 }
 }
   },
   {
@@ -702,7 +703,8 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "SimplyHein",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
+      "dsmp": { "tier": 4, "pos": 0 },
+      "crystal": { "tier": 4, "pos": 1 }
     }
   }
 ]
