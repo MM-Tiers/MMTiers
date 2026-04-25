@@ -119,7 +119,7 @@
       "smp": { "tier": 4, "pos": 0 },
       "dsmp": { "tier": 4, "pos": 1 },
       "axe": { "tier": 4, "pos": 1 },
-      "sword": { "tier": 5, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 5, "pos": 1 },
       "mace": { "tier": 5, "pos": 0 },
       "netpot": { "tier": 3, "pos": 1 }
