@@ -712,6 +712,13 @@
     "name": "tardigrade37",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 }
+}
+  },
+  {
+    "uuid": "1d77dba1-421a-4876-be80-4af4930fae69",
+    "name": "Kyazlase",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
     }
   }
 ]
