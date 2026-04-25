@@ -408,7 +408,8 @@
     "rankings": {
       "sword": { "tier": 4, "pos": 1 },
       "mace": { "tier": 1, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 0 }
+      "crystal": { "tier": 3, "pos": 0 },
+      "uhc": { "tier": 4, "pos": 1 }
     }
   },
   {
