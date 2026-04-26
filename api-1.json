@@ -407,7 +407,7 @@
     "uuid": "569bed30-d352-4fd5-8a59-dccf36ccb4af",
     "name": "Alyxen",
     "rankings": {
-      "sword": { "tier": 2, "pos": 1 },
+      "sword": { "tier": 4, "pos": 1 },
       "mace": { "tier": 1, "pos": 0 },
       "crystal": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 4, "pos": 1 }
