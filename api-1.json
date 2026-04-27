@@ -741,7 +741,8 @@
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 4, "pos": 0 }
+      "smp": { "tier": 4, "pos": 0 },
+      "asmp": { "tier": 5, "pos": 1 }
     }
   }
 ]
