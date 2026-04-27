@@ -41,10 +41,10 @@
     "rankings": {
       "mace": { "tier": 1, "pos": 3 },
       "uhc": { "tier": 2, "pos": 0 },
-      "sword": { "tier": 2, "pos": 1, "peaked_tier": 2, "peaked_pos": 1 },
+      "sword": { "tier": 2, "pos": 1,"peaked_tier": 2, "peaked_pos": 1 },
       "dpot": { "tier": 2, "pos": 1 },
-      "axe": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 0 },
-      "smp": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 1 },
+      "axe": { "tier": 1, "pos": 1,"peaked_tier": 1, "peaked_pos": 0 },
+      "smp": { "tier": 1, "pos": 1,"peaked_tier": 1, "peaked_pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
       "bridge": { "tier": 1, "pos": 0 }
