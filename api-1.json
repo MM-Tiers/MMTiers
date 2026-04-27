@@ -739,7 +739,8 @@
     "uuid": "5f14b824-c062-4b92-a23d-2225d39ff636",
     "name": "GokartDriver",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 }
+      "sword": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 4, "pos": 0 }
     }
   }
 ]
