@@ -401,7 +401,9 @@
       "dsmp": { "tier": 1, "pos": 0 },
       "axe": { "tier": 1, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 2, "pos": 1 }
+      "sword": { "tier": 2, "pos": 1 },
+      "mace": { "tier": 1, "pos": 1 },
+      "shieldlessuhc": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -706,7 +708,7 @@
     "name": "SimplyHein",
     "rankings": {
       "dsmp": { "tier": 4, "pos": 0 },
-      "crystal": { "tier": 4, "pos": 1 }
+      "crystal": { "tier": 4, "pos": 0 }
 }
   },
   {
