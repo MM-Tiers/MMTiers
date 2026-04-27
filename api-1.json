@@ -404,7 +404,6 @@
       "axe": { "tier": 1, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
       "sword": { "tier": 2, "pos": 1 },
-      "mace": { "tier": 1, "pos": 1 },
       "shieldlessuhc": { "tier": 3, "pos": 0 }
     }
   },
