@@ -1,20 +1,5 @@
 [
   {
-    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
-    "name": "_ShinT",
-    "rankings": {
-      "mace": { "tier": 1, "pos": 2 },
-      "uhc": { "tier": 1, "pos": 1 },
-      "cart": { "tier": 2, "pos": 1 },
-      "sword": { "tier": 2, "pos": 1 },
-      "crystal": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 2, "pos": 0 },
-      "dsmp": { "tier": 1, "pos": 1 },
-      "axe": { "tier": 3, "pos": 1 },
-      "netpot": { "tier": 3, "pos": 1 }
-    }
-  },
-  {
     "uuid": "6b41d5d4-53a7-4be8-b98c-b7f87e3357fb",
     "name": "DRFOXCraft",
     "rankings": {
@@ -392,19 +377,6 @@
     "rankings": {
       "dsmp": { "tier": 4, "pos": 0 },
       "uhc": { "tier": 4, "pos": 0 }
-    }
-  },
-  {
-    "uuid": "d0d6b908-bf68-4aa1-9448-475e27ca91a7",
-    "name": "Pipeeew",
-    "rankings": {
-      "uhc": { "tier": 1, "pos": 1 },
-      "smp": { "tier": 2, "pos": 0 },
-      "dsmp": { "tier": 1, "pos": 0 },
-      "axe": { "tier": 1, "pos": 1 },
-      "cart": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 2, "pos": 1 },
-      "shieldlessuhc": { "tier": 3, "pos": 0 }
     }
   },
   {
