@@ -43,7 +43,7 @@
       "uhc": { "tier": 3, "pos": 0 },
       "axe": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 },
-      "cart": { "tier": 1, "pos": 1 },
+      "cart": { "tier": 1, "pos": 0 },
       "dpot": { "tier": 4, "pos": 0 },
       "netpot": { "tier": 3, "pos": 1 },
       "lifesteal": { "tier": 3, "pos": 1 },
