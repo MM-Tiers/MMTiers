@@ -129,7 +129,7 @@
       "ironpot": { "tier": 3, "pos": 0 },
       "speed": { "tier": 1, "pos": 0 },
       "shieldlessuhc": { "tier": 3, "pos": 1 },
-      "ogv": { "tier": 3, "pos": 1 }
+      "ogv": { "tier": 2, "pos": 0 }
     }
   },
   {
