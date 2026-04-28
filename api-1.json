@@ -41,7 +41,7 @@
     "rankings": {
       "dsmp": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 3, "pos": 0 },
+      "axe": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 1, "pos": 1 },
       "dpot": { "tier": 4, "pos": 0 },
