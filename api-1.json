@@ -48,7 +48,8 @@
       "netpot": { "tier": 3, "pos": 1 },
       "lifesteal": { "tier": 3, "pos": 1 },
       "bridge": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 2, "pos": 1 }
+      "smp": { "tier": 2, "pos": 1 },
+      "trident": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -126,7 +127,9 @@
       "mace": { "tier": 4, "pos" : 0 },
       "smp": { "tier": 1, "pos" : 1 },
       "ironpot": { "tier": 3, "pos": 0 },
-      "speed": { "tier": 1, "pos": 0 }
+      "speed": { "tier": 1, "pos": 0 },
+      "shieldlessuhc": { "tier": 3, "pos": 1 },
+      "ogv": { "tier": 3, "pos": 1 }
     }
   },
   {
