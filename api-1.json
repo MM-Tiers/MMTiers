@@ -193,7 +193,7 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab",
     "name": "albxzo",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 0 },
+      "crystal": { "tier": 2, "pos": 0,"peaked_tier": 2, "peaked_pos": 0},
       "sword": { "tier": 3, "pos": 1 },
       "axe": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 4, "pos": 1 },
