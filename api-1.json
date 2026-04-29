@@ -4,7 +4,7 @@
     "name": "DRFOXCraft",
     "rankings": {
       "sword": { "tier": 1, "pos": 0},
-      "crystal": { "tier": 2, "pos": 1 },
+      "crystal": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 2, "pos": 1 },
@@ -109,7 +109,7 @@
       "sword": { "tier": 2, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 1 },
       "mace": { "tier": 4, "pos" : 0 },
-      "smp": { "tier": 1, "pos" : 1 },
+      "smp": { "tier": 1, "pos" : 0 },
       "ironpot": { "tier": 3, "pos": 0 },
       "speed": { "tier": 1, "pos": 0 },
       "shieldlessuhc": { "tier": 3, "pos": 1 },
