@@ -41,7 +41,7 @@
     "rankings": {
       "dsmp": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 3, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 1, "pos": 0 },
       "dpot": { "tier": 4, "pos": 0 },
@@ -244,7 +244,7 @@
       "netpot": { "tier": 2, "pos": 1 },
       "smp": { "tier": 1, "pos": 3 },
       "cart": { "tier": 1, "pos": 3 },
-      "axe": { "tier": 2, "pos": 0 },
+      "axe": { "tier": 2, "pos": 3 },
       "lifesteal": { "tier": 1, "pos": 0 },
       "bridge": { "tier": 4, "pos": 1 },
       "shieldlessuhc": { "tier": 2, "pos": 1 },
