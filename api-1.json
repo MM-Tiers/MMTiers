@@ -248,7 +248,7 @@
       "lifesteal": { "tier": 1, "pos": 0 },
       "bridge": { "tier": 4, "pos": 1 },
       "shieldlessuhc": { "tier": 2, "pos": 1 },
-      "trident": { "tier": 1, "pos": 1 },
+      "trident": { "tier": 1, "pos": 0 },
       "ogv": { "tier": 2, "pos": 1 },
       "speed": { "tier": 2, "pos": 1 },
       "spmace": { "tier": 3 , "pos": 0 }
