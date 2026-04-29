@@ -245,7 +245,7 @@
       "smp": { "tier": 1, "pos": 3 },
       "cart": { "tier": 1, "pos": 3 },
       "axe": { "tier": 2, "pos": 0 },
-      "lifesteal": { "tier": 2, "pos": 1 },
+      "lifesteal": { "tier": 1, "pos": 0 },
       "bridge": { "tier": 4, "pos": 1 },
       "shieldlessuhc": { "tier": 2, "pos": 1 },
       "trident": { "tier": 1, "pos": 1 },
