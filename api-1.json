@@ -336,7 +336,8 @@
       "mace": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 3, "pos": 1 },
       "shieldlessuhc": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 3, "pos": 0 }
+      "dpot": { "tier": 3, "pos": 0 },
+      "diamondcrystal": { "tier": 3 , "pos": 1 },
     }
   },
   {
