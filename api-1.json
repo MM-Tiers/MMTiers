@@ -329,7 +329,7 @@
     "name": "nxbulameow",
     "rankings": {
       "sword": { "tier": 2, "pos": 1 },
-      "crystal": { "tier": 2, "pos": 1 },
+      "crystal": { "tier": 2, "pos": 0 },
       "axe": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
       "smp": { "tier": 2, "pos": 1 },
