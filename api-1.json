@@ -255,7 +255,7 @@
       "speed": { "tier": 2, "pos": 1 },
       "spmace": { "tier": 3 , "pos": 0 },
       "diamondcrystal": { "tier": 3 , "pos": 0 },
-      "creeper": { "tier": 3 , "pos": 0 },
+      "creeper": { "tier": 2 , "pos": 1 },
       "bow": { "tier": 3 , "pos": 0 }
     }
   },
@@ -337,7 +337,8 @@
       "uhc": { "tier": 3, "pos": 1 },
       "shieldlessuhc": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
-      "diamondcrystal": { "tier": 3 , "pos": 1 }
+      "diamondcrystal": { "tier": 3 , "pos": 1 },
+      "creeper": { "tier": 4 , "pos": 0 }
     }
   },
   {
