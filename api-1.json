@@ -206,7 +206,7 @@
       "netpot": { "tier": 5, "pos": 1 },
       "shieldlessuhc": { "tier": 4, "pos": 1 },
       "creeper": { "tier": 3 , "pos": 0 },
-      "dcrystal": { "tier": 3 , "pos": 1 }
+      "diamondcrystal": { "tier": 3 , "pos": 1 }
     }
   },
   {
@@ -337,7 +337,7 @@
       "uhc": { "tier": 3, "pos": 1 },
       "shieldlessuhc": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
-      "diamondcrystal": { "tier": 3 , "pos": 1 },
+      "diamondcrystal": { "tier": 3 , "pos": 1 }
     }
   },
   {
