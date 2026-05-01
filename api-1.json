@@ -331,9 +331,9 @@
     "rankings": {
       "sword": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 2, "pos": 0 },
-      "axe": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 2, "pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
-      "smp": { "tier": 2, "pos": 1 },
+      "smp": { "tier": 2, "pos": 0 },
       "mace": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 3, "pos": 1 },
       "shieldlessuhc": { "tier": 3, "pos": 1 },
@@ -381,7 +381,9 @@
       "sword": { "tier": 4, "pos": 1 },
       "mace": { "tier": 1, "pos": 0 },
       "crystal": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 4, "pos": 1 }
+      "uhc": { "tier": 4, "pos": 1 },
+      "axe": { "tier": 3, "pos": 1 },
+      "npot": { "tier": 4, "pos": 1 }
     }
   },
   {
