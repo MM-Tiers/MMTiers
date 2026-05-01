@@ -738,7 +738,15 @@
     "uuid": "3e9b8dd4-5965-40e3-8872-cbd521a8325a",
     "name": "Marvelz_",
     "rankings": {
-      "netpot": { "tier": 3, "pos": 1 }
-  }
+    "netpot": { "tier": 3, "pos": 1 }
+}
+  },
+  {
+    "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
+    "name": "isuckatsword8000",
+    "rankings": {
+      "axe": { "tier": 4, "pos": 1 },
+      "spmace": { "tier": 4, "pos": 1 }
+   }
  }
 ]
