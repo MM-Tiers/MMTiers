@@ -102,18 +102,18 @@
     "uuid": "f46828b1-78cf-411a-a84a-fa79e406286d",
     "name": "Qdrr_",
     "rankings": {
-      "uhc": { "tier": 2, "pos": 1 },
-      "dpot": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
-      "netpot": { "tier": 1, "pos": 0, "peaked_tier": 1, "peaked_pos": 0 },
-      "axe": { "tier": 2, "pos": 0 },
-      "sword": { "tier": 2, "pos": 0,"peaked_tier": 2, "peaked_pos": 0},
-      "dsmp": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 4, "pos" : 0 },
-      "smp": { "tier": 1, "pos" : 1 },
-      "ironpot": { "tier": 3, "pos": 0 },
-      "speed": { "tier": 1, "pos": 0 },
-      "shieldlessuhc": { "tier": 3, "pos": 1 },
-      "ogv": { "tier": 2, "pos": 0 }
+      "uhc": { "tier": 2, "pos": 4 },
+      "dpot": { "tier": 1, "pos": 5, "peaked_tier": 1, "peaked_pos": 0 },
+      "netpot": { "tier": 1, "pos": 5, "peaked_tier": 1, "peaked_pos": 0 },
+      "axe": { "tier": 2, "pos": 5 },
+      "sword": { "tier": 2, "pos": 5,"peaked_tier": 2, "peaked_pos": 0},
+      "dsmp": { "tier": 3, "pos": 4 },
+      "mace": { "tier": 4, "pos" : 5 },
+      "smp": { "tier": 1, "pos" : 4 },
+      "ironpot": { "tier": 3, "pos": 5 },
+      "speed": { "tier": 1, "pos": 5 },
+      "shieldlessuhc": { "tier": 3, "pos": 4 },
+      "ogv": { "tier": 2, "pos": 5 }
     }
   },
   {
