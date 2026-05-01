@@ -747,6 +747,13 @@
     "rankings": {
       "axe": { "tier": 4, "pos": 1 },
       "spmace": { "tier": 4, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "06eebef1-5a94-45f4-a918-fe1cbf928e0f",
+    "name": "vboltsxdlol",
+    "rankings": {
+      "sword": { "tier": 5, "pos": 0 }
    }
  }
 ]
