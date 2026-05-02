@@ -380,7 +380,7 @@
     "rankings": {
       "sword": { "tier": 4, "pos": 1 },
       "mace": { "tier": 1, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 0 },
+      "crystal": { "tier": 2, "pos": 1 },
       "uhc": { "tier": 4, "pos": 1 },
       "axe": { "tier": 3, "pos": 1 },
       "npot": { "tier": 4, "pos": 1 }
