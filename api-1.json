@@ -24,15 +24,15 @@
     "uuid": "f94d9814-2b63-4512-981d-61b7dfc90c80",
     "name": "kway4",
     "rankings": {
-      "mace": { "tier": 1, "pos": 3 },
-      "uhc": { "tier": 2, "pos": 0 },
-      "sword": { "tier": 2, "pos": 1,"peaked_tier": 2, "peaked_pos": 1 },
-      "dpot": { "tier": 2, "pos": 1 },
-      "axe": { "tier": 1, "pos": 1,"peaked_tier": 1, "peaked_pos": 0 },
-      "smp": { "tier": 1, "pos": 1,"peaked_tier": 1, "peaked_pos": 1 },
-      "netpot": { "tier": 2, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 },
-      "bridge": { "tier": 1, "pos": 0 }
+      "mace": { "tier": 1, "pos": 5 },
+      "uhc": { "tier": 2, "pos": 5 },
+      "sword": { "tier": 2, "pos": 4,"peaked_tier": 2, "peaked_pos": 1 },
+      "dpot": { "tier": 2, "pos": 4 },
+      "axe": { "tier": 1, "pos": 4,"peaked_tier": 1, "peaked_pos": 0 },
+      "smp": { "tier": 1, "pos": 4,"peaked_tier": 1, "peaked_pos": 1 },
+      "netpot": { "tier": 2, "pos": 4 },
+      "crystal": { "tier": 4, "pos": 4 },
+      "bridge": { "tier": 1, "pos": 5 }
     }
   },
   {
