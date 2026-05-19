@@ -23,7 +23,7 @@
     "uuid": "6b41d5d4-53a7-4be8-b98c-b7f87e3357fb",
     "name": "DRFOXCraft",
     "rankings": {
-      "sword": { "tier": 1, "pos": 5},
+      "sword": { "tier": 2, "pos": 0 },
       "crystal": { "tier": 3, "pos": 5 },
       "uhc": { "tier": 3, "pos": 5 },
       "dsmp": { "tier": 3, "pos": 4 },
@@ -42,7 +42,7 @@
     "rankings": {
       "mace": { "tier": 1, "pos": 3 },
       "uhc": { "tier": 2, "pos": 0 },
-      "sword": { "tier": 2, "pos": 1,"peaked_tier": 2, "peaked_pos": 1 },
+      "sword": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 2, "pos": 1 },
       "axe": { "tier": 1, "pos": 1,"peaked_tier": 1, "peaked_pos": 0 },
       "smp": { "tier": 1, "pos": 1,"peaked_tier": 1, "peaked_pos": 1 },
@@ -102,7 +102,7 @@
     "name": "ItzMr_greenX2",
     "rankings": {
       "crystal": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "cart": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 0 },
       "dpot": { "tier": 3, "pos": 0 },
@@ -122,7 +122,7 @@
       "dpot": { "tier": 1, "pos": 5, "peaked_tier": 1, "peaked_pos": 0 },
       "netpot": { "tier": 1, "pos": 5, "peaked_tier": 1, "peaked_pos": 0 },
       "axe": { "tier": 2, "pos": 5 },
-      "sword": { "tier": 2, "pos": 5,"peaked_tier": 2, "peaked_pos": 0},
+      "sword": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 3, "pos": 4 },
       "mace": { "tier": 4, "pos" : 5 },
       "smp": { "tier": 1, "pos" : 4 },
@@ -138,7 +138,7 @@
     "rankings": {
       "uhc": { "tier": 5, "pos": 1 },
       "axe": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "smp": { "tier": 3, "pos": 0 }
     }
   },
@@ -146,7 +146,7 @@
     "uuid": "bde54791-317f-4349-bef3-10e7e71630e5",
     "name": "Clowny_XD",
     "rankings": {
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 1 }
@@ -256,7 +256,7 @@
     "rankings": {
       "crystal": { "tier": 1, "pos": 1, "peaked_tier": 1, "peaked_pos": 0 },
       "mace": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 0 },
       "dsmp": { "tier": 1, "pos": 0 },
       "dpot": { "tier": 3, "pos": 0 },
@@ -311,7 +311,7 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "tryme___",
     "rankings": {
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 4, "pos": 0 },
       "speed": { "tier": 4, "pos": 1 },
       "uhc": { "tier": 4, "pos": 1 },
@@ -345,7 +345,7 @@
     "uuid": "bc10bdfe-1a05-494c-bf1c-815da6f4cfbe",
     "name": "nxbulameow",
     "rankings": {
-      "sword": { "tier": 2, "pos": 1 },
+      "sword": { "tier": 3, "pos": 0 },
       "crystal": { "tier": 2, "pos": 0 },
       "axe": { "tier": 2, "pos": 1 },
       "netpot": { "tier": 2, "pos": 1 },
@@ -495,7 +495,7 @@
     "uuid": "47a259e8-35ef-434f-8344-3a23b6a3dd95",
     "name": "NixfelzNik_",
     "rankings": {
-      "sword": { "tier": 3, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 },
       "axe": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
       "cart": { "tier": 3, "pos": 1 },
