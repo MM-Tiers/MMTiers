@@ -29,7 +29,7 @@
       "dsmp": { "tier": 3, "pos": 4 },
       "mace": { "tier": 2, "pos": 5 },
       "cart": { "tier": 3, "pos": 5 },
-      "dpot": { "tier": 1, "pos": 5"peaked_tier": 2, "peaked_pos": 0},
+      "dpot": { "tier": 1, "pos": 5, "peaked_tier": 2, "peaked_pos": 0},
       "netpot": { "tier": 2, "pos": 4 },
       "smp": { "tier": 1, "pos": 5 },
       "axe": { "tier": 1, "pos": 5,"peaked_tier": 1, "peaked_pos": 0},
