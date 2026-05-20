@@ -1,25 +1,5 @@
 [
   {
-    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
-    "name": "PLACEHOLDER",
-    "rankings": {
-      "sword": { "tier": 1, "pos": 0 },
-      "crystal": { "tier": 1, "pos": 0 },
-      "uhc": { "tier": 1, "pos": 0 },
-      "dsmp": { "tier": 1, "pos": 0 },
-      "mace": { "tier": 1, "pos": 0 },
-      "cart": { "tier": 1, "pos": 0 },
-      "dpot": { "tier": 1, "pos": 0 },
-      "netpot": { "tier": 1, "pos": 0 },
-      "smp": { "tier": 1, "pos": 0 },
-      "axe": { "tier": 1, "pos": 0 },
-      "spmace": { "tier": 1, "pos": 0 },
-      "trident": { "tier": 1, "pos": 0 },
-      "creeper": { "tier": 1, "pos": 0 },
-      "bow": { "tier": 1, "pos": 0 }
-    }
-  },
-  {
     "uuid": "6b41d5d4-53a7-4be8-b98c-b7f87e3357fb",
     "name": "DRFOXCraft",
     "rankings": {
