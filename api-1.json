@@ -117,7 +117,7 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab",
     "name": "avsf",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 0 },
+      "crystal": { "tier": 2, "pos": 1 },
       "creeper": { "tier": 3 , "pos": 1 },
       "axe": { "tier": 3 , "pos": 1 }
     }
