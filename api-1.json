@@ -133,7 +133,7 @@
     "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
     "name": "Rinleaf",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 1 },
+      "crystal": { "tier": 2, "pos": 0 },
       "mace": { "tier": 3, "pos": 1 },
       "sword": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 },
