@@ -119,7 +119,8 @@
     "rankings": {
       "crystal": { "tier": 2, "pos": 1 },
       "creeper": { "tier": 3 , "pos": 1 },
-      "axe": { "tier": 3 , "pos": 1 }
+      "axe": { "tier": 3 , "pos": 1 },
+      "spmace": { "tier": 4, "pos": 1 },
     }
   },
   {
@@ -309,7 +310,7 @@
     "name": "NivlaJupiter",
     "rankings": {
       "crystal": { "tier": 3, "pos": 0 },
-      "spmace": { "tier": 3, "pos": 1 }
+      "spmace": { "tier": 3, "pos": 0 }
   }
  }
 ]
