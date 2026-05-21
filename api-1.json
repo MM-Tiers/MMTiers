@@ -269,9 +269,9 @@
   },
   {
     "uuid": "d103d89d-eb15-41df-8d50-ebf9b6626338",
-    "name": "RequiemisGoated",
+    "name": "kskuu",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 0 }
+      "crystal": { "tier": 1, "pos": 0 }
     }
   },
   {
@@ -279,6 +279,27 @@
     "name": "OriginallyNero",
     "rankings": {
       "mace": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "7105d20b-7ae1-44cc-acf5-ba66e7d8af15",
+    "name": "FroliMaine",
+    "rankings": {
+      "spmace": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
+    "name": "GlacierCritz",
+    "rankings": {
+      "cart": { "tier": 3, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "Solarist_xD",
+    "rankings": {
+      "cart": { "tier": 5, "pos": 1 }
     }
   },
   {
