@@ -196,7 +196,8 @@
     "uuid": "0ba501e5-3ea1-4402-af21-d08b53a7af62",
     "name": "naomigrief",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 4, "pos": 0 }
     }
   },
   {
