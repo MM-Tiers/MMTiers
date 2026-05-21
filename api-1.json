@@ -299,7 +299,8 @@
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "Solarist_xD",
     "rankings": {
-      "cart": { "tier": 5, "pos": 1 }
+      "cart": { "tier": 5, "pos": 1 },
+      "mace": { "tier": 4, "pos": 1 }
     }
   },
   {
