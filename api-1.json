@@ -19,7 +19,7 @@
     "uuid": "f94d9814-2b63-4512-981d-61b7dfc90c80",
     "name": "kway4",
     "rankings": {
-      "mace": { "tier": 2, "pos": 0 },
+      "mace": { "tier": 1, "pos": 0 },
       "uhc": { "tier": 3, "pos": 0 },
       "sword": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
@@ -190,7 +190,7 @@
     "uuid": "569bed30-d352-4fd5-8a59-dccf36ccb4af",
     "name": "Alyxen",
     "rankings": {
-      "mace": { "tier": 2, "pos": 0 },
+      "mace": { "tier": 1, "pos": 1 },
       "crystal": { "tier": 3, "pos": 0 }
     }
   },
@@ -292,7 +292,7 @@
     "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
     "name": "GlacierCritz",
     "rankings": {
-      "cart": { "tier": 3, "pos": 1 }
+      "cart": { "tier": 3, "pos": 0 }
     }
   },
   {
