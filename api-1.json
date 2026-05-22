@@ -59,7 +59,8 @@
     "uuid": "5fb94a02-3742-45d5-b8fa-456e49242728",
     "name": "_bryanlowktuff",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 }
+      "crystal": { "tier": 4, "pos": 0 },
+      "axe": { "tier": 4, "pos": 1 }
     }
   },
   {
@@ -104,7 +105,8 @@
     "name": "NewbiePlayzXD",
     "rankings": {
       "sword": { "tier": 4, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 0 }
+      "crystal": { "tier": 3, "pos": 0 },
+      "axe": { "tier": 4, "pos": 1 }
     }
   },
   {
@@ -170,7 +172,8 @@
       "netpot": { "tier": 2, "pos": 0 },
       "smp": { "tier": 2, "pos": 1 },
       "mace": { "tier": 3, "pos": 0 },
-      "dpot": { "tier": 3, "pos": 1 }
+      "dpot": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -217,6 +220,13 @@
       "creeper": { "tier": 4 , "pos": 1 },
       "cart": { "tier": 5, "pos": 1 },
       "uhc": { "tier": 5, "pos": 0 }
+    }
+  }, 
+  {
+    "uuid": "89add886-caef-4b7d-aeee-4949a30e9c39",
+    "name": "Venith_",
+    "rankings": {
+      "axe": { "tier": 4, "pos": 0 }
     }
   },
   {
