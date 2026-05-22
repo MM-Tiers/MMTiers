@@ -215,7 +215,8 @@
       "axe": { "tier": 4, "pos": 1 },
       "spmace": { "tier": 5, "pos": 0 },
       "creeper": { "tier": 4 , "pos": 1 },
-      "cart": { "tier": 5, "pos": 1 }
+      "cart": { "tier": 5, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 0 }
     }
   },
   {
