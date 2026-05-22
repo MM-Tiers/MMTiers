@@ -103,7 +103,8 @@
     "uuid": "a5a7baf3-76de-437f-96fd-d7b3b9875963",
     "name": "itzevelyn",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 }
+      "crystal": { "tier": 4, "pos": 0 },
+      "spmace": { "tier": 3, "pos": 1 }
     }
   },
   {
