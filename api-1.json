@@ -204,6 +204,7 @@
     "uuid": "289f3cb4-dd51-4a26-911c-027a85a24b68",
     "name": "HlaingWanna",
     "rankings": {
+      "mace": { "tier": 4, "pos": 1 },
       "crystal": { "tier": 5, "pos": 0 }
     }
   },
@@ -294,7 +295,7 @@
     "uuid": "7105d20b-7ae1-44cc-acf5-ba66e7d8af15",
     "name": "FroliMaine",
     "rankings": {
-      "spmace": { "tier": 3, "pos": 1 },
+      "spmace": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 4, "pos": 1 }
     }
   },
