@@ -116,6 +116,7 @@
       "sword": { "tier": 4, "pos": 0 },
       "crystal": { "tier": 3, "pos": 0 },
       "axe": { "tier": 4, "pos": 1 },
+      "mace": { "tier": 4, "pos": 1 },
       "spmace": { "tier": 4, "pos": 0 }
     }
   },
