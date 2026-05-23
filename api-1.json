@@ -180,7 +180,7 @@
     "name": "Alyxen",
     "rankings": {
       "mace": { "tier": 1, "pos": 1 },
-      "spmace": { "tier": 3, "pos": 1 },
+      "spmace": { "tier": 3, "pos": 0 },
       "crystal": { "tier": 3, "pos": 0 }
     }
   },
@@ -318,7 +318,7 @@
     "name": "NivlaJupiter",
     "rankings": {
       "crystal": { "tier": 3, "pos": 0 },
-      "spmace": { "tier": 3, "pos": 0 }
+      "spmace": { "tier": 1, "pos": 0 }
   }
  }
 ]
