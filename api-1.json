@@ -41,6 +41,15 @@
     }
   },
   {
+    "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
+    "name": "Rinleaf",
+    "rankings": {
+      "dsmp": { "tier": 2, "pos": 0 },
+      "trident": { "tier": 2, "pos": 0 },
+      "bow": { "tier": 3 , "pos": 1 }
+    }
+  },
+  {
     "uuid": "9065e95e-5d46-4dc6-8b78-7000db99420e",
     "name": "UnknownPepi",
     "rankings": {
