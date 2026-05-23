@@ -129,26 +129,6 @@
     }
   },
   {
-    "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
-    "name": "Rinleaf",
-    "rankings": {
-      "crystal": { "tier": 2, "pos": 0 },
-      "mace": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 3, "pos": 1 },
-      "dsmp": { "tier": 2, "pos": 0 },
-      "dpot": { "tier": 3, "pos": 1 },
-      "netpot": { "tier": 3, "pos": 0 },
-      "smp": { "tier": 2, "pos": 0 },
-      "cart": { "tier": 2, "pos": 0 },
-      "axe": { "tier": 3, "pos": 0 },
-      "trident": { "tier": 2, "pos": 0 },
-      "spmace": { "tier": 3 , "pos": 1 },
-      "creeper": { "tier": 3 , "pos": 0 },
-      "bow": { "tier": 3 , "pos": 1 }
-    }
-  },
-  {
     "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
     "name": "360Ascendant",
     "rankings": {
