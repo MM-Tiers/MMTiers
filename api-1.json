@@ -10,7 +10,7 @@
       "cart": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 2, "pos": 0 },
       "netpot": { "tier": 3, "pos": 0 },
-      "smp": { "tier": 2, "pos": 0 },
+      "smp": { "tier": 1, "pos": 1 },
       "axe": { "tier": 2, "pos": 0 },
       "spmace": { "tier": 3 , "pos": 1 }
     }
@@ -123,7 +123,7 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab",
     "name": "avsf",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 1 },
+      "crystal": { "tier": 2, "pos": 0 },
       "creeper": { "tier": 3 , "pos": 1 },
       "axe": { "tier": 3 , "pos": 1 },
       "uhc": { "tier": 4 , "pos": 1 },
