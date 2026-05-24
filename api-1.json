@@ -46,6 +46,7 @@
     "rankings": {
       "dsmp": { "tier": 2, "pos": 0 },
       "trident": { "tier": 2, "pos": 0 },
+      "crystal": { "tier": 3, "pos": 1 },
       "bow": { "tier": 3 , "pos": 1 }
     }
   },
@@ -211,7 +212,7 @@
   },
   {
     "uuid": "0ba501e5-3ea1-4402-af21-d08b53a7af62",
-    "name": "naomigrief",
+    "name": "naomz",
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 },
       "sword": { "tier": 4, "pos": 0 },
