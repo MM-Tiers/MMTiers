@@ -175,6 +175,7 @@
     "name": "Alyxen",
     "rankings": {
       "mace": { "tier": 1, "pos": 1 },
+      "sword": { "tier": 3, "pos": 1 },
       "spmace": { "tier": 3, "pos": 0 },
       "crystal": { "tier": 3, "pos": 0 }
     }
@@ -276,7 +277,7 @@
     "uuid": "d103d89d-eb15-41df-8d50-ebf9b6626338",
     "name": "kskuu",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }
+      "crystal": { "tier": 2, "pos": 0 }
     }
   },
   {
@@ -292,6 +293,13 @@
     "rankings": {
       "spmace": { "tier": 2, "pos": 1 },
       "crystal": { "tier": 4, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "SimplyHein",
+    "rankings": {
+      "uhc": { "tier": 5, "pos": 1 }
     }
   },
   {
