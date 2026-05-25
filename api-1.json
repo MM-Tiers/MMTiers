@@ -129,7 +129,8 @@
       "creeper": { "tier": 3 , "pos": 1 },
       "axe": { "tier": 3 , "pos": 1 },
       "uhc": { "tier": 4 , "pos": 1 },
-      "spmace": { "tier": 4, "pos": 0 }
+      "spmace": { "tier": 4, "pos": 0 },
+      "mace": { "tier": 4 , "pos": 1 }
     }
   },
   {
@@ -228,7 +229,10 @@
     "uuid": "5b986f22-d753-4861-ac3b-d7f72f267132",
     "name": "UncleSkylarkk",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 0 }
+      "crystal": { "tier": 3, "pos": 0 },
+      "mace": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 1 }
     }
   },
   {
@@ -311,7 +315,7 @@
     }
   },
   {
-    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "uuid": "055e3f41-fe97-4ac0-b2c7-8e1d0b209473",
     "name": "Solarist_xD",
     "rankings": {
       "cart": { "tier": 5, "pos": 1 },
@@ -324,6 +328,21 @@
     "rankings": {
       "crystal": { "tier": 3, "pos": 0 },
       "spmace": { "tier": 1, "pos": 0 }
+}
+  },
+  {
+    "uuid": "69d4b356-df7e-42dd-a93b-0501d891f51a",
+    "name": "FlowState",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 0 },
+      "sword": { "tier": 3, "pos": 1 }
+}
+  },
+  {
+    "uuid": "d5e85608-0cab-43c2-bb93-74aafd5527db",
+    "name": "FlxamzeXD",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
   }
  }
 ]
