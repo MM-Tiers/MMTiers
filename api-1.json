@@ -158,7 +158,7 @@
       "axe": { "tier": 3, "pos": 0 },
       "netpot": { "tier": 2, "pos": 0 },
       "smp": { "tier": 1, "pos": 1 },
-      "mace": { "tier": 3, "pos": 0 },
+      "mace": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 }
     }
