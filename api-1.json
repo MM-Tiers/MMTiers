@@ -24,7 +24,7 @@
       "sword": { "tier": 3, "pos": 1 },
       "dpot": { "tier": 3, "pos": 0 },
       "axe": { "tier": 2, "pos": 1 },
-      "smp": { "tier": 2, "pos": 1 },    
+      "smp": { "tier": 1, "pos": 1 },    
       "crystal": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 3, "pos": 0 },
       "cart": { "tier": 3 , "pos": 1 }
