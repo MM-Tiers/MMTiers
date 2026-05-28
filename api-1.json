@@ -286,7 +286,8 @@
     "name": "kskuu",
     "rankings": {
       "crystal": { "tier": 1, "pos": 0 },
-      "mace": { "tier": 3, "pos": 1 }
+      "mace": { "tier": 3, "pos": 1 },
+      "axe": { "tier": 3, "pos": 1 }
     }
   },
   {
