@@ -47,7 +47,8 @@
       "dsmp": { "tier": 2, "pos": 0 },
       "trident": { "tier": 2, "pos": 0 },
       "crystal": { "tier": 2, "pos": 1 },
-      "bow": { "tier": 3 , "pos": 1 }
+      "bow": { "tier": 3 , "pos": 1 },
+      "dpot": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -72,7 +73,8 @@
     "rankings": {
       "crystal": { "tier": 3, "pos": 1 },
       "mace": { "tier": 5, "pos": 1 },
-      "axe": { "tier": 4, "pos": 1 }
+      "axe": { "tier": 4, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 1 }
     }
   },
   {
@@ -120,7 +122,8 @@
       "crystal": { "tier": 3, "pos": 0 },
       "axe": { "tier": 4, "pos": 1 },
       "mace": { "tier": 4, "pos": 1 },
-      "spmace": { "tier": 4, "pos": 0 }
+      "spmace": { "tier": 4, "pos": 0 },
+      "dpot": { "tier": 4, "pos": 0 }
     }
   },
   {
@@ -130,7 +133,7 @@
       "crystal": { "tier": 2, "pos": 0 },
       "creeper": { "tier": 3 , "pos": 1 },
       "axe": { "tier": 3 , "pos": 1 },
-      "uhc": { "tier": 4 , "pos": 1 },
+      "uhc": { "tier": 5 , "pos": 1 },
       "spmace": { "tier": 4, "pos": 0 },
       "mace": { "tier": 4 , "pos": 1 }
     }
@@ -139,7 +142,7 @@
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "MinaDum",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 0 }
     }
   },
   {
@@ -198,7 +201,29 @@
       "mace": { "tier": 3, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 }
     }
-  },  
+  }, 
+  {
+    "uuid": "8d1b1642-9a6c-43b0-9436-e3f638295943",
+    "name": "_RayyOz",
+    "rankings": {
+      "mace": { "tier": 3, "pos": 1 }
+    }
+  }, 
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "12s8dksa2",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "stayhumbeld",
+    "rankings": {
+      "uhc": { "tier": 5, "pos": 1 },
+      "crystal": { "tier": 4, "pos": 1 }
+    }
+  },
   {
     "uuid": "289f3cb4-dd51-4a26-911c-027a85a24b68",
     "name": "HlaingWanna",
@@ -250,7 +275,8 @@
     "uuid": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
     "name": "_Aidendebuffs",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 }
+      "sword": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 1 }
     }
   },
   {
@@ -274,11 +300,18 @@
   },
   {
     "uuid": "d8bd00bd-c997-40cd-abda-19bb9fd211da",
-    "name": "67DDee_",
+    "name": "dylp7",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 0 },
+      "crystal": { "tier": 2, "pos": 1 },
       "creeper": { "tier": 4 , "pos": 0 },
       "axe": { "tier": 4 , "pos": 0 }
+    }
+  },
+  {
+    "uuid": "8affa591-3a3f-4950-83dc-7689ce88016b",
+    "name": "blurrpi",
+    "rankings": {
+      "crystal": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -317,7 +350,15 @@
     "name": "GlacierCritz",
     "rankings": {
       "cart": { "tier": 2, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "ThatSanoo",
+    "rankings": {
+      "spmace": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -326,6 +367,13 @@
     "rankings": {
       "cart": { "tier": 5, "pos": 1 },
       "mace": { "tier": 4, "pos": 1 }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "Anas_bababu",
+    "rankings": {
+      "uhc": { "tier": 5, "pos": 1 }
     }
   },
   {
@@ -358,7 +406,8 @@
     "rankings": {
       "crystal": { "tier": 5, "pos": 0 },
       "mace": { "tier": 4, "pos": 1 },
-      "spmace": { "tier": 3, "pos": 1 }
+      "spmace": { "tier": 3, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 1 }
 }
   },
   {
