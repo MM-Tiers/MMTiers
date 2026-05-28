@@ -123,7 +123,8 @@
       "axe": { "tier": 4, "pos": 1 },
       "mace": { "tier": 4, "pos": 1 },
       "spmace": { "tier": 4, "pos": 0 },
-      "dpot": { "tier": 4, "pos": 0 }
+      "dpot": { "tier": 4, "pos": 0 },
+      "npot": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -133,7 +134,7 @@
       "crystal": { "tier": 2, "pos": 0 },
       "creeper": { "tier": 3 , "pos": 1 },
       "axe": { "tier": 3 , "pos": 1 },
-      "uhc": { "tier": 5 , "pos": 1 },
+      "uhc": { "tier": 4 , "pos": 1 },
       "spmace": { "tier": 4, "pos": 0 },
       "mace": { "tier": 4 , "pos": 1 }
     }
@@ -150,7 +151,8 @@
     "name": "tryme___",
     "rankings": {
       "sword": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 1 }
+      "axe": { "tier": 3, "pos": 1 },
+      "crystal": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -171,7 +173,7 @@
     "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
     "name": "_WAyneDebuffs",
     "rankings": {
-      "uhc": { "tier": 2, "pos": 0 },
+      "uhc": { "tier": 1, "pos": 0 },
       "axe": { "tier": 2, "pos": 1 },
       "mace": { "tier": 3, "pos": 1 }
     }
@@ -213,7 +215,7 @@
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "12s8dksa2",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 1 }
+      "crystal": { "tier": 5, "pos": 0 }
     }
   },
   {
@@ -268,7 +270,8 @@
     "uuid": "e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",
     "name": "_ZycoDebuffs",
     "rankings": {
-      "netpot": { "tier": 3, "pos": 0}
+      "netpot": { "tier": 3, "pos": 0},
+      "uhc": { "tier": 5, "pos": 0 }
     }
   },
   {
