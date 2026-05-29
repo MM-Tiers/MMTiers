@@ -89,18 +89,6 @@
     }
   },
   {
-    "uuid": "f46828b1-78cf-411a-a84a-fa79e406286d",
-    "name": "Qdrr_",
-    "rankings": {
-      "uhc": { "tier": 3, "pos": 0 },
-      "dpot": { "tier": 2, "pos": 0 },
-      "netpot": { "tier": 1, "pos": 0 },
-      "axe": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 3, "pos": 0 },
-      "smp": { "tier": 2, "pos" : 1 }
-    }
-  },
-  {
     "uuid": "c6b703bc-79ad-4f11-8801-7897b1685554",
     "name": "GOST152",
     "rankings": {
