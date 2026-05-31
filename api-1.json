@@ -184,7 +184,22 @@
     "name": "RinnSTier",
     "rankings": {
       "mace": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 4, "pos": 1 }
+    }
+  }, 
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "MARICKz",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "BRANDO",
+    "rankings": {
+      "crystak": { "tier": 5, "pos": 0 }
     }
   }, 
   {
@@ -325,7 +340,8 @@
     "name": "FroliMaine",
     "rankings": {
       "spmace": { "tier": 2, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 }
+      "crystal": { "tier": 4, "pos": 1 },
+      "uhc": { "tier": 5, "pos": 1 }
     }
   },
   {
@@ -352,6 +368,20 @@
     }
   },
   {
+    "uuid": "a5a7baf3-76de-437f-96fd-d7b3b9875963",
+    "name": "itzevelyn",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 0 }
+    }
+  },
+  {
+    "uuid": "dddfb92e-d705-4745-a897-96d586148d29",
+    "name": "JustLunoo",
+    "rankings": {
+      "crystal": { "tier": 5, "pos": 1 }
+    }
+  },
+  {
     "uuid": "055e3f41-fe97-4ac0-b2c7-8e1d0b209473",
     "name": "Solarist_xD",
     "rankings": {
@@ -364,7 +394,7 @@
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "Anas_bababu",
     "rankings": {
-      "uhc": { "tier": 5, "pos": 1 }
+      "uhc": { "tier": 3, "pos": 1 }
     }
   },
   {
@@ -374,6 +404,13 @@
       "crystal": { "tier": 3, "pos": 0 },
       "mace": { "tier": 2, "pos": 0 },
       "spmace": { "tier": 1, "pos": 0 }
+}
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "limzoisgood",
+    "rankings": {
+      "crystal": { "tier": 4, "pos": 1 }
 }
   },
   {
@@ -405,8 +442,9 @@
     "uuid": "3bb9ff96-7fd5-427f-82de-0ac18a0d62ee",
     "name": "Br0Cc0LiM",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 },
-      "sword": { "tier": 4, "pos": 1 }
+      "crystal": { "tier": 4, "pos": 0 },
+      "sword": { "tier": 4, "pos": 1 },
+      "netpot": { "tier": 5, "pos": 1 }
   }
  }
 ]
