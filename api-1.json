@@ -146,7 +146,7 @@
       "crystal": { "tier": 3, "pos": 0 },
       "axe": { "tier": 3, "pos": 0 },
       "netpot": { "tier": 1, "pos": 0 },
-      "smp": { "tier": 1, "pos": 1 },
+      "smp": { "tier": 1, "pos": 0 },
       "mace": { "tier": 2, "pos": 1 },
       "dpot": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 3, "pos": 1 }
