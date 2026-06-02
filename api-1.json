@@ -157,7 +157,7 @@
     "name": "_WAyneDebuffs",
     "rankings": {
       "uhc": { "tier": 1, "pos": 3 },
-      "axe": { "tier": 2, "pos": 4 },
+      "axe": { "tier": 2, "pos": 2 },
       "mace": { "tier": 3, "pos": 1 }
     }
   },
