@@ -386,7 +386,7 @@
     "name": "NivlaJupiter",
     "rankings": {
       "crystal": { "tier": 3, "pos": 0 },
-      "mace": { "tier": 2, "pos": 0 },
+      "mace": { "tier": 2, "pos": 3 },
       "spmace": { "tier": 1, "pos": 3 }
 }
   },
