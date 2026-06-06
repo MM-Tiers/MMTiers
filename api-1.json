@@ -283,7 +283,8 @@
       "uhc": { "tier": 3, "pos": 1 },
       "dsmp": { "tier": 3, "pos": 1 },
       "crystal": { "tier": 4, "pos": 0 },
-      "mace": { "tier": 4, "pos": 0 }
+      "mace": { "tier": 4, "pos": 0 },
+      "smp": { "tier": 3, "pos": 1 }
     }
   },
   {
