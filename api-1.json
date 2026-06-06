@@ -32,7 +32,7 @@
       "trident": { "tier": 2, "pos": 0 },
       "crystal": { "tier": 1, "pos": 1 },
       "bow": { "tier": 3 , "pos": 1 },
-      "netpot": { "tier": 3 , "pos": 1 },
+      "netpot": { "tier": 2 , "pos": 1 },
       "dpot": { "tier": 1, "pos": 0 },
       "smp": { "tier": 2, "pos": 0 }
     }
@@ -129,8 +129,8 @@
       "sword": { "tier": 1, "pos": 0 },
       "crystal": { "tier": 3, "pos": 0 },
       "axe": { "tier": 3, "pos": 0 },
-      "netpot": { "tier": 1, "pos": 0 },
-      "smp": { "tier": 1, "pos": 0 },
+      "netpot": { "tier": 1, "pos": 3 },
+      "smp": { "tier": 1, "pos": 3 },
       "mace": { "tier": 1, "pos": 0 },
       "dpot": { "tier": 3, "pos": 0 },
       "uhc": { "tier": 3, "pos": 1 }
