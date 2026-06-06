@@ -339,7 +339,7 @@
     "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
     "name": "GlacierCritz",
     "rankings": {
-      "cart": { "tier": 2, "pos": 0 },
+      "cart": { "tier": 1, "pos": 0 },
       "crystal": { "tier": 3, "pos": 1 },
       "uhc": { "tier": 5, "pos": 1 }
     }
