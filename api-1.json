@@ -32,6 +32,7 @@
       "trident": { "tier": 2, "pos": 0 },
       "crystal": { "tier": 1, "pos": 0 },
       "bow": { "tier": 3 , "pos": 1 },
+      "cart": { "tier": 3 , "pos": 1 },
       "netpot": { "tier": 1 , "pos": 0 },
       "dpot": { "tier": 1, "pos": 0 },
       "smp": { "tier": 1, "pos": 0 }
