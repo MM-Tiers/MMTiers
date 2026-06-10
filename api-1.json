@@ -508,7 +508,7 @@
     "uuid": "a6dc297b-8d93-4d35-b2d2-195b2d1ab080",
     "name": "KatsuIsPro",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 },
+      "sword": { "tier": 3, "pos": 0 },
       "smp": { "tier": 3, "pos": 1 },
       "netpot": { "tier": 3, "pos": 1 },
       "crystal": { "tier": 3, "pos": 1 }
