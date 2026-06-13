@@ -1130,6 +1130,10 @@
       "dsmp": {
         "tier": 4,
         "pos": 1
+      },
+      "spearmace": {
+        "tier": 4,
+        "pos": 0
       }
     }
   },
