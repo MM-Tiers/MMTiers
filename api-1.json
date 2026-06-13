@@ -3,582 +3,1150 @@
     "uuid": "f94d9814-2b63-4512-981d-61b7dfc90c80",
     "name": "kway4",
     "rankings": {
-      "mace": { "tier": 1, "pos": 3 },
-      "uhc": { "tier": 3, "pos": 0 },
-      "sword": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 3, "pos": 0 , "peaked_tier": 2, "peaked_pos": 1},   
-      "smp": { "tier": 2, "pos": 1 , "peaked_tier": 1, "peaked_pos": 1},   
-      "crystal": { "tier": 3, "pos": 1 },
-      "netpot": { "tier": 1, "pos": 1 },
-      "cart": { "tier": 3 , "pos": 1 }
+      "mace": {
+        "tier": 1,
+        "pos": 3
+      },
+      "uhc": {
+        "tier": 3,
+        "pos": 0
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      },
+      "dpot": {
+        "tier": 3,
+        "pos": 0
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 0,
+        "peaked_tier": 2,
+        "peaked_pos": 1
+      },
+      "smp": {
+        "tier": 2,
+        "pos": 1,
+        "peaked_tier": 1,
+        "peaked_pos": 1
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "netpot": {
+        "tier": 1,
+        "pos": 1
+      },
+      "cart": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "52258f7a-e2dd-4afd-979d-f1364551058f",
     "name": "RebornColter",
     "rankings": {
-      "uhc": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 1 },
-      "cart": { "tier": 2, "pos": 3 },
-      "smp": { "tier": 3, "pos": 0 }
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 1
+      },
+      "cart": {
+        "tier": 2,
+        "pos": 3
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
     "name": "Rinleaf",
     "rankings": {
-      "dsmp": { "tier": 2, "pos": 0 },
-      "trident": { "tier": 2, "pos": 0 },
-      "crystal": { "tier": 1, "pos": 0 },
-      "bow": { "tier": 3 , "pos": 1 },
-      "cart": { "tier": 3 , "pos": 1 },
-      "netpot": { "tier": 1 , "pos": 0 },
-      "dpot": { "tier": 1, "pos": 0 },
-      "smp": { "tier": 1, "pos": 0 },
-      "sword": { "tier": 2, "pos": 1 },
-      "mace": { "tier": 3 , "pos": 1 }
+      "dsmp": {
+        "tier": 2,
+        "pos": 0
+      },
+      "trident": {
+        "tier": 2,
+        "pos": 0
+      },
+      "crystal": {
+        "tier": 1,
+        "pos": 0
+      },
+      "bow": {
+        "tier": 3,
+        "pos": 1
+      },
+      "cart": {
+        "tier": 3,
+        "pos": 1
+      },
+      "netpot": {
+        "tier": 1,
+        "pos": 0
+      },
+      "dpot": {
+        "tier": 1,
+        "pos": 0
+      },
+      "smp": {
+        "tier": 1,
+        "pos": 0
+      },
+      "sword": {
+        "tier": 2,
+        "pos": 1
+      },
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "9065e95e-5d46-4dc6-8b78-7000db99420e",
     "name": "UnknownPepi",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 5 , "pos": 1 },
-      "axe": { "tier": 4 , "pos": 1 }
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "mace": {
+        "tier": 5,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 4,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "6922774c-b5e2-45d7-941f-87ca334520bf",
     "name": "7taps__",
     "rankings": {
-      "cart": { "tier": 3, "pos": 1 }
+      "cart": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "5fb94a02-3742-45d5-b8fa-456e49242728",
     "name": "Icedleaf_",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
-      "mace": { "tier": 5, "pos": 1 },
-      "axe": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 1 }
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "mace": {
+        "tier": 5,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 4,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",
     "name": "ItzMr_greenX2",
     "rankings": {
-      "dsmp": { "tier": 3, "pos": 1 },
-      "dpot": { "tier": 3, "pos": 1 },
-      "uhc": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 3, "pos": 0 },
-      "netpot": { "tier": 3, "pos": 1 }
+      "dsmp": {
+        "tier": 3,
+        "pos": 1
+      },
+      "dpot": {
+        "tier": 3,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 0
+      },
+      "netpot": {
+        "tier": 3,
+        "pos": 1
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "c6b703bc-79ad-4f11-8801-7897b1685554",
     "name": "GOST152",
     "rankings": {
-      "axe": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 3, "pos": 1 }
+      "axe": {
+        "tier": 3,
+        "pos": 1
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "72af842d-3c5b-4517-b54e-ccc382ed8435",
     "name": "NewbiePlayzXD",
     "rankings": {
-      "sword": { "tier": 4, "pos": 0 },
-      "crystal": { "tier": 2, "pos": 1 },
-      "axe": { "tier": 4, "pos": 1 },
-      "mace": { "tier": 4, "pos": 1 },
-      "spmace": { "tier": 4, "pos": 0 },
-      "dpot": { "tier": 4, "pos": 0 },
-      "netpot": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 3, "pos": 1 },
-      "bow": { "tier": 3, "pos": 1 }
+      "sword": {
+        "tier": 4,
+        "pos": 0
+      },
+      "crystal": {
+        "tier": 2,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 4,
+        "pos": 1
+      },
+      "mace": {
+        "tier": 4,
+        "pos": 1
+      },
+      "spmace": {
+        "tier": 4,
+        "pos": 0
+      },
+      "dpot": {
+        "tier": 4,
+        "pos": 0
+      },
+      "netpot": {
+        "tier": 3,
+        "pos": 1
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 1
+      },
+      "bow": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab",
     "name": "avsf",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 3 },
-      "creeper": { "tier": 3 , "pos": 1 },
-      "axe": { "tier": 3 , "pos": 1 },
-      "uhc": { "tier": 5 , "pos": 1 },
-      "spmace": { "tier": 4, "pos": 0 },
-      "mace": { "tier": 4 , "pos": 1 },
-      "bow": { "tier": 5, "pos": 0 }
+      "crystal": {
+        "tier": 2,
+        "pos": 3
+      },
+      "creeper": {
+        "tier": 3,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      },
+      "spmace": {
+        "tier": 4,
+        "pos": 0
+      },
+      "mace": {
+        "tier": 4,
+        "pos": 1
+      },
+      "bow": {
+        "tier": 5,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "stayingandrot",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 0 }
+      "crystal": {
+        "tier": 3,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "e22d42b9-5c3d-4b9a-8a57-991f3dcf64ab5",
     "name": "tryme___",
     "rankings": {
-      "sword": { "tier": 3, "pos": 0 },
-      "axe": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 0 }
+      "sword": {
+        "tier": 3,
+        "pos": 0
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 4,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "bc10bdfe-1a05-494c-bf1c-815da6f4cfbe",
     "name": "nxbulameow",
     "rankings": {
-      "sword": { "tier": 1, "pos": 0 },
-      "crystal": { "tier": 2, "pos": 1 },
-      "axe": { "tier": 2, "pos": 1 },
-      "netpot": { "tier": 1, "pos": 3 },
-      "smp": { "tier": 1, "pos": 3 },
-      "mace": { "tier": 2, "pos": 0 , "peaked_tier": 1, "peaked_pos": 0},  
-      "dpot": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 3, "pos": 1 },
-      "bow": { "tier": 4, "pos": 1 }
+      "sword": {
+        "tier": 1,
+        "pos": 0
+      },
+      "crystal": {
+        "tier": 2,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 2,
+        "pos": 1
+      },
+      "netpot": {
+        "tier": 1,
+        "pos": 3
+      },
+      "smp": {
+        "tier": 1,
+        "pos": 3
+      },
+      "mace": {
+        "tier": 2,
+        "pos": 0,
+        "peaked_tier": 1,
+        "peaked_pos": 0
+      },
+      "dpot": {
+        "tier": 3,
+        "pos": 0
+      },
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      },
+      "bow": {
+        "tier": 4,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "3a8ad98d-428e-43fd-a4ac-42978f1d244c",
     "name": "_WAyneDebuffs",
     "rankings": {
-      "uhc": { "tier": 1, "pos": 3 },
-      "axe": { "tier": 2, "pos": 2 },
-      "mace": { "tier": 3, "pos": 1 }
+      "uhc": {
+        "tier": 1,
+        "pos": 3
+      },
+      "axe": {
+        "tier": 2,
+        "pos": 2
+      },
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "569bed30-d352-4fd5-8a59-dccf36ccb4af",
     "name": "Alyxen",
     "rankings": {
-      "mace": { "tier": 1, "pos": 2 },
-      "sword": { "tier": 3, "pos": 1 },
-      "spmace": { "tier": 3, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 0 }
+      "mace": {
+        "tier": 1,
+        "pos": 2
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      },
+      "spmace": {
+        "tier": 3,
+        "pos": 0
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "fe3b1aad-788c-4282-a95c-265717c9d7c4",
     "name": "MrP1Z2A",
     "rankings": {
-      "uhc": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 0 }
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "8b63226d-8fd9-41bc-927e-c41f4cc4deba",
     "name": "RinnSTier",
     "rankings": {
-      "mace": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 4, "pos": 1 }
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "sword": {
+        "tier": 4,
+        "pos": 1
+      }
     }
-  }, 
+  },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "MARICKz",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }
+      "crystal": {
+        "tier": 5,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "BRANDO",
     "rankings": {
-      "crystak": { "tier": 5, "pos": 0 }
+      "crystak": {
+        "tier": 5,
+        "pos": 0
+      }
     }
-  }, 
+  },
   {
     "uuid": "8d1b1642-9a6c-43b0-9436-e3f638295943",
     "name": "_RayyOz",
     "rankings": {
-      "mace": { "tier": 3, "pos": 1 }
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      }
     }
-  }, 
+  },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "12s8dksa2",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }
+      "crystal": {
+        "tier": 5,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "stayhumbeld",
     "rankings": {
-      "uhc": { "tier": 5, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 }
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "289f3cb4-dd51-4a26-911c-027a85a24b68",
     "name": "HlaingWanna",
     "rankings": {
-      "mace": { "tier": 4, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 1 }
+      "mace": {
+        "tier": 4,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "0ba501e5-3ea1-4402-af21-d08b53a7af62",
     "name": "naomz",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 4, "pos": 0 },
-      "axe": { "tier": 4, "pos": 1 },
-      "spmace": { "tier": 5, "pos": 0 },
-      "mace": { "tier": 5, "pos": 1 },
-      "creeper": { "tier": 4 , "pos": 1 },
-      "cart": { "tier": 5, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 0 }
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "sword": {
+        "tier": 4,
+        "pos": 0
+      },
+      "axe": {
+        "tier": 4,
+        "pos": 1
+      },
+      "spmace": {
+        "tier": 5,
+        "pos": 0
+      },
+      "mace": {
+        "tier": 5,
+        "pos": 1
+      },
+      "creeper": {
+        "tier": 4,
+        "pos": 1
+      },
+      "cart": {
+        "tier": 5,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 0
+      }
     }
-  }, 
+  },
   {
     "uuid": "89add886-caef-4b7d-aeee-4949a30e9c39",
     "name": "Venith_",
     "rankings": {
-      "axe": { "tier": 4, "pos": 0 }
+      "axe": {
+        "tier": 4,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "5b986f22-d753-4861-ac3b-d7f72f267132",
     "name": "UncleSkylarkk",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 1 },
-      "mace": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 5, "pos": 1 },
-      "dpot": { "tier": 4, "pos": 0 }
+      "crystal": {
+        "tier": 2,
+        "pos": 1
+      },
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 0
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      },
+      "dpot": {
+        "tier": 4,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "e4bd7d85-cb5a-4bd6-8ec1-11d8e08e15d3",
     "name": "_ZycoDebuffs",
     "rankings": {
-      "netpot": { "tier": 3, "pos": 0},
-      "uhc": { "tier": 5, "pos": 0 }
+      "netpot": {
+        "tier": 3,
+        "pos": 0
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "49e31b06-0ccf-4811-a12f-1deefd180c3f",
     "name": "_Aidendebuffs",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 1 }
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "74df9778-1aa4-48fa-8315-8140463b7995",
     "name": "MilooooooID",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 }
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "47a259e8-35ef-434f-8344-3a23b6a3dd95",
     "name": "NixfelzNik_",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 0 },
-      "dpot": { "tier": 3, "pos": 1 },
-      "netpot": { "tier": 3, "pos": 1 },
-      "uhc": { "tier": 3, "pos": 1 },
-      "dsmp": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 0 },
-      "mace": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 3, "pos": 1 }
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 0
+      },
+      "dpot": {
+        "tier": 3,
+        "pos": 1
+      },
+      "netpot": {
+        "tier": 3,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      },
+      "dsmp": {
+        "tier": 3,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 4,
+        "pos": 0
+      },
+      "mace": {
+        "tier": 4,
+        "pos": 0
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "d8bd00bd-c997-40cd-abda-19bb9fd211da",
     "name": "dylp7",
     "rankings": {
-      "crystal": { "tier": 2, "pos": 0 },
-      "creeper": { "tier": 4 , "pos": 0 },
-      "axe": { "tier": 4 , "pos": 0 },
-      "dpot": { "tier": 5, "pos": 0 }
+      "crystal": {
+        "tier": 2,
+        "pos": 0
+      },
+      "creeper": {
+        "tier": 4,
+        "pos": 0
+      },
+      "axe": {
+        "tier": 4,
+        "pos": 0
+      },
+      "dpot": {
+        "tier": 5,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "64c585ce-a4c2-4713-9783-b2ce5e0face0",
     "name": "Crucifyr",
     "rankings": {
-      "mace": { "tier": 1, "pos": 0 }
+      "mace": {
+        "tier": 1,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "8affa591-3a3f-4950-83dc-7689ce88016b",
     "name": "blurrpi",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 3, "pos": 1 }
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "d103d89d-eb15-41df-8d50-ebf9b6626338",
     "name": "kskuu",
     "rankings": {
-      "crystal": { "tier": 1, "pos": 3 },
-      "mace": { "tier": 3, "pos": 1 },
-      "axe": { "tier": 3, "pos": 1 }
+      "crystal": {
+        "tier": 1,
+        "pos": 3
+      },
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      },
+      "axe": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "226761ac-8450-469a-b267-4342dffa7cd0",
     "name": "OriginallyNero",
     "rankings": {
-      "mace": { "tier": 3, "pos": 1 }
+      "mace": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "82ecbbc9-b8bb-434e-b157-927721cf85f1",
     "name": "RazinMonkey",
     "rankings": {
-      "cart": { "tier": 3, "pos": 1 }
+      "cart": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "7105d20b-7ae1-44cc-acf5-ba66e7d8af15",
     "name": "FroliMaine",
     "rankings": {
-      "spmace": { "tier": 2, "pos": 1 },
-      "crystal": { "tier": 4, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 1 }
+      "spmace": {
+        "tier": 2,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "j4ydnh1n",
     "rankings": {
-      "uhc": { "tier": 5, "pos": 1 },
-      "crystal": { "tier": 3, "pos": 1 },
-      "sword": { "tier": 3, "pos": 1 }
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "4a5aa283-10e5-444c-88a5-33cf4d38e03f",
     "name": "GlacierCritz",
     "rankings": {
-      "cart": { "tier": 1, "pos": 0 },
-      "crystal": { "tier": 3, "pos": 0 },
-      "uhc": { "tier": 3, "pos": 1 },
-      "smp": { "tier": 3, "pos": 1 }
+      "cart": {
+        "tier": 1,
+        "pos": 0
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 0
+      },
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "ThatSanoo",
     "rankings": {
-      "spmace": { "tier": 3, "pos": 1 }
+      "spmace": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "a5a7baf3-76de-437f-96fd-d7b3b9875963",
     "name": "itzevelyn",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 },
-      "netpot": { "tier": 5, "pos": 0 },
-      "dsmp": { "tier": 4, "pos": 0 }
+      "crystal": {
+        "tier": 4,
+        "pos": 0
+      },
+      "netpot": {
+        "tier": 5,
+        "pos": 0
+      },
+      "dsmp": {
+        "tier": 4,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "77776893-86a1-4462-b552-35cd361ed785",
     "name": "D34THLY",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "ColdAxid",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 }
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "dddfb92e-d705-4745-a897-96d586148d29",
     "name": "JustLunoo",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 1 }
+      "crystal": {
+        "tier": 5,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "055e3f41-fe97-4ac0-b2c7-8e1d0b209473",
     "name": "Solarist_xD",
     "rankings": {
-      "cart": { "tier": 5, "pos": 1 },
-      "mace": { "tier": 4, "pos": 1 },
-      "spmace": { "tier": 5, "pos": 0 }
+      "cart": {
+        "tier": 5,
+        "pos": 1
+      },
+      "mace": {
+        "tier": 4,
+        "pos": 1
+      },
+      "spmace": {
+        "tier": 5,
+        "pos": 0
+      }
     }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "Anas_bababu",
     "rankings": {
-      "uhc": { "tier": 3, "pos": 1 }
+      "uhc": {
+        "tier": 3,
+        "pos": 1
+      }
     }
   },
   {
     "uuid": "5f92b497-cdb8-453f-b752-f2ecc27faec2",
     "name": "JupiterrZX",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 0 },
-      "mace": { "tier": 2, "pos": 0 },
-      "spmace": { "tier": 1, "pos": 3 }
-}
+      "crystal": {
+        "tier": 3,
+        "pos": 0
+      },
+      "mace": {
+        "tier": 2,
+        "pos": 0
+      },
+      "spmace": {
+        "tier": 1,
+        "pos": 3
+      }
+    }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "limzoisgood",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 }
-}
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "Vasxico19",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 }
-}
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "69d4b356-df7e-42dd-a93b-0501d891f51a",
     "name": "FlowState",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 },
-      "sword": { "tier": 3, "pos": 1 }
-}
+      "crystal": {
+        "tier": 4,
+        "pos": 0
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "3111b1d5-c691-4f96-a1dd-612e1addf6e4",
     "name": "Picvin",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
-}
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "d5e85608-0cab-43c2-bb93-74aafd5527db",
     "name": "FlxamzeXD",
     "rankings": {
-      "crystal": { "tier": 3, "pos": 1 }
-}
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "41ba8400-3f5f-4664-8ffc-2b053c516b4f",
     "name": "AgentJackkzz",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 },
-      "mace": { "tier": 4, "pos": 1 },
-      "spmace": { "tier": 3, "pos": 1 },
-      "uhc": { "tier": 5, "pos": 1 }
-}
+      "crystal": {
+        "tier": 5,
+        "pos": 0
+      },
+      "mace": {
+        "tier": 4,
+        "pos": 1
+      },
+      "spmace": {
+        "tier": 3,
+        "pos": 1
+      },
+      "uhc": {
+        "tier": 5,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "MystixxYTZ",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 1 },
-      "dpot": { "tier": 4, "pos": 0 },
-      "sword": { "tier": 4, "pos": 0 },
-      "smp": { "tier": 4, "pos": 1 },
-      "netpot": { "tier": 5, "pos": 1 }
-}
+      "dsmp": {
+        "tier": 4,
+        "pos": 1
+      },
+      "dpot": {
+        "tier": 4,
+        "pos": 0
+      },
+      "sword": {
+        "tier": 4,
+        "pos": 0
+      },
+      "smp": {
+        "tier": 4,
+        "pos": 1
+      },
+      "netpot": {
+        "tier": 5,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "c114becf-3205-4807-a588-186469d22047",
     "name": "Remilxmlas",
     "rankings": {
-      "dsmp": { "tier": 5, "pos": 1 },
-      "smp": { "tier": 5, "pos": 1 }
-}
+      "dsmp": {
+        "tier": 5,
+        "pos": 1
+      },
+      "smp": {
+        "tier": 5,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "fbdbe98e-7503-40fe-94ac-6924938ee050",
     "name": "TeRry_Waif",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
-}
+      "dsmp": {
+        "tier": 4,
+        "pos": 0
+      }
+    }
   },
   {
     "uuid": "a5a847d8-3575-48c7-a69d-a0ea37b6fd6b",
     "name": "akl0001",
     "rankings": {
-      "dsmp": { "tier": 4, "pos": 0 }
-}
+      "dsmp": {
+        "tier": 4,
+        "pos": 0
+      }
+    }
   },
   {
     "uuid": "0e79dd14-629d-4a24-b1a5-c56dcffa9583",
     "name": "Hinthein",
     "rankings": {
-      "spmace": { "tier": 4, "pos": 1 }
-}
+      "spmace": {
+        "tier": 4,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "10a6a428-8553-4792-883d-4f3d66a3be77",
     "name": "anthoniwho_",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }
-}
+      "crystal": {
+        "tier": 5,
+        "pos": 0
+      }
+    }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "harryz",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 1 }
-}
+      "crystal": {
+        "tier": 4,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "a6dc297b-8d93-4d35-b2d2-195b2d1ab080",
     "name": "KatsuIsPro",
     "rankings": {
-      "sword": { "tier": 3, "pos": 0 },
-      "smp": { "tier": 3, "pos": 1 },
-      "netpot": { "tier": 3, "pos": 1 },
-      "crystal": { "tier": 3, "pos": 1 }
-}
+      "sword": {
+        "tier": 3,
+        "pos": 0
+      },
+      "smp": {
+        "tier": 3,
+        "pos": 1
+      },
+      "netpot": {
+        "tier": 3,
+        "pos": 1
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "z0rynx‌",
     "rankings": {
-      "netpot": { "tier": 3, "pos": 1 }
-}
+      "netpot": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "depre__d",
     "rankings": {
-      "sword": { "tier": 3, "pos": 1 }
-}
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "3bb9ff96-7fd5-427f-82de-0ac18a0d62ee",
     "name": "Br0Cc0LiM",
     "rankings": {
-      "crystal": { "tier": 4, "pos": 0 },
-      "sword": { "tier": 3, "pos": 0 },
-      "netpot": { "tier": 5, "pos": 1 },
-      "dsmp": { "tier": 4, "pos": 1 }
-}
+      "crystal": {
+        "tier": 4,
+        "pos": 0
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 0
+      },
+      "netpot": {
+        "tier": 5,
+        "pos": 1
+      },
+      "dsmp": {
+        "tier": 4,
+        "pos": 1
+      }
+    }
   },
   {
     "uuid": "1bda4222-ce8e-41d6-b5d4-8139165faa9a",
     "name": "BRANDO",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }
-}
+      "crystal": {
+        "tier": 5,
+        "pos": 0
+      }
+    }
   },
   {
     "uuid": "1bda4222-ce8e-41d6-b5d4-8139165faa9a",
     "name": "MARICKz",
     "rankings": {
-      "crystal": { "tier": 5, "pos": 0 }
+      "crystal": {
+        "tier": 5,
+        "pos": 0
+      }
+    }
   }
- }
 ]
