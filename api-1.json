@@ -36,7 +36,8 @@
       "netpot": { "tier": 1 , "pos": 0 },
       "dpot": { "tier": 1, "pos": 0 },
       "smp": { "tier": 1, "pos": 0 },
-      "sword": { "tier": 2, "pos": 1 }
+      "sword": { "tier": 2, "pos": 1 },
+      "mace": { "tier": 3 , "pos": 1 }
     }
   },
   {
