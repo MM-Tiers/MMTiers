@@ -1268,6 +1268,10 @@
       "spearmace": {
         "tier": 3,
         "pos": 1
+      },
+      "spmace": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
