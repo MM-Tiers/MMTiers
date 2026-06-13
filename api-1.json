@@ -1142,6 +1142,10 @@
       "spearmace": {
         "tier": 4,
         "pos": 0
+      },
+      "spmace": {
+        "tier": 4,
+        "pos": 0
       }
     }
   },
