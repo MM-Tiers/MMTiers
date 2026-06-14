@@ -81,7 +81,9 @@
       },
       "crystal": {
         "tier": 1,
-        "pos": 0
+        "pos": 1,
+        "peaked_tier": 1,
+        "peaked_pos": 0
       },
       "bow": {
         "tier": 3,
@@ -724,8 +726,8 @@
     "name": "kskuu",
     "rankings": {
       "crystal": {
-        "tier": 1,
-        "pos": 3
+        "tier": 2,
+        "pos": 1
       },
       "mace": {
         "tier": 3,
@@ -1500,16 +1502,6 @@
       "crystal": {
         "tier": 5,
         "pos": 0
-      }
-    }
-  },
-  {
-    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
-    "name": "jermay062",
-    "rankings": {
-      "sword": {
-        "tier": 5,
-        "pos": 1
       }
     }
   }
