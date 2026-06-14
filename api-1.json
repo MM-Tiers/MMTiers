@@ -342,6 +342,10 @@
       "crystal": {
         "tier": 4,
         "pos": 1
+      },
+      "netpot": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
