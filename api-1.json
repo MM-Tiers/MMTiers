@@ -1198,6 +1198,10 @@
       "spmace": {
         "tier": 3,
         "pos": 1
+      },
+      "crystal": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
