@@ -920,6 +920,10 @@
       "spmace": {
         "tier": 1,
         "pos": 3
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
