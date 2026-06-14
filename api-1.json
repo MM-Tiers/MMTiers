@@ -402,8 +402,8 @@
         "pos": 1
       },
       "spmace": {
-        "tier": 3,
-        "pos": 0
+        "tier": 1,
+        "pos": 1
       },
       "crystal": {
         "tier": 3,
@@ -762,7 +762,7 @@
     "name": "FroliMaine",
     "rankings": {
       "spmace": {
-        "tier": 2,
+        "tier": 1,
         "pos": 1
       },
       "crystal": {
