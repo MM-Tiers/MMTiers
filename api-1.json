@@ -280,6 +280,10 @@
       "bow": {
         "tier": 3,
         "pos": 1
+      },
+      "trident": {
+        "tier": 4,
+        "pos": 1
       }
     }
   },
