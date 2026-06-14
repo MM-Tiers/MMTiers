@@ -67,6 +67,18 @@
       }
     }
   },
+    {
+    "uuid": "d9578f6f-3527-4a6f-8e19-074a7dda2db0",
+    "name": "404nxtfound",
+    "rankings": {
+      "crystal": {
+        "tier": 1,
+        "pos": 1,
+        "peaked_tier": 1,
+        "peaked_pos": 0
+      }
+    }
+  },
   {
     "uuid": "4dfe56fd-c0e8-4284-9d74-23ffad9dbcac",
     "name": "Rinleaf",
@@ -726,8 +738,8 @@
     "name": "kskuu",
     "rankings": {
       "crystal": {
-        "tier": 2,
-        "pos": 1
+        "tier": 1,
+        "pos": 0
       },
       "mace": {
         "tier": 3,
