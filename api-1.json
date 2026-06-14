@@ -97,7 +97,7 @@
       },
       "dpot": {
         "tier": 1,
-        "pos": 0
+        "pos": 3
       },
       "smp": {
         "tier": 1,
@@ -378,7 +378,7 @@
         "peaked_pos": 0
       },
       "dpot": {
-        "tier": 3,
+        "tier": 1,
         "pos": 0
       },
       "uhc": {
