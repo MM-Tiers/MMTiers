@@ -341,7 +341,7 @@
       },
       "crystal": {
         "tier": 4,
-        "pos": 0
+        "pos": 1
       }
     }
   },
@@ -1389,7 +1389,7 @@
         "tier": 3,
         "pos": 1
       },
-        "crystal": {
+      "crystal": {
         "tier": 1,
         "pos": 1,
         "peaked_tier": 1,
