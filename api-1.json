@@ -90,8 +90,8 @@
         "pos": 1
       },
       "cart": {
-        "tier": 3,
-        "pos": 1
+        "tier": 1,
+        "pos": 0
       },
       "netpot": {
         "tier": 1,
@@ -883,7 +883,7 @@
     "rankings": {
       "cart": {
         "tier": 1,
-        "pos": 0
+        "pos": 3
       },
       "crystal": {
         "tier": 3,
