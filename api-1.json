@@ -763,14 +763,14 @@
   },
   {
     "uuid": "8affa591-3a3f-4950-83dc-7689ce88016b",
-    "name": "blurrpi",
+    "name": "blurrpii",
     "rankings": {
       "crystal": {
         "tier": 3,
         "pos": 1
       },
       "smp": {
-        "tier": 3,
+        "tier": 2,
         "pos": 1
       },
       "sword": {
@@ -779,7 +779,7 @@
       },
       "mace": {
         "tier": 3,
-        "pos": 1
+        "pos": 0
       }
     }
   },
