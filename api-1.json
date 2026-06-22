@@ -780,6 +780,10 @@
       "mace": {
         "tier": 3,
         "pos": 0
+      },
+      "netpot": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
