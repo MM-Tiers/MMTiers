@@ -912,6 +912,10 @@
       "netpot": {
         "tier": 3,
         "pos": 1
+      },
+      "dsmp": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
