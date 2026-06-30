@@ -262,8 +262,10 @@
         "pos": 1
       },
       "mace": {
-        "tier": 3,
-        "pos": 0
+        "tier": 4,
+        "pos": 0,
+        "peaked_tier": 3,
+        "peaked_pos": 0
       },
       "spmace": {
         "tier": 3,
@@ -634,8 +636,10 @@
         "pos": 0
       },
       "mace": {
-        "tier": 3,
-        "pos": 0
+        "tier": 4,
+        "pos": 0,
+        "peaked_tier": 3,
+        "peaked_pos": 0
       },
       "sword": {
         "tier": 3,
