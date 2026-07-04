@@ -1,4 +1,4 @@
- [
+[
   {
     "uuid": "f94d9814-2b63-4512-981d-61b7dfc90c80",
     "name": "kway4",
@@ -2170,6 +2170,16 @@
     "name": "QQWHT",
     "rankings": {
       "mace": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "cix_vrqtrex",
+    "rankings": {
+      "sword": {
         "tier": 3,
         "pos": 1
       }
