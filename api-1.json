@@ -2012,6 +2012,10 @@
       "netpot": {
         "tier": 3,
         "pos": 1
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
