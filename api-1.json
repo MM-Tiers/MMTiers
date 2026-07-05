@@ -2334,5 +2334,15 @@
         "pos": 1
       }
     }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "xetionking",
+    "rankings": {
+      "mace": {
+        "tier": 4,
+        "pos": 0
+      }
+    }
   }
 ]
