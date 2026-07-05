@@ -275,9 +275,7 @@
       },
       "mace": {
         "tier": 4,
-        "pos": 0,
-        "peaked_tier": 3,
-        "peaked_pos": 0
+        "pos": 1
       },
       "spmace": {
         "tier": 3,
