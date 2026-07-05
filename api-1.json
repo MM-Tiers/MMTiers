@@ -2186,6 +2186,10 @@
       "dpot": {
         "tier": 5,
         "pos": 1
+      },
+      "crystal": {
+        "tier": 5,
+        "pos": 0
       }
     }
   },
