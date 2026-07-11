@@ -2506,6 +2506,10 @@
       "crystal": {
         "tier": 3,
         "pos": 1
+      },
+      "mace": {
+        "tier": 4,
+        "pos": 1
       }
     }
   },
