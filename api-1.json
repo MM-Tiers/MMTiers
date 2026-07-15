@@ -1140,10 +1140,8 @@
         "pos": 0
       },
       "smp": {
-        "tier": 2,
-        "pos": 1,
-        "peaked_tier": 1,
-        "peaked_pos": 1
+        "tier": 3,
+        "pos": 0
       },
       "axe": {
         "tier": 4,
