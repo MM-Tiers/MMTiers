@@ -2798,6 +2798,10 @@
       "netpot": {
         "tier": 4,
         "pos": 1
+      },
+      "sword": {
+        "tier": 4,
+        "pos": 1
       }
     }
   }
