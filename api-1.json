@@ -400,6 +400,10 @@
       "spmace": {
         "tier": 5,
         "pos": 0
+      },
+      "dsmp": {
+        "tier": 4,
+        "pos": 1
       }
     }
   },
