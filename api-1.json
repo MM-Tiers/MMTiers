@@ -2868,5 +2868,15 @@
         "pos": 0
       }
     }
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "blurpii",
+    "rankings": {
+      "sword": {
+        "tier": 1,
+        "pos": 1
+      }
+    }
   }
 ]
