@@ -2340,6 +2340,12 @@
       "mace": {
         "tier": 3,
         "pos": 1
+      },
+      "crystal": {
+        "tier": 5,
+        "pos": 1,
+        "peaked_tier": 5,
+        "peaked_pos": 1
       }
     }
   },
