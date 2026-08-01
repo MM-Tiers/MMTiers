@@ -3233,6 +3233,10 @@
       "crystal": {
         "tier": 3,
         "pos": 0
+      },
+      "netpot": {
+        "tier": 4,
+        "pos": 1
       }
     }
   }
