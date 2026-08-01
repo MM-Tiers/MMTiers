@@ -3223,6 +3223,10 @@
         "pos": 0,
         "peaked_tier": 2,
         "peaked_pos": 1
+      },
+      "smp": {
+        "tier": 1,
+        "pos": 1
       }
     }
   }
