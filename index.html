@@ -36,7 +36,6 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opac
 @keyframes headerScan{0%{left:-30%}100%{left:130%}}
 @keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 6px 1px rgba(192,132,252,.12)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes mmtcSword{0%,100%{filter:drop-shadow(0 0 2px rgba(74,222,128,.3))}50%{filter:drop-shadow(0 0 5px rgba(74,222,128,.6))}}
 @keyframes barGrow{from{width:0}}
 @keyframes cpSlideIn{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}#bgCanvas{display:none}body::after{display:none}}
@@ -69,13 +68,10 @@ header::after{content:'';position:absolute;top:0;left:-30%;width:20%;height:100%
 .tab-emoji{font-size:.88rem;position:relative;z-index:1}.tab-text{position:relative;z-index:1}
 .tab:hover{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.04)}
 .tab-separator{width:1px;background:rgba(255,255,255,.04);margin:0 1px;flex-shrink:0;align-self:stretch}
-.tab[data-mode="legends"]{color:rgba(251,191,36,.35)}.tab[data-mode="legends"].active{color:#fbbf24;border-color:rgba(251,191,36,.45);box-shadow:0 0 0 1px rgba(251,191,36,.4),0 0 12px rgba(251,191,36,.12),inset 0 1px 0 rgba(251,191,36,.08);text-shadow:0 0 8px rgba(251,191,36,.35);background:rgba(251,191,36,.04)}
 .tab[data-mode="halloffame"]{color:rgba(251,191,36,.35)}.tab[data-mode="halloffame"].active{color:#fbbf24;border-color:rgba(251,191,36,.45);box-shadow:0 0 0 1px rgba(251,191,36,.4),0 0 12px rgba(251,191,36,.12),inset 0 1px 0 rgba(251,191,36,.08);text-shadow:0 0 8px rgba(251,191,36,.35);background:rgba(251,191,36,.04)}
 .tab[data-mode="maintiers"]{color:rgba(34,211,238,.3)}.tab[data-mode="maintiers"].active{color:#22d3ee;border-color:rgba(34,211,238,.45);box-shadow:0 0 0 1px rgba(34,211,238,.4),0 0 12px rgba(34,211,238,.1),inset 0 1px 0 rgba(34,211,238,.06);text-shadow:0 0 8px rgba(34,211,238,.3);background:rgba(34,211,238,.04)}
 .tab[data-mode="subtiers"]{color:rgba(192,132,252,.3)}.tab[data-mode="subtiers"].active{color:#c084fc;border-color:rgba(192,132,252,.45);box-shadow:0 0 0 1px rgba(192,132,252,.4),0 0 12px rgba(192,132,252,.1),inset 0 1px 0 rgba(192,132,252,.06);text-shadow:0 0 8px rgba(192,132,252,.3);background:rgba(192,132,252,.04)}
 .tab[data-mode="subtiers"] .tab-emoji{color:#c084fc;filter:drop-shadow(0 0 3px rgba(192,132,252,.3))}
-.tab[data-mode="mmtc"]{color:rgba(74,222,128,.3)}.tab[data-mode="mmtc"].active{color:#4ade80;border-color:rgba(74,222,128,.45);box-shadow:0 0 0 1px rgba(74,222,128,.4),0 0 12px rgba(74,222,128,.1),inset 0 1px 0 rgba(74,222,128,.06);text-shadow:0 0 8px rgba(74,222,128,.3);background:rgba(74,222,128,.04)}
-.mmtc-icon{width:16px;height:16px;vertical-align:middle;display:inline-block;position:relative;top:-1px;animation:mmtcSword 3s ease-in-out infinite}
 .sub-tabs-wrapper{overflow:hidden;max-height:0;opacity:0;transition:max-height .3s cubic-bezier(.4,0,.2,1),opacity .25s,padding .3s;padding:0 20px}
 .sub-tabs-wrapper.visible{max-height:65px;opacity:1;padding:7px 20px 10px}
 .sub-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0}.sub-tabs::-webkit-scrollbar{display:none}
@@ -213,11 +209,6 @@ header::after{content:'';position:absolute;top:0;left:-30%;width:20%;height:100%
 .te .ti{font-size:2.8rem;margin-bottom:10px;opacity:.2;animation:float 4s ease-in-out infinite}
 .te .tt{font-size:.95rem;font-weight:700;color:var(--text2);margin-bottom:3px}
 .te .td{font-size:.75rem;max-width:300px;margin:0 auto;line-height:1.6;opacity:.5}
-.es{text-align:center;padding:36px 20px;color:var(--text3)}
-.err{text-align:center;padding:56px 20px;color:var(--text3)}
-.err .ei{font-size:2.2rem;margin-bottom:10px;opacity:.3}
-.err .et{font-size:.95rem;font-weight:700;color:var(--text2);margin-bottom:3px}
-.err .ed{font-size:.73rem;max-width:320px;margin:0 auto;line-height:1.6}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(8px) saturate(1.1);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:1;transition:opacity .25s,visibility .25s;visibility:visible}
 .hidden{opacity:0;pointer-events:none;visibility:hidden}
 .mc{background:var(--card);border:1px solid rgba(251,191,36,.06);border-radius:14px;width:440px;max-height:82vh;overflow-y:auto;text-align:center;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.02);transition:transform .25s cubic-bezier(.4,0,.2,1)}
@@ -357,77 +348,334 @@ header::after{content:'';position:absolute;top:0;left:-30%;width:20%;height:100%
 <div class="cp-modes" id="cpModes"></div>
 </div>
 <script>
+/* ===================== DATA ===================== */
 var _e=document.createElement('div');
 function esc(s){if(s==null)return'';_e.textContent=String(s);return _e.innerHTML;}
-(function(){var c=document.getElementById("bgCanvas"),x=c.getContext("2d"),W,H,d,blobs=[],motes=[];var ms={x:-9e3,y:-9e3},wind=0,wt=0,sy=0,t=0,fs=0;var wc=[{r:251,g:191,b:36},{r:245,g:158,b:11},{r:251,g:146,b:60},{r:249,g:115,b:22},{r:253,g:224,b:71},{r:251,g:113,b:133}];function rs(){d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+"px";c.style.height=H+"px";x.setTransform(d,0,0,d,0,0);}function ib(){blobs=[];for(var i=0;i<4;i++){blobs.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.1,vy:(Math.random()-.5)*.07,bR:Math.random()*160+100,r:0,c:wc[i%wc.length],o:Math.random()*.035+.015,p:Math.random()*6.28,ps:Math.random()*.0003+.00015,ba:Math.random()*.12+.06});}}function im(){motes=[];for(var i=0;i<35;i++){motes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.04,vy:-(Math.random()*.1+.015),s:Math.random()*1.1+.25,c:wc[Math.floor(Math.random()*wc.length)],o:Math.random()*.2+.04,tp:Math.random()*6.28,ts:Math.random()*.002+.0008,ml:Math.random()*300+180,a:Math.floor(Math.random()*200),l:Math.random()<.4?0:1});}}addEventListener("scroll",function(){sy=scrollY;},{passive:true});addEventListener("mousemove",function(e){ms.x=e.clientX;ms.y=e.clientY;},{passive:true});addEventListener("mouseleave",function(){ms.x=-9e3;ms.y=-9e3;});function an(){if(document.hidden){requestAnimationFrame(an);return;}fs++;if(fs%2){requestAnimationFrame(an);return;}t++;x.clearRect(0,0,W,H);wt++;if(wt>400){wind=(Math.random()-.5)*.2;wt=0;}wind*=.998;for(var i=0;i<blobs.length;i++){var b=blobs[i];b.p+=b.ps;b.r=b.bR*(1+Math.sin(b.p)*b.ba);b.x+=b.vx;b.y+=b.vy;if(ms.x>0){var dx=ms.x-b.x,dy=ms.y-b.y,dd=Math.sqrt(dx*dx+dy*dy);if(dd<380&&dd>1){var f=.00006*(380-dd);b.vx+=dx/dd*f;b.vy+=dy/dd*f;}}b.vx*=.998;b.vy*=.998;var pd=b.r*.3;if(b.x<-pd)b.x=W+pd;if(b.x>W+pd)b.x=-pd;if(b.y<-pd)b.y=H+pd;if(b.y>H+pd)b.y=-pd;var sr=Math.max(2,b.r),g=x.createRadialGradient(b.x,b.y,0,b.x,b.y,sr),cl=b.c;g.addColorStop(0,"rgba("+cl.r+","+cl.g+","+cl.b+","+b.o+")");g.addColorStop(.4,"rgba("+cl.r+","+cl.g+","+cl.b+","+(b.o*.2)+")");g.addColorStop(1,"rgba("+cl.r+","+cl.g+","+cl.b+",0)");x.fillStyle=g;x.beginPath();x.arc(b.x,b.y,sr,0,6.28);x.fill();}for(var i=0;i<motes.length;i++){var m=motes[i];m.a++;m.tp+=m.ts;var px=m.l===0?.02:.04;m.x+=m.vx+wind*(.15+m.l*.15);m.y+=m.vy;var dy=m.y-sy*px;if(ms.x>0){var dx=m.x-ms.x,ddy=dy-ms.y,dd=Math.sqrt(dx*dx+ddy*ddy);if(dd<65&&dd>.5){var p=(65-dd)/65*.1;m.x+=dx/dd*p;m.y+=ddy/dd*p*.04;}}if(m.y<-30||m.a>m.ml){m.x=Math.random()*W;m.y=H+30;m.a=0;m.c=wc[Math.floor(Math.random()*wc.length)];}if(dy<-30||dy>H+30)continue;var tw=Math.sin(m.tp)*.5+.5,al=m.o*tw*Math.min(m.a/30,1)*Math.min((m.ml-m.a)/30,1);if(al>.008){x.beginPath();x.arc(m.x,dy,Math.max(.2,m.s),0,6.28);x.fillStyle="rgba("+m.c.r+","+m.c.g+","+m.c.b+","+al+")";x.fill();}}requestAnimationFrame(an);}addEventListener("resize",function(){rs();ib();im();});rs();ib();im();an();})();
-var IM={crystal:"https://static.wikia.nocookie.net/minecraft/images/9/92/EndCrystalNew.png",sword:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",axe:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png",uhc:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/74/Lava_Bucket_JE2_BE2.png",mace:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/63/Mace.png",dpot:"https://z-cdn-media.chatglm.cn/files/f20bf08d-dd14-41b2-b91d-36abe350f97c.png?auth_key=1879213822-97f197a5bfbd4f318a4be2f88d5f0300-0-82400ea5bda5aea8c84dc66b7c6e9d04",netpot:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Netherite_Sword_JE2_BE2.png",smp:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f6/Ender_Pearl_JE3_BE2.png",cart:"https://minecraft.wiki/images/Minecart_with_TNT_JE2_BE2.png",dsmp:"https://cdn.modrinth.com/data/iRzrwt7J/images/82d35276aeaa0d03900fc7e8d74996e7d8135917.png",spmace:"https://z-cdn-media.chatglm.cn/files/8f880e89-d18c-4254-bc7c-909f0dca2bbe.png?auth_key=1876752703-b9b5e577748b447d81c52b238aef7c3c-0-7a85aff27ef503dbf616515fc478a1c1",trident:"https://z-cdn-media.chatglm.cn/files/30e38080-a60b-4f1a-b243-474a5e3d0790.png?auth_key=1875708167-5e3186d14df845b69413633feef3f2c6-0-31984768476bedb38fa5a9f5a9db023e",bow:"https://z-cdn-media.chatglm.cn/files/0149e740-2f44-4558-88ed-11b78ec51a3f.png?auth_key=1877392430-515eb9e4a6bf4ae18838791d72328cd2-0-c74bd05cf6185fcb358907c6ec0e7400",creeper:"https://z-cdn-media.chatglm.cn/files/64519b87-8205-4e20-9abf-a524a1007d9c.png?auth_key=1877392430-26b2e764873f4bdaa4d98958146633cd-0-c15cd876152b476f29c00e1a93c04e1b"};
-var MC={crystal:"#f0abfc",sword:"#7dd3fc",axe:"#7dd3fc",uhc:"#fb923c",mace:"#a3a3a3",dpot:"#ef4444",netpot:"#a8a29e",smp:"#4ade80",cart:"#f87171",dsmp:"#60a5fa",spmace:"#8b95a5",trident:"#2dd4bf",bow:"#d4a574",creeper:"#4ade80"};
-var ML={crystal:"Crystal",sword:"Sword",axe:"Axe",uhc:"UHC",mace:"Mace",dpot:"DPot",netpot:"NetPot",smp:"SMP",cart:"Cart",dsmp:"DSMP",spmace:"Spear Mace",trident:"Trident",bow:"Bow",creeper:"Creeper"};
-var mmtcSVG='<svg class="mmtc-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.5 7.5L20 8.5L16 12.5L17 18L12 15.5L7 18L8 12.5L4 8.5L9.5 7.5L12 2Z" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 4.5L13.8 8.2L17.8 8.9L15 11.7L15.6 15.7L12 13.8L8.4 15.7L9 11.7L6.2 8.9L10.2 8.2L12 4.5Z" fill="rgba(74,222,128,.08)" stroke="rgba(74,222,128,.5)" stroke-width=".6"/><line x1="12" y1="6" x2="12" y2="14" stroke="rgba(74,222,128,.6)" stroke-width="1" stroke-linecap="round"/><line x1="8" y1="10" x2="16" y2="10" stroke="rgba(74,222,128,.6)" stroke-width="1" stroke-linecap="round"/></svg>';
-var modes=["legends","halloffame","maintiers","subtiers","mmtc"];
-var mainM=["crystal","sword","axe","uhc","mace","dpot","netpot","smp"];
-var subM=["dsmp","cart","spmace","creeper","bow","trident"];
-var allM=mainM.concat(subM);
-var hof=[{name:"ItzMr_greenX2",uuid:"d6dddb4c-6f4e-490f-bd6c-6019c28ebea0",role:"Founder"},{name:"Pwllow",uuid:"2fa3096f-7c7a-4a7e-bc44-5de7d61bbef4",role:"Owner"}];
-var TP={HT1:60,LT1:45,HT2:30,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1,RHT1:60,RLT1:45,RHT2:30,RLT2:20,RHT3:10,RLT3:6,RHT4:4,RLT4:3,RHT5:2,RLT5:1};
-var data=[],cM="maintiers",cS="all",sTO=null,tTO=null;
-var cmpActive=false,cmpSlots=[null,null];
-var tE=document.getElementById("btt"),tI=document.getElementById("bttI");
-function hexRGB(hex){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return{r:r,g:g,b:b};}
-function clearSubGlow(el){el.style.borderColor='';el.style.boxShadow='';el.style.color='';el.style.background='';var img=el.querySelector('.sub-tab-icon img');if(img&&img._baseFilter)img.style.filter=img._baseFilter;}
-function setSubGlow(el,mode){if(mode==='all'){el.style.borderColor='rgba(251,191,36,.35)';el.style.boxShadow='0 0 0 1px rgba(251,191,36,.3),0 0 8px rgba(251,191,36,.08)';el.style.color='#fbbf24';el.style.background='rgba(251,191,36,.05)';}else if(mode==='credits'){el.style.borderColor='rgba(192,132,252,.35)';el.style.boxShadow='0 0 0 1px rgba(192,132,252,.3),0 0 8px rgba(192,132,252,.08)';el.style.color='#c084fc';el.style.background='rgba(192,132,252,.05)';}else if(mode==='currentt1'){el.style.borderColor='rgba(74,222,128,.35)';el.style.boxShadow='0 0 0 1px rgba(74,222,128,.3),0 0 8px rgba(74,222,128,.08)';el.style.color='#4ade80';el.style.background='rgba(74,222,128,.05)';}else if(mode==='brackets'){el.style.borderColor='rgba(251,191,36,.35)';el.style.boxShadow='0 0 0 1px rgba(251,191,36,.3),0 0 8px rgba(251,191,36,.08)';el.style.color='#fbbf24';el.style.background='rgba(251,191,36,.05)';}else if(mode==='matches'){el.style.borderColor='rgba(251,113,133,.35)';el.style.boxShadow='0 0 0 1px rgba(251,113,133,.3),0 0 8px rgba(251,113,133,.08)';el.style.color='#fb7185';el.style.background='rgba(251,113,133,.05)';}else{var c=hexRGB(MC[mode]||'#f59e0b');var rs=c.r+',',gs=c.g+',',bs=c.b+',';el.style.borderColor='rgba('+rs+gs+bs+'.35)';el.style.boxShadow='0 0 0 1px rgba('+rs+gs+bs+'.3),0 0 8px rgba('+rs+gs+bs+'.1)';el.style.color=MC[mode];el.style.background='rgba('+rs+gs+bs+'.05)';var img=el.querySelector('.sub-tab-icon img');if(img){var gc=MC[mode]||'#f59e0b';img.style.filter='drop-shadow(0 0 6px '+gc+') drop-shadow(0 0 12px '+gc+') brightness(1.1)';}}}
-function gPO(p){return p===0?"HT":p===1?"LT":p===2?"RLT":p===3?"RHT":null;}
-function gPT(r){if(!r||r.tier==null||r.pos==null)return 0;var ct=gPO(r.pos);if(!ct)return 0;var cp=TP[ct+r.tier]||0;if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=gPO(r.peaked_pos);if(pt)cp=Math.max(cp,TP[pt+r.peaked_tier]||0);}return cp;}
-function hAP(r){if(!r||r.peaked_tier==null||r.peaked_pos==null)return false;var pt=gPO(r.peaked_pos);if(!pt)return false;var pp=TP[pt+r.peaked_tier]||0,ct2=gPO(r.pos);if(!ct2)return false;var cp=TP[ct2+r.tier]||0;return pp>cp||(pp===cp&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos));}
-function gMP(pl,ml){var pts=0;for(var i=0;i<ml.length;i++){var r=(pl.rankings||{})[ml[i]];if(r)pts+=gPT(r);}return pts;}
-function gMainP(p){return gMP(p,mainM);}
-function gSubP(p){return gMP(p,subM);}
-function gAT(pts){if(pts>=400)return{n:"Combat Grandmaster",c:"grandmaster"};if(pts>=250)return{n:"Combat Master",c:"master"};if(pts>=100)return{n:"Combat Ace",c:"ace"};if(pts>=50)return{n:"Combat Specialist",c:"specialist"};if(pts>=20)return{n:"Combat Cadet",c:"cadet"};if(pts>=10)return{n:"Combat Novice",c:"novice"};return{n:"Rookie",c:"rookie"};}
-function gPF(){return cM==="maintiers"?gMainP:cM==="subtiers"?gSubP:gMainP;}
-function gCL(){return cM==="maintiers"?"Main Tiers":cM==="subtiers"?"Sub Tiers":"Main Tiers";}
-function gFM(){if(cS==="all"){if(cM==="maintiers")return mainM.slice();if(cM==="subtiers")return subM.slice();return allM.slice();}if(cS&&cS!=="credits"&&cS!=="currentt1"&&cS!=="brackets"&&cS!=="matches")return[cS];if(cM==="maintiers")return mainM.slice();if(cM==="subtiers")return subM.slice();return[];}
-function bTB(mode,rk,fm){if(fm&&fm.indexOf(mode)===-1)return{h:"",p:0,peak:null};if(!rk||rk.tier==null||rk.pos==null)return{h:"",p:0,peak:null};var ct=gPO(rk.pos);if(!ct)return{h:"",p:0,peak:null};var ec=hAP(rk)?"has-peaked":"";var peakLabel=null;if(rk.peaked_tier!=null&&rk.peaked_pos!=null){var pt=gPO(rk.peaked_pos);if(pt){var pp=TP[pt+rk.peaked_tier]||0,cp=TP[ct+rk.tier]||0;if(pp>cp||(pp===cp&&(rk.peaked_tier!==rk.tier||rk.peaked_pos!==rk.pos))){peakLabel=pt+rk.peaked_tier;}}}var peakSpan=peakLabel?'<span class="tb-peak">\u2B06 '+esc(peakLabel)+'</span>':'';return{h:'<div class="tier-badge '+ct+" "+ec+'" data-mode="'+esc(mode)+'"><img src="'+IM[mode]+'"><span class="tb-label">'+esc(ct+rk.tier)+"</span>"+peakSpan+'</div>',p:gPT(rk),peak:peakLabel};}
-function sBT(el,mode,rk){clearTimeout(tTO);if(!rk||rk.tier==null||rk.pos==null)return;var ct=gPO(rk.pos);if(!ct)return;var cl=ct+rk.tier,pts=gPT(rk),tc=ct.toLowerCase();var h='<div class="btt-m"><img class="btt-mi" src="'+IM[mode]+'"><span class="btt-ml">'+esc(ML[mode]||mode)+'</span></div><div class="btt-t '+tc+'">'+esc(cl)+'</div><div class="btt-pts">'+pts+' pts</div>';if(rk.peaked_tier!=null&&rk.peaked_pos!=null){var pt=gPO(rk.peaked_pos);if(pt){var pp=TP[pt+rk.peaked_tier]||0,cp=TP[ct+rk.tier]||0;var pl=pt+rk.peaked_tier;if(pp>cp||(pp===cp&&(rk.peaked_tier!==rk.tier||rk.peaked_pos!==rk.pos))){h+='<div class="btt-peak"><div class="btt-peak-label">Peak Tier</div><div class="btt-peak-val">'+esc(pl)+' \u2726</div></div>';}}}tI.innerHTML=h;var rr=el.getBoundingClientRect(),tw=135,tt=rr.top-tI.offsetHeight-7,ll=rr.left+rr.width/2-tw/2,ac="";if(ll<5)ll=5;if(ll+tw>innerWidth-5)ll=innerWidth-tw-5;if(tt<5){tt=rr.bottom+7;ac="top";}if(tt+tI.offsetHeight>innerHeight-5)tt=Math.max(5,innerHeight-tI.offsetHeight-5);tE.style.left=ll+"px";tE.style.top=tt+"px";tE.style.width=tw+"px";var ea=tI.querySelector(".btt-a");if(ea)ea.remove();var ar=document.createElement("div");ar.className="btt-a "+ac;tI.appendChild(ar);tE.classList.add("visible");}
-function hBT(){tTO=setTimeout(function(){tE.classList.remove("visible");},70);}
-document.addEventListener("mouseover",function(e){var b=e.target.closest(".tier-badge[data-mode]");if(!b)return;var m=b.dataset.mode,row=b.closest(".player-row")||b.closest(".player");if(!row||!row._pd)return;var r=row._pd.rankings&&row._pd.rankings[m];if(r)sBT(b,m,r);},{passive:true});
-document.addEventListener("mouseover",function(e){var p=e.target.closest(".player[data-mode]");if(!p||!p._pd)return;var mode=p.dataset.mode,rk=p._pd.rankings&&p._pd.rankings[mode];if(rk)sBT(p,mode,rk);},{passive:true});
-document.addEventListener("mouseout",function(e){var b=e.target.closest(".tier-badge[data-mode]");if(!b)return;var rel=e.relatedTarget;if(rel&&rel.closest&&rel.closest(".btt"))return;hBT();},{passive:true});
-document.addEventListener("mouseout",function(e){var p=e.target.closest(".player[data-mode]");if(!p)return;var rel=e.relatedTarget;if(rel&&rel.closest&&rel.closest(".btt"))return;hBT();},{passive:true});
-tE.addEventListener("mouseenter",function(){clearTimeout(tTO);});
-tE.addEventListener("mouseleave",function(){hBT();});
-document.addEventListener("mousemove",function(e){var row=e.target.closest(".player-row");if(row){var r=row.getBoundingClientRect();row.style.setProperty("--mx",(e.clientX-r.left)+"px");row.style.setProperty("--my",(e.clientY-r.top)+"px");}var p=e.target.closest(".player");if(p){var r2=p.getBoundingClientRect();p.style.setProperty("--mx",(e.clientX-r2.left)+"px");p.style.setProperty("--my",(e.clientY-r2.top)+"px");}var btn=e.target.closest(".hbtn,.discord-btn,.tiktok-btn,.sub-tab");if(btn){var r3=btn.getBoundingClientRect();btn.style.setProperty("--mx",(e.clientX-r3.left)+"px");btn.style.setProperty("--my",(e.clientY-r3.top)+"px");}},{passive:true});
-function findPlayerByUUID(uuid){for(var i=0;i<data.length;i++){if(data[i].uuid===uuid)return data[i];}return null;}
-function toggleCompare(){cmpActive=!cmpActive;var btn=document.getElementById("cmpToggle");var lb=document.getElementById("leaderboard");if(cmpActive){btn.classList.add("active");lb.classList.add("compare-active");cmpSlots=[null,null];updateCmpPicks();}else{btn.classList.remove("active");lb.classList.remove("compare-active");cmpSlots=[null,null];updateCmpPicks();document.getElementById("cpPanel").classList.remove("vis");}}
-function addToCompare(uuid){if(!cmpActive)return;var idx=cmpSlots[0]===null?0:cmpSlots[1]===null?1:-1;if(idx===-1){cmpSlots=[null,null];idx=0;}cmpSlots[idx]=uuid;updateCmpPicks();if(cmpSlots[0]&&cmpSlots[1])showCompare();}
-function updateCmpPicks(){var rows=document.querySelectorAll(".player-row,.player,.att-player");for(var i=0;i<rows.length;i++){rows[i].classList.remove("cmp-picked");}for(var s=0;s<cmpSlots.length;s++){if(!cmpSlots[s])continue;for(var i=0;i<rows.length;i++){if(rows[i]._pd&&rows[i]._pd.uuid===cmpSlots[s]){rows[i].classList.add("cmp-picked");}}}}
-function showCompare(){var p1=findPlayerByUUID(cmpSlots[0]),p2=findPlayerByUUID(cmpSlots[1]);if(!p1||!p2)return;var pts1=gMP(p1,allM),pts2=gMP(p2,allM);var w=pts1>=pts2?0:1;var head=document.getElementById("cpHead");head.innerHTML='<div class="cp-p'+(w===0?' cp-w':'')+'"><img src="https://mc-heads.net/body/'+p1.uuid+'/80" onerror="this.style.visibility=\'hidden\'"><span>'+esc(p1.name)+'</span><span class="cp-pts">'+pts1+' pts</span></div><div class="cp-vs">VS</div><div class="cp-p'+(w===1?' cp-w':'')+'"><img src="https://mc-heads.net/body/'+p2.uuid+'/80" onerror="this.style.visibility=\'hidden\'"><span>'+esc(p2.name)+'</span><span class="cp-pts">'+pts2+' pts</span></div>';var modesEl=document.getElementById("cpModes");var html="";var barColors=["#c084fc","#22d3ee"];for(var i=0;i<allM.length;i++){var m=allM[i];var r1=(p1.rankings||{})[m],r2=(p2.rankings||{})[m];var s1=r1?gPT(r1):0,s2=r2?gPT(r2):0;var maxP=Math.max(s1,s2,1);var w1=s1>0?Math.max(Math.round(s1/maxP*100),s1>0?8:0):0;var w2=s2>0?Math.max(Math.round(s2/maxP*100),s2>0?8:0):0;var mw=s1>s2?0:s2>s1?1:-1;var tie=mw===-1;html+='<div class="cp-row'+(tie?' cp-tie':'')+'" style="animation-delay:'+(i*.04)+'s"><div class="cp-ml"><img src="'+IM[m]+'">'+esc(ML[m]||m)+'</div><div class="cp-bars">';html+='<div class="cp-bw'+(mw===0?' cp-win':'')+'"><div class="cp-bf" style="width:'+w1+'%;background:'+barColors[0]+';animation-delay:'+(i*.04+.05)+'s">'+(s1>0?s1+'pts':'')+'</div></div>';html+='<div class="cp-bw'+(mw===1?' cp-win':'')+'"><div class="cp-bf" style="width:'+w2+'%;background:'+barColors[1]+';animation-delay:'+(i*.04+.1)+'s">'+(s2>0?s2+'pts':'')+'</div></div>';html+='</div></div>';}modesEl.innerHTML=html;document.getElementById("cpPanel").classList.add("vis");}
-function init(){cTabs();bST("maintiers");document.getElementById("subTabsWrapper").classList.add("visible");bIP();setupInfoModal();setupCompare();lD();}
-function setupCompare(){document.getElementById("cmpToggle").addEventListener("click",function(e){e.stopPropagation();toggleCompare();});document.getElementById("cpClose").addEventListener("click",function(e){e.stopPropagation();document.getElementById("cpPanel").classList.remove("vis");});document.getElementById("cpPanel").addEventListener("click",function(e){if(e.target===this)this.classList.remove("vis");});}
-function lD(){var ct=new AbortController();var ti=setTimeout(function(){ct.abort();},10000);fetch("api-1.json",{signal:ct.signal}).then(function(r){clearTimeout(ti);if(!r.ok)throw new Error(r.status);return r.json();}).then(function(p){if(!Array.isArray(p))throw new Error("bad");data=p;render();}).catch(function(e){clearTimeout(ti);document.getElementById("leaderboard").innerHTML='<div class="err"><div class="ei">&#9888;</div><div class="et">Failed to load leaderboard</div><div class="ed">Could not fetch api-1.json.</div></div>';});}
-function setupInfoModal(){document.getElementById("infoBtnOpen").addEventListener("click",function(e){e.stopPropagation();document.getElementById("infoModal").classList.remove("hidden");});document.getElementById("infoCloseBtn").addEventListener("click",function(e){e.stopPropagation();document.getElementById("infoModal").classList.add("hidden");});document.getElementById("infoModal").addEventListener("click",function(e){if(e.target===this)this.classList.add("hidden");});document.getElementById("tabPoints").addEventListener("click",function(){switchInfoTab("Points",this);});document.getElementById("tabTitles").addEventListener("click",function(){switchInfoTab("Titles",this);});}
-function switchInfoTab(tab,btn){var tabs=document.querySelectorAll(".imtab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");btn.classList.add("active");var panels=document.querySelectorAll(".ipnl");for(var j=0;j<panels.length;j++)panels[j].classList.remove("visible");var target=document.getElementById("i"+tab);if(target)target.classList.add("visible");}
-function bIP(){var pl="";for(var t=1;t<=5;t++){var tc={1:"t1",2:"t2",3:"t3",4:"t4",5:"t5"}[t];pl+='<div class="itr"><div class="itl '+tc+'">Tier '+t+'</div><div class="itv"><div class="itvl ht"><span class="vn">HT</span> '+TP["HT"+t]+'</div><div class="itvl lt"><span class="vn">LT</span> '+TP["LT"+t]+'</div></div></div>';}document.getElementById("iPL").innerHTML=pl;var titles=[{n:"Combat Grandmaster",c:"grandmaster",p:"400+ pts"},{n:"Combat Master",c:"master",p:"250+ pts"},{n:"Combat Ace",c:"ace",p:"100+ pts"},{n:"Combat Specialist",c:"specialist",p:"50+ pts"},{n:"Combat Cadet",c:"cadet",p:"20+ pts"},{n:"Combat Novice",c:"novice",p:"10+ pts"},{n:"Rookie",c:"rookie",p:"<10 pts"}];var tl="";for(var i=0;i<titles.length;i++){tl+='<div class="itir"><div class="itic i-'+titles[i].c+'"></div><div class="itin t-'+titles[i].c+'">'+titles[i].n+'</div><div class="itp">'+titles[i].p+'</div></div>';}document.getElementById("iTL").innerHTML=tl;}
-function cTabs(){var t=document.getElementById("tabs");var em={legends:"\uD83D\uDC51",halloffame:"\uD83C\uDFC6",maintiers:"\uD83D\uDDE1",subtiers:"\u2731",mmtc:mmtcSVG};var lb={legends:"LEGENDS",halloffame:"Hall of Fame",maintiers:"Main Tiers",subtiers:"Sub Tiers",mmtc:"MMTC"};for(var i=0;i<modes.length;i++){var m=modes[i];if(i===2){var s=document.createElement("div");s.className="tab-separator";t.appendChild(s);}var b=document.createElement("button");b.className="tab";if(m==="maintiers")b.classList.add("active");b.dataset.mode=m;b.innerHTML='<span class="tab-emoji">'+em[m]+'</span><span class="tab-text">'+lb[m]+'</span>';b.tabIndex=0;(function(md,btn){btn.onclick=function(){sTab(md,btn);};btn.onkeydown=function(e){if(e.key==="Enter")sTab(md,btn);};})(m,b);t.appendChild(b);}}
-function bST(pm){var c=document.getElementById("subTabs");c.innerHTML="";if(pm==="halloffame"){var ct=document.createElement("button");ct.className="sub-tab"+(cS==="credits"?" active":"");ct.dataset.mode="credits";ct.innerHTML='<div class="sub-tab-icon"><span class="sub-tab-icon-emoji" style="filter:drop-shadow(0 0 3px rgba(192,132,252,.4))">\u2726</span></div><span class="sub-tab-label">Credits</span>';ct.onclick=function(){sSub("credits",ct);};c.appendChild(ct);var at=document.createElement("button");at.className="sub-tab"+(cS==="currentt1"?" active":"");at.dataset.mode="currentt1";at.innerHTML='<div class="sub-tab-icon"><span class="sub-tab-icon-emoji" style="filter:drop-shadow(0 0 3px rgba(74,222,128,.4))">\u26A1</span></div><span class="sub-tab-label">Current Tier 1\'s</span>';at.onclick=function(){sSub("currentt1",at);};c.appendChild(at);var activeEl=c.querySelector(".sub-tab.active");if(activeEl)setSubGlow(activeEl,activeEl.dataset.mode);return;}if(pm==="mmtc"){var br=document.createElement("button");br.className="sub-tab"+(cS==="brackets"?" active":"");br.dataset.mode="brackets";br.innerHTML='<div class="sub-tab-icon"><span class="sub-tab-icon-emoji" style="filter:drop-shadow(0 0 3px rgba(251,191,36,.4))">\uD83C\uDFC6</span></div><span class="sub-tab-label">Brackets</span>';br.onclick=function(){sSub("brackets",br);};c.appendChild(br);var mt=document.createElement("button");mt.className="sub-tab"+(cS==="matches"?" active":"");mt.dataset.mode="matches";mt.innerHTML='<div class="sub-tab-icon"><span class="sub-tab-icon-emoji" style="filter:drop-shadow(0 0 3px rgba(251,113,133,.4))">\u2694</span></div><span class="sub-tab-label">Matches</span>';mt.onclick=function(){sSub("matches",mt);};c.appendChild(mt);var activeEl=c.querySelector(".sub-tab.active");if(activeEl)setSubGlow(activeEl,activeEl.dataset.mode);return;}var list=pm==="maintiers"?mainM:pm==="subtiers"?subM:[];var ab=document.createElement("button");ab.className="sub-tab"+(cS==="all"?" active":"");ab.dataset.mode="all";ab.innerHTML='<div class="sub-tab-icon"><span class="sub-tab-star">\u2B50</span></div><span class="sub-tab-label">All</span>';ab.onclick=function(){sSub("all",ab);};c.appendChild(ab);for(var i=0;i<list.length;i++){var m=list[i],gc=MC[m]||"rgba(255,255,255,.3)",b=document.createElement("button");b.className="sub-tab";b.dataset.mode=m;var baseFilter='drop-shadow(0 0 3px '+gc+') drop-shadow(0 0 7px '+gc+')';b.innerHTML='<div class="sub-tab-icon"><img src="'+IM[m]+'" style="filter:'+baseFilter+'"></div><span class="sub-tab-label">'+(ML[m]||m)+'</span>';var img=b.querySelector('.sub-tab-icon img');if(img)img._baseFilter=baseFilter;(function(md,btn){btn.onclick=function(){sSub(md,btn);};})(m,b);c.appendChild(b);}var activeEl=c.querySelector(".sub-tab.active");if(activeEl)setSubGlow(activeEl,activeEl.dataset.mode);}
-function sTab(mode,btn){var c=document.getElementById("leaderboard");c.classList.add("fade-out");var sw=document.getElementById("subTabsWrapper");setTimeout(function(){cM=mode;if(mode==="halloffame")cS="credits";else if(mode==="maintiers"||mode==="subtiers")cS="all";else if(mode==="mmtc")cS="brackets";else cS=null;if(mode==="halloffame"||mode==="maintiers"||mode==="subtiers"||mode==="mmtc"){bST(mode);sw.classList.add("visible");}else sw.classList.remove("visible");var tabs=document.querySelectorAll(".tab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");btn.classList.add("active");render();c.classList.remove("fade-out");},100);}
-function sSub(sm,btn){var c=document.getElementById("leaderboard");c.classList.add("fade-out");setTimeout(function(){cS=sm;var tabs=document.querySelectorAll(".sub-tab");for(var i=0;i<tabs.length;i++){tabs[i].classList.remove("active");clearSubGlow(tabs[i]);}btn.classList.add("active");setSubGlow(btn,sm);render();c.classList.remove("fade-out");},100);}
-function handleRowClick(pd,rank,pts,ctx){if(cmpActive&&pd.uuid){addToCompare(pd.uuid);return;}oP(pd,rank,pts,ctx);}
-function render(){var ct=document.getElementById("leaderboard");var sv=document.getElementById("searchInput").value.toLowerCase();var pl=data.filter(function(p){return p.name.toLowerCase().indexOf(sv)!==-1;});ct.innerHTML="";if(cM==="legends"){rLegends(pl);return;}if(cM==="halloffame"){if(cS==="credits")rCredits();else if(cS==="currentt1")rCT1();return;}if(cM==="mmtc"){if(cS==="brackets"){ct.innerHTML='<div class="te"><div class="ti">\uD83C\uDFC6</div><div class="tt">No Brackets Yet</div><div class="td">Tournament brackets will appear here when events are scheduled.</div></div>';}else if(cS==="matches"){ct.innerHTML='<div class="te"><div class="ti">\u2694</div><div class="tt">No Matches Yet</div><div class="td">Match results and schedules will appear here when matches are played.</div></div>';}return;}if(cM==="maintiers"){if(cS==="all"){rRanked(pl,gMainP,mainM,sv);return;}rTG(cS,pl);return;}if(cM==="subtiers"){if(cS==="all"){rRanked(pl,gSubP,subM,sv);return;}rTG(cS,pl);return;}}
-function hasCR(p){if(!p.rankings)return false;for(var k in p.rankings){if(p.rankings.hasOwnProperty(k)){var r=p.rankings[k];if(r&&r.pos!=null&&(r.pos===3||r.pos===2))return true;}}return false;}
-function rLegends(players){var ct=document.getElementById("leaderboard"),frag=document.createDocumentFragment();var dl=players.filter(function(p){return hasCR(p);});if(!dl.length){ct.innerHTML='<div class="es"><div style="font-size:2rem;margin-bottom:8px;opacity:.25">\uD83D\uDC51</div><div style="font-size:.82rem">No legends yet</div></div>';return;}dl.sort(function(a,b){return gMP(b,allM)-gMP(a,allM);});for(var i=0;i<dl.length;i++){var p=dl[i],pts=gMP(p,allM),ti=gAT(pts);var row=document.createElement("div");row.className="player-row legend-row";row.tabIndex=0;row._pd={name:p.name,uuid:p.uuid,rankings:p.rankings,points:pts};row.style.animationDelay=(i*.035)+"s";row.innerHTML='<div class="cmp-sel">\u2713</div>';var fm2=allM,te=[];for(var k in p.rankings){if(p.rankings.hasOwnProperty(k)&&fm2.indexOf(k)!==-1){var res=bTB(k,p.rankings[k],fm2);if(res.h)te.push({h:res.h,p:res.p});}}te.sort(function(a,b){return b.p-a.p;});var th="";for(var j=0;j<te.length;j++)th+=te[j].h;row.innerHTML+='<img class="avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><div class="player-info"><div class="name-line"><span class="rank">#'+(i+1)+'</span><span class="player-name">'+esc(p.name)+'</span></div><span class="achievement '+ti.c+'">'+esc(ti.n)+'</span><div class="points">'+pts+" pts</div></div>"+(th?'<div class="tiers-grid">'+th+"</div>":"");(function(pd,rn,pt){row.onclick=function(){handleRowClick(pd,rn,pt,"LEGENDS");};row.onkeydown=function(e){if(e.key==="Enter")handleRowClick(pd,rn,pt,"LEGENDS");};})({name:p.name,uuid:p.uuid,rankings:p.rankings},i+1,pts);frag.appendChild(row);}ct.appendChild(frag);}
-function rRanked(players,pFn,filterM,searching){var ct=document.getElementById("leaderboard"),frag=document.createDocumentFragment();var dl=players.map(function(p){return{name:p.name,uuid:p.uuid,rankings:p.rankings,points:pFn(p)};}).filter(function(p){return p.points>0;});dl.sort(function(a,b){return b.points-a.points;});var rk=1;for(var i=0;i<dl.length;i++){if(i>0&&dl[i].points!==dl[i-1].points)rk=i+1;dl[i].rank=rk;}if(!dl.length){ct.innerHTML='<div class="es"><div style="font-size:2rem;margin-bottom:8px;opacity:.25">\uD83D\uDD0D</div><div style="font-size:.82rem">No players found</div></div>';return;}for(var i=0;i<dl.length;i++){var p=dl[i],row=document.createElement("div");row.className="player-row";row.tabIndex=0;row._pd=p;row.style.animationDelay=(i*.02)+"s";if(!searching&&p.rank===1)row.classList.add("top1");else if(!searching&&p.rank===2)row.classList.add("top2");else if(!searching&&p.rank===3)row.classList.add("top3");var rk2=p.rankings||{},fm2=gFM(),te=[];for(var k in rk2){if(rk2.hasOwnProperty(k)&&fm2.indexOf(k)!==-1){var res=bTB(k,rk2[k],fm2);if(res.h)te.push({h:res.h,p:res.p});}}te.sort(function(a,b){return b.p-a.p;});var th="";for(var j=0;j<te.length;j++)th+=te[j].h;var ti=gAT(p.points);row.innerHTML='<div class="cmp-sel">\u2713</div><img class="avatar" src="https://mc-heads.net/body/'+p.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><div class="player-info"><div class="name-line"><span class="rank">#'+p.rank+'</span><span class="player-name">'+esc(p.name)+'</span></div><span class="achievement '+ti.c+'">'+esc(ti.n)+'</span><div class="points">'+p.points+" pts</div></div>"+(th?'<div class="tiers-grid">'+th+"</div>":"");(function(pd,rn,pt){row.onclick=function(){handleRowClick(pd,rn,pt);};row.onkeydown=function(e){if(e.key==="Enter")handleRowClick(pd,rn,pt);};})(p,p.rank,p.points);frag.appendChild(row);}ct.appendChild(frag);}
-function rTG(mode,players){var ct=document.getElementById("leaderboard"),tiers={1:[],2:[],3:[],4:[],5:[]};for(var i=0;i<players.length;i++){var p=players[i],r=p.rankings&&p.rankings[mode];if(!r||r.tier==null)continue;var ct2=gPO(r.pos);if(!ct2)continue;var tk=r.tier;if(!tiers[tk])tk=5;tiers[tk].push({name:p.name,uuid:p.uuid,rankings:p.rankings,pos:r.pos,ranking:r,type:ct2});}var frag=document.createDocumentFragment();var grid=document.createElement("div");grid.className="tier-grid";for(var t=1;t<=5;t++){var col=document.createElement("div");col.className="tier-column";col.dataset.tier=t;col.innerHTML='<div class="tier-title">Tier '+t+'</div><div class="tier-players"></div>';var pd=col.querySelector(".tier-players");if(tiers[t].length){tiers[t].sort(function(a,b){var aR=a.pos===2||a.pos===3?2:0,bR=b.pos===2||b.pos===3?2:0;if(aR!==bR)return aR-bR;return a.pos-b.pos;});for(var j=0;j<tiers[t].length;j++){var pl=tiers[t][j],div=document.createElement("div");div._pd=pl;div.className="player "+pl.type;div.dataset.mode=mode;var peakTag="";if(pl.ranking.peaked_tier!=null&&pl.ranking.peaked_pos!=null){var pt=gPO(pl.ranking.peaked_pos);if(pt){var pp=TP[pt+pl.ranking.peaked_tier]||0,cp=TP[pl.type+pl.ranking.tier]||0;if(pp>cp||(pp===cp&&(pl.ranking.peaked_tier!==pl.ranking.tier||pl.ranking.peaked_pos!==pl.ranking.pos))){peakTag='<span class="tg-peak-tag">\u2B06 '+esc(pt+pl.ranking.peaked_tier)+'</span>';}}}div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="pnc">'+esc(pl.name)+'</span>'+peakTag+(hAP(pl.ranking)?'<span class="pps">\u2726</span>':"");(function(pd2,md){div.onclick=function(){if(cmpActive&&pd2.uuid){addToCompare(pd2.uuid);return;}var fn=gPF(),pts=fn({name:pd2.name,rankings:pd2.rankings});var ap=data.map(function(p){return{uuid:p.uuid,pts:fn(p)};}).filter(function(p){return p.pts>0;}).sort(function(a,b){return b.pts-a.pts;});var r=1;for(var i=0;i<ap.length;i++){if(i>0&&ap[i].pts!==ap[i-1].pts)r=i+1;if(ap[i].uuid===pd2.uuid)break;}oP({name:pd2.name,uuid:pd2.uuid,rankings:pd2.rankings},r,pts,gCL()+" \u2014 "+(ML[md]||md));};})(pl,mode);pd.appendChild(div);}}grid.appendChild(col);}frag.appendChild(grid);ct.appendChild(frag);}
-function gBT1P(rk){if(!rk||rk.tier==null)return null;var ct=gPO(rk.pos);if(!ct)return null;if(rk.tier===1)return rk.pos;if(rk.peaked_tier!=null&&rk.peaked_pos!=null){var pt=gPO(rk.peaked_pos);if(pt&&rk.peaked_tier===1)return rk.peaked_pos;}return null;}
-function gBT1Class(pos){return pos===0?"ht1":pos===1?"lt1":pos===3?"rht1":pos===2?"rlt1":"";}
-function gBT1Tag(pos){return pos===0?"HT1":pos===1?"LT1":pos===3?"RHT1":pos===2?"RLT1":"";}
-function rCT1(){var ct=document.getElementById("leaderboard"),frag=document.createDocumentFragment();var grid=document.createElement("div");grid.className="att-grid";for(var mi=0;mi<allM.length;mi++){var mode=allM[mi],gc=MC[mode]||"rgba(255,255,255,.3)";var br=document.createElement("div");br.className="att-bracket";br.style.animationDelay=(mi*.025)+"s";br.innerHTML='<div class="att-title" style="color:'+gc+'"><img src="'+IM[mode]+'" style="filter:drop-shadow(0 0 3px '+gc+')">'+esc(ML[mode]||mode)+'</div><div class="att-players"></div>';var pd=br.querySelector(".att-players");var ae=[];for(var pi=0;pi<data.length;pi++){var p=data[pi],rk=p.rankings&&p.rankings[mode];var pos=gBT1P(rk);if(pos===null)continue;var cls=gBT1Class(pos);if(!cls)continue;ae.push({name:p.name,uuid:p.uuid,rankings:p.rankings,pos:pos,cls:cls,tag:gBT1Tag(pos)});}if(ae.length){for(var j=0;j<ae.length;j++){var pl=ae[j],div=document.createElement("div");div.className="att-player "+pl.cls;div._pd={name:pl.name,uuid:pl.uuid,rankings:pl.rankings};div.innerHTML='<img src="https://mc-heads.net/body/'+pl.uuid+'/100" loading="lazy" onerror="this.classList.add(\'avatar-error\')"><span class="apn">'+esc(pl.name)+'</span><span class="att-tag">'+pl.tag+'</span>';(function(pd2,md){div.onclick=function(){if(cmpActive&&pd2.uuid){addToCompare(pd2.uuid);return;}oP({name:pd2.name,uuid:pd2.uuid,rankings:pd2.rankings},0,gMP({name:pd2.name,rankings:pd2.rankings},allM),"Current Tier One's \u2014 "+(ML[md]||md));};})(pl,mode);pd.appendChild(div);}}else{pd.innerHTML='<div class="ae">No tier 1 yet</div>';}grid.appendChild(br);}frag.appendChild(grid);ct.appendChild(frag);}
-function rCredits(){var ct=document.getElementById("leaderboard"),frag=document.createDocumentFragment();var w=document.createElement("div");w.className="cred-wrap";var cc=[{c:"oc",rc:"cr-ro",dc:"cdiv-ro"},{c:"dc",rc:"cr-dv",dc:"cdiv-dv"},{c:"rc",rc:"cr-rd",dc:"cdiv-rd"}];var ch="";for(var i=0;i<hof.length;i++){var e=hof[i],cfg=cc[i];ch+='<div class="cred-card '+cfg.c+'"><img class="ca" src="https://mc-heads.net/body/'+e.uuid+'/120" onerror="this.classList.add(\'avatar-error\')"><div class="cn">'+esc(e.name)+'</div><div class="cr '+cfg.rc+'">'+esc(e.role)+'</div><div class="cdiv '+cfg.dc+'"></div></div>';}w.innerHTML='<div class="cred-row">'+ch+'</div>';frag.appendChild(w);ct.appendChild(frag);}
-function oP(p,rank,points,contextLabel){var mc=document.getElementById("mc"),fm=gFM(),ti=gAT(points),rk=p.rankings||{},se=[];for(var k in rk){if(rk.hasOwnProperty(k)&&fm.indexOf(k)!==-1)se.push([k,rk[k]]);}se.sort(function(a,b){return gPT(b[1])-gPT(a[1]);});var tr="",pc=0;for(var i=0;i<se.length;i++){var m=se[i][0],r=se[i][1];if(!r||r.tier==null||r.pos==null)continue;var ct2=gPO(r.pos);if(!ct2)continue;var cl=ct2+r.tier;var eh='<span class="et fc">'+esc(cl)+'</span>';if(r.peaked_tier!=null&&r.peaked_pos!=null){var pt=gPO(r.peaked_pos);if(pt){var pp=TP[pt+r.peaked_tier]||0,cp=TP[ct2+r.tier]||0;if(pp>cp){eh='<span class="ct">'+esc(cl)+'</span> <span class="arrow">\u2192</span> <span class="et fp">'+esc(pt+r.peaked_tier)+" \u2726</span>";pc++;}else if(pp===cp&&(r.peaked_tier!==r.tier||r.peaked_pos!==r.pos)){eh='<span class="et fp">'+esc(cl)+" \u2726</span>";pc++;}}}tr+='<div class="pcr"><img class="mi" src="'+IM[m]+'"><span class="ml">'+esc(ML[m]||m)+'</span>'+eh+'<span class="pts">'+gPT(r)+"pts</span></div>";}var ctxH="";if(contextLabel)ctxH='<div class="pctx">'+esc(contextLabel)+'</div>';var footer="";if(pc>0)footer='<div class="pdr"><div class="pdr-inner">\u2726 = points from peaked tier ('+pc+' mode'+(pc>1?"s":"")+')</div></div>';mc.innerHTML='<button class="close" id="modalCloseBtn" aria-label="Close">\u2715</button><img class="pa" src="https://mc-heads.net/body/'+p.uuid+'/100" onerror="this.classList.add(\'avatar-error\')"><div class="pn">'+esc(p.name)+'</div><div class="pr '+ti.c+'">'+esc(ti.n)+'</div><div class="ps">#'+rank+" \u2022 "+points+" points</div>"+ctxH+'<div class="ptl">Tier Breakdown</div>'+(tr?'<div style="text-align:left">'+tr+'</div>':'<div class="no-tiers-msg">No tiers yet</div>')+footer;document.getElementById("modal").classList.remove("hidden");document.getElementById("modalCloseBtn").addEventListener("click",function(e){e.stopPropagation();closeModal();});}
-function closeModal(){document.getElementById("modal").classList.add("hidden");}
-document.getElementById("modal").addEventListener("click",function(e){if(e.target===this)closeModal();});
-document.getElementById("searchInput").addEventListener("input",function(){clearTimeout(sTO);sTO=setTimeout(render,200);});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeModal();document.getElementById("infoModal").classList.add("hidden");document.getElementById("cpPanel").classList.remove("vis");if(cmpActive)toggleCompare();}});
-window.addEventListener("DOMContentLoaded",init);
-</script>
-</body>
-</html>
+
+/* Tier icon SVGs as data URIs */
+function tierSvg(c){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="10,2 12.9,7.5 19,8.2 14.5,12.5 15.7,18.5 10,15.5 4.3,18.5 5.5,12.5 1,8.2 7.1,7.5" fill="'+c+'"/></svg>';return'data:image/svg+xml,'+encodeURIComponent(s);}
+var TIER_ICONS={1:tierSvg('#fbbf24'),2:tierSvg('#94a3b8'),3:tierSvg('#d97706'),4:tierSvg('#9ca3af'),5:tierSvg('#6b7280')};
+var TIER_NAMES={1:'TIER 1',2:'TIER 2',3:'TIER 3',4:'TIER 4',5:'TIER 5'};
+
+/* Compact tier helper: T(tier, typeChar, peak, peakTypeChar)
+   typeChar: H=HT, L=LT, R=RHT, r=RLT */
+function T(t,tp,pk,pt){var m={H:'HT',L:'LT',R:'RHT',r:'RLT'};var pm={H:'HT',L:'LT'};return{tier:t,type:m[tp]||'HT',peak:pk||t,peakType:pm[pt||'H']||'HT'};}
+
+/* === CHANGED: Removed 'legends' and 'mmtc' tabs === */
+var TABS=[
+  {id:'halloffame',label:'Hall of Fame',emoji:'\u{1F3C6}'},
+  {id:'maintiers',label:'Main Tiers',emoji:'\u{1F3AF}'},
+  {id:'subtiers',label:'Sub Tiers',emoji:'\u{1F52E}'}
+];
+
+var MAIN_MODES=[
+  {id:'bedwars',name:'Bedwars',emoji:'\u{1F6CF}'},
+  {id:'skywars',name:'Skywars',emoji:'\u2694\uFE0F'},
+  {id:'duels',name:'Duels',emoji:'\u{1F5E1}\uFE0F'},
+  {id:'uhc',name:'UHC',emoji:'\u{1F3F9}'}
+];
+var SUB_MODES=[
+  {id:'murdermystery',name:'Murder Mystery',emoji:'\u{1F52A}'},
+  {id:'buildbattle',name:'Build Battle',emoji:'\u{1F3D7}\uFE0F'},
+  {id:'blitzsg',name:'Blitz SG',emoji:'\u26A1'},
+  {id:'tntgames',name:'TNT Games',emoji:'\u{1F4A3}'}
+];
+var ALL_MODES=[{id:'overall',name:'Overall',emoji:'\u2B50'}].concat(MAIN_MODES,SUB_MODES);
+
+/* Sample players — replace with real data */
+var PLAYERS=[
+  {name:'xNotch',avatar:'https://i.pravatar.cc/60?img=1',points:4850,achievement:'grandmaster',
+   tiers:{bedwars:T(1,'H',1,'H'),skywars:T(1,'H',1,'H'),duels:T(1,'H',1,'H'),uhc:T(1,'L',1,'H'),murdermystery:T(1,'H',1,'H'),buildbattle:T(2,'H',1,'H'),blitzsg:T(1,'H',1,'H'),tntgames:T(2,'L',1,'H')}},
+  {name:'DreamSlayer',avatar:'https://i.pravatar.cc/60?img=2',points:4620,achievement:'master',
+   tiers:{bedwars:T(1,'H',1,'H'),skywars:T(1,'L',1,'H'),duels:T(2,'H',1,'H'),uhc:T(1,'H',1,'H'),murdermystery:T(2,'L',2,'H'),buildbattle:T(3,'H',2,'H'),blitzsg:T(1,'L',1,'H'),tntgames:T(3,'L',2,'H')}},
+  {name:'SkyKing99',avatar:'https://i.pravatar.cc/60?img=3',points:4310,achievement:'master',
+   tiers:{bedwars:T(2,'H',1,'H'),skywars:T(1,'H',1,'H'),duels:T(1,'R',1,'H'),uhc:T(2,'L',2,'H'),murdermystery:T(1,'L',1,'H'),buildbattle:T(2,'L',2,'H'),blitzsg:T(2,'H',1,'H'),tntgames:T(2,'H',2,'H')}},
+  {name:'BladeRunner',avatar:'https://i.pravatar.cc/60?img=4',points:4180,achievement:'master',
+   tiers:{bedwars:T(1,'L',1,'H'),skywars:T(2,'H',1,'H'),duels:T(1,'H',1,'H'),uhc:T(1,'L',1,'H'),murdermystery:T(3,'H',2,'H'),buildbattle:T(2,'H',2,'H'),blitzsg:T(1,'H',1,'H'),tntgames:T(3,'H',2,'H')}},
+  {name:'UHCChampion',avatar:'https://i.pravatar.cc/60?img=5',points:3890,achievement:'specialist',
+   tiers:{bedwars:T(2,'L',2,'H'),skywars:T(2,'L',2,'H'),duels:T(2,'L',2,'H'),uhc:T(1,'H',1,'H'),murdermystery:T(2,'H',2,'H'),buildbattle:T(3,'L',3,'H'),blitzsg:T(2,'H',2,'H'),tntgames:T(3,'L',3,'H')}},
+  {name:'MysteryKiller',avatar:'https://i.pravatar.cc/60?img=6',points:3750,achievement:'ace',
+   tiers:{bedwars:T(1,'R',1,'H'),skywars:T(2,'H',2,'H'),duels:T(3,'H',2,'H'),uhc:T(2,'H',2,'H'),murdermystery:T(1,'H',1,'H'),buildbattle:T(3,'H',3,'H'),blitzsg:T(2,'L',2,'H'),tntgames:T(2,'H',2,'H')}},
+  {name:'BuildMaster',avatar:'https://i.pravatar.cc/60?img=7',points:3420,achievement:'specialist',
+   tiers:{bedwars:T(3,'H',2,'H'),skywars:T(3,'L',3,'H'),duels:T(3,'L',3,'H'),uhc:T(3,'H',3,'H'),murdermystery:T(3,'L',3,'H'),buildbattle:T(1,'H',1,'H'),blitzsg:T(3,'H',3,'H'),tntgames:T(4,'H',3,'H')}},
+  {name:'TNTDestroyer',avatar:'https://i.pravatar.cc/60?img=8',points:3150,achievement:'cadet',
+   tiers:{bedwars:T(4,'H',3,'H'),skywars:T(3,'H',3,'H'),duels:T(4,'L',3,'H'),uhc:T(4,'H',4,'H'),murdermystery:T(4,'L',4,'H'),buildbattle:T(4,'H',4,'H'),blitzsg:T(3,'L',3,'H'),tntgames:T(1,'H',1,'H')}},
+  {name:'BlitzWarrior',avatar:'https://i.pravatar.cc/60?img=9',points:3680,achievement:'ace',
+   tiers:{bedwars:T(2,'H',2,'H'),skywars:T(1,'L',1,'H'),duels:T(2,'H',2,'H'),uhc:T(1,'R',1,'H'),murdermystery:T(2,'L',2,'H'),buildbattle:T(3,'H',3,'H'),blitzsg:T(1,'H',1,'H'),tntgames:T(3,'H',3,'H')}},
+  {name:'ShadowHunter',avatar:'https://i.pravatar.cc/60?img=10',points:4510,achievement:'master',
+   tiers:{bedwars:T(1,'H',1,'H'),skywars:T(1,'R',1,'H'),duels:T(1,'H',1,'H'),uhc:T(1,'H',1,'H'),murdermystery:T(1,'L',1,'H'),buildbattle:T(2,'L',2,'H'),blitzsg:T(1,'H',1,'H'),tntgames:T(2,'H',2,'H')}},
+  {name:'CrystalPalace',avatar:'https://i.pravatar.cc/60?img=11',points:3290,achievement:'ace',
+   tiers:{bedwars:T(2,'L',2,'H'),skywars:T(2,'H',2,'H'),duels:T(2,'L',2,'H'),uhc:T(2,'H',2,'H'),murdermystery:T(3,'H',3,'H'),buildbattle:T(2,'H',2,'H'),blitzsg:T(2,'H',2,'H'),tntgames:T(3,'H',3,'H')}},
+  {name:'FrostBite',avatar:'https://i.pravatar.cc/60?img=12',points:2980,achievement:'specialist',
+   tiers:{bedwars:T(1,'R',1,'H'),skywars:T(3,'H',2,'H'),duels:T(3,'H',3,'H'),uhc:T(3,'L',3,'H'),murdermystery:T(4,'H',3,'H'),buildbattle:T(4,'L',4,'H'),blitzsg:T(3,'H',3,'H'),tntgames:T(4,'H',4,'H')}},
+  {name:'ThunderStrike',avatar:'https://i.pravatar.cc/60?img=13',points:4100,achievement:'master',
+   tiers:{bedwars:T(1,'L',1,'H'),skywars:T(1,'H',1,'H'),duels:T(1,'L',1,'H'),uhc:T(1,'H',1,'H'),murdermystery:T(2,'H',2,'H'),buildbattle:T(3,'L',3,'H'),blitzsg:T(1,'H',1,'H'),tntgames:T(2,'L',2,'H')}},
+  {name:'PixelArtist',avatar:'https://i.pravatar.cc/60?img=14',points:2650,achievement:'novice',
+   tiers:{bedwars:T(4,'L',4,'H'),skywars:T(4,'H',4,'H'),duels:T(4,'H',4,'H'),uhc:T(4,'L',4,'H'),murdermystery:T(4,'H',4,'H'),buildbattle:T(4,'H',4,'H'),blitzsg:T(4,'L',4,'H'),tntgames:T(5,'H',4,'H')}},
+  {name:'GhostRider',avatar:'https://i.pravatar.cc/60?img=15',points:3520,achievement:'ace',
+   tiers:{bedwars:T(2,'H',2,'H'),skywars:T(2,'L',2,'H'),duels:T(1,'L',1,'H'),uhc:T(2,'H',2,'H'),murdermystery:T(1,'R',1,'H'),buildbattle:T(3,'H',3,'H'),blitzsg:T(2,'H',2,'H'),tntgames:T(3,'L',3,'H')}},
+  {name:'IronClad',avatar:'https://i.pravatar.cc/60?img=16',points:2890,achievement:'cadet',
+   tiers:{bedwars:T(3,'L',3,'H'),skywars:T(3,'H',3,'H'),duels:T(3,'H',3,'H'),uhc:T(3,'H',3,'H'),murdermystery:T(3,'L',3,'H'),buildbattle:T(3,'H',3,'H'),blitzsg:T(3,'L',3,'H'),tntgames:T(3,'H',3,'H')}},
+  {name:'StarGazer',avatar:'https://i.pravatar.cc/60?img=17',points:4020,achievement:'master',
+   tiers:{bedwars:T(1,'H',1,'H'),skywars:T(1,'L',1,'H'),duels:T(2,'H',1,'H'),uhc:T(1,'L',1,'H'),murdermystery:T(2,'H',2,'H'),buildbattle:T(2,'L',2,'H'),blitzsg:T(1,'H',1,'H'),tntgames:T(2,'H',2,'H')}},
+  {name:'VenomStrike',avatar:'https://i.pravatar.cc/60?img=18',points:3340,achievement:'specialist',
+   tiers:{bedwars:T(2,'H',2,'H'),skywars:T(1,'R',1,'H'),duels:T(2,'L',2,'H'),uhc:T(2,'H',2,'H'),murdermystery:T(2,'L',2,'H'),buildbattle:T(3,'H',3,'H'),blitzsg:T(2,'H',2,'H'),tntgames:T(3,'L',3,'H')}},
+  {name:'NeonBlaze',avatar:'https://i.pravatar.cc/60?img=19',points:2710,achievement:'novice',
+   tiers:{bedwars:T(4,'H',3,'H'),skywars:T(4,'L',3,'H'),duels:T(3,'L',3,'H'),uhc:T(4,'H',4,'H'),murdermystery:T(5,'H',4,'H'),buildbattle:T(4,'H',4,'H'),blitzsg:T(4,'H',4,'H'),tntgames:T(4,'L',4,'H')}},
+  {name:'PhantomAce',avatar:'https://i.pravatar.cc/60?img=20',points:3950,achievement:'ace',
+   tiers:{bedwars:T(1,'L',1,'H'),skywars:T(1,'H',1,'H'),duels:T(1,'H',1,'H'),uhc:T(2,'L',1,'H'),murdermystery:T(1,'H',1,'H'),buildbattle:T(3,'H',2,'H'),blitzsg:T(1,'L',1,'H'),tntgames:T(2,'H',2,'H')}}
+];
+
+/* ===================== STATE ===================== */
+var state={tab:'halloffame',subTab:null,search:'',compare:false,cmpList:[]};
+
+/* ===================== HELPERS ===================== */
+function getModesForTab(tab){
+  if(tab==='maintiers')return MAIN_MODES;
+  if(tab==='subtiers')return SUB_MODES;
+  return[];
+}
+function isRetired(tierData){return tierData&&(tierData.type==='RHT'||tierData.type==='RLT');}
+function getOverallTier(p){
+  var modes=MAIN_MODES.concat(SUB_MODES);
+  var sum=0,cnt=0;
+  modes.forEach(function(m){var t=p.tiers[m.id];if(t){sum+=t.tier;cnt++;}});
+  if(!cnt)return{tier:5,type:'LT'};
+  var avg=sum/cnt;
+  var tier=Math.round(avg);
+  if(tier<1)tier=1;if(tier>5)tier=5;
+  var hasRetired=modes.some(function(m){return isRetired(p.tiers[m.id]);});
+  return{tier:tier,type:hasRetired?'LT':'HT'};
+}
+function sortPlayers(arr,modeId){
+  return arr.slice().sort(function(a,b){
+    if(modeId==='overall')return b.points-a.points;
+    var ta=a.tiers[modeId],tb=b.tiers[modeId];
+    if(!ta&&!tb)return 0;if(!ta)return 1;if(!tb)return -1;
+    if(ta.tier!==tb.tier)return ta.tier-tb.tier;
+    var taR=isRetired(ta),tbR=isRetired(tb);
+    if(taR&&!tbR)return 1;if(!taR&&tbR)return -1;
+    return b.points-a.points;
+  });
+}
+function getTierPoints(tier){return(6-tier)*100;}
+function getModePoints(p,modeId){
+  if(modeId==='overall')return p.points;
+  var t=p.tiers[modeId];
+  if(!t)return 0;
+  return getTierPoints(t.tier);
+}
+function getModeTier(p,modeId){
+  if(modeId==='overall')return getOverallTier(p);
+  return p.tiers[modeId]||null;
+}
+
+/* ===================== RENDER: TABS ===================== */
+function renderTabs(){
+  var el=document.getElementById('tabs');
+  var html='';
+  TABS.forEach(function(tab,i){
+    if(i>0)html+='<div class="tab-separator"></div>';
+    var cls='tab'+(state.tab===tab.id?' active':'');
+    html+='<button class="'+cls+'" data-mode="'+tab.id+'"><span class="tab-emoji">'+tab.emoji+'</span><span class="tab-text">'+tab.label+'</span></button>';
+  });
+  el.innerHTML=html;
+  el.querySelectorAll('.tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      state.tab=this.dataset.mode;
+      state.subTab=null;
+      state.compare=false;
+      state.cmpList=[];
+      document.body.classList.remove('compare-active');
+      document.getElementById('cmpToggle').classList.remove('active');
+      render();
+    });
+  });
+}
+
+/* ===================== RENDER: SUB-TABS ===================== */
+function renderSubTabs(){
+  var wrap=document.getElementById('subTabsWrapper');
+  var el=document.getElementById('subTabs');
+  var modes=getModesForTab(state.tab);
+  if(!modes.length){wrap.classList.remove('visible');return;}
+  wrap.classList.add('visible');
+  var allModes=[{id:'overall',name:'Overall',emoji:'\u2B50'}].concat(modes);
+  var html='';
+  allModes.forEach(function(m){
+    var cls='sub-tab'+(state.subTab===m.id?' active':'');
+    html+='<button class="'+cls+'" data-mid="'+m.id+'"><div class="sub-tab-icon"><span class="sub-tab-icon-emoji">'+m.emoji+'</span></div><span class="sub-tab-label">'+m.name+'</span></button>';
+  });
+  el.innerHTML=html;
+  el.querySelectorAll('.sub-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      state.subTab=this.dataset.mid;
+      render();
+    });
+  });
+  if(!state.subTab){state.subTab='overall';renderSubTabs();renderContent();}
+}
+
+/* ===================== RENDER: CONTENT ROUTER ===================== */
+function renderContent(){
+  var el=document.getElementById('leaderboard');
+  el.classList.add('fade-out');
+  setTimeout(function(){
+    if(state.tab==='halloffame'){
+      renderTierGrid(el);
+    } else {
+      renderLeaderboard(el);
+    }
+    el.classList.remove('fade-out');
+  },120);
+}
+
+/* ===================== RENDER: TIER GRID (Hall of Fame) ===================== */
+function renderTierGrid(el){
+  /* === CHANGED: Filter out retired (RHT/RLT) and don't show peak tags === */
+  var gridData={1:[],2:[],3:[],4:[],5:[]};
+  var modes=MAIN_MODES.concat(SUB_MODES);
+
+  PLAYERS.forEach(function(p){
+    if(state.search && p.name.toLowerCase().indexOf(state.search.toLowerCase())===-1) return;
+    var ot=getOverallTier(p);
+    /* Skip retired overall */
+    if(ot.type==='RHT'||ot.type==='RLT') return;
+    gridData[ot.tier].push({player:p,type:ot.type});
+  });
+
+  /* Sort each tier: HT first, then by points desc */
+  for(var t=1;t<=5;t++){
+    gridData[t].sort(function(a,b){
+      if(a.type==='HT'&&b.type!=='HT')return -1;
+      if(a.type!=='HT'&&b.type==='HT')return 1;
+      return b.player.points-a.player.points;
+    });
+  }
+
+  var html='<div class="tier-grid">';
+  for(var t=1;t<=5;t++){
+    html+='<div class="tier-column" data-tier="'+t+'"><div class="tier-title">'+TIER_NAMES[t]+'</div><div class="tier-players">';
+    if(gridData[t].length===0){
+      html+='<div class="ae">No players</div>';
+    } else {
+      gridData[t].forEach(function(entry){
+        var p=entry.player;
+        /* === CHANGED: No peak tag rendered === */
+        html+='<div class="player '+entry.type+'" data-pname="'+esc(p.name)+'">';
+        html+='<img src="'+esc(p.avatar)+'" alt="" onerror="this.classList.add(\'avatar-error\')">';
+        html+='<span class="pnc">'+esc(p.name)+'</span>';
+        html+='<span class="pps">'+p.points+'</span>';
+        /* Peak tag intentionally omitted */
+        html+='</div>';
+      });
+    }
+    html+='</div></div>';
+  }
+  html+='</div>';
+  el.innerHTML=html;
+  bindPlayerClicks(el);
+}
+
+/* ===================== RENDER: LEADERBOARD ===================== */
+function renderLeaderboard(el){
+  var modeId=state.subTab||'overall';
+  var modes=getModesForTab(state.tab);
+  var displayModes=modeId==='overall'?modes:modes.filter(function(m){return m.id===modeId;});
+
+  /* === CHANGED: When a specific gamemode is clicked, filter out retired players === */
+  var filteredPlayers=PLAYERS.slice();
+  if(modeId!=='overall'){
+    filteredPlayers=filteredPlayers.filter(function(p){
+      var t=p.tiers[modeId];
+      if(!t)return false;
+      return !isRetired(t);
+    });
+  }
+
+  /* Search filter */
+  if(state.search){
+    filteredPlayers=filteredPlayers.filter(function(p){
+      return p.name.toLowerCase().indexOf(state.search.toLowerCase())!==-1;
+    });
+  }
+
+  var sorted=sortPlayers(filteredPlayers,modeId);
+  if(!sorted.length){
+    el.innerHTML='<div class="te"><div class="ti">\u{1F50D}</div><div class="tt">No players found</div><div class="td">Try adjusting your search or selecting a different gamemode.</div></div>';
+    return;
+  }
+
+  var html='';
+  sorted.forEach(function(p,i){
+    var rank=i+1;
+    var topCls=rank===1?'top1':rank===2?'top2':rank===3?'top3':'';
+    var cmpCls=(state.cmpList.indexOf(p.name)!==-1?' cmp-picked':'');
+    var delay=Math.min(i*0.04,0.8);
+    html+='<div class="player-row '+topCls+cmpCls+'" data-pname="'+esc(p.name)+'" style="animation-delay:'+delay+'s">';
+    html+='<div class="cmp-sel">\u2713</div>';
+    html+='<img class="avatar" src="'+esc(p.avatar)+'" alt="" onerror="this.classList.add(\'avatar-error\')">';
+    html+='<div class="player-info">';
+    html+='<div class="name-line"><span class="rank">'+rank+'</span><span class="player-name">'+esc(p.name)+'</span><span class="achievement '+p.achievement+'">'+p.achievement+'</span></div>';
+    html+='<div class="points">'+getModePoints(p,modeId).toLocaleString()+' pts'+(modeId!=='overall'?' \u00B7 '+modeId:'')+'</div>';
+    html+='</div>';
+    /* Tier badges for all modes in this tab category */
+    html+='<div class="tiers-grid">';
+    displayModes.forEach(function(m){
+      var td=p.tiers[m.id];
+      if(!td){
+        html+='<div class="tier-badge" style="opacity:.15"><span class="tb-label">\u2014</span></div>';
+        return;
+      }
+      var cls='tier-badge '+td.type;
+      var hasPeaked=td.peak<td.tier;
+      if(hasPeaked)cls+=' has-peaked';
+      html+='<div class="'+cls+'" data-mode="'+m.id+'" data-pname="'+esc(p.name)+'">';
+      html+='<img src="'+TIER_ICONS[td.tier]+'" alt="T'+td.tier+'">';
+      html+='<span class="tb-label">T'+td.tier+'</span>';
+      /* Peak indicator on hover (only in leaderboard, not in Hall of Fame grid) */
+      if(hasPeaked){
+        html+='<span class="tb-peak">Peak T'+td.peak+'</span>';
+      }
+      html+='</div>';
+    });
+    html+='</div></div>';
+  });
+  el.innerHTML=html;
+  bindPlayerClicks(el);
+  bindTierBadges(el);
+}
+
+/* ===================== EVENT BINDINGS ===================== */
+function bindPlayerClicks(container){
+  container.querySelectorAll('.player-row, .player').forEach(function(el){
+    el.addEventListener('click',function(e){
+      if(state.compare){
+        toggleCompare(this.dataset.pname);
+        return;
+      }
+      var p=PLAYERS.find(function(x){return x.name===this.dataset.pname;}.bind(this));
+      if(p)showPlayerModal(p);
+    });
+  });
+}
+function bindTierBadges(container){
+  container.querySelectorAll('.tier-badge[data-mode]').forEach(function(badge){
+    badge.addEventListener('mouseenter',function(e){
+      showBadgeTooltip(e,this);
+    }).addEventListener('mouseleave',hideBadgeTooltip);
+  });
+}
+
+/* ===================== TOOLTIP ===================== */
+var bttEl=document.getElementById('btt');
+var bttI=document.getElementById('bttI');
+function showBadgeTooltip(e,badge){
+  var modeId=badge.dataset.mode;
+  var pName=badge.dataset.pname;
+  var p=PLAYERS.find(function(x){return x.name===pName;});
+  if(!p)return;
+  var td=p.tiers[modeId];
+  if(!td){hideBadgeTooltip();return;}
+  var mode=ALL_MODES.find(function(m){return m.id===modeId;});
+  var mLabel=mode?mode.name:modeId;
