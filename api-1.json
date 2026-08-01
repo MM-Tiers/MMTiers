@@ -3237,6 +3237,10 @@
       "netpot": {
         "tier": 4,
         "pos": 1
+      },
+      "mace": {
+        "tier": 1,
+        "pos": 1
       }
     }
   }
