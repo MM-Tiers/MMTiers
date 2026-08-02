@@ -3215,6 +3215,10 @@
       "crystal": {
         "tier": 3,
         "pos": 0
+      },
+      "sword": {
+        "tier": 3,
+        "pos": 0
       }
     }
   }
