@@ -3496,5 +3496,15 @@
     "uuid": "9352d493-50c0-4a20-b152-324a8aba5c38",
     "name": "Divin1ty",
     "rankings": {}
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "zwephone",
+    "rankings": {
+      "sword": {
+        "tier": 4,
+        "pos": 0
+      }
+    }
   }
 ]
