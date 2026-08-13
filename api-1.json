@@ -2730,6 +2730,10 @@
       "crystal": {
         "tier": 3,
         "pos": 0
+      },
+      "mole": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
