@@ -3248,7 +3248,9 @@
     "rankings": {
       "sword": {
         "tier": 3,
-        "pos": 0
+        "pos": 0,
+        "peaked_tier": 2,
+        "peaked_pos": 1
       },
       "smp": {
         "tier": 1,
