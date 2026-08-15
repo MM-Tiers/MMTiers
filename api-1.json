@@ -3674,6 +3674,10 @@
       "spmace": {
         "tier": 4,
         "pos": 0
+      },
+      "sword": {
+        "tier": 4,
+        "pos": 1
       }
     }
   }
