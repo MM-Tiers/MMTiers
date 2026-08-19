@@ -2901,6 +2901,10 @@
       "netpot": {
         "tier": 3,
         "pos": 1
+      },
+      "trident": {
+        "tier": 3,
+        "pos": 1
       }
     }
   },
