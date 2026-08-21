@@ -1938,8 +1938,10 @@
         "peaked_pos": 1
       },
       "spmace": {
-        "tier": 2,
-        "pos": 0
+        "tier": 3,
+        "pos": 0,
+        "peaked_tier": 2,
+        "peaked_pos": 0
       },
       "dpot": {
         "tier": 2,
