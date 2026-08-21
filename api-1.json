@@ -2714,8 +2714,10 @@
         "pos": 0
       },
       "spmace": {
-        "tier": 1,
-        "pos": 1
+        "tier": 3,
+        "pos": 0,
+        "peaked_tier": 1,
+        "peaked_pos": 1
       },
       "uhc": {
         "tier": 1,
