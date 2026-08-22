@@ -1237,9 +1237,7 @@
       },
       "uhc": {
         "tier": 2,
-        "pos": 0,
-        "peaked_tier": 1,
-        "peaked_pos": 1
+        "pos": 3
       },
       "sword": {
         "tier": 3,
