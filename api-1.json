@@ -2313,26 +2313,6 @@
   },
   {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
-    "name": "cix_vrqtrex",
-    "rankings": {
-      "sword": {
-        "tier": 3,
-        "pos": 1
-      },
-      "mace": {
-        "tier": 3,
-        "pos": 1
-      },
-      "crystal": {
-        "tier": 5,
-        "pos": 1,
-        "peaked_tier": 5,
-        "peaked_pos": 1
-      }
-    }
-  },
-  {
-    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "Blixz2o",
     "rankings": {
       "sword": {
