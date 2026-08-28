@@ -93,7 +93,7 @@
       },
       "crystal": {
         "tier": 1,
-        "pos": 2
+        "pos": 1
       },
       "bow": {
         "tier": 3,
@@ -140,8 +140,10 @@
         "pos": 2
       },
       "mole": {
-        "tier": 2,
-        "pos": 0
+        "tier": 3,
+        "pos": 0,
+        "peaked_tier": 2,
+        "peaked_pos": 0
       }
     }
   },
