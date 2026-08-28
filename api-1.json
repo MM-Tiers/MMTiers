@@ -104,8 +104,10 @@
         "pos": 0
       },
       "cart": {
-        "tier": 1,
-        "pos": 3
+        "tier": 2,
+        "pos": 1,
+        "peaked_tier": 1,
+        "peaked_pos": 0
       },
       "netpot": {
         "tier": 1,
