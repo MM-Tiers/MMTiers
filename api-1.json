@@ -856,54 +856,6 @@
     }
   },
   {
-    "uuid": "7105d20b-7ae1-44cc-acf5-ba66e7d8af15",
-    "name": "FroliMaine",
-    "rankings": {
-      "spmace": {
-        "tier": 3,
-        "pos": 1,
-        "peaked_tier": 2,
-        "peaked_pos": 1
-      },
-      "crystal": {
-        "tier": 4,
-        "pos": 1
-      },
-      "uhc": {
-        "tier": 3,
-        "pos": 1
-      },
-      "sword": {
-        "tier": 3,
-        "pos": 1
-      },
-      "dsmp": {
-        "tier": 3,
-        "pos": 0
-      },
-      "trident": {
-        "tier": 4,
-        "pos": 1
-      },
-      "smp": {
-        "tier": 2,
-        "pos": 1
-      },
-      "axe": {
-        "tier": 3,
-        "pos": 1
-      },
-      "mace": {
-        "tier": 3,
-        "pos": 0
-      },
-      "mole": {
-        "tier": 3,
-        "pos": 1
-      }
-    }
-  },
-  {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "j4ydnh1n",
     "rankings": {
