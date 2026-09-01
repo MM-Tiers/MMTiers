@@ -3601,9 +3601,7 @@
       },
       "smp": {
         "tier": 2,
-        "pos": 1,
-        "peaked_tier": 2,
-        "peaked_pos": 0
+        "pos": 1
       },
       "sword": {
         "tier": 3,
