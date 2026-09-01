@@ -621,9 +621,7 @@
       },
       "uhc": {
         "tier": 3,
-        "pos": 0,
-        "peaked_tier": 2,
-        "peaked_pos": 1
+        "pos": 0
       },
       "dpot": {
         "tier": 4,
