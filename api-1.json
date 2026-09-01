@@ -617,7 +617,9 @@
       },
       "mace": {
         "tier": 3,
-        "pos": 1
+        "pos": 1,
+        "peaked_tier": 2,
+        "peaked_pos": 0
       },
       "sword": {
         "tier": 3,
