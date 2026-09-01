@@ -2574,8 +2574,10 @@
         "pos": 0
       },
       "smp": {
-        "tier": 1,
-        "pos": 0
+        "tier": 2,
+        "pos": 0,
+        "peaked_tier": 1,
+        "peaked_pos": 0
       },
       "sword": {
         "tier": 2,
