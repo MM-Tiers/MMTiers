@@ -3570,10 +3570,8 @@
     "name": "nxbulameow",
     "rankings": {
       "mace": {
-        "tier": 2,
-        "pos": 1,
-        "peaked_tier": 1,
-        "peaked_pos": 1
+        "tier": 1,
+        "pos": 0
       },
       "smp": {
         "tier": 1,
