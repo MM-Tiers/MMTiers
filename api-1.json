@@ -3575,7 +3575,9 @@
       },
       "smp": {
         "tier": 1,
-        "pos": 0
+        "pos": 1,
+        "peaked_tier": 1,
+        "peaked_pos": 0
       },
       "uhc": {
         "tier": 2,
