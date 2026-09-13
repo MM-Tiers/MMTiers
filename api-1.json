@@ -4009,5 +4009,15 @@
     "uuid": "1d77dba1-421a-4876-be80-4af4930fae69",
     "name": "zqoia",
     "rankings": {}
+  },
+  {
+    "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
+    "name": "twjce",
+    "rankings": {
+      "sword": {
+        "tier": 3,
+        "pos": 1
+      }
+    }
   }
 ]
