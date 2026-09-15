@@ -2600,7 +2600,7 @@
       "smp": {
         "tier": 2,
         "pos": 0,
-        "peaked_tier": 1,
+        "peaked_tier": 2,
         "peaked_pos": 0
       },
       "sword": {
