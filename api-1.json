@@ -2739,8 +2739,8 @@
       "sword": {
         "tier": 2,
         "pos": 1,
-        "peaked_tier": 1,
-        "peaked_pos": 1
+        "peaked_tier": 2,
+        "peaked_pos": 0
       },
       "uhc": {
         "tier": 2,
