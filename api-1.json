@@ -2823,52 +2823,6 @@
     }
   },
   {
-    "uuid": "46c965b6-51ce-4850-89b8-8a90a147f835",
-    "name": "bruhhduh",
-    "rankings": {
-      "sword": {
-        "tier": 3,
-        "pos": 0
-      },
-      "mace": {
-        "tier": 2,
-        "pos": 3
-      },
-      "smp": {
-        "tier": 1,
-        "pos": 2
-      },
-      "uhc": {
-        "tier": 2,
-        "pos": 0
-      },
-      "dpot": {
-        "tier": 3,
-        "pos": 0
-      },
-      "axe": {
-        "tier": 3,
-        "pos": 0
-      },
-      "mole": {
-        "tier": 4,
-        "pos": 1
-      },
-      "crystal": {
-        "tier": 5,
-        "pos": 0
-      },
-      "netpot": {
-        "tier": 4,
-        "pos": 0
-      },
-      "dsmp": {
-        "tier": 4,
-        "pos": 1
-      }
-    }
-  },
-  {
     "uuid": "6ff506a2-aa52-432c-82c4-aaadeeb9eed2",
     "name": "PotfasterMilo",
     "rankings": {
