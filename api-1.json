@@ -3546,46 +3546,6 @@
     }
   },
   {
-    "uuid": "bc10bdfe-1a05-494c-bf1c-815da6f4cfbe",
-    "name": "nxbulameow",
-    "rankings": {
-      "mace": {
-        "tier": 2,
-        "pos": 1
-      },
-      "smp": {
-        "tier": 1,
-        "pos": 1,
-        "peaked_tier": 1,
-        "peaked_pos": 0
-      },
-      "uhc": {
-        "tier": 2,
-        "pos": 1
-      },
-      "sword": {
-        "tier": 3,
-        "pos": 0
-      },
-      "axe": {
-        "tier": 3,
-        "pos": 0
-      },
-      "crystal": {
-        "tier": 3,
-        "pos": 1
-      },
-      "netpot": {
-        "tier": 2,
-        "pos": 0
-      },
-      "dpot": {
-        "tier": 2,
-        "pos": 1
-      }
-    }
-  },
-  {
     "uuid": "b1b6b3b3-7df7-4244-b8cd-a2c9308a0baf",
     "name": "x2wcio",
     "rankings": {
