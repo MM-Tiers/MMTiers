@@ -786,54 +786,6 @@
     }
   },
   {
-    "uuid": "691e3822-c8df-4b72-a35a-b55590b4fbeb",
-    "name": "blurrpii",
-    "rankings": {
-      "crystal": {
-        "tier": 3,
-        "pos": 1
-      },
-      "smp": {
-        "tier": 1,
-        "pos": 3
-      },
-      "sword": {
-        "tier": 2,
-        "pos": 1,
-        "peaked_tier": 2,
-        "peaked_pos": 1
-      },
-      "mace": {
-        "tier": 2,
-        "pos": 0
-      },
-      "netpot": {
-        "tier": 2,
-        "pos": 1
-      },
-      "uhc": {
-        "tier": 2,
-        "pos": 0
-      },
-      "axe": {
-        "tier": 1,
-        "pos": 2
-      },
-      "dpot": {
-        "tier": 2,
-        "pos": 1
-      },
-      "mole": {
-        "tier": 4,
-        "pos": 1
-      },
-      "cart": {
-        "tier": 3,
-        "pos": 1
-      }
-    }
-  },
-  {
     "uuid": "d103d89d-eb15-41df-8d50-ebf9b6626338",
     "name": "kskuu",
     "rankings": {
