@@ -3019,6 +3019,10 @@
       "mole": {
         "tier": 4,
         "pos": 1
+      },
+      "creeper": {
+        "tier": 4,
+        "pos": 0
       }
     }
   },
